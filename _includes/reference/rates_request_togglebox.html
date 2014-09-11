@@ -1,0 +1,17 @@
+<div class="panel-group" id="rates_request_togglebox">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#rates_request_togglebox" href="#rates_request_togglebox_collapsable">
+          <i class="glyphicon glyphicon-chevron-down"></i> Parameter description
+        </a>
+      </h4>
+    </div>
+    <div id="rates_request_togglebox_collapsable" class="panel-collapse collapse">
+      <div class="panel-body">
+        {% capture rates_request_parameters %}{% include reference/rates_request_parameters.md %}{% endcapture %}
+        {{ rates_request_parameters | markdownify }}
+      </div>
+    </div>
+  </div>
+</div>

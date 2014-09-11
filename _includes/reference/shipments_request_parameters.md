@@ -1,0 +1,25 @@
+__Parameters:__
+
+- __carrier__* (string), the carrier you want to use. Possible values are "dpd", "dhl", "gls", "hermes", "iloxx", "ups"
+- __to__*, object describing the receivers address
+  - __company__ (string), the receivers company name
+  - __first_name__ (string, optional), the receivers first name
+  - __last_name__ (string), the receivers last name
+  - __care_of__ (string, optional), name of the person that should be able to receive the package
+  - __street__ (string), street name
+  - __street_no__ (string), house number
+  - __city__ (string), city
+  - __zip_code__ (string), zip code
+  - __state__ (string, optional), state
+  - __country__ (string), country as Uppercase ISO 3166-1 alpha-2 code
+- __from__*, object describing the senders address. Address definition: see "to". If missing, the default sender address (if defined in your shipcloud account) will be used
+- __package__*, object describing the package dimensions
+  - __width__ (float), width of the package in cm
+  - __length__ (float), length of the package in cm
+  - __height__ (float), height of the package in cm
+  - __weight__ (float), weight in kg
+  - __description__ (string), if you're using UPS returns or DHL express this is mandatory otherwise it's optional
+- __service__ (string, optional), additional service. Available values are "returns", "standard", "one_day" (Express),"one_day_early" (Express until 10 o'clock). default: standard
+- __reference_number__ (string, optional), a reference number (max. 30 characters) that you want this shipment to be identified with. You can use this afterwards to easier find the shipment in the shipcloud.io backoffice
+- __notification_email__ (string, optional), email address that we should notify once there's an update for this shipment
+- __create_shipping_label__ (boolean), determines if a shipping label should be created at the carrier (this means you will be charged)

@@ -1,0 +1,17 @@
+<div class="panel-group" id="shipments_request_togglebox">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#shipments_request_togglebox" href="#shipments_request_togglebox_collapsable">
+          <i class="glyphicon glyphicon-chevron-down"></i> Parameter description (POST/PUT)
+        </a>
+      </h4>
+    </div>
+    <div id="shipments_request_togglebox_collapsable" class="panel-collapse collapse">
+      <div class="panel-body">
+        {% capture shipments_request_parameters %}{% include reference/shipments_request_parameters.md %}{% endcapture %}
+        {{ shipments_request_parameters | markdownify }}
+      </div>
+    </div>
+  </div>
+</div>

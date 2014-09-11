@@ -1,0 +1,81 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">cURL</h3>
+  </div>
+  <div class="panel-body">
+    <h4>Creating a new shipment</h4>
+    <p>
+      This is a full sized example. You can omit the from parameters if you define a standard ship from address in
+      the shipcloud backoffice.
+    </p>
+{% highlight bash %}
+curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments \
+  -d "to[company]=Musterfirma" \
+  -d "to[first_name]=Hans" \
+  -d "to[last_name]=Meier" \
+  -d "to[street]=Musterstraße" \
+  -d "to[street_no]=22" \
+  -d "to[city]=Musterstadt" \
+  -d "to[zip_code]=12345" \
+  -d "to[country]=Deutschland" \
+  -d "from[company]=Gewuerze Paderborn" \
+  -d "from[first_name]=Karl" \
+  -d "from[last_name]=Müller" \
+  -d "from[street]=Musterstraße" \
+  -d "from[street_no]=14a" \
+  -d "from[city]=Paderborn" \
+  -d "from[zip_code]=33089" \
+  -d "from[country]=Deutschland" \
+  -d "carrier=dhl" \
+  -d "package[weight]=1.5" \
+  -d "package[length]=10" \
+  -d "package[width]=6" \
+  -d "package[height]=8" \
+  -d "service=standard" \
+  -d "create_shipping_label=true"
+{% endhighlight %}
+    <h4>Getting infos about a shipment</h4>
+      {% highlight bash %}
+        curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments/665d5287b73575cfba622a4b5094c6fd2f0f3f74
+      {% endhighlight %}
+    <h4>Updating a new shipment</h4>
+    <p>
+      Updating shipments is only possible if you haven't created a label by setting <code>create_shipping_label=true</code>
+    </p>
+{% highlight bash %}
+curl -X PUT -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments/665d5287b73575cfba622a4b5094c6fd2f0f3f74 \
+  -d "to[last_name]=Meier" \
+  -d "to[street]=Musterstraße" \
+  -d "to[street_no]=22" \
+  -d "to[city]=Musterstadt" \
+  -d "to[zip_code]=12345" \
+  -d "to[country]=Deutschland" \
+  -d "from[company]=Gewuerze Paderborn" \
+  -d "from[first_name]=Karl" \
+  -d "from[last_name]=Müller" \
+  -d "from[street]=Musterstraße" \
+  -d "from[street_no]=14a" \
+  -d "from[city]=Paderborn" \
+  -d "from[zip_code]=33089" \
+  -d "from[country]=Deutschland" \
+  -d "carrier=dhl" \
+  -d "package[weight]=1.5" \
+  -d "package[length]=10" \
+  -d "package[width]=6" \
+  -d "package[height]=8"
+{% endhighlight %}
+    <h4>Getting the rate for a package</h4>
+{% highlight bash %}
+curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/rates \
+  -d "carrier=hermes" \
+  -d "weight=1.5" \
+  -d "length=10" \
+  -d "width=6" \
+  -d "height=8"
+{% endhighlight %}
+    <h4>Getting all available carriers for the account</h4>
+    {% highlight bash %}
+      curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/carriers
+    {% endhighlight %}
+  </div>
+</div>

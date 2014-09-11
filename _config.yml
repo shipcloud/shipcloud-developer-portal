@@ -1,0 +1,25 @@
+# Site settings
+title: shipcloud.io - Developer Portal
+email: developers@shipcloud.io
+description: >
+  The shipcloud.io developer portal is your one stop for all developer needs.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://developer.shipcloud.io" # the base hostname & protocol for your site
+twitter_username: shipcloud_devs
+github_username:  shipcloud
+
+# Build settings
+markdown: kramdown
+
+apikey: be51608682014a3adf620fc252d63390
+
+sass:
+  sass_dir: _sass
+  # style: :compressed
+
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: "default"
