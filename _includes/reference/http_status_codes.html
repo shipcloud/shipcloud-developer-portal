@@ -1,0 +1,77 @@
+<div class="row">
+  <div class="col-md-12">
+    <table class="table status_codes">
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>200</td>
+          <td>ok</td>
+          <td>Everything went fine.</td>
+        </tr>
+        <tr>
+          <td>204</td>
+          <td>no content</td>
+          <td>
+            There is no message body. You'll get this code when
+            <a href="{{ site.baseurl }}/reference/#deleting-a-shipment">deleting a shipment</a>
+            was successful.
+          </td>
+        </tr>
+        <tr>
+          <td>400</td>
+          <td>bad request</td>
+          <td>
+            Your request was not correct. Please see the response body for more detailed information.
+          </td>
+        </tr>
+        <tr>
+          <td>402</td>
+          <td>payment required</td>
+          <td>You've reached the maximum of your current plan. Please upgrade to a higher plan.</td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>not found</td>
+          <td>The api endpoint you were trying to reach can't be found.</td>
+        </tr>
+        <tr>
+          <td>422</td>
+          <td>unprocessable entity</td>
+          <td>
+            Your request was well-formed but couldn't be followed due to semantic errors. Please see the response body
+            for more detailed information.
+          </td>
+        </tr>
+        <tr>
+          <td>500</td>
+          <td>internal server error</td>
+          <td>Something has seriously gone wrong. Don't worry, we'll have a look at it.</td>
+        </tr>
+        <tr>
+          <td>502</td>
+          <td>bad gateway</td>
+          <td>
+            Something has gone wrong while talking to the carrier backend. Please see the response body for more
+            detailed information.
+          </td>
+        </tr>
+        <tr>
+          <td>504</td>
+          <td>gateway timeout</td>
+          <td>
+            Unfortunately we couldn't connect to the carrier backend. It is either very slow or not reachable at all.
+            If you want to stay informed about the carrier status, follow our developer twitter account at
+            <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank">
+              @{{ site.twitter_username }}</a>.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
