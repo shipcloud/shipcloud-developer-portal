@@ -1,4 +1,9 @@
 {
   "carrier": "dhl",
-  "pickup_date": "2014/02/12"
+  "pickup_date": "2014/02/12",
+  "shipments": [
+    {
+      "id": "3a186c51d4281acbecf5ed38805b1db92a9d668b"
+    }
+  ]
 }
