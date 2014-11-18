@@ -11,13 +11,16 @@ __Parameters:__
   - __city__ (string), city
   - __zip_code__ (string), zip code
   - __state__ (string, optional), state
-  - __country__ (string), country as Uppercase ISO 3166-1 alpha-2 code
+  - __country__ (string), country as uppercase ISO 3166-1 alpha-2 code
 - __from__*, object describing the senders address. Address definition: see "to". If missing, the default sender address (if defined in your shipcloud account) will be used
 - __package__*, object describing the package dimensions
   - __width__ (float), width of the package in cm
   - __length__ (float), length of the package in cm
   - __height__ (float), height of the package in cm
   - __weight__ (float), weight in kg
+  - __declared_value__, object describing the value of the package contents
+    - __amount__ (float), value of package contents
+    - __currency__ (string), currency as uppercase ISO 4217 code
   - __description__ (string), if you're using UPS returns or DHL express this is mandatory otherwise it's optional
 - __service__ (string, optional), additional service. Available values are "returns", "standard", "one_day" (Express),"one_day_early" (Express until 10 o'clock). default: standard
 - __reference_number__ (string, optional), a reference number (max. 30 characters) that you want this shipment to be identified with. You can use this afterwards to easier find the shipment in the shipcloud.io backoffice
