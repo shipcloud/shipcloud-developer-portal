@@ -140,7 +140,7 @@ table.services {
 }
 
 .panel-body {
-  & > h4 {
+  & > h3:nth-child(1){
     margin-top: 0;
     font-weight: 700;
   }
