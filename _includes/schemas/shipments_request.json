@@ -61,7 +61,15 @@
         "width":  { "type": "number" },
         "height": { "type": "number" },
         "length": { "type": "number" },
-        "weight": { "type": "number" }
+        "weight": { "type": "number" },
+        "declared_value": {
+          "type": "object",
+          "description": "describing the value of the package contents",
+          "properties": {
+            "amount": { "type": "number" },
+            "currency": { "type": "string" }
+          }
+        }
       },
       "required": ["width", "height", "length", "weight"],
       "additionalProperties": false,
