@@ -23,7 +23,7 @@ You'll have to provide your API key as the basic auth username. You don't have t
 
 __Be advised:__ The API key has to be [Base64](http://en.wikipedia.org/wiki/Base64) encoded.
 
-Aside from sending you're API key all API requests must be made using HTTPS. Don't bother trying to use HTTP. It will
+Aside from sending your API key all API requests must be made using HTTPS. Don't bother trying to use HTTP. It will
 fail!
 
 ## Versioning
