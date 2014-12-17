@@ -1,6 +1,6 @@
 __Parameters:__
 
-- __carrier__* (string), the carrier you want to use. Possible values are "dpd", "dhl", "gls", "hermes", "iloxx", "ups"
+- __carrier__* (string), the carrier you want to use. Possible values are "dpd", "dhl", "gls", "hermes", "iloxx", "ups", "fedex"
 - __to__*, object describing the receivers address
   - __company__ (string), the receivers company name
   - __first_name__ (string, optional), the receivers first name
