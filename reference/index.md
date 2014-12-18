@@ -177,7 +177,7 @@ With this you're requesting pickup of packages for a specific carrier
 
 __Parameters:__
 
-- __carrier__ (string), the carrier you want to use. Possible values are "dhl", "gls", "hermes", "ups".
+- __carrier__ (string), the carrier you want to use. Possible values are "dhl", "gls", "fedex", "hermes", "ups".
 - __pickup_date__ (string), pickup date (e.g. 2014/02/12)
 - __shipments__ (array of shipment objects), if you want only specific shipments to get picked up, you can send their shipment objects with the request
 
