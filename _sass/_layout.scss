@@ -66,7 +66,7 @@ table.status_codes {
   th:nth-child(1) {
     text-align: center;
   }
-  
+
   td, th {
     font-size: 14px;
   }
@@ -76,7 +76,7 @@ table.status_codes {
   background-color: #6d6e71;
   min-height: 200px;
   padding: $spacing-unit;
-  
+
   .header {
     h1, h2 {
       margin: 0;
@@ -93,11 +93,11 @@ table.status_codes {
       filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#b3d52d53', endColorstr='#b3d52d53')";
       -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#b3d52d53', endColorstr='#b3d52d53')";
     }
-    
+
     h2 {
       margin-top: 10px;
     }
-    
+
   }
   .cnt {
     margin-right: $spacing-unit/2;
@@ -108,29 +108,29 @@ table.status_codes {
 .intro {
   font-size: 20px;
   padding: $spacing-unit $spacing-unit/2;
-  
+
   & > .row {
     margin-top: $spacing-unit;
     &:nth-child(1) {
       margin-top: 0;
     }
   }
-  
+
   .box {
     text-align: center;
     padding: 0 $spacing-unit/2;
     font-size: 16px;
-    
+
     a, a:hover {
       text-decoration: underline;
       color: $text-color;
-      
+
       &.teaser {
         text-decoration: none;
       }
     }
   }
-  
+
   .icon-large {
     color: rgb(17, 17, 17);
     font-size: 36px;
@@ -144,11 +144,11 @@ table.status_codes {
   li.active > a {
     color: $grey-color-dark;
   }
-  
+
   li.active .nav {
     display: block;
   }
-  
+
   .nav .nav {
     display: none;
   }
@@ -164,7 +164,7 @@ table.status_codes {
 /**
  * Adjusting bootstrap stuff
  */
-.bg-info {
+.bg-info, .bg-warning {
   padding: 5px;
   font-size: 14px;
 }

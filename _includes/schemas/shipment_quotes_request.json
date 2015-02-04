@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "carrier": {
+      "type": "string",
+      "enum": ["dhl", "ups", "dpd", "hermes", "gls", "fedex"],
+      "description": "acronym of the carrier you want to use"
+    },
+    "service": {
+      "type": "string",
+      "enum": ["standard", "returns", "one_day", "one_day_early"],
+      "default": "standard",
+      "description": "additional service. With 'one_day' you get express delivery, 'one_day_early' is express delivery until 10am."
+    },
+    "to": {
+      "$ref": "#/definitions/address",
+      "description": "the receivers address"
+    },
+    "from": {
+      "$ref": "#/definitions/address",
+      "description": "the senders address"
+    },
+    "package": {
+      "$ref": "#/definitions/package"
+    },
+  },
+  "required": ["carrier", "service", "to", "from", "package"],
+  "additionalProperties": false,
+  "definitions": {
+    "address": {
+      "type": "object",
+      "properties": {
+        "street": { "type": "string" },
+        "street_no": { "type": "string" },
+        "city": { "type": "string" },
+        "zip_code": { "type": "string" },
+        "country": {
+          "type": "string",
+          "description": "uppercase two-letter country code (ISO 3166-1 alpha-2), e.g. DE for germany"
+        }
+      },
+      "required": ["street", "street_no", "city", "zip_code", "country"],
+      "additionalProperties": false
+    },
+    "package": {
+      "type": "object",
+      "properties": {
+        "width":  { "type": "number" },
+        "height": { "type": "number" },
+        "length": { "type": "number" },
+        "weight": { "type": "number" },
+      },
+      "required": ["width", "height", "length", "weight"],
+      "additionalProperties": false,
+      "description": "defines package dimensions"
+    }
+  }
+}

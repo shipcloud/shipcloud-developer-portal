@@ -163,9 +163,38 @@ no payload
 ]
 {% endhighlight %}
 
+## Shipment Quotes
+With this call you can find out how much we will charge you for a specific shipment.
+
+{% include reference/shipment_quotes_request_togglebox.html %}
+
+### Creating a shipment quote
+
+#### Request
+<kbd>POST</kbd> __/v1/shipment_quotes__
+
+{% highlight json %}
+{% include shipment_quotes_post_request.json %}
+{% endhighlight %}
+
+<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Shipment Quotes request]({{ site.baseurl }}/reference/shipments_request_schema.html)
+
+#### Response
+{% include headers/200_ok.html %}
+{% highlight json %}
+{% include shipment_quotes_post_response.json %}
+{% endhighlight %}
+
+<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Shipment Quotes response]({{ site.baseurl }}/reference/shipment_quotes_response_schema.html)
+
 ## Rates
 
 ### Getting the rate for a package
+<p class="bg-warning">
+  <i class="glyphicon glyphicon-warning-sign"></i>
+  The rates call is <b>deprecated</b>. Please use <a href="{{ site.baseurl }}/reference/#shipment-quotes">Shipment Quotes</a>.
+</p>
+
 With this call you can find out how much a specific package will cost you.
 
 <p class="bg-info">
