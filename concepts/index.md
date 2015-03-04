@@ -112,3 +112,8 @@ sample payload you get when testing a webhook through our website:
 You can currently subscribe to the following event types:
 
 {% include concepts/webhooks_legend.html %}
+
+## Configuration
+To configure webhooks just click on __Configurations__ in the shipcloud
+backoffice to reveal a webhook nav entry. There you can add webhooks and
+specify which events should trigger sending a message to your URL.
