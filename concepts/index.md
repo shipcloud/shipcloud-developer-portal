@@ -117,3 +117,6 @@ You can currently subscribe to the following event types:
 To configure webhooks just click on __Configurations__ in the shipcloud
 backoffice to reveal a webhook nav entry. There you can add webhooks and
 specify which events should trigger sending a message to your URL.
+
+This feature is still in beta so please send a request to support@shipcloud.io
+for it to be made available for you.
