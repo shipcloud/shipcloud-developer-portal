@@ -84,3 +84,39 @@ upgrading before your current plan runs out.
 
 All of our prices are displayed without VAT. We will however charge you with the full German value added tax which is
 19% at the moment.
+
+# Webhooks
+
+If you automatically want to react to events happening within the shipcloud
+system, webhooks are the right thing for you. All you need to do is provide us
+with a URL we should call once something happens. You can also specify which
+events should trigger calling your URL. Maybe you only want to be notified,
+when a package gets delivered to one of your customers.
+
+When an event is triggered, we'll send an HTTP POST request to your URL,
+containing a JSON payload, with all the information necessary. Here's our
+sample payload you get when testing a webhook through our website:
+{% highlight json %}
+{
+  id: 'ef9df623-6974-4a4b-9a99-c0ec5b58b136',
+  occured_at: '2015-02-17T14:20:42+01:00',
+  type: 'example.event',
+  data: {
+    id: 'es40a6e7a83ea8253f54eb414606626172b523d8',
+    url: '/v1/shipments/es40a6e7a83ea8253f54eb414606626172b523d8',
+    object_type: 'shipment'
+  }
+}
+{% endhighlight %}
+
+You can currently subscribe to the following event types:
+
+{% include concepts/webhooks_legend.html %}
+
+## Configuration
+To configure webhooks just click on __Configurations__ in the shipcloud
+backoffice to reveal a webhook nav entry. There you can add webhooks and
+specify which events should trigger sending a message to your URL.
+
+This feature is still in beta so please send a request to support@shipcloud.io
+for it to be made available for you.
