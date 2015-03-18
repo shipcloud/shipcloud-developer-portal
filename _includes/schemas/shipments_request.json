@@ -22,7 +22,11 @@
       "type": "string",
       "enum": ["standard", "returns", "one_day", "one_day_early"],
       "default": "standard",
-      "description": "additional service. With 'one_day' you get express delivery, 'one_day_early' is express delivery until 10am."
+      "description": "The service that should be used for the shipment.
+        standard: The standard (ground) service for each carrier,
+        returns: Returns service,
+        one_day: express delivery,
+        one_day_early: express delivery until 10am."
     },
     "reference_number": {
       "type": "string",
@@ -50,7 +54,8 @@
         "street_no": { "type": "string" },
         "city": { "type": "string" },
         "zip_code": { "type": "string" },
-        "country": { "type": "string" }
+        "country": { "type": "string" },
+        "phone": { "type": "string" }
       },
       "required": ["first_name", "last_name", "street", "street_no", "city", "zip_code", "country"],
       "additionalProperties": false
