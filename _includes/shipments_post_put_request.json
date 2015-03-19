@@ -22,5 +22,6 @@
   "carrier": "dhl",
   "service": "standard",
   "reference_number": "ref123456",
+  "notification_email": "person@example.com",
   "create_shipping_label": true
 }
