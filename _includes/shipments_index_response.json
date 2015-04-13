@@ -18,7 +18,7 @@
       "zip_code": "12345",
       "city": "Hamburg",
       "state": null,
-      "country": "Germany"
+      "country": "DE"
     },
     "from": {
       "company": "webionate GmbH",
@@ -30,7 +30,7 @@
       "zip_code": "22175",
       "city": "Hamburg",
       "state": null,
-      "country": "Germany"
+      "country": "DE"
     },
     "packages": [{
       "id": "be81573799958587ae891b983aabf9c4089fc462",
@@ -64,7 +64,7 @@
       "zip_code": "22081",
       "city": "Hamburg",
       "state": null,
-      "country": "Germany"
+      "country": "DE"
     },
     "from": {
       "company": "webionate GmbH",
@@ -76,7 +76,7 @@
       "zip_code": "22175",
       "city": "Hamburg",
       "state": null,
-      "country": "Germany"
+      "country": "DE"
     },
     "packages": [{
       "id": "74d4f1fc193d8a7ca542d1ee4e2021f3ddb82242",
