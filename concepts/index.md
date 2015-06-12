@@ -82,8 +82,8 @@ upgrading before your current plan runs out.
 
 # Prices & Vat
 
-All of our prices are displayed without VAT. We will however charge you with the full German value added tax which is
-19% at the moment.
+All of our prices are displayed in Euro and without VAT. We will however charge you with the full
+German value added tax which is 19% at the moment.
 
 # Webhooks
 
