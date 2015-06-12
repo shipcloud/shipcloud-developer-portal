@@ -65,13 +65,17 @@ can be used to tinker with (e.g. for developing the integration of shipcloud int
 production system is used for the actual creation of shipping labels.
 
 ## Keys
-Therefor when you create an account at shipcloud, 2 api keys get generated. A sandbox key that you can use for testing
+Therefore when you create an account at shipcloud, 2 api keys get generated. A sandbox key that you can use for testing
 our api and a live key, that can be used to create the actual shipping labels you're going to put on the packages
 you're sending.
 
 If at any time you feel the need to generate a new set of api keys (e.g. because you get the feeling, that your system
 has been compromised) you can do that in the shipcloud backoffice by clicking your email address at the upper right
 corner and selecting the menu item <code>API Key</code>.
+
+## Cleanup
+We're currently deleting sandbox shipments 2 weeks after they've been created. So it's best
+practice to create a new shipment first if you want to test updating or deleting it.
 
 # Plan up-/downgrades
 
