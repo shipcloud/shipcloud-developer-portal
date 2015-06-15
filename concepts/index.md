@@ -36,6 +36,13 @@ When sending <code>to</code> or <code>from</code> parameters you have to specify
 either be a <code>company</code> or a person identified by <code>first_name</code> and <code>last_name</code>. So
 although the entries are marked as being optional, one of them has to be specified in the request.
 
+There are some [carrier specific things](#carrier-specific-address-handling) you have to take in mind.
+
+## Returns
+We're currently only supporting returns for DHL, HERMES and UPS.
+
+# Carrier specifics
+
 ## Carrier specific address handling
 
 ### DHL
@@ -50,8 +57,15 @@ To address one of DHL's automated parcel pickup stations put the word Packstatio
 station number into the street_no. You also need to put the DHL customer number of the recipient into the care_of
 parameter.
 
-## Returns
-We're currently only supporting returns for DHL, HERMES and UPS.
+## Carrier specific field lengths
+Due to the different handling every carrier has for managing addresses, there are different
+restrictions for submitting data to them. Since we don't want to restrict you we're sending the
+data as is to the specific carriers' backend and will receive errors in return if something wasn't
+correct according to the carrier.
+
+### DHL
+
+{% include concepts/carrier_specific_field_lengths_dhl.md %}
 
 # Supported services
 We currently support sending packages via the following carriers and services:
