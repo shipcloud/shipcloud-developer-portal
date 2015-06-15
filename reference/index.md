@@ -234,7 +234,7 @@ __Parameters:__
 
 - __carrier__ (string), the carrier you want to use. Possible values are "dhl", "gls", "fedex", "hermes", "ups".
 - __pickup_date__ (string), pickup date (e.g. 2014/02/12)
-- __shipments__ (array of shipment objects), if you want only specific shipments to get picked up, you can send their shipment objects with the request
+- __shipments__ (array of shipment objects), if you want only specific shipments to get picked up, you can send their shipment objects with the request. Please keep in mind that only normal and no return shipments can be picked up.
 
 #### Response
 {% include headers/200_ok.html %}
