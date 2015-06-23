@@ -67,6 +67,10 @@ correct according to the carrier.
 
 {% include concepts/carrier_specific_field_lengths_dhl.md %}
 
+### MyDPD Pro
+
+{% include concepts/carrier_specific_field_lengths_dpd.md %}
+
 # Supported services
 We currently support sending packages via the following carriers and services:
 
