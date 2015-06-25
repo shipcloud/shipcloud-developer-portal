@@ -26,6 +26,20 @@ __Be advised:__ The API key has to be [Base64](http://en.wikipedia.org/wiki/Base
 Aside from sending your API key all API requests must be made using HTTPS. Don't bother trying to use HTTP. It will
 fail!
 
+## Parameters
+
+Many API methods take optional parameters. For GET requests, any parameters not specified as a segment in the path can be passed as an HTTP query string parameter:
+
+{% highlight bash %}
+curl -i -u api_key "https://api.shipcloud.io/v1/shipments?service=returns"
+{% endhighlight %}
+
+For POST, PATCH, PUT, and DELETE requests, parameters not included in the URL should be encoded as JSON with a Content-Type of ‘application/json’:
+
+{% highlight bash %}
+curl -i -u f7ca956fd5670b2fa8fdee47672b2a26 -d '{"service":["returns"]}' "https://api.shipcloud.io/v1/shipments"
+{% endhighlight %}
+
 ## Versioning
 From time to time we will be releasing new versions of our API. In order to not break (your) implementations of our
 API, we will adjust the path to reflect each new major version. So consecutive releases will be called using /v2/, /v3/
