@@ -67,7 +67,7 @@ correct according to the carrier.
 
 {% include concepts/carrier_specific_field_lengths_dhl.md %}
 
-### MyDPD Pro
+### MyDPD Pro / MyDPD Business
 
 {% include concepts/carrier_specific_field_lengths_dpd.md %}
 
