@@ -96,6 +96,39 @@ curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments \
   -d "service=standard" \
   -d "create_shipping_label=true"
 {% endhighlight %}
+  <h3>Creating a new shipment for DHL with cash on delivery for payment</h3>
+{% highlight bash %}
+  curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments \
+  -d "to[company]=Musterfirma" \
+  -d "to[last_name]=Meier" \
+  -d "to[street]=Musterstraße" \
+  -d "to[street_no]=22" \
+  -d "to[city]=Musterstadt" \
+  -d "to[zip_code]=12345" \
+  -d "to[country]=Deutschland" \
+  -d "from[company]=Gewuerze Paderborn" \
+  -d "from[first_name]=Karl" \
+  -d "from[last_name]=Müller" \
+  -d "from[street]=Musterstraße" \
+  -d "from[street_no]=14a" \
+  -d "from[city]=Paderborn" \
+  -d "from[zip_code]=33089" \
+  -d "from[country]=Deutschland" \
+  -d "carrier=dhl" \
+  -d "package[weight]=1.5" \
+  -d "package[length]=10" \
+  -d "package[width]=6" \
+  -d "package[height]=8" \
+  -d "additional_services[][name]=cash_on_delivery" \
+  -d "additional_services[][properties][amount]=123.45" \
+  -d "additional_services[][properties][currency]=EUR" \
+  -d "additional_services[][properties][bank_account_holder]=Max Mustermann" \
+  -d "additional_services[][properties][bank_name]=Musterbank" \
+  -d "additional_services[][properties][bank_account_number]=DE12500105170648489890" \
+  -d "additional_services[][properties][bank_code]=BENEDEPPYYY" \
+  -d "service=standard" \
+  -d "create_shipping_label=true"
+{% endhighlight %}
     <h3>Getting the rate for a package</h3>
 {% highlight bash %}
 curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/rates \
