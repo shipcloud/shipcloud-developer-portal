@@ -10,6 +10,76 @@ When talking to our API you can receive the following status codes:
 
 {% include reference/http_status_codes.html %}
 
+## Addresses
+The following is a section of resources related to addresses.
+
+{% include reference/addresses_request_togglebox.html %}
+
+### Creating an address
+If you want to create an Address, this is the way to go!
+
+#### Request
+<kbd>POST</kbd> __/v1/addresses__
+
+{% highlight json %}
+{% include addresses_post_put_request.json %}
+{% endhighlight %}
+
+<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Create addresses request]({{ site.baseurl }}/reference/post_addresses_request_schema.html)
+
+#### Response
+{% include headers/200_ok.html %}
+{% highlight json %}
+{% include addresses_post_put_response.json %}
+{% endhighlight %}
+
+<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Create addresses response]({{ site.baseurl }}/reference/address_response_schema.html)
+
+### Getting a list of addresses
+
+#### Request
+<kbd>GET</kbd> __/v1/addresses__
+
+You can filter the shipments list using one or more of the following
+
+__GET parameters:__
+
+- __first_name__, e.g. 'first_name=Max'
+- __last_name__, e.g. 'last_name=Mustermann'
+- __company__, e.g. 'company=Example%20Company'
+- __care_of__, e.g. 'care_of=Roger%20Receiver'
+- __street__, e.g. 'street_no=Musterstraße'
+- __street_no__, e.g. 'street_no=42'
+- __zip_code__, e.g. 'zip_code=12345'
+- __city__, e.g. 'street_no=Musterstadt'
+- __country__, e.g. 'street_no=DE'
+- __phone__, e.g. 'street_no=555-555'
+- __page__, show page number x, e.g. 'page=2'
+- __per_page__, show x number of shipments on a page (default: 100), e.g. 'per_page=25'
+
+#### Response
+{% include headers/200_ok.html %}
+{% highlight json %}
+{% include addresses_index_response.json %}
+{% endhighlight %}
+
+### Show an Address
+
+#### Request
+<kbd>GET</kbd> __/v1/addresses/:id__
+
+__GET parameters:__
+
+- __id__, the id attribute that was returned when creating the address
+
+#### Response
+{% include headers/200_ok.html %}
+{% highlight json %}
+{% include addresses_get_response.json %}
+{% endhighlight %}
+
+<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Address response]({{ site.baseurl }}/reference/address_response_schema.html)
+
 ## Shipments
 The following is a section of resources related to shipments. Be advised: We will charge you only for shipments that a
 label was created for.

@@ -1,0 +1,14 @@
+{
+  "id": "522a7cb1-d6c8-418c-ac26-011127ab5bbe",
+  "company": "Muster-Company",
+  "first_name": "Max",
+  "last_name": "Mustermann",
+  "care_of": null,
+  "street": "Musterstraße",
+  "street_no": "42",
+  "zip_code": "54321",
+  "city": "Musterstadt",
+  "state": null,
+  "country": "DE",
+  "phone": "555-555"
+}
