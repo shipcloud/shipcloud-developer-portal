@@ -23,6 +23,7 @@ __Parameters:__
     - __currency__ (string), currency as uppercase ISO 4217 code
   - __description__ (string), if you're using UPS returns or DHL express this is mandatory otherwise it's optional
 - __service__ (string, optional), additional service. Available values are "returns", "standard", "one_day" (Express),"one_day_early" (Express until 10 o'clock). default: standard
+- __additional_services__ (optional), object with additional services like "drop authorization" or "cash on delivery" (see our [samples page for more details](/samples/))
 - __reference_number__ (string, optional), a reference number (max. 30 characters) that you want this shipment to be identified with. You can use this afterwards to easier find the shipment in the shipcloud.io backoffice
 - __notification_email__ (string, optional), email address that we should notify once there's an update for this shipment
 - __create_shipping_label__ (boolean), determines if a shipping label should be created at the carrier (this means you will be charged)
