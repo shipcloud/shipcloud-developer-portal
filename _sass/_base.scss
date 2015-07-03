@@ -97,6 +97,10 @@ h1 {
   background-color: rgba(213, 45, 83, 0.7);
 }
 
+h1:nth-of-type(1) {
+  margin-top: 0;
+}
+
 .wrapper h1:nth-child(1) {
   margin-top: 0;
 }

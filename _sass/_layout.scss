@@ -4,7 +4,7 @@
 
 nav {
   &.navbar {
-    font-size: 20px;
+    font-size: 18px;
   }
   li > a.register.btn {
     background: #91c24f;
@@ -12,7 +12,6 @@ nav {
     color: white;
     font-size: inherit;
     font-weight: 700;
-    margin: 0 0 0 10px;
     border-bottom: none;
   }
 }
@@ -23,9 +22,10 @@ nav {
 }
 
 .navbar .nav > li > a {
-  height: 68px;
-  padding: 24px;
   color: #7d8287;
+  height: 68px;
+  line-height: 22px;
+  padding: 24px 20px;
 }
 .navbar .nav > li > a:hover {
   color: white;
@@ -333,7 +333,7 @@ table.status_codes {
  * Page content
  */
 .page-content {
-    padding: 88px 0 $spacing-unit 0;
+    padding: 110px 0 $spacing-unit 0;
 }
 
 .page-heading {
