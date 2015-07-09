@@ -52,8 +52,42 @@ although the entries are marked as being optional, one of them has to be specifi
 
 There are some [carrier specific things](#carrier-specific-address-handling) you have to take in mind.
 
-## Returns
-We're currently only supporting returns for DHL, HERMES and UPS.
+## Metadata
+We've been giving you the possibility to specifiy a reference number when creating a shipment to
+make it easier for you to find out, which shipcloud shipment belongs to which order in your shop or
+system. When creating a shipment you are now able to send us additional data, that we store for
+you. This so called metadata is a structured object and can be any combination of key-value pairs. 
+
+{% highlight http %}
+POST /shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "metadata": {
+    "products": {
+      "product": {
+        "id": 1234567,
+        "name": "blue shirt",
+        "price": 42.12,
+        "currency": "EUR"
+      },
+      "product": {
+        "id": 0987654,
+        "name": "yellow shirt",
+        "price": 22.99,
+        "currency": "EUR"
+      }
+    },
+    "order_number": "123456",
+    "order_date": "2015-06-01",
+    "user_e_mail": "user@example.com",
+    "order_total": {
+      "amount": 65.11,
+      "currency": "EUR"
+    }
+  }
+}
+{% endhighlight %}
 
 # Carrier specifics
 
