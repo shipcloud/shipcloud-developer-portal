@@ -134,17 +134,22 @@ containing a JSON payload, with all the information necessary. Here's our
 sample payload you get when testing a webhook through our website:
 {% highlight json %}
 {
-  id: 'ef9df623-6974-4a4b-9a99-c0ec5b58b136',
-  occured_at: '2015-02-17T14:20:42+01:00',
-  type: 'example.event',
-  data: {
-    id: 'es40a6e7a83ea8253f54eb414606626172b523d8',
-    url: '/v1/shipments/es40a6e7a83ea8253f54eb414606626172b523d8',
-    object_type: 'shipment'
+  "id": "ef9df623-6974-4a4b-9a99-c0ec5b58b136",
+  "occured_at": "2015-02-17T14:20:42+01:00",
+  "type": "example.event",
+  "data": {
+    "id": "es40a6e7a83ea8253f54eb414606626172b523d8",
+    "url": "/v1/shipments/es40a6e7a83ea8253f54eb414606626172b523d8",
+    "object_type": "shipment"
   }
 }
 {% endhighlight %}
 
+__Notice:__ _Our payload only contains the data that was just mentioned. This means that after a
+webhook was fired, you will have to call our api to get detailed information about the shipment.
+This way only someone with the correct api key is able to access your customers data._
+
+## Event types
 You can currently subscribe to the following event types:
 
 {% include concepts/webhooks_legend.html %}
