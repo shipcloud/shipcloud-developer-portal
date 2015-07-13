@@ -79,6 +79,14 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
+## DHL higher insurance
+If you want your DHL shipment to have a so called __higher insurance__  you'll have to specify the
+parameter <code>declared_value</code> as part of the package object with the value of the goods
+you're shipping. All __shipments up to 500 Euros are automatically insured__. You shouldn't specify
+declared_value when creating a shipment of lesser value.
+
+{% include recipes/declared_value_dhl.md %}
+
 ## Additional services
 
 ### DHL - Cash on delivery
