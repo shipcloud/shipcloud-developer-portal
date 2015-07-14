@@ -24,4 +24,6 @@ defaults:
     values:
       layout: "default"
 
-exclude: [vendor]
+exclude:
+  - vendor
+  - divshot.json
