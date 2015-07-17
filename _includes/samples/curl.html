@@ -114,14 +114,25 @@ curl -X PUT -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments/665d5287
   -d "package[width]=6" \
   -d "package[height]=8"
 {% endhighlight %}
-    <h3>Getting the rate for a package</h3>
+    <h3>Getting a shipment quote for a package</h3>
 {% highlight bash %}
-curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/rates \
+curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipment_quotes \
   -d "carrier=hermes" \
-  -d "weight=1.5" \
-  -d "length=10" \
-  -d "width=6" \
-  -d "height=8"
+  -d "from[street]=Musterstraße" \
+  -d "from[street_no]=14a" \
+  -d "from[city]=Paderborn" \
+  -d "from[zip_code]=33089" \
+  -d "from[country]=DE" \
+  -d "package[weight]=1.5" \
+  -d "package[length]=10" \
+  -d "package[width]=6" \
+  -d "package[height]=8" \
+  -d "service=standard" \
+  -d "to[street]=Musterstraße" \
+  -d "to[street_no]=22" \
+  -d "to[city]=Musterstadt" \
+  -d "to[zip_code]=12345" \
+  -d "to[country]=DE"
 {% endhighlight %}
     <h3>Getting all available carriers for the account</h3>
     {% highlight bash %}
