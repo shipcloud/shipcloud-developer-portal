@@ -75,6 +75,11 @@
             "amount": { "type": "number" },
             "currency": { "type": "string" }
           }
+        },
+        "package_type": {
+          "type": "string",
+          "enum": ["bulk", "parcel_letter"],
+          "description": "defines packages of being of a certain type"
         }
       },
       "required": ["width", "height", "length", "weight"],
