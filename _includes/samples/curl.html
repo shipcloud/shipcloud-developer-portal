@@ -17,7 +17,7 @@ curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments \
   -d "to[street_no]=22" \
   -d "to[city]=Musterstadt" \
   -d "to[zip_code]=12345" \
-  -d "to[country]=Deutschland" \
+  -d "to[country]=DE" \
   -d "from[company]=Gewuerze Paderborn" \
   -d "from[first_name]=Karl" \
   -d "from[last_name]=Müller" \
@@ -25,7 +25,7 @@ curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments \
   -d "from[street_no]=14a" \
   -d "from[city]=Paderborn" \
   -d "from[zip_code]=33089" \
-  -d "from[country]=Deutschland" \
+  -d "from[country]=DE" \
   -d "carrier=dhl" \
   -d "package[weight]=1.5" \
   -d "package[length]=10" \
@@ -50,7 +50,7 @@ curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments \
   -d "to[street_no]=22" \
   -d "to[city]=Musterstadt" \
   -d "to[zip_code]=12345" \
-  -d "to[country]=Deutschland" \
+  -d "to[country]=DE" \
   -d "carrier=dhl" \
   -d "package[weight]=0.5" \
   -d "package[package_type]=bulk" \
@@ -74,7 +74,7 @@ curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments \
   -d "to[street_no]=22" \
   -d "to[city]=Musterstadt" \
   -d "to[zip_code]=12345" \
-  -d "to[country]=Deutschland" \
+  -d "to[country]=DE" \
   -d "carrier=dpd" \
   -d "package[weight]=0.5" \
   -d "package[length]=25" \
@@ -99,7 +99,7 @@ curl -X PUT -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments/665d5287
   -d "to[street_no]=22" \
   -d "to[city]=Musterstadt" \
   -d "to[zip_code]=12345" \
-  -d "to[country]=Deutschland" \
+  -d "to[country]=DE" \
   -d "from[company]=Gewuerze Paderborn" \
   -d "from[first_name]=Karl" \
   -d "from[last_name]=Müller" \
@@ -107,7 +107,7 @@ curl -X PUT -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments/665d5287
   -d "from[street_no]=14a" \
   -d "from[city]=Paderborn" \
   -d "from[zip_code]=33089" \
-  -d "from[country]=Deutschland" \
+  -d "from[country]=DE" \
   -d "carrier=dhl" \
   -d "package[weight]=1.5" \
   -d "package[length]=10" \
