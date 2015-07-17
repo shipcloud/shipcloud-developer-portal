@@ -9,3 +9,4 @@ our api, but be advised that we're deleting all data associated with this key on
 test shipments from the day before it's best if you [create a free developer account](https://app.shipcloud.io/users/sign_up?plan=developer&cc=sc_docs_samples).
 
 {% include samples/curl.html %}
+{% include samples/php.html %}
