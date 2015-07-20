@@ -7,3 +7,6 @@ _site
 
 # Ignore bundled gems
 vendor/bundle
+
+# Ignore divshot cache
+/.divshot-cache

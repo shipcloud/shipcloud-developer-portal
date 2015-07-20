@@ -1,13 +1,13 @@
-require 'SecureRandom'
+require 'securerandom'
 
 module Jekyll
   class ToggleBoxTag < Liquid::Tag
     Syntax = /(#{Liquid::QuotedFragment}+)(\s+(?:template|include)\s+(#{Liquid::QuotedFragment}+))?/o
     # Syntax = /\A#{Liquid::QuotedFragment}+/o
-    
+
     def initialize(tag_name, markup, tokens)
       super
-      
+
       if markup =~ Syntax
         @variables = variables_from_string(markup)
         @name = "'#{@variables.to_s}'"
@@ -15,7 +15,7 @@ module Jekyll
         raise SyntaxError.new(options[:locale].t("errors.syntax.include".freeze))
       end
     end
-    
+
     def variables_from_string(markup)
       markup.split(',').collect do |var|
         var =~ /\s*(#{Liquid::QuotedFragment})\s*/o
@@ -28,7 +28,7 @@ module Jekyll
         @headline = context[@variables[0]]
         @content_include = context[@variables[1]]
       end
-      
+
       tmpl = File.read File.join Dir.pwd, "_includes", @content_include
       site = context.registers[:site]
       tmpl = (Liquid::Template.parse tmpl).render site.site_payload
