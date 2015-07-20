@@ -1,12 +1,13 @@
 ---
 title: Libraries to use with shipcloud
+sitemap: false
 ---
 
 <script type="text/javascript">
   var env = jjv();
   var errorKeys = [];
   var doc = "";
-  
+
   $( document ).ready(function() {
     try {
       $.get( "/assets/config/error_keys.yml", function( data ) {
@@ -28,7 +29,7 @@ title: Libraries to use with shipcloud
     } catch (e) {
       console.log(e);
     }
-    
+
     $("#testit").on('click', function() {
       var testcode = JSON.parse($("#testcode").val());
       schema_selected = $("#jsonCallSelector").val();
@@ -48,8 +49,8 @@ title: Libraries to use with shipcloud
       }
     });
   });
-  
-  
+
+
   function traverse(obj, path) {
     var localpath = path.valueOf();
     for (var key in obj) {
@@ -67,7 +68,7 @@ title: Libraries to use with shipcloud
       }
     }
   }
-  
+
   function display_errors($errorArea) {
     var ret_html = "";
     for (var i=0; i < errorKeys.length; i++) {
@@ -75,7 +76,7 @@ title: Libraries to use with shipcloud
     }
     $errorArea.html(ret_html);
   }
-  
+
   function error_humanize(error_key) {
     return eval("doc['en']" + error_key)
   }
