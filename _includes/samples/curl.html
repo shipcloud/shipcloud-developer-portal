@@ -84,6 +84,50 @@ curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments \
   -d "service=standard" \
   -d "create_shipping_label=true"
 {% endhighlight %}
+
+<h3>Creating a Liefery shipment</h3>
+<p>
+  If you need something delivered really fast than same day delivery is the choice for you. Due to
+  our partnership with
+  <a href="https://www.shipcloud.io/de/integrationen/carriers/liefery" target="_blank">Liefery</a>
+  you can create shipments that will be delivered within the same day.
+</p>
+<p>
+  <strong>Requirements:</strong>
+</p>
+<ul>
+  <li><code>service</code> has to be <em>'same_day'</em></li>
+  <li>a <code>phone</code> number is required for sender and recipient</li>
+</ul>
+{% highlight bash %}
+curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments \
+  -d "to[company]=Musterfirma" \
+  -d "to[first_name]=Hans" \
+  -d "to[last_name]=Meier" \
+  -d "to[street]=Musterstraße" \
+  -d "to[street_no]=22" \
+  -d "to[city]=Musterstadt" \
+  -d "to[zip_code]=12345" \
+  -d "to[country]=DE" \
+  -d "to[phone]=555-555" \
+  -d "from[company]=Musterstadt Inc." \
+  -d "from[first_name]=Karl" \
+  -d "from[last_name]=Müller" \
+  -d "from[street]=Musterstraße" \
+  -d "from[street_no]=14a" \
+  -d "from[city]=Musterstadt" \
+  -d "from[zip_code]=12346" \
+  -d "from[country]=DE" \
+  -d "from[phone]=555-555" \
+  -d "carrier=liefery" \
+  -d "package[weight]=1.5" \
+  -d "package[length]=10" \
+  -d "package[width]=6" \
+  -d "package[height]=8" \
+  -d "service=same_day" \
+  -d "create_shipping_label=true"
+{% endhighlight %}
+
     <h3>Getting infos about a shipment</h3>
       {% highlight bash %}
         curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments/665d5287b73575cfba622a4b5094c6fd2f0f3f74
