@@ -15,7 +15,7 @@ clone it and off you go!
 ## shipcloud-php
 
 You can find a shipcloud wrapper for PHP at [github.com/comyo-media/shipcloud-php](//github.com/comyo-media/shipcloud-php).
-It is maintained by [Comyo-Media](http://comyo.media/).
+It is maintained by [comyo-media](http://comyo.media/).
 
 # Plugins / Extensions / Modules
 
