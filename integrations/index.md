@@ -12,6 +12,11 @@ clone it and off you go!
 
 {% include samples/shipcloud_ruby.html %}
 
+## shipcloud-php
+
+You can find a shipcloud wrapper for PHP at [github.com/comyo-media/shipcloud-php](//github.com/comyo-media/shipcloud-php).
+It is maintained by [Comyo-Media](http://comyo.media/).
+
 # Plugins / Extensions / Modules
 
 If you're using one of the following services / software, you won't have to write your own code for
@@ -21,6 +26,7 @@ integrating shipcloud into your system:
 - [e-matters](http://www.e-matters.de/marketplace/ecommerce-suite/versand-_-warenwirtschaft/schnittstelle-shipcloud)
 - [Jimdo](http://www.jimdo.com)
 - [JTL Wawi](https://www.unicorn2.de/unicorn-ii/logistiker/)
+- [Laravel 5](//github.com/comyo-media/shipcloud-laravel)
 - [Magento](http://www.magentocommerce.com/magento-connect/shipcloud.html)
 - [Microsoft Dynamics NAV](http://www.cus-lauter.de/nav-shipcloud.php)
 - [modified eCommerce Shopsoftware](https://www.shopbetreuung.com/info/shipcloud/)
