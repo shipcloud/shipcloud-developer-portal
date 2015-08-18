@@ -291,17 +291,19 @@ POST https://api.shipcloud.io/v1/shipments
   "package": {
     // see [2]
   },
-  "additional_services": {
-    "name": "cash_on_delivery",
-    "properties": {
-      "amount": 123.45,
-      "currency": "EUR",
-      "bank_account_holder": "Max Mustermann",
-      "bank_name": "Musterbank",
-      "bank_account_number": "DE12500105170648489890",
-      "bank_code": "BENEDEPPYYY"
+  "additional_services": [
+    {
+      "name": "cash_on_delivery",
+      "properties": {
+        "amount": 123.45,
+        "currency": "EUR",
+        "bank_account_holder": "Max Mustermann",
+        "bank_name": "Musterbank",
+        "bank_account_number": "DE12500105170648489890",
+        "bank_code": "BENEDEPPYYY"
+      }
     }
-  }
+  ],
   "carrier": "dhl",
   "create_shipping_label": true
 }
@@ -325,12 +327,14 @@ POST https://api.shipcloud.io/v1/shipments
   "package": {
     // see [2]
   },
-  "additional_services": {
-    "name": "drop_authorization",
-    "properties": {
-      "message": "Description about where the package should be left"
+  "additional_services": [
+    {
+      "name": "drop_authorization",
+      "properties": {
+        "message": "Description about where the package should be left"
+      }
     }
-  }
+  ],
   "carrier": "dpd",
   "create_shipping_label": true
 }
@@ -360,9 +364,11 @@ POST https://api.shipcloud.io/v1/shipments
   "package": {
     // see [2]
   },
-  "additional_services": {
-    "name": "saturday_delivery"
-  }
+  "additional_services": [
+    {
+      "name": "saturday_delivery"
+    }
+  ],
   "carrier": "dpd",
   "service": "one_day",
   "create_shipping_label": true
@@ -392,13 +398,15 @@ POST https://api.shipcloud.io/v1/shipments
   "package": {
     // see [2]
   },
-  "additional_services": {
-    "name": "advance_notice",
-    "properties": {
-      "email": "test@example.com",
-      "language": "en"
+  "additional_services": [
+    {
+      "name": "advance_notice",
+      "properties": {
+        "email": "test@example.com",
+        "language": "en"
+      }
     }
-  }
+  ],
   "carrier": "dpd",
   "create_shipping_label": true
 }
@@ -420,12 +428,14 @@ POST https://api.shipcloud.io/v1/shipments
   "package": {
     // see [2]
   },
-  "additional_services": {
-    "name": "advance_notice",
-    "properties": {
-      "sms": "+4917012345678"
+  "additional_services": [
+    {
+      "name": "advance_notice",
+      "properties": {
+        "sms": "+4917012345678"
+      }
     }
-  }
+  ],
   "carrier": "dpd",
   "create_shipping_label": true
 }
