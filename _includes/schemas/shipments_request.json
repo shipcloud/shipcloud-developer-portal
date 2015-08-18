@@ -54,10 +54,16 @@
             "bank_account_number": { "type": "string" },
             "currency": { "type": "string" },
             "email": { "type": "string" },
+            "language": {
+              "type": "string",
+              "description": "language the customer should be notified in (ISO-639-1 format)"
+            },
             "sms": { "type": "string" }
           }
         }
-      }
+      },
+      "required": ["name"],
+      "additionalProperties": false
     },
     "create_shipping_label": {
       "type": "boolean",

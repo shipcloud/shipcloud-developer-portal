@@ -395,7 +395,8 @@ POST https://api.shipcloud.io/v1/shipments
   "additional_services": {
     "name": "advance_notice",
     "properties": {
-      "email": "test@example.com"
+      "email": "test@example.com",
+      "language": "en"
     }
   }
   "carrier": "dpd",
