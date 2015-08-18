@@ -369,6 +369,67 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
+### DPD - Predict
+
+DPD allows recipients to be notified of a pending delivery within the next hour. The so called
+[predict service](http://www.dpd.com/de_en/home/produkte_services/zusatzleistungen/national/predict)
+can be used with shipcloud by specifying it as an additional service. You can either specify the
+email address or phone number of your customer to be notified.
+
+#### Notification via email
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight javascript %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    // see [2]
+  },
+  "additional_services": {
+    "name": "advance_notice",
+    "properties": {
+      "email": "test@example.com"
+    }
+  }
+  "carrier": "dpd",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
+#### Notification via SMS
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight javascript %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    // see [2]
+  },
+  "additional_services": {
+    "name": "advance_notice",
+    "properties": {
+      "sms": "+4917012345678"
+    }
+  }
+  "carrier": "dpd",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
 ***
 
 ## _Footnotes_

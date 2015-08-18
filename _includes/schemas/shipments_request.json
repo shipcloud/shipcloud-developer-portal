@@ -36,6 +36,29 @@
       "type": "string",
       "description": "email address that we should notify once there's an update for this shipment"
     },
+    "additional_services": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "enum": ["advance_notice", "cash_on_delivery", "drop_authorization", "saturday_delivery"],
+          "description": "key to identify the additional service"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "amount": { "type": "number" },
+            "bank_code": { "type": "string" },
+            "bank_name": { "type": "string" },
+            "bank_account_holder": { "type": "string" },
+            "bank_account_number": { "type": "string" },
+            "currency": { "type": "string" },
+            "email": { "type": "string" },
+            "sms": { "type": "string" }
+          }
+        }
+      }
+    },
     "create_shipping_label": {
       "type": "boolean",
       "description": "determines if a shipping label should be created at the carrier (this means you will be charged)"
