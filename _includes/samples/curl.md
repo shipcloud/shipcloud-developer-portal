@@ -1,13 +1,7 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">cURL</h3>
-  </div>
-  <div class="panel-body">
-    <h3>Creating a new shipment</h3>
-    <p>
-      This is a full sized example. You can omit the from parameters if you define a standard ship from address in
-      the shipcloud backoffice.
-    </p>
+### Creating a new shipment
+This is a full sized example. You can omit the from parameters if you define a standard ship from
+address in the shipcloud backoffice.
+
 {% highlight bash %}
 curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments \
   -d "to[company]=Musterfirma" \
@@ -35,12 +29,11 @@ curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments \
   -d "create_shipping_label=true"
 {% endhighlight %}
 
-  <h3>Creating a dhl bulk freight shipment</h3>
-  <p>
-    Shipments that don't fall into the normal dimensions can be send by specifying them as bulk
-    items. For this you'll have to specify the <code>package_type</code> at the package object as
-    bulk. When doing this you won't have to specify the length, width or height of your package.
-  </p>
+### Creating a dhl bulk freight shipment
+Shipments that don't fall into the normal dimensions can be send by specifying them as bulk
+items. For this you'll have to specify the <code>package_type</code> at the package object as
+bulk. When doing this you won't have to specify the length, width or height of your package.
+
 {% highlight bash %}
 curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments \
   -d "to[company]=Musterfirma" \
@@ -58,13 +51,14 @@ curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments \
   -d "create_shipping_label=true"
 {% endhighlight %}
 
-  <h3>Creating a dpd parcel letter shipment</h3>
-  <p>
-    When sending shipments with DPD you can specify a <code>package_type</code> at the package
-    object. As DPD defines parcel letters as "everything which is too small for a parcel but larger
-    and heavier than a classical letter"
-    <a href="http://www.dpd.com/de_en/home/produkte_services/special_services/dpd_parcelletter">(more information about parcel letters)</a>.
-  </p>
+### Creating a dpd parcel letter shipment
+When sending shipments with DPD you can specify a <code>package_type</code> at the package
+object. As DPD defines parcel letters as "everything which is too small for a parcel but larger
+and heavier than a classical letter"
+<a href="http://www.dpd.com/de_en/home/produkte_services/special_services/dpd_parcelletter" target="_blank">
+  (more information about parcel letters)
+</a>.
+
 {% highlight bash %}
 curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments \
   -d "to[company]=Musterfirma" \
@@ -85,20 +79,17 @@ curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments \
   -d "create_shipping_label=true"
 {% endhighlight %}
 
-<h3>Creating a Liefery shipment</h3>
-<p>
-  If you need something delivered really fast than same day delivery is the choice for you. Due to
-  our partnership with
-  <a href="https://www.shipcloud.io/de/integrationen/carriers/liefery" target="_blank">Liefery</a>
-  you can create shipments that will be delivered within the same day.
-</p>
-<p>
-  <strong>Requirements:</strong>
-</p>
-<ul>
-  <li><code>service</code> has to be <em>'same_day'</em></li>
-  <li>a <code>phone</code> number is required for sender and recipient</li>
-</ul>
+### Creating a Liefery shipment
+If you need something delivered really fast than same day delivery is the choice for you. Due to
+our partnership with
+<a href="https://www.shipcloud.io/de/integrationen/carriers/liefery" target="_blank">Liefery</a>
+you can create shipments that will be delivered within the same day.
+
+__Requirements:__
+
+- <code>service</code> has to be _'same_day'_
+- a <code>phone</code> number is required for sender and recipient
+
 {% highlight bash %}
 curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments \
   -d "to[company]=Musterfirma" \
@@ -128,14 +119,14 @@ curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments \
   -d "create_shipping_label=true"
 {% endhighlight %}
 
-    <h3>Getting infos about a shipment</h3>
-      {% highlight bash %}
-        curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments/665d5287b73575cfba622a4b5094c6fd2f0f3f74
-      {% endhighlight %}
-    <h3>Updating a shipment</h3>
-    <p>
-      Updating shipments is only possible if you haven't created a label by setting <code>create_shipping_label=true</code>
-    </p>
+### Getting infos about a shipment
+{% highlight bash %}
+  curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments/665d5287b73575cfba622a4b5094c6fd2f0f3f74
+{% endhighlight %}
+
+### Updating a shipment
+Updating shipments is only possible if you haven't created a label by setting <code>create_shipping_label=true</code>
+
 {% highlight bash %}
 curl -X PUT -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments/665d5287b73575cfba622a4b5094c6fd2f0f3f74 \
   -d "to[last_name]=Meier" \
@@ -158,7 +149,8 @@ curl -X PUT -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments/665d5287
   -d "package[width]=6" \
   -d "package[height]=8"
 {% endhighlight %}
-    <h3>Getting a shipment quote for a package</h3>
+
+### Getting a shipment quote for a package
 {% highlight bash %}
 curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipment_quotes \
   -d "carrier=hermes" \
@@ -178,9 +170,8 @@ curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipment_quotes \
   -d "to[zip_code]=12345" \
   -d "to[country]=DE"
 {% endhighlight %}
-    <h3>Getting all available carriers for the account</h3>
-    {% highlight bash %}
-      curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/carriers
-    {% endhighlight %}
-  </div>
-</div>
+
+### Getting all available carriers for the account
+{% highlight bash %}
+  curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/carriers
+{% endhighlight %}
