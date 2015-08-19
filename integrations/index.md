@@ -10,7 +10,7 @@ We've written a shipcloud wrapper for the ruby language that you can use for int
 into your own ruby projects. Just head over to our [Github repository](//github.com/shipcloud/shipcloud-ruby),
 clone it and off you go!
 
-{% include samples/shipcloud_ruby.html %}
+{% include box.html headline="How to use our ruby gem" body-file="samples/shipcloud_ruby.md" %}
 
 ## shipcloud-php
 
