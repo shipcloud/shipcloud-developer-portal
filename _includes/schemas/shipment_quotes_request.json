@@ -4,12 +4,12 @@
   "properties": {
     "carrier": {
       "type": "string",
-      "enum": ["dhl", "ups", "dpd", "hermes", "gls", "fedex"],
+      "enum": ["dhl", "ups", "dpd", "hermes", "gls", "fedex", "liefery"],
       "description": "acronym of the carrier you want to use"
     },
     "service": {
       "type": "string",
-      "enum": ["standard", "returns", "one_day", "one_day_early"],
+      "enum": ["standard", "returns", "one_day", "one_day_early", "same_day"],
       "default": "standard",
       "description": "additional service. With 'one_day' you get express delivery, 'one_day_early' is express delivery until 10am."
     },

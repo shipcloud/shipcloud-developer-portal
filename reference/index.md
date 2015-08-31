@@ -247,7 +247,7 @@ With this call you can find out how much we will charge you for a specific shipm
 {% include shipment_quotes_post_request.json %}
 {% endhighlight %}
 
-<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Shipment Quotes request]({{ site.baseurl }}/reference/shipments_request_schema.html)
+<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Shipment Quotes request]({{ site.baseurl }}/reference/shipment_quotes_request_schema.html)
 
 #### Response
 {% include headers/200_ok.html %}
