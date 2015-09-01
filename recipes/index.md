@@ -85,6 +85,37 @@ declared_value when creating a shipment of lesser value.
 
 {% include recipes/declared_value_dhl.md %}
 
+## DHL bulk shipments
+Shipments that don't fall into the normal dimensions can be send by specifying them as bulk
+items when sending via DHL. When doing this you won't have to specify the length, width or height
+of your package.
+
+__Requirements:__
+
+- <code>package_type</code> has to be _'bulk'_
+- you'll have to use your own contract with the carrier
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight javascript %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    "weight": 5.5,
+    "package_type": "bulk"
+  },
+  "carrier": "dhl",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
 ## Working with addresses
 You can create a new address object by POSTing to our ADDRESS endpoint
 

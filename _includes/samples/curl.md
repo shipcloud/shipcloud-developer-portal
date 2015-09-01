@@ -29,28 +29,6 @@ curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments \
   -d "create_shipping_label=true"
 {% endhighlight %}
 
-### Creating a dhl bulk freight shipment
-Shipments that don't fall into the normal dimensions can be send by specifying them as bulk
-items. For this you'll have to specify the <code>package_type</code> at the package object as
-bulk. When doing this you won't have to specify the length, width or height of your package.
-
-{% highlight bash %}
-curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments \
-  -d "to[company]=Musterfirma" \
-  -d "to[first_name]=Hans" \
-  -d "to[last_name]=Meier" \
-  -d "to[street]=Musterstraße" \
-  -d "to[street_no]=22" \
-  -d "to[city]=Musterstadt" \
-  -d "to[zip_code]=12345" \
-  -d "to[country]=DE" \
-  -d "carrier=dhl" \
-  -d "package[weight]=0.5" \
-  -d "package[package_type]=bulk" \
-  -d "service=standard" \
-  -d "create_shipping_label=true"
-{% endhighlight %}
-
 ### Creating a dpd parcel letter shipment
 When sending shipments with DPD you can specify a <code>package_type</code> at the package
 object. As DPD defines parcel letters as "everything which is too small for a parcel but larger
