@@ -29,34 +29,6 @@ curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments \
   -d "create_shipping_label=true"
 {% endhighlight %}
 
-### Creating a dpd parcel letter shipment
-When sending shipments with DPD you can specify a <code>package_type</code> at the package
-object. As DPD defines parcel letters as "everything which is too small for a parcel but larger
-and heavier than a classical letter"
-<a href="http://www.dpd.com/de_en/home/produkte_services/special_services/dpd_parcelletter" target="_blank">
-  (more information about parcel letters)
-</a>.
-
-{% highlight bash %}
-curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments \
-  -d "to[company]=Musterfirma" \
-  -d "to[first_name]=Hans" \
-  -d "to[last_name]=Meier" \
-  -d "to[street]=Musterstraße" \
-  -d "to[street_no]=22" \
-  -d "to[city]=Musterstadt" \
-  -d "to[zip_code]=12345" \
-  -d "to[country]=DE" \
-  -d "carrier=dpd" \
-  -d "package[weight]=0.5" \
-  -d "package[length]=25" \
-  -d "package[width]=36" \
-  -d "package[height]=5" \
-  -d "package[package_type]=parcel_letter" \
-  -d "service=standard" \
-  -d "create_shipping_label=true"
-{% endhighlight %}
-
 ### Creating a Liefery shipment
 If you need something delivered really fast than same day delivery is the choice for you. Due to
 our partnership with
