@@ -116,6 +116,39 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
+## DPD parcel letter
+DPD defines [parcel letters](http://www.dpd.com/de_en/home/produkte_services/special_services/dpd_parcelletter)
+as "everything which is too small for a parcel but larger and heavier than a classical letter"
+
+__Requirements:__
+
+- <code>package_type</code> has to be _'parcel_letter'_
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight javascript %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    "weight": 0.5,
+    "length": 25,
+    "width": 36,
+    "height": 5,
+    "package_type": "parcel_letter"
+  },
+  "carrier": "dpd",
+  "service": "standard",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
 ## Working with addresses
 You can create a new address object by POSTing to our ADDRESS endpoint
 
