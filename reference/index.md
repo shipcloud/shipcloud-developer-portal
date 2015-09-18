@@ -224,11 +224,28 @@ no payload
 [
   {
     "name": "dhl",
-    "display_name": "Deutsche Post DHL"
+    "display_name": "Deutsche Post DHL",
+    "services": [
+      "standard",
+      "returns",
+      "one_day",
+      "one_day_early"
+    ]
   },
   {
     "name": "hermes",
-    "display_name": "Hermes Europe"
+    "display_name": "Hermes Europe",
+    "services": [
+      "standard",
+      "returns"
+    ]
+  },
+  {
+    "name": "liefery",
+    "display_name": "Liefery",
+    "services": [
+      "same_day"
+    ]
   }
 ]
 {% endhighlight %}
