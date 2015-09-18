@@ -307,9 +307,24 @@ With this call you can find out how much a specific package will cost you.
 ## Pickup requests
 
 ### Requesting pickup
-With this you're requesting pickup of packages for a specific carrier
+There are two ways you can request shipments to be picked up by a specific carrier. By simply
+stating that all shipments that haven't been picked up already should be picked up or by specifying
+which shipments should by picked up.
 
 #### Request
+
+Here's an example for having all shipments being picked up by a specific carrier:
+
+<kbd>POST</kbd> __/v1/pickup_requests__
+
+{% highlight json %}
+{
+  "carrier": "dhl",
+  "pickup_date": "2014/02/12",
+}
+{% endhighlight %}
+
+If you want to only have specific shipments be picked up you add the shipment ids to the call:
 
 <kbd>POST</kbd> __/v1/pickup_requests__
 
@@ -321,7 +336,9 @@ __Parameters:__
 
 - __carrier__ (string), the carrier you want to use. Possible values are "dhl", "dpd", "fedex", "hermes", "ups".
 - __pickup_date__ (string), pickup date (e.g. 2014/02/12)
-- __shipments__ (array of shipment objects), if you want only specific shipments to get picked up, you can send their shipment objects with the request. Please keep in mind that only normal and no return shipments can be picked up.
+- __shipments__ (array of shipment objects), if you want only specific shipments to get picked up,
+you can send their shipment objects with the request. Please keep in mind that no return shipments
+can be picked up.
 
 #### Response
 {% include headers/200_ok.html %}
