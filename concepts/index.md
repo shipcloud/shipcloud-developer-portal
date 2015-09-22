@@ -56,7 +56,7 @@ There are some [carrier specific things](#carrier-specific-address-handling) you
 We've been giving you the possibility to specifiy a reference number when creating a shipment to
 make it easier for you to find out, which shipcloud shipment belongs to which order in your shop or
 system. When creating a shipment you are now able to send us additional data, that we store for
-you. This so called metadata is a structured object and can be any combination of key-value pairs. 
+you. This so called metadata is a structured object and can be any combination of key-value pairs.
 
 {% highlight http %}
 POST /shipments
@@ -179,7 +179,7 @@ sample payload you get when testing a webhook through our website:
 }
 {% endhighlight %}
 
-__Notice:__ _Our payload only contains the data that was just mentioned. This means that after a
+__Notice:__ _Our payload only contains the data that was mentioned above. This means that after a
 webhook was fired, you will have to call our api to get detailed information about the shipment.
 This way only someone with the correct api key is able to access your customers data._
 
@@ -195,3 +195,16 @@ specify which events should trigger sending a message to your URL.
 
 This feature is still in beta so please send a request to support@shipcloud.io
 for it to be made available for you.
+
+## Testing
+There are a lot of tools out there for testing webhooks. If you'd like a starting point check out
+this blogpost called [_60+ Tools and Services for API and Webhook Logging, Debugging, Testing,
+Monitoring, Documentation and Discovery_](http://john-sheehan.com/blog/ultimate-api-webhook-backend-service-debugging-testing-monitoring-and-discovery-tools-list).
+We'd recommend using a service like [requestb.in](http://requestb.in) or [mocky.io](http://mocky.io)
+to have reliable responses for your tests. This way you don't have to create shipments just for
+testing handling shipments afterwards.
+
+### Developer accounts
+If you're usind TDD (test driven development) another thing we'd recommend is creating a second
+account at shipcloud for all your testing needs. This way you can separate further development on
+your platform from your live processes.
