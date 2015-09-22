@@ -149,6 +149,37 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
+## Returns
+Return shipments are created the same way you'd create a normal shipment. The only thing that's
+different is the service parameter and that you can't use (additional) services like express
+shipping.
+
+__Requirements:__
+
+- <code>service</code> has to be _'returns'_
+- <code>carrier</code> can be _'dhl', 'ups', 'hermes' or 'dpd'_
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight javascript %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    // see [2]
+  },
+  "carrier": "dhl",
+  "service": "returns",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
 ## Working with addresses
 You can create a new address object by POSTing to our ADDRESS endpoint
 
