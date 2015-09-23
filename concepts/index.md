@@ -41,9 +41,16 @@ curl -i -u f7ca956fd5670b2fa8fdee47672b2a26 -d '{"service":["returns"]}' "https:
 {% endhighlight %}
 
 ## Versioning
-From time to time we will be releasing new versions of our API. In order to not break (your) implementations of our
-API, we will adjust the path to reflect each new major version. So consecutive releases will be called using /v2/, /v3/
-and so on after the base url.
+As with every API we will be releasing new versions from time to time. We do promise to adhere to the following API contract:
+
+- No value types or fields will be changed or deleted in the same API version
+- What we will change within the same API version:
+  - add new fields to an object
+  - add new API endpoints
+  - required fields can become optional
+  - endpoints can become deprecated
+
+In case we introduce __breaking changes__ we will adjust the API base path to reflect each new major version. So consecutive releases will be called using /v2/, /v3/ and so on.
 
 ## Address handling
 When sending <code>to</code> or <code>from</code> parameters you have to specify a contact for the shipment. This can
@@ -56,7 +63,7 @@ There are some [carrier specific things](#carrier-specific-address-handling) you
 We've been giving you the possibility to specifiy a reference number when creating a shipment to
 make it easier for you to find out, which shipcloud shipment belongs to which order in your shop or
 system. When creating a shipment you are now able to send us additional data, that we store for
-you. This so called metadata is a structured object and can be any combination of key-value pairs. 
+you. This so called metadata is a structured object and can be any combination of key-value pairs.
 
 {% highlight http %}
 POST /shipments
