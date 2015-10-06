@@ -358,3 +358,80 @@ can be picked up.
 {% highlight json %}
 {% include pickup_post_requests_response.json %}
 {% endhighlight %}
+
+## Webhooks
+The following is a section of resources related to webhooks.
+
+{% include reference/webhooks_request_togglebox.html %}
+
+### Creating a webhook
+
+If you want to create a webhook, this is the way to go!
+
+#### Request
+<kbd>POST</kbd> __/v1/webhooks__
+
+{% highlight json %}
+{% include webhooks_post_put_request.json %}
+{% endhighlight %}
+
+<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Create webhook request]({{ site.baseurl }}/reference/webhooks_request_schema.html)
+
+#### Response
+{% include headers/200_ok.html %}
+{% highlight json %}
+{% include webhooks_post_put_response.json %}
+{% endhighlight %}
+
+<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Create webhooks response]({{ site.baseurl }}/reference/webhooks_response_schema.html)
+
+### Getting a list of webhooks
+
+#### Request
+<kbd>GET</kbd> __/v1/webhooks__
+
+#### Response
+{% include headers/200_ok.html %}
+{% highlight json %}
+{% include webhooks_index_response.json %}
+{% endhighlight %}
+
+### Show a webhook
+
+#### Request
+<kbd>GET</kbd> __/v1/webhooks/:id__
+
+__GET parameters:__
+
+- __id__, the id attribute that was returned when creating the webhook
+
+#### Response
+{% include headers/200_ok.html %}
+{% highlight json %}
+{% include webhooks_get_response.json %}
+{% endhighlight %}
+
+<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Webhook response]({{ site.baseurl }}/reference/webhooks_response_schema.html)
+
+### Deleting a webhook
+
+#### Request
+
+<kbd>DELETE</kbd> __/v1/webhooks/:id__
+
+{% highlight bash %}
+no payload
+{% endhighlight %}
+
+__URL parameters:__
+
+- __id__, the id attribute that was returned when creating the webhook
+
+#### Response
+{% highlight http %}
+204 (No Content)
+{% endhighlight %}
+
+{% highlight json %}
+{}
+{% endhighlight %}
