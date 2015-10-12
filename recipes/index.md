@@ -326,8 +326,9 @@ We're checking the <code>care_of</code> attribue for the "PAK" prefix. If it's f
 if a valid pakadoo userid is present, validate it using the pakadoo system and return the users'
 selected pakadoo point address, if available.
 
-__Notice:__ Any additional "to" address information given in the request will be replaced by what
-is returned from the pakadoo system.
+___Notice:___
+_Any additional "to" address information given in the request will be replaced by what is returned
+from the pakadoo system._
 
 #### Create Shipment Request
 
@@ -369,6 +370,14 @@ POST /shipments
 {% endhighlight %}
 
 ## Additional services
+
+Some services can be used on top of a normal shipment. Therefore they don't fall under the normal
+definition of a service - and because they mostly are only available for a few carriers. We're
+calling them _additional services_.
+
+___Notice:___
+_Unfortunately at the moment additional services are only available if you're using your own
+contract with the respective carrier._
 
 ### DHL - Cash on delivery
 
