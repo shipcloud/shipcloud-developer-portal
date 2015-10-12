@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/shipcloud/shipcloud.github.io.svg?branch=master)](https://travis-ci.org/shipcloud/shipcloud.github.io)
+
 shipcloud.io devportal
 ======================
 
