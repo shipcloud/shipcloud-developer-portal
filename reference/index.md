@@ -320,7 +320,10 @@ Here's an example for having all shipments being picked up by a specific carrier
 {% highlight json %}
 {
   "carrier": "dpd",
-  "pickup_date": "2014/02/12",
+  "pickup_time": {
+    "earliest": "2015-09-15T09:00:00+02:00",
+    "latest": "2015-09-15T18:00:00+02:00"
+  }
 }
 {% endhighlight %}
 
@@ -335,10 +338,20 @@ If you want to only have specific shipments be picked up you add the shipment id
 __Parameters:__
 
 - __carrier__ (string), the carrier you want to use. Possible values are "dhl", "dpd", "fedex", "hermes", "ups".
-- __pickup_date__ (string), pickup date (e.g. 2014/02/12)
+- __pickup_time__, object containing the earliest and latest pickup time in iso8601.
+  - __earliest__ (datetime), the date the shipments are ready for pickup.
+  - __latest__ (datetime), the latest date for pick up.
 - __shipments__ (array of shipment objects), if you want only specific shipments to get picked up,
 you can send their shipment objects with the request. Please keep in mind that no return shipments
 can be picked up.
+
+<div class="bg-warning">
+  <i class="glyphicon glyphicon-warning-sign"></i>
+   <b>Deprecated Parameters:</b>
+   <ul>
+    <li><b>pickup_date (string)</b>, pickup date (e.g. 2014/02/12). Please use pickup_time instead.</li>
+   </ul>
+</div>
 
 #### Response
 {% include headers/200_ok.html %}

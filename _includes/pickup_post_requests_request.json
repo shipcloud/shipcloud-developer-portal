@@ -1,6 +1,9 @@
 {
   "carrier": "dpd",
-  "pickup_date": "2014/02/12",
+  "pickup_time": {
+    "earliest": "2015-09-15T09:00:00+02:00",
+    "latest": "2015-09-15T18:00:00+02:00"
+  },
   "shipments": [
     {
       "id": "3a186c51d4281acbecf5ed38805b1db92a9d668b"
