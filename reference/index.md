@@ -319,7 +319,7 @@ Here's an example for having all shipments being picked up by a specific carrier
 
 {% highlight json %}
 {
-  "carrier": "dhl",
+  "carrier": "dpd",
   "pickup_date": "2014/02/12",
 }
 {% endhighlight %}
