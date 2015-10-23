@@ -28,6 +28,10 @@
       "type": "string",
       "description": "a reference number (max. 30 characters) that you want this shipment to be identified with. You can use this afterwards to easier find the shipment in the shipcloud.io backoffice"
     },
+    "description": {
+      "type": "string",
+      "description": "text that describes the contents of the shipment. This parameter is mandatory if you're using UPS and the following conditions are true: from and to countries are not the same; from and/or to countries are not in the EU; from and to countries are in the EU and the shipments service is not standard"
+    },
     "notification_email": {
       "type": "string",
       "description": "email address that we should notify once there's an update for this shipment"
@@ -103,6 +107,10 @@
             "amount": { "type": "number" },
             "currency": { "type": "string" }
           }
+        },
+        "description": {
+          "type": "string",
+          "description": "text that describes the contents of the package. This parameter is mandatory if you're using UPS with service returns or DHL with service express"
         },
         "package_type": {
           "type": "string",
