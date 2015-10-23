@@ -110,7 +110,7 @@
         },
         "description": {
           "type": "string",
-          "description": "text that describes the contents of the package. This parameter is mandatory if you're using DHL express"
+          "description": "text that describes the contents of the package. This parameter is mandatory if you're using UPS with service returns or DHL with service express"
         },
         "package_type": {
           "type": "string",
