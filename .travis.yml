@@ -21,4 +21,4 @@ deploy:
   skip_cleanup: true
 notifications:
   flowdock:
-    secure: fSZxX5z3bHWT8aCFKBFrDDt5o3Jb6EFWcm+pAcMabpfDHc4iktWuCUlSM405798TRdKdws1A2RncQGYiQyLbqNvtLz48dvj4BxgYW7P/vg0koN+I/H2MjpZeuIQ7BRSEJIq2sAYNVya+hSil+SPEBMTngJiP6VYG0dm6fFnRkyk=
+    secure: JoghBZRgtGMnBFdvp/bfkVaAKwYs7qr8bQ7RByLVWzh9qxrzsdACcWo9vyhaLc7KOp+C2wkxlYHs5NGWo+3sHjdHG7ZGwTFXrGnzSiXcm7hcSM/cNAR+nNDzrt/KfrOGA4vc8zZWuD6R1OpmcPwa9x5ZCMxsRT1F1BqR2RDlcoE=
