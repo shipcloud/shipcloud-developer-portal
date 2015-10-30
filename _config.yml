@@ -27,3 +27,4 @@ defaults:
 exclude:
   - vendor
   - divshot.json
+  - node_modules

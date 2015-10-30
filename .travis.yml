@@ -1,17 +1,20 @@
 sudo: false
 language: ruby
-cache: bundler
+cache:
+  bundler: true
+  directories:
+    - node_modules
 rvm:
 - 2.2
-script: bundle exec jekyll build && bundle exec htmlproof ./_site
+script: bundle exec jekyll build && bundle exec htmlproof ./_site --href-swap "https?\W{1}\/\/developers\.shipcloud\.io":""
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+before_install:
+  - npm list firebase-tools --depth=0 || npm install firebase-tools
 deploy:
-  provider: divshot
-  api_key:
-    secure: FFQnme/GGmzIchSPA51tzTkluEqIjZyukqblBimr/KNpkfx0pDyq9Du5wZh5aGeVNfifk739pNaf5Fjqr+Z2wFhq2aJJD3csHBjYFXYa/6h6M0aKhf7ogXByO19hqBQaGZhXHw4grWvLSe+84TDp8EQijMg78vLP7PFdNO9/2Hw=
-  environment: production
+  provider: script
+  script: firebase deploy --token "$FIREBASE_TOKEN"
   on:
     repo: shipcloud/shipcloud.github.io
     branch: master
