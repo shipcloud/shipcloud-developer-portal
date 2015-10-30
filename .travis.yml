@@ -19,3 +19,6 @@ deploy:
     repo: shipcloud/shipcloud.github.io
     branch: master
   skip_cleanup: true
+notifications:
+  flowdock:
+    secure: fSZxX5z3bHWT8aCFKBFrDDt5o3Jb6EFWcm+pAcMabpfDHc4iktWuCUlSM405798TRdKdws1A2RncQGYiQyLbqNvtLz48dvj4BxgYW7P/vg0koN+I/H2MjpZeuIQ7BRSEJIq2sAYNVya+hSil+SPEBMTngJiP6VYG0dm6fFnRkyk=
