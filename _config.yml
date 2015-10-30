@@ -4,7 +4,7 @@ email: developers@shipcloud.io
 description: >
   The shipcloud.io developer portal is your one stop for all developer needs.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://developer.shipcloud.io" # the base hostname & protocol for your site
+url: "https://developers.shipcloud.io" # the base hostname & protocol for your site
 twitter_username: shipcloud_devs
 github_username:  shipcloud
 
