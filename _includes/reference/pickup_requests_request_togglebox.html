@@ -1,0 +1,24 @@
+<div class="panel-group" id="pickup_requests_request_togglebox">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#pickup_requests_request_togglebox" href="#pickup_requests_request_togglebox_collapsable">
+          <i class="glyphicon glyphicon-chevron-down"></i> Parameter description
+        </a>
+      </h4>
+    </div>
+    <div id="pickup_requests_request_togglebox_collapsable" class="panel-collapse collapse">
+      <div class="panel-body">
+        {% capture pickup_requests_request_parameters %}{% include reference/pickup_requests_request_parameters.md %}{% endcapture %}
+        {{ pickup_requests_request_parameters | markdownify }}
+        <div class="bg-warning">
+          <i class="glyphicon glyphicon-warning-sign"></i>
+           <b>Deprecated Parameters:</b>
+           <ul>
+            <li><b>pickup_date (string)</b>, pickup date (e.g. 2014/02/12). Please use pickup_time instead.</li>
+           </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

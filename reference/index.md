@@ -315,6 +315,8 @@ which shipments should by picked up.
 
 Here's an example for having all shipments being picked up by a specific carrier:
 
+{% include reference/pickup_requests_request_togglebox.html %}
+
 <kbd>POST</kbd> __/v1/pickup_requests__
 
 {% highlight json %}
@@ -335,29 +337,15 @@ If you want to only have specific shipments be picked up you add the shipment id
 {% include pickup_post_requests_request.json %}
 {% endhighlight %}
 
-__Parameters:__
-
-- __carrier__ (string), the carrier you want to use. Possible values are "dhl", "dpd", "fedex", "hermes", "ups".
-- __pickup_time__, object containing the earliest and latest pickup time in iso8601.
-  - __earliest__ (datetime), the date the shipments are ready for pickup.
-  - __latest__ (datetime), the latest date for pick up.
-- __shipments__ (array of shipment objects), if you want only specific shipments to get picked up,
-you can send their shipment objects with the request. Please keep in mind that no return shipments
-can be picked up.
-
-<div class="bg-warning">
-  <i class="glyphicon glyphicon-warning-sign"></i>
-   <b>Deprecated Parameters:</b>
-   <ul>
-    <li><b>pickup_date (string)</b>, pickup date (e.g. 2014/02/12). Please use pickup_time instead.</li>
-   </ul>
-</div>
+<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Pickup Requests request]({{ site.baseurl }}/reference/pickup_requests_request_schema.html)
 
 #### Response
 {% include headers/200_ok.html %}
 {% highlight json %}
 {% include pickup_post_requests_response.json %}
 {% endhighlight %}
+
+<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Pickup Requests response]({{ site.baseurl }}/reference/pickup_requests_response_schema.html)
 
 ## Webhooks
 The following is a section of resources related to webhooks.
