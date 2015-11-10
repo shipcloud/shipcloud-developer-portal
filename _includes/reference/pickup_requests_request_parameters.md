@@ -1,6 +1,6 @@
 __Parameters:__
 
-- __carrier__ (string), the carrier you want to use. Possible values are "dhl", "dpd", "fedex", "hermes", "ups".
+- __carrier__ (string), the carrier you want to use. Possible values are "dpd", "fedex", "hermes", "ups".
 - __pickup_time__, object containing the earliest and latest pickup time in iso8601.
   - __earliest__ (datetime), the date the shipments are ready for pickup.
   - __latest__ (datetime), the latest date for pick up.
