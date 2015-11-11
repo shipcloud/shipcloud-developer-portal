@@ -11,15 +11,24 @@ using one of the major carriers on the German market into their own software, on
 solution. We've basically built a wrapper around the carriers' webservices we support so you won't
 have to integrate each and every carrier by yourself.
 
-To make it easier for you the developer, we've created the shipcloud API deliberately using the RESTful architectural
-style. This means if you're familiar with REST and using RESTful services, you will have no problems using our API. As
-it's common when implementing a REST-API we're using resource-oriented URLs and HTTP authentication.
+To make it easier for you the developer, we've created the shipcloud API deliberately using the
+RESTful architectural style. This means if you're familiar with REST and using RESTful services,
+you will have no problems using our API. As it's common when implementing a REST-API we're using
+resource-oriented URLs and HTTP authentication.
 
-For developers to test their code before shipping it, we're supplying every account with test and live API keys.
+### Integration guide
+To make it easier for you to start working with the shipcloud api and also to give you a better
+overview of the features we're supporting and we'd like you to integrate into your software as
+well, we wrote a handy [integration guide that you can download](https://www.dropbox.com/s/7lvj9e0ii61ylgl/shipcloud_integration_guide_v_0_3.pdf). In it
+aside from what you can find here we're also giving you a few pro tips to present your customers
+with a seamless user experience as well as showing you what we're calling the __core features__ of
+the shipcloud api.
 
 ## Authentication
-Every call to our API is secured by an API key. This key is tied specificly to your account and therefore should never
-be given to anyone else outside of your control. You are able to manage your API keys from your account page.
+For developers to test their code before shipping it, we're supplying every account with test and
+live API keys. Every call to our API is secured by an API key. This key is tied specificly to your
+account and therefore should never be given to anyone else outside of your control. You are able to
+manage your API keys from your account page.
 
 To use the API key you'll have to send it with every request being made. We're using http Basic
 
