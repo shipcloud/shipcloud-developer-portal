@@ -6,6 +6,11 @@ nav: concepts
 # API
 
 ## Introduction
+shipcloud is a shipping service provider that makes it easy for developers to integrate shipping
+using one of the major carriers on the German market into their own software, onlineshop or ERP
+solution. We've basically built a wrapper around the carriers' webservices we support so you won't
+have to integrate each and every carrier by yourself.
+
 To make it easier for you the developer, we've created the shipcloud API deliberately using the RESTful architectural
 style. This means if you're familiar with REST and using RESTful services, you will have no problems using our API. As
 it's common when implementing a REST-API we're using resource-oriented URLs and HTTP authentication.
