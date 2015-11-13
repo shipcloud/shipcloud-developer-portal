@@ -79,6 +79,10 @@
     "address": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string",
+          "description": "identifier of a previously created address"
+        },
         "company": { "type": "string" },
         "first_name": { "type": "string" },
         "last_name": { "type": "string" },
