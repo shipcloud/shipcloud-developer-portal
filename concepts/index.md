@@ -229,3 +229,9 @@ testing handling shipments afterwards.
 If you're usind TDD (test driven development) another thing we'd recommend is creating a second
 account at shipcloud for all your testing needs. This way you can separate further development on
 your platform from your live processes.
+
+## Automatic deactivation
+If the URL you provided when configuring the webhook can't be reached, we'll try to contact it a
+few minutes later. __After 10 failed attempts__ to send you the data, we're giving up and the
+webhook will be deactivated automatically. You can reactivate it in shipcloud once your system is
+up and reachable again.
