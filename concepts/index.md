@@ -110,6 +110,12 @@ POST /shipments
 }
 {% endhighlight %}
 
+## Timeouts
+The services of the carriers we're supporting can be very slow at times. Since we're not queing
+requests to create shipping labels at a later point in time, please account for slow response
+times. We'd suggest setting a timeout of a little more than a minute to be absolutely sure that
+you're not missing our responses.
+
 # Carrier specifics
 
 ## Carrier specific address handling
