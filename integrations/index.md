@@ -32,7 +32,7 @@ integrating shipcloud into your system:
 - [modified eCommerce Shopsoftware](https://www.shopbetreuung.com/info/shipcloud/)
 - [Oxid eSales](http://exchange.oxid-esales.com/de/Auftragsabwicklung-Logistik/Versand/shipcloud-Connector-DHL-DPD-UPS-Hermes-GLS-1-0-Stable-EE-PE-4-8-x-5-1-x.html)
 - [PrestaShop](http://www.silbersaiten.de/prestashop/de/home/185-shipcloud.html)
-- [SAP Business ByDesign](http://www.all-for-one-cloud.com/de/sap-business-bydesign/paket-fuer-multichannel.html)
+- [SAP Business ByDesign](https://bydesign.all-for-one.com)
 - [Shopware](http://store.shopware.com/scs00898/shipcloud-connector-dhl-dpd-ups-hermes-gls-i.html)
 - [VersaCommerce](http://www.versacommerce.de/store/apps/versand-schnittstellen)
 - [weclapp](http://www.weclapp.com)
