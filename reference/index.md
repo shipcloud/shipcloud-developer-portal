@@ -55,7 +55,7 @@ __GET parameters:__
 - __country__, e.g. 'street_no=DE'
 - __phone__, e.g. 'street_no=555-555'
 - __page__, show page number x, e.g. 'page=2'
-- __per_page__, show x number of shipments on a page (default: 100), e.g. 'per_page=25'
+- __per_page__, show x number of shipments on a page (default & max: 100), e.g. 'per_page=25'
 
 #### Response
 {% include headers/200_ok.html %}
@@ -124,7 +124,7 @@ __GET parameters:__
 - __carrier_tracking_no__, e.g. 'carrier_tracking_no=43128000105'
 - __tracking_status__, e.g. 'tracking_status=out_for_delivery'
 - __page__, show page number x, e.g. 'page=2'
-- __per_page__, show x number of shipments on a page (default: 100), e.g. 'per_page=25'
+- __per_page__, show x number of shipments on a page (default & max: 100), e.g. 'per_page=25'
 
 #### Response
 {% include headers/200_ok.html %}
