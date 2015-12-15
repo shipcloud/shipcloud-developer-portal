@@ -19,7 +19,7 @@ resource-oriented URLs and HTTP authentication.
 ### Integration guide
 To make it easier for you to start working with the shipcloud api and also to give you a better
 overview of the features we're supporting and we'd like you to integrate into your software as
-well, we wrote a handy [integration guide that you can download](https://www.dropbox.com/s/852p8n5qfpt7mfe/shipcloud_integration_guide_v_0_4.pdf?dl=0).
+well, we wrote a handy [integration guide that you can download](https://www.dropbox.com/s/kguz8uvab1tjyup/shipcloud_integration_guide_v_0_5.pdf?dl=0).
 In it, aside from what you can find here, we're also giving you a few pro tips to present your
 customers with a seamless user experience as well as showing you what we're calling the __core
 features__ of the shipcloud api.
