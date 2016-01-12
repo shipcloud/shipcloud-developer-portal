@@ -106,14 +106,10 @@ table.status_codes {
 }
 
 .intro {
-  font-size: 20px;
-  padding: $spacing-unit $spacing-unit/2;
+  padding: 0 $spacing-unit/2 $spacing-unit;
 
   & > .row {
-    margin-top: $spacing-unit;
-    &:nth-child(1) {
-      margin-top: 0;
-    }
+    margin-bottom: $spacing-unit / 2;
   }
 
   .box {
