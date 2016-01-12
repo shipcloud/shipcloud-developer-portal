@@ -1,5 +1,6 @@
 .DS_Store
 .sass-cache
+.ruby-version
 _site
 
 # Ignore bundler config
