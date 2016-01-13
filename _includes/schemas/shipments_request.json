@@ -71,6 +71,11 @@
     "create_shipping_label": {
       "type": "boolean",
       "description": "determines if a shipping label should be created at the carrier (this means you will be charged)"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "here you can save additional data that you want to be associated with the shipment. Any combination of key-value pairs is possible",
+      "additionalProperties": true
     }
   },
   "required": ["carrier", "to", "package"],
