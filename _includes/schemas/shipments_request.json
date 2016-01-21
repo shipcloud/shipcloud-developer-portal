@@ -70,7 +70,7 @@
     },
     "create_shipping_label": {
       "type": "boolean",
-      "description": "determines if a shipping label should be created at the carrier (this means you will be charged)"
+      "description": "determines if a shipping label should be created at the carrier (this means you will be charged when using the production api key)"
     },
     "metadata": {
       "type": "object",

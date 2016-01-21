@@ -27,4 +27,4 @@ __Parameters:__
 - __reference_number__ (string, optional), a reference number (max. 30 characters) that you want this shipment to be identified with. You can use this afterwards to easier find the shipment in the shipcloud.io backoffice
 - __description__ (string), mandatory if you're using UPS and the following conditions are true: from and to countries are not the same; from and/or to countries are not in the EU; from and to countries are in the EU and the shipments service is not standard
 - __notification_email__ (string, optional), email address that we should notify once there's an update for this shipment
-- __create_shipping_label__ (boolean), determines if a shipping label should be created at the carrier (this means you will be charged)
+- __create_shipping_label__ (boolean), determines if a shipping label should be created at the carrier (this means you will be charged when using the production api key)
