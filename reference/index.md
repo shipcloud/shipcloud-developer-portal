@@ -185,8 +185,10 @@ __URL parameters:__
 
 <p class="bg-info">
   <i class="glyphicon glyphicon-info-sign"></i>
-  Only shipments where create_shipping_label is false can be deleted, because no transaction with a carrier has been
-  done until this point.
+  Prepared shipments (where create_shipping_label is false) can be deleted at any time, because no
+  transaction with the carrier has happened until this point and no actual shipping label has been
+  created. In case you've created a shipping label you can delete it before the cutoff time of the
+  carrier. Cutoff times differ from carrier to carrier and are some time between 5pm and 8pm. 
 </p>
 
 {% highlight bash %}
