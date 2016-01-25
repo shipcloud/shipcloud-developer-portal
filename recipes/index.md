@@ -28,7 +28,7 @@ POST https://api.shipcloud.io/v1/shipments
     "company": "shipcloud GmbH",
     "first_name": "Hans",
     "last_name": "Meier",
-    "care_of": "1234567",
+    "care_of": "12345678",
     "street": "PACKSTATION",
     "street_no": "109",
     "city": "Hamburg",
