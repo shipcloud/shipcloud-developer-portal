@@ -21,4 +21,4 @@ gem 'pygments.rb', '0.6.3'
 # Plugins
 gem 'jekyll-sitemap', '0.8.1'
 
-gem 'html-proofer'
+gem 'html-proofer', '2.6.4'
