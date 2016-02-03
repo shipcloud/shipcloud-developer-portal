@@ -1,6 +1,7 @@
 ---
 title: Concepts behind shipcloud
 nav: concepts
+footnote_path: concepts
 ---
 
 # API
@@ -158,6 +159,18 @@ correct according to the carrier.
 We currently support sending packages via the following carriers and services:
 
 {% include concepts/supported_services.html %}
+
+## Additional services
+
+{% include concepts/additional_services.html %}
+
+## Package types
+
+{% include concepts/package_types.html %}
+
+## Other attributes
+
+{% include concepts/other_attributes.html %}
 
 # Sandbox vs. Production
 
