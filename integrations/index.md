@@ -38,7 +38,7 @@ integrating shipcloud into your system:
 - [pixi*](http://www.pixi.eu/features/)
 - [PrestaShop](http://www.silbersaiten.de/prestashop/de/home/185-shipcloud.html)
 - [SAP Business ByDesign](https://bydesign.all-for-one.com)
-- [SAP Business One](http://www.shoperp.de/de/shipcloud)
+- [SAP Business One](http://www.shoperp.de/sap-business-one-erweiterungen.html)
 - [Shopify](https://apps.shopify.com/shipcloud-connector)
 - [Shopware](http://store.shopware.com/scs00898/shipcloud-connector-dhl-dpd-ups-hermes-gls-i.html)
 - [tricoma](https://www.tricoma.de/Versanddienstleister/shipcloud-Connector/)
