@@ -121,7 +121,7 @@
           "type": "string",
           "description": "text that describes the contents of the package. This parameter is mandatory if you're using UPS with service returns or DHL with service express"
         },
-        "package_type": {
+        "type": {
           "type": "string",
           "enum": ["bulk", "parcel_letter"],
           "description": "defines packages of being of a certain type"

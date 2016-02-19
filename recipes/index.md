@@ -92,7 +92,7 @@ of your package.
 
 __Requirements:__
 
-- <code>package_type</code> has to be _'bulk'_
+- <code>type</code> has to be _'bulk'_
 - you'll have to use your own contract with the carrier
 
 {% highlight http %}
@@ -109,7 +109,7 @@ POST https://api.shipcloud.io/v1/shipments
   },
   "package": {
     "weight": 5.5,
-    "package_type": "bulk"
+    "type": "bulk"
   },
   "carrier": "dhl",
   "create_shipping_label": true
@@ -122,7 +122,7 @@ as "everything which is too small for a parcel but larger and heavier than a cla
 
 __Requirements:__
 
-- <code>package_type</code> has to be _'parcel_letter'_
+- <code>type</code> has to be _'parcel_letter'_
 
 {% highlight http %}
 POST https://api.shipcloud.io/v1/shipments
@@ -141,7 +141,7 @@ POST https://api.shipcloud.io/v1/shipments
     "length": 25,
     "width": 36,
     "height": 5,
-    "package_type": "parcel_letter"
+    "type": "parcel_letter"
   },
   "carrier": "dpd",
   "service": "standard",
