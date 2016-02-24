@@ -375,9 +375,74 @@ Some services can be used on top of a normal shipment. Therefore they don't fall
 definition of a service - and because they mostly are only available for a few carriers. We're
 calling them _additional services_.
 
-___Notice:___
-_Unfortunately at the moment additional services are only available if you're using your own
-contract with the respective carrier._
+
+### Advance notice
+Some carriers provide the option to notify the recipient of a shipment of its arrival date and /
+or time. We currently support advance notices for DHL and DPD. While DHL supports notifications via
+email DPD also allows the recipient to also be notified via SMS.
+
+#### Notification via email
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight javascript %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    // see [2]
+  },
+  "additional_services": [
+    {
+      "name": "advance_notice",
+      "properties": {
+        "email": "test@example.com",
+        "language": "en"
+      }
+    }
+  ],
+  "carrier": "dhl",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
+#### Notification via SMS
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight javascript %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    // see [2]
+  },
+  "additional_services": [
+    {
+      "name": "advance_notice",
+      "properties": {
+        "sms": "+4917012345678"
+      }
+    }
+  ],
+  "carrier": "dpd",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
+### DHL - Advance notice
+DHL currently only supports advance notice via email. You can find an example above in our
+[advance notice](#notification-via-email) section.
 
 ### DHL - Cash on delivery
 
@@ -486,64 +551,7 @@ DPD allows recipients to be notified of a pending delivery within the next hour.
 can be used with shipcloud by specifying it as an additional service. You can either specify the
 email address or phone number of your customer to be notified.
 
-#### Notification via email
-
-{% highlight http %}
-POST https://api.shipcloud.io/v1/shipments
-{% endhighlight %}
-{% highlight javascript %}
-{
-  "from": {
-    // see [1]
-  },
-  "to": {
-    // see [1]
-  },
-  "package": {
-    // see [2]
-  },
-  "additional_services": [
-    {
-      "name": "advance_notice",
-      "properties": {
-        "email": "test@example.com",
-        "language": "en"
-      }
-    }
-  ],
-  "carrier": "dpd",
-  "create_shipping_label": true
-}
-{% endhighlight %}
-
-#### Notification via SMS
-
-{% highlight http %}
-POST https://api.shipcloud.io/v1/shipments
-{% endhighlight %}
-{% highlight javascript %}
-{
-  "from": {
-    // see [1]
-  },
-  "to": {
-    // see [1]
-  },
-  "package": {
-    // see [2]
-  },
-  "additional_services": [
-    {
-      "name": "advance_notice",
-      "properties": {
-        "sms": "+4917012345678"
-      }
-    }
-  ],
-  "carrier": "dpd",
-  "create_shipping_label": true
-}
-{% endhighlight %}
+For examples see [advance notice](#advance-notice)
 
 ***
 
