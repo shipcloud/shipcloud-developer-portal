@@ -33,8 +33,20 @@
         {% include edit_on_github.html %}
       </div>
     </div>
-    
+
+    {% if page.footnote_path %}
+      <div class="footnotes">
+        <div class="container">
+          <div class="row">
+            {% capture footnote_include_path %}{% include {{ page.footnote_path }}/footnotes.html %}{% endcapture %}
+            {{ footnote_include_path | markdownify }}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
     {% include footer.html %}
+    <script type="text/javascript" src="{{ site.baseurl }}/scripts/retina.min.js"></script>
     {% include google_analytics.html %}
   </body>
 

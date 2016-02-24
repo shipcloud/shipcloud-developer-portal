@@ -1,5 +1,9 @@
-.page-content, .site-footer, .full-page-content {
+.page-content, .site-footer, .full-page-content, .footnotes {
   font-family: arial, sans-serif;
+}
+
+.carrier-logo--table-header {
+  width: 80px;
 }
 
 nav {
@@ -49,16 +53,17 @@ table.services {
   }
 
   .glyphicon.glyphicon-ok-circle {
-    color: #91c24f;
+    color: #4aa739;
   }
-
+  
   .glyphicon.glyphicon-ban-circle {
-    color: #d52d53;
+    // color: #d52d53;
+    color: #269bd0;
   }
-
-  .glyphicon.glyphicon-info-sign {
-    color: #ffc506;
-  }
+  
+  // .glyphicon.glyphicon-info-sign {
+  //   color: #ffc506;
+  // }
 }
 
 table.status_codes {
@@ -253,6 +258,10 @@ table.status_codes {
     }
 }
 
+.footnotes {
+    border-top: 1px solid $grey-color-light;
+    padding: $spacing-unit/2 0;
+}
 
 
 /**
