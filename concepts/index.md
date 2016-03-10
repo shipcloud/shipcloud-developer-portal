@@ -155,6 +155,12 @@ correct according to the carrier.
 
 {% include concepts/carrier_specific_field_lengths_dpd.md %}
 
+## Carrier specific label sizes
+Each carrier can provide label sizes in a specific DIN format. Here's an overview of the label
+sizes that are available and can be configured within your shipcloud account:
+
+{% include concepts/carrier_specific_label_sizes.html %}
+
 # Supported services
 We currently support sending packages via the following carriers and services:
 
