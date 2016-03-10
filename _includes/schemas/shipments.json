@@ -104,7 +104,10 @@
         "city": { "type": "string" },
         "zip_code": { "type": "string" },
         "country": { "type": "string", "description": "Country as uppercase ISO 3166-1 alpha-2 code" },
-        "phone": { "type": "string" }
+        "phone": {
+          "type": "string",
+          "description": "telephone number (mandatory when using UPS and the following terms apply: service is one_day or one_day_early or ship to country is different than ship from country)"
+        }
       },
       "required": ["last_name", "street", "street_no", "city", "zip_code", "country"],
       "additionalProperties": false

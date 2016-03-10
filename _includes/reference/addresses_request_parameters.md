@@ -10,4 +10,4 @@ __Parameters:__
 - __city__ (string), city
 - __state__ (string, optional), state
 - __country__ (string), country as uppercase ISO 3166-1 alpha-2 code
-- __phone__ (string, optional), telephone number
+- __phone__ (string, optional), telephone number (mandatory when using UPS and the following terms apply: service is one_day or one_day_early or ship to country is different than ship from country)
