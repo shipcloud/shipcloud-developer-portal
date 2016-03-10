@@ -1,18 +1,8 @@
 __Parameters:__
 
 - __carrier__* (string), the carrier you want to use. Possible values are "dpd", "dhl", "gls", "hermes", "iloxx", "ups", "fedex"
-- __to__*, object describing the receivers address
-  - __company__ (string), the receivers company name
-  - __first_name__ (string, optional), the receivers first name
-  - __last_name__ (string), the receivers last name
-  - __care_of__ (string, optional), name of the person that should be able to receive the package
-  - __street__ (string), street name
-  - __street_no__ (string), house number
-  - __city__ (string), city
-  - __zip_code__ (string), zip code
-  - __state__ (string, optional), state
-  - __country__ (string), country as uppercase ISO 3166-1 alpha-2 code
-- __from__*, object describing the senders address. Address definition: see "to". If missing, the default sender address (if defined in your shipcloud account) will be used
+- __to__* (object), describes the receivers address. See [address request]({{ site.baseurl }}/reference/#addresses) for a detailed definition.
+- __from__* (object), describes the senders address. If missing, the default sender address (if defined in your shipcloud account) will be used. See [address request]({{ site.baseurl }}/reference/#addresses) for a detailed definition.
 - __package__*, object describing the package dimensions
   - __width__ (float), width of the package in cm
   - __length__ (float), length of the package in cm
