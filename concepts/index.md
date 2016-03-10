@@ -160,6 +160,15 @@ We currently support sending packages via the following carriers and services:
 
 {% include concepts/supported_services.html %}
 
+*shipment services explained:*
+
+- **standard:** A normal shipment without any extra charges for faster delivery or stuff like that
+- **one_day:** A express shipment that will be delivered the next working day
+- **one_day_early:** Same as *one_day*. The only difference is, that the carrier will deliver the
+shipment before noon
+- **same_day:** A shipment that will be delivered on the same day it was picked up
+- **returns:** A shipment that the customer sends back to the store / sender
+
 ## Additional services
 
 {% include concepts/additional_services.html %}

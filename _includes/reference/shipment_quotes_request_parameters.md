@@ -1,7 +1,7 @@
 __Parameters:__
 
 - __carrier__* (string, required), the carrier you want to use. Possible values are "dpd", "dhl", "gls", "hermes", "iloxx", "ups", "fedex"
-- __service__ (string, required), additional service. Available values are "returns", "standard", "one_day" (Express),"one_day_early" (Express until 10 o'clock)
+- __service__ (string, required), service that should be used. Available values are "returns", "standard", "one_day" , "one_day_early". See [supported services]({{ site.baseurl }}/concepts/#supported-services) for detailed information
 - __to__*, object describing the receivers address
   - __street__ (string), street name
   - __street_no__ (string), house number
