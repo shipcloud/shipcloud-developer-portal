@@ -5,6 +5,13 @@ nav: reference
 
 # shipcloud API v1
 
+## Changelog
+If you haven't seen it already in the
+[github-repo for this website](https://github.com/shipcloud/shipcloud.github.io/) - we've got a
+[api changelog file](https://github.com/shipcloud/shipcloud.github.io/blob/master/API_CHANGELOG.md)
+where you can see the changes we've made to our api. There is also an
+[HTML-version]({{ site.baseurl }}/API_CHANGELOG.html) of the changelog file for your convenience.
+
 ## http status codes
 When talking to our API you can receive the following status codes:
 
