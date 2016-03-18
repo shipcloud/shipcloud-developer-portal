@@ -53,6 +53,67 @@ layout: full
       </a>
     </div>
   </div>
+  <h3>Postman</h3>
+  <div class="row">
+    <div class="col-md-12">
+      To make it easier to test our api we've created a collection that you can import into
+      <a href="https://www.getpostman.com" target="_blank">postman</a>. Just enter your api keys in
+      the form below and click the "Run in postman" button to import it into your postman app.
+      After importing the collection you can
+      <a href="https://www.getpostman.com/docs/test_multi_environments" target="_blank">select the
+      specific environment</a> (sandbox or production) from within the postman app and make calls
+      to our api.
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      We've tried to add as many of our examples and recipes to the collection, so feel free to
+      explore the collection a bit.
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <form id="api-keys">
+        <div class="row">
+          <div class="col-md-2">
+            <label for="sandbox">sandbox api key</label>
+          </div>
+          <div class="col-md-3">
+            <input type="text" id="sandbox" style="width: 100%;">
+          </div>
+          <div class="col-md-2">
+            <label for="production">production api key</label>
+          </div>
+          <div class="col-md-3">
+            <input type="text" id="production" style="width: 100%;">
+          </div>
+          <div class="col-md-2">
+            <div class="postman-run-button"
+              data-postman-action="collection/import"
+              data-postman-var-1="fa265d769a11d85d1e9e">
+            </div>
+            <script type="text/javascript">
+              (function (p,o,s,t,m,a,n) {
+                !p[s] && (p[s] = function () { (p[t] || (p[t] = [])).push(arguments); });
+                !o.getElementById(s+t) && o.getElementsByTagName("head")[0].appendChild((
+                  (n = o.createElement("script")),
+                  (n.id = s+t), (n.async = 1), (n.src = m), n
+                ));
+              }(window, document, "_pm", "PostmanRunObject", "https://run.pstmn.io/button.js"));
+              $( ".postman-run-button" ).on( "click", function() {
+                _pm('env.create', 'shipcloud sandbox', {
+                  basic_auth: "Basic " + btoa($('#api-keys #sandbox').val() + ":")
+                });
+                _pm('env.create', 'shipcloud production', {
+                  basic_auth: "Basic " + btoa($('#api-keys #production').val() + ":")
+                });
+              });
+            </script>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
   <h2>Integration guide & concepts</h2>
   <div class="row">
     <div class="col-md-12">

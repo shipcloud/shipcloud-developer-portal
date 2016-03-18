@@ -341,7 +341,7 @@ POST /shipments
     // see [1]
   }
   "to": {
-    "care_of": "PAK 5KQTPH5"
+    "care_of": "PAK 5KQTPH5",
     "company": "LGI GmbH",
     "street": "Hewlett-Packard-Str.",
     "street_no": "1/1",
