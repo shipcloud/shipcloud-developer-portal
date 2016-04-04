@@ -58,6 +58,7 @@ __GET parameters:__
 - __street__, e.g. 'street_no=Musterstraße'
 - __street_no__, e.g. 'street_no=42'
 - __zip_code__, e.g. 'zip_code=12345'
+- __state__, e.g. 'state=CA'
 - __city__, e.g. 'street_no=Musterstadt'
 - __country__, e.g. 'street_no=DE'
 - __phone__, e.g. 'street_no=555-555'
