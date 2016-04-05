@@ -96,6 +96,7 @@
         "street_no": { "type": "string" },
         "city": { "type": "string" },
         "zip_code": { "type": "string" },
+        "state": { "type": "string" },
         "country": { "type": "string", "description": "Country as uppercase ISO 3166-1 alpha-2 code" },
         "phone": {
           "type": "string",

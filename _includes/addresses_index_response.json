@@ -16,17 +16,17 @@
     },
     {
       "id": "7ea2a290-b456-4ecf-9010-e82b3da298f0",
-      "company": "Muster-Company",
-      "first_name": "Max",
-      "last_name": "Mustermann",
+      "company": "Apple Inc.",
+      "first_name": "Tim",
+      "last_name": "Cook",
       "care_of": null,
-      "street": "Musterstraße",
-      "street_no": "42",
-      "zip_code": "54321",
-      "city": "Musterstadt",
-      "state": null,
-      "country": "DE",
-      "phone": null
+      "street": "Infinite Loop",
+      "street_no": "1",
+      "zip_code": "95014",
+      "city": "Cupertino",
+      "state": "CA",
+      "country": "US",
+      "phone": "408-996-1010"
     },
     {
       "id": "dd2af208-9d0e-4f3a-8ee5-601ecec99d27",
