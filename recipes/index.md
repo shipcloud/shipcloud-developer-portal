@@ -9,6 +9,36 @@ To give you a better understanding of how the shipcloud api could be used you ca
 recipes on this page. Sometimes there's also a certain chain of calls you need to perform to
 achieve a specific goal.
 
+## Label size
+Not all carriers use the same size of labels. Have a look at our chart of the
+[carrier specific label sizes]({{ site.baseurl }}/concepts/#carrier-specific-label-sizes)
+we support.
+
+You can configure the standard size we should create labels for each and every carrier from within
+the shipcloud backoffice, so you won't have to think about handling different label sizes. You can
+however define the size of the label on a per shipment basis. So, when you're creating a shipping
+label via our api you can send us the size the shipping label should have.
+
+{% highlight javascript %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    // see [2]
+  },
+  "carrier": "dhl",
+  "service": "standard",
+  "label": {
+    "size": "A5"
+  },
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
 ## DHL Packstation
 When sending to a DHL Packstation the following parameters have to be defined:
 

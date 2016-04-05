@@ -32,6 +32,10 @@
       "type": "string",
       "description": "text that describes the contents of the shipment. This parameter is mandatory if you're using UPS and the following conditions are true: from and to countries are not the same; from and/or to countries are not in the EU; from and to countries are in the EU and the shipments service is not standard"
     },
+    "label": {
+      "$ref": "#/definitions/label",
+      "description": "label characteristics"
+    },
     "notification_email": {
       "type": "string",
       "description": "email address that we should notify once there's an update for this shipment"
@@ -105,6 +109,17 @@
       },
       "required": ["last_name", "street", "street_no", "city", "zip_code", "country"],
       "additionalProperties": false
+    },
+    "label": {
+      "type": "object",
+      "properties": {
+        "size":  {
+          "type": "string",
+          "enum": ["A5", "A6"],
+          "description": "defines the DIN size that the returned label should have"
+      },
+      "additionalProperties": false,
+      "description": "label specific definitions"
     },
     "package": {
       "type": "object",
