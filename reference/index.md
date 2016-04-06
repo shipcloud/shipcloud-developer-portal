@@ -196,7 +196,7 @@ __URL parameters:__
   Prepared shipments (where create_shipping_label is false) can be deleted at any time, because no
   transaction with the carrier has happened until this point and no actual shipping label has been
   created. In case you've created a shipping label you can delete it before the cutoff time of the
-  carrier. Cutoff times differ from carrier to carrier and are some time between 5pm and 8pm. 
+  carrier. Cutoff times differ from carrier to carrier and are some time between 5pm and 8pm.
 </p>
 
 {% highlight bash %}
@@ -320,6 +320,10 @@ With this call you can find out how much a specific package will cost you.
 There are two ways you can request shipments to be picked up by a specific carrier. By simply
 stating that all shipments that haven't been picked up already should be picked up or by specifying
 which shipments should by picked up.
+
+__Notice:__ _We're using the default from address that's being defined in the shipcloud profile
+for requesting a pickup by the carrier. Please keep in mind there are
+[carrier specific field lengths]({{ site.baseurl }}/concepts/#carrier-specific-field-lengths) for that._
 
 #### Request
 
