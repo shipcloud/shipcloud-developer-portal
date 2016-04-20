@@ -47,25 +47,6 @@ nav {
   padding-top: 68px;
 }
 
-table.services {
-  td, th {
-    text-align: center;
-  }
-
-  .glyphicon.glyphicon-ok-circle {
-    color: #4aa739;
-  }
-  
-  .glyphicon.glyphicon-ban-circle {
-    // color: #d52d53;
-    color: #269bd0;
-  }
-  
-  // .glyphicon.glyphicon-info-sign {
-  //   color: #ffc506;
-  // }
-}
-
 table.status_codes {
   td:nth-child(1),
   th:nth-child(1) {
@@ -368,7 +349,28 @@ table.status_codes {
     font-size: 24px;
 }
 
+.carrier {
+  &.additional-services,
+  &.package-types,
+  &.other-attributes,
+  &.services {
+    .glyphicon.glyphicon-ok-circle {
+      color: #4aa739;
+    }
+    
+    .glyphicon.glyphicon-ban-circle {
+      color: #269bd0;
+    }
+  }
 
+  &.carrier__logo {
+    font-weight: 700;
+  }
+
+  td, th {
+    text-align: center;
+  }
+}
 
 /**
  * Posts
