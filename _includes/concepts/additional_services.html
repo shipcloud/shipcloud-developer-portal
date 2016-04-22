@@ -1,50 +1,36 @@
 <div class="row">
   <div class="col-md-12">
     Some services are only available when using a specific carrier.
-    <table class="table services">
+    <table class="table table-hover carrier additional-services">
       <thead>
         <tr>
-          <th>&nbsp;</th>
+          <th style="width:80px"></th>
           <th>
-            <img class="carrier-logo--table-header" src="{{site.baseurl}}/assets/images/logos/carriers/ups.png" title="UPS" alt="UPS" />
+            <a href="{{ site.baseurl }}/recipes/#dhl---cash-on-delivery">
+              cash_on_delivery
+            </a>
           </th>
           <th>
-            <img class="carrier-logo--table-header" src="{{site.baseurl}}/assets/images/logos/carriers/dhl.png" title="DHL" alt="DHL" />
+            <a href="{{ site.baseurl }}/recipes/#dpd---drop-authorization">
+              drop_authorization
+            </a>
           </th>
           <th>
-            <img class="carrier-logo--table-header" src="{{site.baseurl}}/assets/images/logos/carriers/hermes.png" title="Hermes" alt="Hermes" />
+            <a href="{{ site.baseurl }}/recipes/#dpd---saturday-delivery">
+              saturday_delivery
+            </a>
           </th>
           <th>
-            <img class="carrier-logo--table-header" src="{{site.baseurl}}/assets/images/logos/carriers/gls.png" title="GLS" alt="GLS" />
-          </th>
-          <th>
-            <img class="carrier-logo--table-header" src="{{site.baseurl}}/assets/images/logos/carriers/dpd.png" title="DPD" alt="DPD" />
-          </th>
-          <th>MyDPD<br />Business<sup>*</sup></th>
-          <th>FedEx</th>
-          <th>
-            <img class="carrier-logo--table-header" src="{{site.baseurl}}/assets/images/logos/carriers/liefery.png" title="Liefery" alt="Liefery" />
+            <a href="{{ site.baseurl }}/recipes/#dpd---predict">
+              advance_notice
+            </a>
           </th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>
-            <a href="{{ site.baseurl }}/recipes/#dhl---cash-on-delivery">
-              cash_on_delivery
-            </a>
-          </td>
-          <td>
-            <div class="glyphicon glyphicon-ban-circle"></div>
-          </td>
-          <td>
-            <div class="glyphicon glyphicon-ok-circle"></div>
-          </td>
-          <td>
-            <div class="glyphicon glyphicon-ban-circle"></div>
-          </td>
-          <td>
-            <div class="glyphicon glyphicon-ban-circle"></div>
+            <img class="carrier-logo--table-header" src="{{site.baseurl}}/assets/images/logos/carriers/ups.png" title="UPS" alt="UPS" />
           </td>
           <td>
             <div class="glyphicon glyphicon-ban-circle"></div>
@@ -61,15 +47,10 @@
         </tr>
         <tr>
           <td>
-            <a href="{{ site.baseurl }}/recipes/#dpd---drop-authorization">
-              drop_authorization
-            </a>
+            <img class="carrier-logo--table-header" src="{{site.baseurl}}/assets/images/logos/carriers/dhl.png" title="DHL" alt="DHL" />
           </td>
           <td>
-            <div class="glyphicon glyphicon-ban-circle"></div>
-          </td>
-          <td>
-            <div class="glyphicon glyphicon-ban-circle"></div>
+            <div class="glyphicon glyphicon-ok-circle"></div>
           </td>
           <td>
             <div class="glyphicon glyphicon-ban-circle"></div>
@@ -79,6 +60,14 @@
           </td>
           <td>
             <div class="glyphicon glyphicon-ok-circle"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <img class="carrier-logo--table-header" src="{{site.baseurl}}/assets/images/logos/carriers/deutsche_post.png" title="Deutsche Post" alt="Deutsche Post" />
+          </td>
+          <td>
+            <div class="glyphicon glyphicon-ban-circle"></div>
           </td>
           <td>
             <div class="glyphicon glyphicon-ban-circle"></div>
@@ -92,24 +81,10 @@
         </tr>
         <tr>
           <td>
-            <a href="{{ site.baseurl }}/recipes/#dpd---saturday-delivery">
-              saturday_delivery
-            </a>
+            <img class="carrier-logo--table-header" src="{{site.baseurl}}/assets/images/logos/carriers/hermes.png" title="Hermes" alt="Hermes" />
           </td>
           <td>
             <div class="glyphicon glyphicon-ban-circle"></div>
-          </td>
-          <td>
-            <div class="glyphicon glyphicon-ban-circle"></div>
-          </td>
-          <td>
-            <div class="glyphicon glyphicon-ban-circle"></div>
-          </td>
-          <td>
-            <div class="glyphicon glyphicon-ban-circle"></div>
-          </td>
-          <td>
-            <div class="glyphicon glyphicon-ok-circle"></div>
           </td>
           <td>
             <div class="glyphicon glyphicon-ban-circle"></div>
@@ -123,9 +98,24 @@
         </tr>
         <tr>
           <td>
-            <a href="{{ site.baseurl }}/recipes/#dpd---predict">
-              advance_notice
-            </a>
+            <img class="carrier-logo--table-header" src="{{site.baseurl}}/assets/images/logos/carriers/gls.png" title="GLS" alt="GLS" />
+          </td>
+          <td>
+            <div class="glyphicon glyphicon-ban-circle"></div>
+          </td>
+          <td>
+            <div class="glyphicon glyphicon-ban-circle"></div>
+          </td>
+          <td>
+            <div class="glyphicon glyphicon-ban-circle"></div>
+          </td>
+          <td>
+            <div class="glyphicon glyphicon-ban-circle"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <img class="carrier-logo--table-header" src="{{site.baseurl}}/assets/images/logos/carriers/dpd.png" title="DPD" alt="DPD" />
           </td>
           <td>
             <div class="glyphicon glyphicon-ban-circle"></div>
@@ -134,13 +124,52 @@
             <div class="glyphicon glyphicon-ok-circle"></div>
           </td>
           <td>
-            <div class="glyphicon glyphicon-ban-circle"></div>
-          </td>
-          <td>
-            <div class="glyphicon glyphicon-ban-circle"></div>
+            <div class="glyphicon glyphicon-ok-circle"></div>
           </td>
           <td>
             <div class="glyphicon glyphicon-ok-circle"></div>
+          </td>
+        </tr>
+        <tr>
+          <td class="carrier carrier__logo">
+            MyDPD<br />Business<sup>*</sup>
+          </td>
+          <td>
+            <div class="glyphicon glyphicon-ban-circle"></div>
+          </td>
+          <td>
+            <div class="glyphicon glyphicon-ban-circle"></div>
+          </td>
+          <td>
+            <div class="glyphicon glyphicon-ban-circle"></div>
+          </td>
+          <td>
+            <div class="glyphicon glyphicon-ban-circle"></div>
+          </td>
+        </tr>
+        <tr>
+          <td class="carrier carrier__logo">
+            FedEx
+          </td>
+          <td>
+            <div class="glyphicon glyphicon-ban-circle"></div>
+          </td>
+          <td>
+            <div class="glyphicon glyphicon-ban-circle"></div>
+          </td>
+          <td>
+            <div class="glyphicon glyphicon-ban-circle"></div>
+          </td>
+          <td>
+            <div class="glyphicon glyphicon-ban-circle"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <img class="carrier-logo--table-header" src="{{site.baseurl}}/assets/images/logos/carriers/liefery.png" title="Liefery" alt="Liefery" />
+          </td>
+          <td>
+            <div class="glyphicon glyphicon-ban-circle"></div>
           </td>
           <td>
             <div class="glyphicon glyphicon-ban-circle"></div>

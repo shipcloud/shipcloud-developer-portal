@@ -122,7 +122,7 @@ of your package.
 
 __Requirements:__
 
-- <code>type</code> has to be _'bulk'_
+- <code>package.type</code> has to be _'bulk'_
 - you'll have to use your own contract with the carrier
 
 {% highlight http %}
@@ -152,7 +152,7 @@ as "everything which is too small for a parcel but larger and heavier than a cla
 
 __Requirements:__
 
-- <code>type</code> has to be _'parcel_letter'_
+- <code>package.type</code> has to be _'parcel_letter'_
 
 {% highlight http %}
 POST https://api.shipcloud.io/v1/shipments
@@ -174,6 +174,108 @@ POST https://api.shipcloud.io/v1/shipments
     "type": "parcel_letter"
   },
   "carrier": "dpd",
+  "service": "standard",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
+## Deutsche Post Büchersendung
+You can send books, brochures, sheets of music and maps using the service
+[Büchersendung](https://www.deutschepost.de/en/b/buechersendung_national.html) by Deutsche Post AG.
+
+__Requirements:__
+
+- <code>package.type</code> has to be _'books'_
+- <code>carrier</code> has to be _'dpag'_
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight javascript %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    "weight": 0.5,
+    "length": 25,
+    "width": 18,
+    "height": 5,
+    "type": "books"
+  },
+  "carrier": "dpag",
+  "service": "standard",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
+## Deutsche Post Brief
+If you want to send a simple [letter](https://www.deutschepost.de/en/b/brief_postkarte.html) using
+the Deutsche Post AG services you can do that as well.
+
+__Requirements:__
+
+- <code>package.type</code> has to be _'letter'_
+- <code>carrier</code> has to be _'dpag'_
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight javascript %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    "weight": 0.5,
+    "length": 14,
+    "width": 10,
+    "height": 0.3,
+    "type": "letter"
+  },
+  "carrier": "dpag",
+  "service": "standard",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
+## Deutsche Post Warensendung
+You can send a variety of merchandise related things to your customers using the service
+[Warensendung](https://www.deutschepost.de/en/w/warensendung.html) by Deutsche Post AG.
+
+__Requirements:__
+
+- <code>package.type</code> has to be _'parcel_letter'_
+- <code>carrier</code> has to be _'dpag'_
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight javascript %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    "weight": 0.8,
+    "length": 20,
+    "width": 20,
+    "height": 5,
+    "type": "parcel_letter"
+  },
+  "carrier": "dpag",
   "service": "standard",
   "create_shipping_label": true
 }

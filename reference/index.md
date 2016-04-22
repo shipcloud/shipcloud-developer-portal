@@ -240,21 +240,36 @@ no payload
       "returns",
       "one_day",
       "one_day_early"
+    ],
+    "package_types": [
+      "parcel",
+      "bulk"
     ]
   },
   {
-    "name": "hermes",
-    "display_name": "Hermes Europe",
+    "name": "dpag",
+    "display_name": "Deutsche Post",
+    "services": [
+      "standard"
+    ],
+    "package_types": [
+      "letter",
+      "parcel_letter",
+      "books"
+    ]
+  },
+  {
+    "name": "dpd",
+    "display_name": "DPD - Dynamic Parcel Distribution",
     "services": [
       "standard",
-      "returns"
-    ]
-  },
-  {
-    "name": "liefery",
-    "display_name": "Liefery",
-    "services": [
-      "same_day"
+      "returns",
+      "one_day",
+      "one_day_early"
+    ],
+    "package_types": [
+      "parcel",
+      "parcel_letter"
     ]
   }
 ]
