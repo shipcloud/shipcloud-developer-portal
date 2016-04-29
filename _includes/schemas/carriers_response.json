@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "key for referencing the carrier within shipcloud"
+    },
+    "display_name": {
+      "type": "string",
+      "description": "name of the carrier you can use to display it in your application"
+    },
+    "services": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "description": "key for referencing the service within shipcloud",
+          "enum": ["standard", "returns", "one_day", "one_day_early", "same_day"],
+          "default": "standard"
+        }
+      ]
+    },
+    "package_types": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "description": "key for referencing the package type within shipcloud",
+          "enum": ["parcel", "bulk", "letter", "books", "parcel_letter"],
+          "default": "parcel"
+        }
+      ]
+    }
+  },
+  "required": ["name", "display_name", "services", "package_types"],
+  "additionalProperties": false
+}
