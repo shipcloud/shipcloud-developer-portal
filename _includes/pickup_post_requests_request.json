@@ -4,6 +4,17 @@
     "earliest": "2015-09-15T09:00:00+02:00",
     "latest": "2015-09-15T18:00:00+02:00"
   },
+  "pickup_address": {
+    "company": "Muster-Company",
+    "first_name": "Max",
+    "last_name": "Mustermann",
+    "street": "Musterstraße",
+    "street_no": "42",
+    "zip_code": "54321",
+    "city": "Musterstadt",
+    "country": "DE",
+    "phone": "555-555"
+  },
   "shipments": [
     {
       "id": "3a186c51d4281acbecf5ed38805b1db92a9d668b"

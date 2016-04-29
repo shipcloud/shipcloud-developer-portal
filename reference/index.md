@@ -336,9 +336,11 @@ There are two ways you can request shipments to be picked up by a specific carri
 stating that all shipments that haven't been picked up already should be picked up or by specifying
 which shipments should by picked up.
 
-__Notice:__ _We're using the default from address that's being defined in the shipcloud profile
-for requesting a pickup by the carrier. Please keep in mind there are
-[carrier specific field lengths]({{ site.baseurl }}/concepts/#carrier-specific-field-lengths) for that._
+__Notice:__ _If you don't supply a pickup_address in your request, we're using the default from
+address that's being defined in the shipcloud profile for requesting a pickup by the carrier.
+Please keep in mind there are
+[carrier specific field lengths]({{ site.baseurl }}/concepts/#carrier-specific-field-lengths)
+for that._
 
 #### Request
 
@@ -354,6 +356,17 @@ Here's an example for having all shipments being picked up by a specific carrier
   "pickup_time": {
     "earliest": "2015-09-15T09:00:00+02:00",
     "latest": "2015-09-15T18:00:00+02:00"
+  },
+  "pickup_address": {
+    "company": "Muster-Company",
+    "first_name": "Max",
+    "last_name": "Mustermann",
+    "street": "Musterstraße",
+    "street_no": "42",
+    "zip_code": "54321",
+    "city": "Musterstadt",
+    "country": "DE",
+    "phone": "555-555"
   }
 }
 {% endhighlight %}
@@ -369,6 +382,10 @@ If you want to only have specific shipments be picked up you add the shipment id
 <i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Pickup Requests request]({{ site.baseurl }}/reference/pickup_requests_request_schema.html)
 
 #### Response
+
+__Notice:__ _Some carriers (e.g. Hermes) are using the address that's being defined at the carrier
+account for picking up shipments. In those cases we'll return ```null``` as pickup_address._
+
 {% include headers/200_ok.html %}
 {% highlight json %}
 {% include pickup_post_requests_response.json %}

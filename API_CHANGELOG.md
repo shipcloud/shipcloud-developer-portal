@@ -12,9 +12,15 @@ work with any other release modifiers than major versions.
 
 **Notice**: Not everything we do affects the viewable parts of our api.
 
+## [20160422] - 2016-04-22
+
+### Added
+- When making a PickupRequest you can now add a [pickup_address](https://developers.shipcloud.io/reference/#pickup-requests)
+  that tells the carrier where the shipments should be collected
+
 ## [20160304] - 2016-03-04
 
-### Fixed
+### Added
 - We're now returning [additional services](https://developers.shipcloud.io/recipes/#additional-services)
   when querying information about shipments
 
