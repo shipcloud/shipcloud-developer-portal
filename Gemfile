@@ -6,7 +6,7 @@ gem 'jekyll-coffeescript', '1.0.1'
 gem 'jekyll-sass-converter', '1.2.0'
 
 # Converters
-gem 'kramdown', '1.5.0'
+gem 'kramdown', '1.11.1'
 
 # Liquid
 gem 'liquid', '2.6.2'
