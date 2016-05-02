@@ -7,10 +7,6 @@ gem 'jekyll-sass-converter', '1.2.0'
 
 # Converters
 gem 'kramdown', '1.5.0'
-# gem 'maruku', '0.7.0'
-# gem 'rdiscount', '2.1.7'
-# gem 'redcarpet', '3.3.2'
-# gem 'RedCloth', '4.2.9'
 
 # Liquid
 gem 'liquid', '2.6.2'
