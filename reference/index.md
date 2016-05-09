@@ -92,6 +92,12 @@ __GET parameters:__
 The following is a section of resources related to shipments. Be advised: We will charge you only for shipments that a
 label was created for.
 
+<p class="bg-info">
+  <i class="glyphicon glyphicon-info-sign"></i>
+  Please notice the requirements regarding the use of the parameter "description" (either in the
+  root or as part of the "package" attribute).
+</p>
+
 {% include reference/shipments_request_togglebox.html %}
 
 ### Creating a shipment
