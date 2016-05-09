@@ -58,5 +58,5 @@ us so we can put up links to your work on our sites once the integration is avai
 
 __Notice:__ To make things easier for our support team we'd kindly ask you to send a custom header
 with every request you're making. This way we can identify problems with a specific platform easier.
-The headers key is _'Affiliate-ID'_. To know which value you need to specify, please contact us at
+The headers key is '__Affiliate-ID__'. To know which value you need to specify, please contact us at
 developers@shipcloud.io.

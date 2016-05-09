@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Jekyll
-gem 'jekyll', '2.4.0'
+gem 'jekyll', '~> 3.1.x'
 gem 'jekyll-coffeescript', '1.0.1'
 gem 'jekyll-sass-converter', '1.2.0'
 
@@ -9,10 +9,7 @@ gem 'jekyll-sass-converter', '1.2.0'
 gem 'kramdown', '1.11.1'
 
 # Liquid
-gem 'liquid', '2.6.2'
-
-# Highlighters
-gem 'pygments.rb', '0.6.3'
+gem 'liquid', '~> 3.0.x'
 
 # Plugins
 gem 'jekyll-sitemap', '0.8.1'

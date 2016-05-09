@@ -1982,7 +1982,7 @@ parseStatement: true, parseSourceElement: true */
     /**
      * @name expectTolerant
      * @description Quietly expect the given token value when in tolerant mode, otherwise delegates
-     * to <code>expect(value)</code>
+     * to ```expect(value)```
      * @param {String} value The value we are expecting the lookahead token to have
      * @since 2.0
      */
