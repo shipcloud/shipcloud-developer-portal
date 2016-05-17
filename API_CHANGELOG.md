@@ -12,6 +12,25 @@ work with any other release modifiers than major versions.
 
 **Notice**: Not everything we do affects the viewable parts of our api.
 
+## [20160511] - 2016-05-11
+
+### Added
+- You can supply the id of an address now when creating a ShipmentQuote
+
+### Changed
+- When creating a ShipmentQuote you won't have to supply a from-address anymore. If it's missing
+  we'll use the standard from address that is associated with your account
+
+### Fixed
+- Returning the right error message when standard ship from address is missing a phone number and
+  making a PickupRequest for carrier UPS
+- Package type will now be returned as parameter ```type``` withing the object ```package``` when
+  creating a shipment
+- When creating a returns shipment we won't return the misleading tip about having to add a
+  _default address at your profile page_ anymore, since you can supply a different address
+- if ```pakadoo.id``` is ```null``` we'll return a error message now
+- if ```pakadoo.id``` is empty we'll return a error message now
+
 ## [20160422] - 2016-04-22
 
 ### Added
