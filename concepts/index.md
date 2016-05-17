@@ -49,13 +49,13 @@ fail!
 
 Many API methods take optional parameters. For GET requests, any parameters not specified as a segment in the path can be passed as an HTTP query string parameter:
 
-{% highlight bash %}
+{% highlight shell %}
 curl -i -u api_key "https://api.shipcloud.io/v1/shipments?service=returns"
 {% endhighlight %}
 
 For POST, PATCH, PUT, and DELETE requests, parameters not included in the URL should be encoded as JSON with a Content-Type of ‘application/json’:
 
-{% highlight bash %}
+{% highlight shell %}
 curl -i -u f7ca956fd5670b2fa8fdee47672b2a26 -d '{"service":["returns"]}' "https://api.shipcloud.io/v1/shipments"
 {% endhighlight %}
 
@@ -72,8 +72,8 @@ As with every API we will be releasing new versions from time to time. We do pro
 In case we introduce __breaking changes__ we will adjust the API base path to reflect each new major version. So consecutive releases will be called using /v2/, /v3/ and so on.
 
 ## Address handling
-When sending <code>to</code> or <code>from</code> parameters you have to specify a contact for the shipment. This can
-either be a <code>company</code> or a person identified by <code>first_name</code> and <code>last_name</code>. So
+When sending ```to``` or ```from``` parameters you have to specify a contact for the shipment. This can
+either be a ```company``` or a person identified by ```first_name``` and ```last_name```. So
 although the entries are marked as being optional, one of them has to be specified in the request.
 
 There are some [carrier specific things](#carrier-specific-address-handling) you have to take in mind.
@@ -213,7 +213,7 @@ you're sending.
 
 If at any time you feel the need to generate a new set of api keys (e.g. because you get the feeling, that your system
 has been compromised) you can do that in the shipcloud backoffice by clicking your email address at the upper right
-corner and selecting the menu item <code>API Key</code>.
+corner and selecting the menu item ```API Key```.
 
 ## Cleanup
 We're currently deleting sandbox shipments 2 weeks after they've been created. So it's best

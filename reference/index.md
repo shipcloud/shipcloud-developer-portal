@@ -159,7 +159,7 @@ __GET parameters:__
 
 #### Request
 <kbd>GET</kbd> __/v1/shipments/:id__
-{% highlight bash %}
+{% highlight shell %}
 no payload
 {% endhighlight %}
 
@@ -205,7 +205,7 @@ __URL parameters:__
   carrier. Cutoff times differ from carrier to carrier and are some time between 5pm and 8pm.
 </p>
 
-{% highlight bash %}
+{% highlight shell %}
 no payload
 {% endhighlight %}
 
@@ -230,7 +230,7 @@ __URL parameters:__
 
 <kbd>GET</kbd> __/v1/carriers__
 
-{% highlight bash %}
+{% highlight shell %}
 no payload
 {% endhighlight %}
 
@@ -460,7 +460,7 @@ __GET parameters:__
 
 <kbd>DELETE</kbd> __/v1/webhooks/:id__
 
-{% highlight bash %}
+{% highlight shell %}
 no payload
 {% endhighlight %}
 

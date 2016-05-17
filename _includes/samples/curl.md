@@ -2,7 +2,7 @@
 This is a full sized example. You can omit the from parameters if you define a standard ship from
 address in the shipcloud backoffice.
 
-{% highlight bash %}
+{% highlight shell %}
 curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments \
   -d "to[company]=Musterfirma" \
   -d "to[first_name]=Hans" \
@@ -37,10 +37,10 @@ you can create shipments that will be delivered within the same day.
 
 __Requirements:__
 
-- <code>service</code> has to be _'same_day'_
-- a <code>phone</code> number is required for sender and recipient
+- ```service``` has to be _'same_day'_
+- a ```phone``` number is required for sender and recipient
 
-{% highlight bash %}
+{% highlight shell %}
 curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments \
   -d "to[company]=Musterfirma" \
   -d "to[first_name]=Hans" \
@@ -70,14 +70,14 @@ curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments \
 {% endhighlight %}
 
 ### Getting infos about a shipment
-{% highlight bash %}
+{% highlight shell %}
   curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments/665d5287b73575cfba622a4b5094c6fd2f0f3f74
 {% endhighlight %}
 
 ### Updating a shipment
-Updating shipments is only possible if you haven't created a label by setting <code>create_shipping_label=true</code>
+Updating shipments is only possible if you haven't created a label by setting ```create_shipping_label=true```
 
-{% highlight bash %}
+{% highlight shell %}
 curl -X PUT -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments/665d5287b73575cfba622a4b5094c6fd2f0f3f74 \
   -d "to[last_name]=Meier" \
   -d "to[street]=Musterstraße" \
@@ -101,7 +101,7 @@ curl -X PUT -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipments/665d5287
 {% endhighlight %}
 
 ### Getting a shipment quote for a package
-{% highlight bash %}
+{% highlight shell %}
 curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipment_quotes \
   -d "carrier=hermes" \
   -d "from[street]=Musterstraße" \
@@ -122,6 +122,6 @@ curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/shipment_quotes \
 {% endhighlight %}
 
 ### Getting all available carriers for the account
-{% highlight bash %}
+{% highlight shell %}
   curl -u {{ site.apikey }}: https://api.shipcloud.io/v1/carriers
 {% endhighlight %}

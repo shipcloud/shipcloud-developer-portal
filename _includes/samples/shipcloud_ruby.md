@@ -2,7 +2,7 @@
 Before using the shipcloud API, you need to set the API access key:
 
 {% highlight ruby %}
-  Shipcloud.api_key = '{{ site.apikey }}'
+Shipcloud.api_key = '{{ site.apikey }}'
 {% endhighlight %}
 
 Since Version 0.3.0, you can also do this via a configuration block, e.g. in an initializer:
@@ -13,7 +13,7 @@ Shipcloud.configure do |config|
 end
 {% endhighlight %}
 
-### Creating a new shipment</h3>
+### Creating a new shipment
 To create a new shipment on the shipclod platform, you need to provide the name of the carrier, to
 and from address, and the package dimensions. For details, see our <a href="/reference">API reference</a>.
 
@@ -27,8 +27,8 @@ Shipcloud::Shipment.create(
 )
 {% endhighlight %}
 
-<code>Shipment#create</code> will return shipping label and tracking information, encapsulated in a
-<code>Shipcloud::Shipment</code> object:
+```Shipment#create``` will return shipping label and tracking information, encapsulated in a
+```Shipcloud::Shipment``` object:
 
 {% highlight ruby %}
 shipment = Shipcloud::Shipment.create(...) # parameters ommitted

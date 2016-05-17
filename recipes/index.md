@@ -19,7 +19,7 @@ the shipcloud backoffice, so you won't have to think about handling different la
 however define the size of the label on a per shipment basis. So, when you're creating a shipping
 label via our api you can send us the size the shipping label should have.
 
-{% highlight javascript %}
+{% highlight json %}
 {
   "from": {
     // see [1]
@@ -42,14 +42,14 @@ label via our api you can send us the size the shipping label should have.
 ## DHL Packstation
 When sending to a DHL Packstation the following parameters have to be defined:
 
-- <code>care_of</code> = customer id number (_postnummer_)
-- <code>street_no</code> = number of packstation
+- ```care_of``` = customer id number (_postnummer_)
+- ```street_no``` = number of packstation
 
 {% highlight http %}
 POST https://api.shipcloud.io/v1/shipments
 {% endhighlight %}
 
-{% highlight javascript %}
+{% highlight json %}
 {
   "from": {
     // see [1]
@@ -76,14 +76,14 @@ POST https://api.shipcloud.io/v1/shipments
 ## DHL Postfiliale
 When sending to a DHL post office the following parameters have to be defined:
 
-- <code>care_of</code> = customer id number (_postnummer_)
-- <code>street_no</code> = number of the Postfiliale outlet
+- ```care_of``` = customer id number (_postnummer_)
+- ```street_no``` = number of the Postfiliale outlet
 
 {% highlight http %}
 POST https://api.shipcloud.io/v1/shipments
 {% endhighlight %}
 
-{% highlight javascript %}
+{% highlight json %}
 {
   "from": {
     // see [1]
@@ -109,7 +109,7 @@ POST https://api.shipcloud.io/v1/shipments
 
 ## DHL higher insurance
 If you want your DHL shipment to have a so called __higher insurance__  you'll have to specify the
-parameter <code>declared_value</code> as part of the package object with the value of the goods
+parameter ```declared_value``` as part of the package object with the value of the goods
 you're shipping. All __shipments up to 500 Euros are automatically insured__. You shouldn't specify
 declared_value when creating a shipment of lesser value.
 
@@ -122,14 +122,14 @@ of your package.
 
 __Requirements:__
 
-- <code>package.type</code> has to be _'bulk'_
+- ```package.type``` has to be _'bulk'_
 - you'll have to use your own contract with the carrier
 
 {% highlight http %}
 POST https://api.shipcloud.io/v1/shipments
 {% endhighlight %}
 
-{% highlight javascript %}
+{% highlight json %}
 {
   "from": {
     // see [1]
@@ -152,13 +152,13 @@ as "everything which is too small for a parcel but larger and heavier than a cla
 
 __Requirements:__
 
-- <code>package.type</code> has to be _'parcel_letter'_
+- ```package.type``` has to be _'parcel_letter'_
 
 {% highlight http %}
 POST https://api.shipcloud.io/v1/shipments
 {% endhighlight %}
 
-{% highlight javascript %}
+{% highlight json %}
 {
   "from": {
     // see [1]
@@ -185,14 +185,14 @@ You can send books, brochures, sheets of music and maps using the service
 
 __Requirements:__
 
-- <code>package.type</code> has to be _'books'_
-- <code>carrier</code> has to be _'dpag'_
+- ```package.type``` has to be _'books'_
+- ```carrier``` has to be _'dpag'_
 
 {% highlight http %}
 POST https://api.shipcloud.io/v1/shipments
 {% endhighlight %}
 
-{% highlight javascript %}
+{% highlight json %}
 {
   "from": {
     // see [1]
@@ -219,14 +219,14 @@ the Deutsche Post AG services you can do that as well.
 
 __Requirements:__
 
-- <code>package.type</code> has to be _'letter'_
-- <code>carrier</code> has to be _'dpag'_
+- ```package.type``` has to be _'letter'_
+- ```carrier``` has to be _'dpag'_
 
 {% highlight http %}
 POST https://api.shipcloud.io/v1/shipments
 {% endhighlight %}
 
-{% highlight javascript %}
+{% highlight json %}
 {
   "from": {
     // see [1]
@@ -253,14 +253,14 @@ You can send a variety of merchandise related things to your customers using the
 
 __Requirements:__
 
-- <code>package.type</code> has to be _'parcel_letter'_
-- <code>carrier</code> has to be _'dpag'_
+- ```package.type``` has to be _'parcel_letter'_
+- ```carrier``` has to be _'dpag'_
 
 {% highlight http %}
 POST https://api.shipcloud.io/v1/shipments
 {% endhighlight %}
 
-{% highlight javascript %}
+{% highlight json %}
 {
   "from": {
     // see [1]
@@ -288,14 +288,14 @@ shipping.
 
 __Requirements:__
 
-- <code>service</code> has to be _'returns'_
-- <code>carrier</code> can be _'dhl', 'ups', 'hermes' or 'dpd'_
+- ```service``` has to be _'returns'_
+- ```carrier``` can be _'dhl', 'ups', 'hermes' or 'dpd'_
 
 {% highlight http %}
 POST https://api.shipcloud.io/v1/shipments
 {% endhighlight %}
 
-{% highlight javascript %}
+{% highlight json %}
 {
   "from": {
     // see [1]
@@ -354,7 +354,7 @@ As you can see, the response contains a unique id for this address, which you ca
 {% highlight http %}
 POST /shipments
 {% endhighlight %}
-{% highlight javascript %}
+{% highlight json %}
 {
   "carrier":"DHL",
   "to": {
@@ -379,8 +379,8 @@ There are 2 ways you can create a shipment that’s going to be send to a pakado
 - create an address and use the id that’s returned for the address to create a shipment  
 - create a shipment by specifying the pakadoo ID in the to address object of the shipments call.
 
-In both cases you can either specify the pakadoo ID as <code>pakadoo_id</code> or you simply use
-the <code>care_of</code> attribute with "PAK" as a prefix to the pakadoo ID (e.g "PAK 5KQTPH5").
+In both cases you can either specify the pakadoo ID as ```pakadoo_id``` or you simply use
+the ```care_of``` attribute with "PAK" as a prefix to the pakadoo ID (e.g "PAK 5KQTPH5").
 
 ### Create a pakadoo address and shipment using the pakadoo_id
 
@@ -420,7 +420,7 @@ Like with every other address you can then use its unique address id to create a
 {% highlight http %}
 POST /shipments
 {% endhighlight %}
-{% highlight javascript %}
+{% highlight json %}
 {
   "from": {
     // see [1]
@@ -452,9 +452,9 @@ POST /shipments
 
 You can use this if e.g. you don't want to amend your checkout process. Your customers can use your
 existing address form to specify the pakadoo point address by entering their pakadoo ID in the
-<code>care_of</code> field (e.g. "PAK 5KQTPH5").
+```care_of``` field (e.g. "PAK 5KQTPH5").
 
-We're checking the <code>care_of</code> attribue for the "PAK" prefix. If it's found, we then check
+We're checking the ```care_of``` attribue for the "PAK" prefix. If it's found, we then check
 if a valid pakadoo userid is present, validate it using the pakadoo system and return the users'
 selected pakadoo point address, if available.
 
@@ -467,7 +467,7 @@ from the pakadoo system._
 {% highlight http %}
 POST /shipments
 {% endhighlight %}
-{% highlight javascript %}
+{% highlight json %}
 {
   "from": {
     // see [1]
@@ -518,7 +518,7 @@ email DPD also allows the recipient to also be notified via SMS.
 {% highlight http %}
 POST https://api.shipcloud.io/v1/shipments
 {% endhighlight %}
-{% highlight javascript %}
+{% highlight json %}
 {
   "from": {
     // see [1]
@@ -548,7 +548,7 @@ POST https://api.shipcloud.io/v1/shipments
 {% highlight http %}
 POST https://api.shipcloud.io/v1/shipments
 {% endhighlight %}
-{% highlight javascript %}
+{% highlight json %}
 {
   "from": {
     // see [1]
@@ -581,7 +581,7 @@ DHL currently only supports advance notice via email. You can find an example ab
 {% highlight http %}
 POST https://api.shipcloud.io/v1/shipments
 {% endhighlight %}
-{% highlight javascript %}
+{% highlight json %}
 {
   "from": {
     // see [1]
@@ -617,7 +617,7 @@ else in case the receiver isn't present and has allowed the sender to do so.
 {% highlight http %}
 POST https://api.shipcloud.io/v1/shipments
 {% endhighlight %}
-{% highlight javascript %}
+{% highlight json %}
 {
   "from": {
     // see [1]
@@ -648,13 +648,13 @@ the carrier supports this).
 
 __Requirements:__
 
-- <code>service</code> has to be _'one_day'_ or _'one_day_early'_
+- ```service``` has to be _'one_day'_ or _'one_day_early'_
 - you'll have to use your own contract with the carrier
 
 {% highlight http %}
 POST https://api.shipcloud.io/v1/shipments
 {% endhighlight %}
-{% highlight javascript %}
+{% highlight json %}
 {
   "from": {
     // see [1]
@@ -690,7 +690,7 @@ For examples see [advance notice](#advance-notice)
 ## _Footnotes_
 
 _[1] Addresses_
-{% highlight javascript %}
+{% highlight json %}
 {
   "company": "Gewuerze Paderborn",
   "first_name": "Karl",
@@ -705,7 +705,7 @@ _[1] Addresses_
 
 
 _[2] Packages_
-{% highlight javascript %}
+{% highlight json %}
 {
   "weight": 1.5,
   "length": 10,
