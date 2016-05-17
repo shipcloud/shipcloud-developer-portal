@@ -161,6 +161,19 @@ sizes that are available and can be configured within your shipcloud account:
 
 {% include concepts/carrier_specific_label_sizes.html %}
 
+## Misc carrier specifics
+
+### DHL
+* when using the service ___one_day___ or ___one_day_early___ the parameter
+___package.description___ is mandatory
+
+### UPS
+* when using the service ___returns___ the parameter ___package.description___ is mandatory
+* if one of the following conditions is true, the parameter ___description___ is mandatory:
+  * from and to countries are not the same
+  * from and/or to countries are not in the EU
+  * from and to countries are in the EU and the shipments service is not ___standard___
+
 # Supported services
 We currently support sending packages via the following carriers and services:
 
