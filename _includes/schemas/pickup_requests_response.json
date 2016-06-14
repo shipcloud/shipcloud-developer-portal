@@ -51,7 +51,7 @@
       },
       "required": ["last_name", "street", "street_no", "city", "zip_code", "country"],
       "additionalProperties": false
-    },
+    }
   },
   "required": ["id", "carrier", "pickup_time"],
   "additionalProperties": false
