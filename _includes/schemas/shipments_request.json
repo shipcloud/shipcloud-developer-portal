@@ -117,6 +117,7 @@
           "type": "string",
           "enum": ["A5", "A6"],
           "description": "defines the DIN size that the returned label should have"
+        }
       },
       "additionalProperties": false,
       "description": "label specific definitions"
