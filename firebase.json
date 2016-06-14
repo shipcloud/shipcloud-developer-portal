@@ -1,16 +1,17 @@
 {
-  "firebase": "shipcloud-developer-portal",
-  "public": "_site",
-  "ignore": [
-    "firebase.json",
-    "**/.*",
-    "**/node_modules/**"
-  ],
-  "redirects": [
-    {
-      "source": "/libraries",
-      "destination": "/integrations",
-      "type": 301
-    }
-  ]
+  "hosting": {
+    "public": "_site",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "redirects": [
+      {
+        "source": "/libraries",
+        "destination": "/integrations",
+        "type": 301
+      }
+    ]
+  }
 }
