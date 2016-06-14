@@ -1,0 +1,4 @@
+---
+layout: none
+---
+{% include schemas/pickup_requests_response.json %}
