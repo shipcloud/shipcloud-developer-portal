@@ -23,7 +23,7 @@
     },
     "package": {
       "$ref": "#/definitions/package"
-    },
+    }
   },
   "required": ["carrier", "service", "to", "from", "package"],
   "additionalProperties": false,
