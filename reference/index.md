@@ -118,7 +118,7 @@ If you want to create a shipment, this is the way to go!
 {% include shipments_post_put_response.json %}
 {% endhighlight %}
 
-<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Shipments response]({{ site.baseurl }}/reference/shipments_response_schema.html)
+<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Shipments response]({{ site.baseurl }}/reference/shipments_response_reduced_schema.html)
 
 ### Getting a list of shipments
 

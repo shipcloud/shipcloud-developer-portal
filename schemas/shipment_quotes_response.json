@@ -1,0 +1,4 @@
+---
+layout: none
+---
+{% include schemas/shipment_quotes_response.json %}
