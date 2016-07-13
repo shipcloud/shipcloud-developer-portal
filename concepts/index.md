@@ -167,6 +167,11 @@ sizes that are available and can be configured within your shipcloud account:
 * when using the service ___one_day___ or ___one_day_early___ the parameter
 ___package.description___ is mandatory
 
+### GLS
+* shipments will receive a carrier tracking number (```carrier_tracking_no```) with the first scan
+by the carrier, which is why this parameter won't be included in the response when creating a
+shipment.
+
 ### UPS
 * when using the service ___returns___ the parameter ___package.description___ is mandatory
 * if one of the following conditions is true, the parameter ___description___ is mandatory:
