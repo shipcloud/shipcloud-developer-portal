@@ -63,7 +63,7 @@
                 },
                 "status": {
                   "type": "string",
-                  "enum": ["shipcloud_label_created", "label_created", "picked_up", "delivered", "not_delivered", "transit", "exception", "out_for_delivery", "unknown", "canceled"],
+                  "enum": ["shipcloud_label_created", "label_created", "picked_up", "delivered", "not_delivered", "transit", "exception", "out_for_delivery", "destroyed", "unknown", "canceled"],
                   "description": "key describing the status"
                 },
                 "details": {
