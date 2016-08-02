@@ -296,6 +296,16 @@ With this call you can find out how much we will charge you for a specific shipm
 {% include shipment_quotes_post_request.json %}
 {% endhighlight %}
 
+In case you've previously added an adress and know its ```id```, you can use it instead of
+providing a complete set of address data.
+
+{% highlight json %}
+{% include shipment_quotes_post_request_with_address_id.json %}
+{% endhighlight %}
+
+You can also omit the ```from``` parameter if the users has configured a standard ship from address
+in her/his shipcloud profile.
+
 <i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Shipment Quotes request]({{ site.baseurl }}/reference/shipment_quotes_request_schema.html)
 
 #### Response
