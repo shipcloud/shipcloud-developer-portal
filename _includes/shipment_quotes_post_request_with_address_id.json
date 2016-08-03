@@ -2,11 +2,7 @@
   "carrier": "dhl",
   "service": "standard",
   "to": {
-    "street": "Beispielstrasse",
-    "street_no": "42",
-    "zip_code": "22100",
-    "city": "Hamburg",
-    "country": "DE"
+    "id": "522a7cb1-d6c8-418c-ac26-011127ab5bbe"
   },
   "from": {
     "street": "Musterstrasse",

@@ -25,7 +25,7 @@
       "$ref": "#/definitions/package"
     }
   },
-  "required": ["carrier", "service", "to", "from", "package"],
+  "required": ["carrier", "service", "to", "package"],
   "additionalProperties": false,
   "definitions": {
     "address": {
