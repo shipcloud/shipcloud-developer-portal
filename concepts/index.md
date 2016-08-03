@@ -161,6 +161,24 @@ sizes that are available and can be configured within your shipcloud account:
 
 {% include concepts/carrier_specific_label_sizes.html %}
 
+## Carrier specific cutoff times
+When requesting shipments to be picked up, each carrier has a specific strategy. Since not every
+carrier is making clear what their cutoff times are, we can give you the following advices.
+
+### UPS
+When requesting a pickup by UPS, the carrier is validating your request if it's possible for them
+to reach you within the requested time period. This validation factors in if there is enough time
+for the driver to come to you and how far their depot is located from you.
+
+UPS also has a list of cutoff times for postcodes in Germany, you can find within a service pdf
+which is provided as a
+[download on the UPS website](https://www.ups.com/media/de/service_guide_de_preview.pdf).
+
+### Hermes
+If the volume is below 2m<sup>3</sup>, you can request a pickup for the next day until 9pm the day
+before. If the volume exceeds this limit you'll have to request the pickup until 2pm the previous
+day.
+
 ## Misc carrier specifics
 
 ### DHL
