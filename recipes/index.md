@@ -513,6 +513,11 @@ Some carriers provide the option to notify the recipient of a shipment of its ar
 or time. We currently support advance notices for DHL and DPD. While DHL supports notifications via
 email DPD also allows the recipient to also be notified via SMS.
 
+__Requirements:__
+
+- ```language``` has to be provided as a
+[ISO 639-1 code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
+
 #### Notification via email
 
 {% highlight http %}
