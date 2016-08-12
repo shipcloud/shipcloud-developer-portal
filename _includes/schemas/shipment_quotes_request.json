@@ -4,7 +4,7 @@
   "properties": {
     "carrier": {
       "type": "string",
-      "enum": ["dhl", "dpag", "ups", "dpd", "hermes", "gls", "fedex", "liefery"],
+      "enum": ["dhl", "dpag", "ups", "dpd", "hermes", "gls", "tnt", "fedex", "liefery"],
       "description": "acronym of the carrier you want to use"
     },
     "service": {

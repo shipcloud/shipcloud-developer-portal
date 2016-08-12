@@ -4,7 +4,7 @@
   "properties": {
     "carrier": {
       "type": "string",
-      "enum": ["dhl", "dpag", "ups", "dpd", "hermes", "gls", "fedex", "liefery"],
+      "enum": ["dhl", "dpag", "ups", "dpd", "hermes", "gls", "tnt", "fedex", "liefery"],
       "description": "acronym of the carrier you want to use"
     },
     "to": {
@@ -71,6 +71,10 @@
       },
       "required": ["name"],
       "additionalProperties": false
+    },
+    "pickup": {
+      "$ref": "#/definitions/pickup",
+      "description": "pickup request for this shipment"
     },
     "create_shipping_label": {
       "type": "boolean",
@@ -150,6 +154,33 @@
       "required": ["width", "height", "length", "weight"],
       "additionalProperties": false,
       "description": "defines package dimensions"
+    },
+    "pickup": {
+      "type": "object",
+      "properties": {
+        "pickup_time": {
+          "type": "object",
+          "properties": {
+            "earliest": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "latest": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "description": "defined time window when the carrier should pickup shipments",
+          "required": ["earliest", "latest"],
+          "additionalProperties": false
+        },
+        "pickup_address": {
+          "$ref": "#/definitions/address",
+          "description": "address where the shipment should be picked up"
+        }
+      },
+      "required": ["pickup_time"],
+      "additionalProperties": false
     }
   }
 }
