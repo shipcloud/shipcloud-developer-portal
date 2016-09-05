@@ -16,33 +16,9 @@ clone it and off you go!
 
 Why reinvent the wheel? There are already a lot of plugins / extensions / modules / libraries for
 existing services or coding languages available. So maybe you won't have to write your own code for
-integrating shipcloud into your system:
-
-- [Actindo](https://www.actindo.de/partner-im-ecommerce/partner-im-ecommerce)
-- [Commercetools](http://www.commercetools.com)
-- [e-matters](http://www.e-matters.de/marketplace/ecommerce-suite/versand-_-warenwirtschaft/schnittstelle-shipcloud)
-- [Gambio](http://www.gambio.de/blog/gambio-und-shipcloud/)
-- [Jimdo](http://www.jimdo.com)
-- [JTL Wawi](https://www.unicorn2.de/unicorn-ii/logistiker/)
-- [Magento](http://www.magentocommerce.com/magento-connect/shipcloud.html)
-- [Microsoft Dynamics NAV](http://www.cus-lauter.de/nav-shipcloud.php)
-- [modified eCommerce Shopsoftware](http://www.modified-shop.org/content/shipcloud)
-- [Oxid eSales](http://exchange.oxid-esales.com/de/Auftragsabwicklung-Logistik/Versand/shipcloud-Connector-DHL-DPD-UPS-Hermes-GLS-1-0-Stable-EE-PE-4-8-x-5-1-x.html)
-- [odoo / MyOdoo](https://myodoo.de/shop/product/odoo-shipcloud-17)
-- [pixi*](http://www.pixi.eu/features/)
-- [PrestaShop](http://www.silbersaiten.de/prestashop/de/home/185-shipcloud.html)
-- [SAP Business ByDesign](https://bydesign.all-for-one.com)
-- [SAP Business One](http://www.shoperp.de/sap-business-one-erweiterungen.html)
-- [Shopify](https://apps.shopify.com/shipcloud-connector)
-- [Shopware](http://store.shopware.com/scs00898/shipcloud-connector-dhl-dpd-ups-hermes-gls-i.html)
-- [tricoma](https://www.tricoma.de/Versanddienstleister/shipcloud-Connector/)
-- [Vemono](http://www.vemono.com/de/)
-- [VersaCommerce](http://www.versacommerce.de/store/apps/versand-schnittstellen)
-- [weclapp](http://www.weclapp.com)
-- [WooCommerce](http://habenicht.io/shop/produkte/shipcloud-for-woocommerce/)
-
-These plugins and extensions are managed by trusted partner companies of shipcloud. If you have any
-questions please contact them since they know the ins and outs of their software.
+integrating shipcloud into your system. Just have a look at
+[our integrations page](https://www.shipcloud.io/en/integrations/plugins?utm_source=devportal) and
+see for yourself.
 
 ## Integrations wanted!
 
