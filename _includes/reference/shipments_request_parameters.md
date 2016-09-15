@@ -12,8 +12,8 @@ __Parameters:__
     - __amount__ (float), value of package contents
     - __currency__ (string), currency as uppercase ISO 4217 code
   - __description__ (string), if you're using UPS with service _returns_ or DHL with service _express_ this is mandatory otherwise it's optional
-  - __type__ (string, optional), carrier specific package type declaration. Available values are "bulk" and "parcel_letter"
-- __service__ (string, optional), service that should be used. Available values are "returns", "standard", "one_day" , "one_day_early". See [supported services]({{ site.baseurl }}/concepts/#supported-services) for detailed information
+  - __type__ (string, optional), carrier specific package type declaration. Available values are "books", "bulk", "letter", "parcel" and "parcel_letter". See [package types]({{ site.baseurl }}/concepts/#package-types) for detailed information.
+- __service__ (string, optional), service that should be used. Available values are "returns", "standard", "one_day" , "one_day_early". See [supported services]({{ site.baseurl }}/concepts/#supported-services) for detailed information.
 - __additional_services__ (array, optional), array of objects where you can define additional services to be used. See [additional services]({{ site.baseurl }}/recipes/#additional-services) for detailed information
 - __reference_number__ (string, optional), a reference number (max. 30 characters) that you want this shipment to be identified with. You can use this afterwards to easier find the shipment in the shipcloud.io backoffice
 - __description__ (string), mandatory if you're using UPS and the following conditions are true: from and to countries are not the same; from and/or to countries are not in the EU; from and to countries are in the EU and the shipments service is not standard
