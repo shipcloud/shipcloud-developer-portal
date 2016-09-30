@@ -190,6 +190,26 @@ ___package.description___ is mandatory
 by the carrier, which is why this parameter won't be included in the response when creating a
 shipment.
 
+### TNT
+
+#### Shipments with Pickup Requests
+If you don't have regular pickups by TNT you will have to request pickups by the carrier. In
+contrast to other carriers we support, pickup requests for TNT have to be done a little
+differently. When creating a shipment for TNT a pickup request has to be made at the same time.
+Therefore you can add a pickup element when creating your shipment request.
+
+The following rules apply for pickups:
+
+* the date for `pickup_time.earliest` and `pickup_time.latest` has to be same
+* supplying a `pickup_address` is optional
+
+<kbd>POST</kbd> __/v1/shipments__
+
+{% highlight json %}
+{% include shipments_post_request_with_pickup.json %}
+{% endhighlight %}
+
+
 ### UPS
 * when using the service ___returns___ the parameter ___package.description___ is mandatory
 * if one of the following conditions is true, the parameter ___description___ is mandatory:
