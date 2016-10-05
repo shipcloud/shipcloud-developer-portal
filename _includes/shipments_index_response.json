@@ -41,7 +41,7 @@
       "tracking_events": [{
         "timestamp": "2014-11-12T14:03:45+01:00",
         "location": "shipcloud",
-        "status": "shipcloud_label_created",
+        "status": "label_created",
         "details": "Es wurde eine Sendung angelegt"
       }]
     }]
@@ -87,7 +87,7 @@
       "tracking_events": [{
         "timestamp": "2014-11-12T14:03:45+01:00",
         "location": "shipcloud",
-        "status": "shipcloud_label_created",
+        "status": "label_created",
         "details": "Es wurde eine Sendung angelegt"
       }]
     }]
