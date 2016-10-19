@@ -12,6 +12,13 @@ work with any other release modifiers than major versions.
 
 **Notice**: Not everything we do affects the viewable parts of our api.
 
+
+## [20161019] - 2016-10-19
+
+### Removed
+- We've removed the event type `shipcloud_label_created` because it was too confusing and users
+didn't get the difference between this one and `label_created`.
+
 ## [20160511] - 2016-05-11
 
 ### Added
