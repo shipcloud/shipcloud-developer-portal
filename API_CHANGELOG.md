@@ -41,17 +41,17 @@ didn't get the difference between this one and `label_created`.
 ## [20160422] - 2016-04-22
 
 ### Added
-- When making a PickupRequest you can now add a [pickup_address](https://developers.shipcloud.io/reference/#pickup-requests)
+- When making a PickupRequest you can now add a [pickup_address]({{ site.baseurl }}/reference/#pickup-requests)
   that tells the carrier where the shipments should be collected
 
 ## [20160304] - 2016-03-04
 
 ### Added
-- We're now returning [additional services](https://developers.shipcloud.io/recipes/#additional-services)
+- We're now returning [additional services]({{ site.baseurl }}/recipes/#additional-services)
   when querying information about shipments
 
 ## [20160119] - 2016-01-19
 
 ### Added
-- When creating a [pickup request](https://developers.shipcloud.io/reference/#pickup-requests)
+- When creating a [pickup request]({{ site.baseurl }}/reference/#pickup-requests)
   we're now returning an **id** that identifies the data
