@@ -58,6 +58,10 @@
               "bank_name": { "type": "string" },
               "bank_account_holder": { "type": "string" },
               "bank_account_number": { "type": "string" },
+              "reference1": {
+                "type": "string",
+                "description": "Text that should be displayed as the reason for transfer"
+              },
               "currency": { "type": "string" },
               "email": { "type": "string" },
               "language": {

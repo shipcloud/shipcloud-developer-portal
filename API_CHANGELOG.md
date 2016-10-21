@@ -13,6 +13,13 @@ work with any other release modifiers than major versions.
 **Notice**: Not everything we do affects the viewable parts of our api.
 
 
+## [20161021] - 2016-10-21
+
+### Added
+- You can now [specify a reference]({{ site.baseurl }}/recipes/#dhl---cash-on-delivery) when
+  creating a shipment that gets payed by cash on delivery, in order to see the reference on the
+  bank statement
+
 ## [20161019] - 2016-10-19
 
 ### Removed

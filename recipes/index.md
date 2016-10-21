@@ -606,7 +606,8 @@ POST https://api.shipcloud.io/v1/shipments
         "bank_account_holder": "Max Mustermann",
         "bank_name": "Musterbank",
         "bank_account_number": "DE12500105170648489890",
-        "bank_code": "BENEDEPPYYY"
+        "bank_code": "BENEDEPPYYY",
+        "reference1": "reason for transfer"
       }
     }
   ],
