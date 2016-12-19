@@ -312,9 +312,6 @@ To configure webhooks just click on __Configurations__ in the shipcloud
 backoffice to reveal a webhook nav entry. There you can add webhooks and
 specify which events should trigger sending a message to your URL.
 
-This feature is still in beta so please send a request to support@shipcloud.io
-for it to be made available for you.
-
 ## Testing
 There are a lot of tools out there for testing webhooks. If you'd like a starting point check out
 this blogpost called [_60+ Tools and Services for API and Webhook Logging, Debugging, Testing,
