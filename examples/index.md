@@ -1,13 +1,204 @@
 ---
-title: Recipes for using the shipcloud api
-nav: recipes
+title: examples for using the shipcloud api
+nav: examples
+redirect_from: "/recipes"
 ---
 
-# Recipes
+# Examples
 
 To give you a better understanding of how the shipcloud api could be used you can find a few
-recipes on this page. Sometimes there's also a certain chain of calls you need to perform to
+examples on this page. Sometimes there's also a certain chain of calls you need to perform to
 achieve a specific goal.
+
+## Additional services
+
+Some services can be used on top of a normal shipment. Therefore they don't fall under the normal
+definition of a service - and because they mostly are only available for a few carriers. We're
+calling them _additional services_.
+
+
+### Advance notice
+Some carriers provide the option to notify the recipient of a shipment of its arrival date and /
+or time. We currently support advance notices for DHL and DPD. While DHL supports notifications via
+email DPD also allows the recipient to also be notified via SMS.
+
+__Requirements:__
+
+- ```language``` has to be provided as a
+[ISO 639-1 code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
+
+#### Notification via email
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    // see [2]
+  },
+  "additional_services": [
+    {
+      "name": "advance_notice",
+      "properties": {
+        "email": "test@example.com",
+        "language": "en"
+      }
+    }
+  ],
+  "carrier": "dhl",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
+#### Notification via SMS
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    // see [2]
+  },
+  "additional_services": [
+    {
+      "name": "advance_notice",
+      "properties": {
+        "sms": "+4917012345678"
+      }
+    }
+  ],
+  "carrier": "dpd",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
+### DHL - Advance notice
+DHL currently only supports advance notice via email. You can find an example above in our
+[advance notice](#notification-via-email) section.
+
+### DHL - Cash on delivery
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    // see [2]
+  },
+  "additional_services": [
+    {
+      "name": "cash_on_delivery",
+      "properties": {
+        "amount": 123.45,
+        "currency": "EUR",
+        "bank_account_holder": "Max Mustermann",
+        "bank_name": "Musterbank",
+        "bank_account_number": "DE12500105170648489890",
+        "bank_code": "BENEDEPPYYY",
+        "reference1": "reason for transfer"
+      }
+    }
+  ],
+  "carrier": "dhl",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
+### DPD - Drop authorization
+
+When sending packages via DPD the sender can allow the carrier to leave the shipment with someone
+else in case the receiver isn't present and has allowed the sender to do so.
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    // see [2]
+  },
+  "additional_services": [
+    {
+      "name": "drop_authorization",
+      "properties": {
+        "message": "Description about where the package should be left"
+      }
+    }
+  ],
+  "carrier": "dpd",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
+### DPD - Saturday delivery
+
+When sending packages on a Friday you can specify that they should be delivered on Saturday (if
+the carrier supports this).
+
+__Requirements:__
+
+- ```service``` has to be _'one_day'_ or _'one_day_early'_
+- you'll have to use your own contract with the carrier
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    // see [2]
+  },
+  "additional_services": [
+    {
+      "name": "saturday_delivery"
+    }
+  ],
+  "carrier": "dpd",
+  "service": "one_day",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
+### DPD - Predict
+
+DPD allows recipients to be notified of a pending delivery within the next hour. The so called
+[predict service](http://www.dpd.com/de_en/home/produkte_services/zusatzleistungen/national/predict)
+can be used with shipcloud by specifying it as an additional service. You can either specify the
+email address or phone number of your customer to be notified.
+
+For examples see [advance notice](#advance-notice)
 
 ## Label size
 Not all carriers use the same size of labels. Have a look at our chart of the
@@ -113,7 +304,7 @@ parameter ```declared_value``` as part of the package object with the value of t
 you're shipping. All __shipments up to 500 Euros are automatically insured__. You shouldn't specify
 declared_value when creating a shipment of lesser value.
 
-{% include recipes/declared_value_dhl.md %}
+{% include examples/declared_value_dhl.md %}
 
 ## DHL bulk shipments
 Shipments that don't fall into the normal dimensions can be send by specifying them as bulk
@@ -500,196 +691,6 @@ POST /shipments
   }
 }
 {% endhighlight %}
-
-## Additional services
-
-Some services can be used on top of a normal shipment. Therefore they don't fall under the normal
-definition of a service - and because they mostly are only available for a few carriers. We're
-calling them _additional services_.
-
-
-### Advance notice
-Some carriers provide the option to notify the recipient of a shipment of its arrival date and /
-or time. We currently support advance notices for DHL and DPD. While DHL supports notifications via
-email DPD also allows the recipient to also be notified via SMS.
-
-__Requirements:__
-
-- ```language``` has to be provided as a
-[ISO 639-1 code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
-
-#### Notification via email
-
-{% highlight http %}
-POST https://api.shipcloud.io/v1/shipments
-{% endhighlight %}
-{% highlight json %}
-{
-  "from": {
-    // see [1]
-  },
-  "to": {
-    // see [1]
-  },
-  "package": {
-    // see [2]
-  },
-  "additional_services": [
-    {
-      "name": "advance_notice",
-      "properties": {
-        "email": "test@example.com",
-        "language": "en"
-      }
-    }
-  ],
-  "carrier": "dhl",
-  "create_shipping_label": true
-}
-{% endhighlight %}
-
-#### Notification via SMS
-
-{% highlight http %}
-POST https://api.shipcloud.io/v1/shipments
-{% endhighlight %}
-{% highlight json %}
-{
-  "from": {
-    // see [1]
-  },
-  "to": {
-    // see [1]
-  },
-  "package": {
-    // see [2]
-  },
-  "additional_services": [
-    {
-      "name": "advance_notice",
-      "properties": {
-        "sms": "+4917012345678"
-      }
-    }
-  ],
-  "carrier": "dpd",
-  "create_shipping_label": true
-}
-{% endhighlight %}
-
-### DHL - Advance notice
-DHL currently only supports advance notice via email. You can find an example above in our
-[advance notice](#notification-via-email) section.
-
-### DHL - Cash on delivery
-
-{% highlight http %}
-POST https://api.shipcloud.io/v1/shipments
-{% endhighlight %}
-{% highlight json %}
-{
-  "from": {
-    // see [1]
-  },
-  "to": {
-    // see [1]
-  },
-  "package": {
-    // see [2]
-  },
-  "additional_services": [
-    {
-      "name": "cash_on_delivery",
-      "properties": {
-        "amount": 123.45,
-        "currency": "EUR",
-        "bank_account_holder": "Max Mustermann",
-        "bank_name": "Musterbank",
-        "bank_account_number": "DE12500105170648489890",
-        "bank_code": "BENEDEPPYYY",
-        "reference1": "reason for transfer"
-      }
-    }
-  ],
-  "carrier": "dhl",
-  "create_shipping_label": true
-}
-{% endhighlight %}
-
-### DPD - Drop authorization
-
-When sending packages via DPD the sender can allow the carrier to leave the shipment with someone
-else in case the receiver isn't present and has allowed the sender to do so.
-{% highlight http %}
-POST https://api.shipcloud.io/v1/shipments
-{% endhighlight %}
-{% highlight json %}
-{
-  "from": {
-    // see [1]
-  },
-  "to": {
-    // see [1]
-  },
-  "package": {
-    // see [2]
-  },
-  "additional_services": [
-    {
-      "name": "drop_authorization",
-      "properties": {
-        "message": "Description about where the package should be left"
-      }
-    }
-  ],
-  "carrier": "dpd",
-  "create_shipping_label": true
-}
-{% endhighlight %}
-
-### DPD - Saturday delivery
-
-When sending packages on a Friday you can specify that they should be delivered on Saturday (if
-the carrier supports this).
-
-__Requirements:__
-
-- ```service``` has to be _'one_day'_ or _'one_day_early'_
-- you'll have to use your own contract with the carrier
-
-{% highlight http %}
-POST https://api.shipcloud.io/v1/shipments
-{% endhighlight %}
-{% highlight json %}
-{
-  "from": {
-    // see [1]
-  },
-  "to": {
-    // see [1]
-  },
-  "package": {
-    // see [2]
-  },
-  "additional_services": [
-    {
-      "name": "saturday_delivery"
-    }
-  ],
-  "carrier": "dpd",
-  "service": "one_day",
-  "create_shipping_label": true
-}
-{% endhighlight %}
-
-### DPD - Predict
-
-DPD allows recipients to be notified of a pending delivery within the next hour. The so called
-[predict service](http://www.dpd.com/de_en/home/produkte_services/zusatzleistungen/national/predict)
-can be used with shipcloud by specifying it as an additional service. You can either specify the
-email address or phone number of your customer to be notified.
-
-For examples see [advance notice](#advance-notice)
 
 ***
 

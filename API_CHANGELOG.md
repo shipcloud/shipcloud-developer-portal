@@ -28,7 +28,7 @@ work with any other release modifiers than major versions.
 ## [20161021] - 2016-10-21
 
 ### Added
-- You can now [specify a reference]({{ site.baseurl }}/recipes/#dhl---cash-on-delivery) when
+- You can now [specify a reference]({{ site.baseurl }}/examples/#dhl---cash-on-delivery) when
   creating a shipment that gets payed by cash on delivery, in order to see the reference on the
   bank statement
 
@@ -66,7 +66,7 @@ didn't get the difference between this one and `label_created`.
 ## [20160304] - 2016-03-04
 
 ### Added
-- We're now returning [additional services]({{ site.baseurl }}/recipes/#additional-services)
+- We're now returning [additional services]({{ site.baseurl }}/examples/#additional-services)
   when querying information about shipments
 
 ## [20160119] - 2016-01-19
