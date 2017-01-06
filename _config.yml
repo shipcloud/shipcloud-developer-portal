@@ -9,6 +9,11 @@ twitter_username: shipcloud_devs
 github_username:  shipcloud
 integration_guide_url: >
   https://www.dropbox.com/s/0c2mguqlvwdwclg/shipcloud_integration_guide_v_0_7.pdf?dl=0
+shipcloud:
+  supported_carriers:
+    as_display_names: 'DHL, Deutsche Post, UPS, DPD, Hermes, GLS, MyDPD Business (iloxx), TNT, FedEx, Liefery and GO!'
+    as_keys: '"dhl", "dpag", "ups", "dpd", "hermes", "gls", "iloxx", "tnt", "fedex", "liefery" and "go"'
+    as_keys_array: '"dhl", "dpag", "ups", "dpd", "hermes", "gls", "iloxx", "tnt", "fedex", "liefery", "go"'
 
 # Build settings
 markdown: kramdown

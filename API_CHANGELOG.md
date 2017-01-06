@@ -12,6 +12,12 @@ work with any other release modifiers than major versions.
 
 **Notice**: Not everything we do affects the viewable parts of our api.
 
+## [20170127] - 2017-01-27
+
+### Added
+- Introducing the [trackers ressource]({{ site.baseurl }}/reference/#trackers) to be able to import
+  shipments by sending us carrier tracking numbers of shipments that were created, using another
+  software.
 
 ## [20170119] - 2017-01-19
 

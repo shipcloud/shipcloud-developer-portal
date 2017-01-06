@@ -486,3 +486,60 @@ __URL parameters:__
 {% highlight json %}
 {}
 {% endhighlight %}
+
+## Trackers
+Trackers make it possible to track a shipment that wasn't creating using shipcloud. They are
+basically a way to monitor shipments created elsewhere. All you have to do is provide us with the
+tracking number you received from the carrier as well as its corresponding name acronym.
+
+{% include reference/trackers_request_togglebox.html %}
+
+### Creating a tracker
+
+This is the way to create a tracker based on a tracking number provided by one of our supported
+carriers ({{ site.shipcloud.supported_carriers.as_display_names }})
+
+#### Request
+<kbd>POST</kbd> __/v1/trackers__
+
+{% highlight json %}
+{% include trackers_post_put_request.json %}
+{% endhighlight %}
+
+<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Create tracker request]({{ site.baseurl }}/reference/trackers_request_schema.html)
+
+#### Response
+{% include headers/200_ok.html %}
+{% highlight json %}
+{% include trackers_post_put_response.json %}
+{% endhighlight %}
+
+<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Create tracker response]({{ site.baseurl }}/reference/trackers_response_schema.html)
+
+### Getting a list of trackers
+
+#### Request
+<kbd>GET</kbd> __/v1/trackers__
+
+#### Response
+{% include headers/200_ok.html %}
+{% highlight json %}
+{% include trackers_index_response.json %}
+{% endhighlight %}
+
+### Show a tracker
+
+#### Request
+<kbd>GET</kbd> __/v1/trackers/:id__
+
+__GET parameters:__
+
+- __id__, the id attribute that was returned when creating the tracker
+
+#### Response
+{% include headers/200_ok.html %}
+{% highlight json %}
+{% include trackers_get_response.json %}
+{% endhighlight %}
+
+<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Tracker response]({{ site.baseurl }}/reference/trackers_response_schema.html)
