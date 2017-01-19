@@ -13,6 +13,12 @@ work with any other release modifiers than major versions.
 **Notice**: Not everything we do affects the viewable parts of our api.
 
 
+## [20170119] - 2017-01-19
+
+### Added
+- When [reading a shipment]({{ site.baseurl }}/reference/#getting-information-about-a-shipment),
+  `shipper_notification_email` will now be returned (_if specified during creation_)
+
 ## [20161021] - 2016-10-21
 
 ### Added
