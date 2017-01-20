@@ -1,10 +1,7 @@
 {
-  "id": "3a186c51d4281acbecf5ed38805b1db92a9d668b",
-  "carrier_tracking_no": "84168117830018",
   "carrier": "dhl",
+  "carrier_tracking_no": "84168117830018",
   "created_at": "2013-04-16T10:43:04Z",
-  "tracking_url": "http://track.shipcloud.io/3a186c51d4",
-  "label_url": "http://api.shipcloud.io/shipping_label_3a186c51d4.pdf",
   "from": {
     "company": "Musterfirma",
     "first_name": "Hans",
@@ -17,17 +14,9 @@
     "state": null,
     "country": "DE"
   },
-  "to": {
-    "company": "Receiver Inc.",
-    "first_name": "Max",
-    "last_name": "Mustermann",
-    "street": "Beispielstrasse",
-    "street_no": "42",
-    "city": "Hamburg",
-    "zip_code": "22100",
-    "state": null,
-    "country": "DE"
-  },
+  "id": "3a186c51d4281acbecf5ed38805b1db92a9d668b",
+  "label_url": "http://api.shipcloud.io/shipping_label_3a186c51d4.pdf",
+  "notification_email": "receiver@notification.com",
   "packages": [
     {
       "id": "3af8f7e5af196e1950deebd389a87406e1e5bb80",
@@ -58,5 +47,19 @@
     }
   ],
   "price": 3.4,
-  "reference_number": "ref123456"
+  "reference_number": "ref123456",
+  "service": "standard",
+  "shipper_notification_email": "shipper@notification.com",
+  "to": {
+    "company": "Receiver Inc.",
+    "first_name": "Max",
+    "last_name": "Mustermann",
+    "street": "Beispielstrasse",
+    "street_no": "42",
+    "city": "Hamburg",
+    "zip_code": "22100",
+    "state": null,
+    "country": "DE"
+  },
+  "tracking_url": "http://track.shipcloud.io/3a186c51d4"
 }
