@@ -4,7 +4,7 @@
   "properties": {
     "carrier": {
       "type": "string",
-      "enum": ["dhl", "ups", "dpd", "hermes", "gls"],
+      "enum": [{{ site.shipcloud.supported_carriers.as_keys_array }}],
       "description": "acronym of the carrier you want to use"
     },
     "width":  { "type": "number" },

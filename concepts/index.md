@@ -190,6 +190,11 @@ ___package.description___ is mandatory
 by the carrier, which is why this parameter won't be included in the response when creating a
 shipment.
 
+### GO!
+
+* Since GO! doesn't provide regular pickups, you will always have to provide a pickup object, when
+creating a shipment. See TNT below for a detailed description of how you need to specify this.
+
 ### TNT
 
 #### Shipments with Pickup Requests

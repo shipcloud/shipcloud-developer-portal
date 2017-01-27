@@ -1,6 +1,6 @@
 __Parameters:__
 
-- __carrier__* (string), the carrier you want to use. Possible values are "dpd", "dhl", "gls", "hermes", "iloxx", "ups", "tnt", "fedex" and "liefery"
+- __carrier__* (string), the carrier you want to use. Possible values are {{ site.shipcloud.supported_carriers.as_keys }}
 - __to__* (object), describes the receivers address. See [address request]({{ site.baseurl }}/reference/#addresses) for a detailed definition.
 - __from__* (object), describes the senders address. If missing, the default sender address (if defined in your shipcloud account) will be used. See [address request]({{ site.baseurl }}/reference/#addresses) for a detailed definition.
 - __package__*, object describing the package dimensions

@@ -4,7 +4,7 @@
   "properties": {
     "carrier": {
       "type": "string",
-      "enum": ["dhl", "dpag", "ups", "dpd", "hermes", "iloxx", "gls", "tnt", "fedex", "liefery"],
+      "enum": [{{ site.shipcloud.supported_carriers.as_keys_array }}],
       "description": "acronym of the carrier"
     },
     "carrier_tracking_no": {
