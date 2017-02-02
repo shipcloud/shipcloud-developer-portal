@@ -14,7 +14,7 @@ __Parameters:__
   - __description__ (string), if you're using UPS with service _returns_ or DHL with service _express_ this is mandatory otherwise it's optional
   - __type__ (string, optional), carrier specific package type declaration. Available values are "books", "bulk", "letter", "parcel" and "parcel_letter". See [package types]({{ site.baseurl }}/concepts/#package-types) for detailed information.
 - __service__ (string, optional), service that should be used. Available values are "returns", "standard", "one_day" , "one_day_early". See [supported services]({{ site.baseurl }}/concepts/#supported-services) for detailed information.
-- __additional_services__ (array, optional), array of objects where you can define additional services to be used. See [additional services]({{ site.baseurl }}/recipes/#additional-services) for detailed information
+- __additional_services__ (array, optional), array of objects where you can define additional services to be used. See [additional services]({{ site.baseurl }}/examples/#additional-services) for detailed information
 - __pickup__ (object, optional), describes the pickup request. Mandatory for creating shipments with TNT as carrier - see [TNT specifics]({{ site.baseurl }}/concepts/#shipments-with-pickup-requests)
   - __pickup_time__ (object), contains the earliest and latest pickup time in iso8601
     - __earliest__ (datetime), timestamp describing the earliest time the carrier should pickup the shipment
@@ -22,6 +22,6 @@ __Parameters:__
   - __pickup_address__ (object, optional), describes the pickup address. See [address request]({{ site.baseurl }}/reference/#addresses) for a detailed definition.
 - __reference_number__ (string, optional), a reference number (max. 30 characters) that you want this shipment to be identified with. You can use this afterwards to easier find the shipment in the shipcloud.io backoffice
 - __description__ (string), mandatory if you're using UPS and the following conditions are true: from and to countries are not the same; from and/or to countries are not in the EU; from and to countries are in the EU and the shipments service is not standard
-- __label__ (object, optional), define the DIN size the returned label should have. See [label size recipe]({{ site.baseurl }}/recipes/#label-size) for detailed information
+- __label__ (object, optional), define the DIN size the returned label should have. See [label size recipe]({{ site.baseurl }}/examples/#label-size) for detailed information
 - __notification_email__ (string, optional), email address that we should notify once there's an update for this shipment
 - __create_shipping_label__ (boolean), determines if a shipping label should be created at the carrier (this means you will be charged when using the production api key)
