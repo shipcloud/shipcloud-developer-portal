@@ -12,6 +12,12 @@ work with any other release modifiers than major versions.
 
 **Notice**: Not everything we do affects the viewable parts of our api.
 
+## [20170202] - 2017-02-02
+
+### Changed
+- As previously stated, we've replaced the deprecated parameter `tracking_code` with
+  `carrier_tracking_no`. Tracker objects are using this parameter from now on.
+
 ## [20170127] - 2017-01-27
 
 ### Added

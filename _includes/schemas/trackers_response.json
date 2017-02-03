@@ -6,9 +6,9 @@
       "type": "string",
       "description": "the tracker id that can be used for requesting info about a tracker"
     },
-    "tracking_code": {
+    "carrier_tracking_no": {
       "type": "string",
-      "description": "deprecated: will be renamed in `carrier_tracking_no`. tracking number (provided by the carrier) for this shipment"
+      "description": "tracking number (provided by the carrier) for this shipment"
     },
     "status": {
       "type": "string",
@@ -76,7 +76,7 @@
       }
     }
   },
-  "required": ["id", "tracking_code", "status", "created_at", "tracking_status_updated_at", "last_polling_at", "next_polling_at", "shipment_id", "carrier"],
+  "required": ["id", "carrier_tracking_no", "status", "created_at", "tracking_status_updated_at", "last_polling_at", "next_polling_at", "shipment_id", "carrier"],
   "additionalProperties": false,
   "definitions": {
     "address": {
