@@ -2,7 +2,7 @@
   "trackers" : [
     {
       "id": "4a6922e2-09ad-4724-807c-7b4e572d3c6b",
-      "tracking_code": "723558934169",
+      "carrier_tracking_no": "723558934169",
       "to": {
         "company": null,
         "first_name": "Hans",
@@ -41,7 +41,7 @@
     },
     {
       "id": "5452ec46-560e-42ba-adf7-8a1b46d60ece",
-      "tracking_code": "JJD000390006125214950",
+      "carrier_tracking_no": "JJD000390006125214950",
       "to": {
         "company": null,
         "first_name": "Hans",
