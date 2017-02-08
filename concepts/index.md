@@ -20,13 +20,17 @@ resource-oriented URLs and HTTP authentication.
 ### Integration guide
 To make it easier for you to start working with the shipcloud api and also to give you a better
 overview of the features we're supporting and we'd like you to integrate into your software as
-well, we wrote a handy [integration guide that you can download]({{ site.integration_guide_url }}).
-In it, aside from what you can find here, we're also giving you a few pro tips to present your
+well, we wrote a handy integration guide that you can download in __English__ and __German__. In
+it, aside from what you can find here, we're also giving you a few pro tips to present your
 customers with a seamless user experience as well as showing you what we're calling the __core
 features__ of the shipcloud api.
 
-<a href="{{ site.integration_guide_url }}">
-  <i class="glyphicon glyphicon-download-alt"></i> Download
+<a href="{{ site.integration_guide_url.en }}">
+  <i class="glyphicon glyphicon-download-alt"></i> Integration Guide in English
+</a>
+
+<a href="{{ site.integration_guide_url.de }}">
+  <i class="glyphicon glyphicon-download-alt"></i> Integration Guide in German
 </a>
 
 ## Authentication

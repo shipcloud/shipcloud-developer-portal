@@ -7,8 +7,11 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://developers.shipcloud.io" # the base hostname & protocol for your site
 twitter_username: shipcloud_devs
 github_username:  shipcloud
-integration_guide_url: >
-  https://www.dropbox.com/s/0c2mguqlvwdwclg/shipcloud_integration_guide_v_0_7.pdf?dl=0
+integration_guide_url:
+  de: >
+    https://www.dropbox.com/s/klycgg1p1d3v20v/shipcloud_integration_guide_de.pdf?dl=0
+  en: >
+    https://www.dropbox.com/s/0c2mguqlvwdwclg/shipcloud_integration_guide_v_0_7.pdf?dl=0
 shipcloud:
   supported_carriers:
     as_display_names: 'DHL, Deutsche Post, UPS, DPD, Hermes, GLS, MyDPD Business (iloxx), TNT, FedEx, Liefery and GO!'
