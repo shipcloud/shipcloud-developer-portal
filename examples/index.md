@@ -329,6 +329,9 @@ POST https://api.shipcloud.io/v1/shipments
   },
   "package": {
     "weight": 5.5,
+    "length": 25,
+    "width": 36,
+    "height": 5,
     "type": "bulk"
   },
   "carrier": "dhl",
