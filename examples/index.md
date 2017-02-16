@@ -1,7 +1,6 @@
 ---
 title: examples for using the shipcloud api
 nav: examples
-redirect_from: "/recipes"
 ---
 
 # Examples

@@ -11,6 +11,11 @@
         "source": "/libraries",
         "destination": "/integrations",
         "type": 301
+      },
+      {
+        "source": "/recipes",
+        "destination": "/examples",
+        "type": 301
       }
     ]
   }
