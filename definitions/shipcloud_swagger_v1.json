@@ -1,0 +1,1562 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "shipcloud.io",
+    "description": "API of the shipping service provider shipcloud.io. Create shipping labels and track shipments for DHL, Deutsche Post, UPS, DPD, Hermes, GLS, MyDPD Business (iloxx), TNT, FedEx, Liefery and GO!",
+    "contact": {
+      "name": "André Cedik",
+      "email": "developers@shipcloud.io",
+      "url": "https://developers.shipcloud.io"
+    }
+  },
+  "host": "api.shipcloud.io",
+  "basePath": "/v1",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/addresses": {
+      "get": {
+        "description": "Get a list of addresses",
+        "parameters": [
+          {
+            "name": "first_name",
+            "in": "path",
+            "type": "string",
+            "description": "Filter addresses by first name"
+          },
+          {
+            "name": "last_name",
+            "in": "path",
+            "type": "string",
+            "description": "Filter addresses by last name"
+          },
+          {
+            "name": "company",
+            "in": "path",
+            "type": "string",
+            "description": "Filter addresses by company name"
+          },
+          {
+            "name": "care_of",
+            "in": "path",
+            "type": "string",
+            "description": "Filter addresses by care_of"
+          },
+          {
+            "name": "street",
+            "in": "path",
+            "type": "string",
+            "description": "Filter addresses by street name"
+          },
+          {
+            "name": "street_no",
+            "in": "path",
+            "type": "string",
+            "description": "Filter addresses by house number"
+          },
+          {
+            "name": "zip_code",
+            "in": "path",
+            "type": "string",
+            "description": "Filter addresses by zip code"
+          },
+          {
+            "name": "city",
+            "in": "path",
+            "type": "string",
+            "description": "Filter addresses by city"
+          },
+          {
+            "name": "country",
+            "in": "path",
+            "type": "string",
+            "description": "Filter addresses by country code"
+          },
+          {
+            "name": "phone",
+            "in": "path",
+            "type": "string",
+            "description": "Filter addresses by phone number"
+          },
+          {
+            "name": "page",
+            "in": "path",
+            "type": "integer",
+            "description": "Number of page that should be returned"
+          },
+          {
+            "name": "per_page",
+            "in": "path",
+            "type": "integer",
+            "description": "Number of items that should be shown on a page",
+            "default": 100
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/address"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "An address for a shipments to or from address",
+        "parameters": [
+          {
+            "name": "company",
+            "in": "body",
+            "type": "string",
+            "description": "Company name"
+          },
+          {
+            "name": "first_name",
+            "in": "body",
+            "type": "string"
+          },
+          {
+            "name": "last_name",
+            "in": "body",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "care_of",
+            "in": "body",
+            "type": "string"
+          },
+          {
+            "name": "street",
+            "in": "body",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "street_no",
+            "in": "body",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "city",
+            "in": "body",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "zip_code",
+            "in": "body",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "country",
+            "in": "body",
+            "type": "string",
+            "description": "Country as uppercase ISO 3166-1 alpha-2 code",
+            "required": true
+          },
+          {
+            "name": "phone",
+            "in": "body",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "addresses response",
+            "schema": {
+              "$ref": "#/definitions/address"
+            }
+          }
+        }
+      }
+    },
+    "/addresses/{id}": {
+      "get": {
+        "description": "returns details of an address",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of an address",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/address"
+            }
+          }
+        }
+      }
+    },
+    "/carriers": {
+      "get": {
+        "description": "Get all carriers available for your account",
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/carrier"
+              }
+            },
+            "examples": {
+              "application/json": [
+                {
+                  "name": "dhl",
+                  "display_name": "Deutsche Post DHL",
+                  "services": [
+                    "standard",
+                    "returns",
+                    "one_day",
+                    "one_day_early"
+                  ]
+                },
+                {
+                  "name": "hermes",
+                  "display_name": "Hermes Europe",
+                  "services": [
+                    "standard",
+                    "returns"
+                  ]
+                },
+                {
+                  "name": "liefery",
+                  "display_name": "Liefery",
+                  "services": [
+                    "same_day"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "/pickup_requests": {
+      "post": {
+        "description": "An address for a shipments to or from address",
+        "parameters": [
+          {
+            "name": "carrier",
+            "in": "body",
+            "description": "acronym of the carrier a pickup should be requested for",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "ups",
+              "dpd",
+              "hermes",
+              "gls"
+            ]
+          },
+          {
+            "name": "pickup_time",
+            "in": "body",
+            "description": "defines a time window in which the carrier should pickup shipments",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pickup_time"
+            }
+          },
+          {
+            "name": "pickup_date",
+            "in": "body",
+            "type": "string",
+            "pattern": "^[0-9]{4}\/[0-9]{2}\/[0-9]{2}$",
+            "description": "deprecated: please use **pickup_time** instead."
+          },
+          {
+            "name": "shipments",
+            "in": "body",
+            "type": "array",
+            "description": "array of shipment objects containing only their ids",
+            "schema": {
+              "$ref": "#/definitions/pickup_request_shipmment"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "pickup request response",
+            "schema": {
+              "$ref": "#/definitions/pickup_request"
+            },
+            "examples": {
+              "application/json": {
+                "id": "123456",
+                "carrier": "dpd",
+                "pickup_time": {
+                  "earliest": "2015-09-15T09:00:00+02:00",
+                  "latest": "2015-09-15T18:00:00+02:00"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/shipment_quotes": {
+      "post": {
+        "description": "Creating a shipment quote",
+        "parameters": [
+          {
+            "name": "carrier",
+            "in": "body",
+            "description": "acronym of the carrier you want to use",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "dhl",
+              "ups",
+              "dpd",
+              "hermes",
+              "gls",
+              "fedex",
+              "liefery"
+            ]
+          },
+          {
+            "name": "service",
+            "in": "body",
+            "description": "The service that should be used for the shipment. standard: The standard (ground) service for each carrier. returns: Returns service. one_day: express delivery. one_day_early: express delivery until 10am.",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "standard",
+              "returns",
+              "one_day",
+              "one_day_early",
+              "same_day"
+            ],
+            "default": "standard"
+          },
+          {
+            "name": "from",
+            "in": "body",
+            "description": "The senders address. If missing, the default sender address (if defined in your shipcloud account) will be used",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/address"
+            }
+          },
+          {
+            "name": "to",
+            "in": "body",
+            "description": "the receivers address",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/address"
+            }
+          },
+          {
+            "name": "package",
+            "in": "body",
+            "description": "package dimensions",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/package"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "shipment response",
+            "schema": {
+              "$ref": "#/definitions/shipment_quote"
+            },
+            "examples": {
+              "application/json": {
+                "shipment_quote": {
+                  "price": 42.12
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/shipments": {
+      "get": {
+        "description": "getting a list of shipments",
+        "parameters": [
+          {
+            "name": "carrier",
+            "in": "path",
+            "type": "string",
+            "description": "Filter shipments by carrier name"
+          },
+          {
+            "name": "service",
+            "in": "path",
+            "type": "string",
+            "description": "Filter shipments by service"
+          },
+          {
+            "name": "reference_number",
+            "in": "path",
+            "type": "string",
+            "description": "Filter shipments by reference number"
+          },
+          {
+            "name": "carrier_tracking_no",
+            "in": "path",
+            "type": "string",
+            "description": "Filter shipments by carrier tracking number"
+          },
+          {
+            "name": "tracking_status",
+            "in": "path",
+            "type": "string",
+            "description": "Filter shipments by our internal tracking status mappings (e.g. tracking_status=out_for_delivery)"
+          },
+          {
+            "name": "page",
+            "in": "path",
+            "type": "integer",
+            "description": "Number of page that should be returned"
+          },
+          {
+            "name": "per_page",
+            "in": "path",
+            "type": "integer",
+            "description": "Number of items that should be shown on a page",
+            "default": 100
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "shipments index response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/shipment"
+              }
+            },
+            "examples": {
+              "application/json": {
+                "shipments": [{
+                  "id": "86afb143f9c9c0cfd4eb7a7c26a5c616585a6271",
+                  "carrier_tracking_no": "43128000105",
+                  "carrier": "hermes",
+                  "service": "standard",
+                  "created_at": "2014-11-12T14:03:45+01:00",
+                  "price": 3.5,
+                  "reference_number": null,
+                  "tracking_url": "http://track.shipcloud.dev/de/86afb143f9",
+                  "to": {
+                    "company": null,
+                    "first_name": "Hans",
+                    "last_name": "Meier",
+                    "care_of": null,
+                    "street": "Semmelweg",
+                    "street_no": "1",
+                    "zip_code": "12345",
+                    "city": "Hamburg",
+                    "state": null,
+                    "country": "DE"
+                  },
+                  "from": {
+                    "company": "webionate GmbH",
+                    "first_name": null,
+                    "last_name": "Fahlbusch",
+                    "care_of": null,
+                    "street": "Lüdmoor",
+                    "street_no": "35a",
+                    "zip_code": "22175",
+                    "city": "Hamburg",
+                    "state": null,
+                    "country": "DE"
+                  },
+                  "packages": [{
+                    "id": "be81573799958587ae891b983aabf9c4089fc462",
+                    "length": 10.0,
+                    "width": 10.0,
+                    "height": 10.0,
+                    "weight": 1.5,
+                    "tracking_events": [{
+                      "timestamp": "2014-11-12T14:03:45+01:00",
+                      "location": "shipcloud",
+                      "status": "shipcloud_label_created",
+                      "details": "Es wurde eine Sendung angelegt"
+                    }]
+                  }]
+                }, {
+                  "id": "be598a2fd27304cf2d82669b197517623629d94e",
+                  "carrier_tracking_no": "1Z12345E1305277940",
+                  "carrier": "ups",
+                  "service": "standard",
+                  "created_at": "2014-11-12T14:03:45+01:00",
+                  "price": 3.0,
+                  "reference_number": null,
+                  "tracking_url": "http://track.shipcloud.dev/de/be598a2fd2",
+                  "to": {
+                    "company": null,
+                    "first_name": "Test",
+                    "last_name": "Kunde",
+                    "care_of": null,
+                    "street": "Gluckstr.",
+                    "street_no": "57",
+                    "zip_code": "22081",
+                    "city": "Hamburg",
+                    "state": null,
+                    "country": "DE"
+                  },
+                  "from": {
+                    "company": "webionate GmbH",
+                    "first_name": null,
+                    "last_name": "Fahlbusch",
+                    "care_of": null,
+                    "street": "Lüdmoor",
+                    "street_no": "35a",
+                    "zip_code": "22175",
+                    "city": "Hamburg",
+                    "state": null,
+                    "country": "DE"
+                  },
+                  "packages": [{
+                    "id": "74d4f1fc193d8a7ca542d1ee4e2021f3ddb82242",
+                    "length": 15.0,
+                    "width": 20.0,
+                    "height": 10.0,
+                    "weight": 2.0,
+                    "tracking_events": [{
+                      "timestamp": "2014-11-12T14:03:45+01:00",
+                      "location": "shipcloud",
+                      "status": "shipcloud_label_created",
+                      "details": "Es wurde eine Sendung angelegt"
+                    }]
+                  }]
+                }]
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Creates a new shipment",
+        "parameters": [
+          {
+            "name": "carrier",
+            "in": "body",
+            "description": "acronym of the carrier you want to use",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "dhl",
+              "ups",
+              "dpd",
+              "hermes",
+              "gls",
+              "fedex",
+              "liefery"
+            ]
+          },
+          {
+            "name": "service",
+            "in": "body",
+            "description": "The service that should be used for the shipment. standard: The standard (ground) service for each carrier. returns: Returns service. one_day: express delivery. one_day_early: express delivery until 10am.",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "standard",
+              "returns",
+              "one_day",
+              "one_day_early",
+              "same_day"
+            ],
+            "default": "standard"
+          },
+          {
+            "name": "from",
+            "in": "body",
+            "description": "The senders address. If missing, the default sender address (if defined in your shipcloud account) will be used",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/address"
+            }
+          },
+          {
+            "name": "to",
+            "in": "body",
+            "description": "the receivers address",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/address"
+            }
+          },
+          {
+            "name": "package",
+            "in": "body",
+            "description": "package dimensions",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/package"
+            }
+          },
+          {
+            "name": "reference_number",
+            "type": "string",
+            "in": "body",
+            "description": "a reference number (max. 30 characters) that you want this shipment to be identified with. You can use this afterwards to easier find the shipment in the shipcloud.io backoffice",
+            "required": false
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "in": "body",
+            "description": "text that describes the contents of the shipment. This parameter is mandatory if you're using UPS and the following conditions are true: from and to countries are not the same; from and/or to countries are not in the EU; from and to countries are in the EU and the shipments service is not standard",
+            "required": false
+          },
+          {
+            "name": "notification_email",
+            "type": "string",
+            "format": "email",
+            "in": "body",
+            "description": "email address that we should notify once there's an update for this shipment",
+            "required": false
+          },
+          {
+            "name": "additional_services",
+            "in": "body",
+            "description": "additional services",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/additional_services"
+            }
+          },
+          {
+            "name": "create_shipping_label",
+            "type": "boolean",
+            "in": "body",
+            "description": "determines if a shipping label should be created at the carrier (**this means you will be charged**)",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "shipment response",
+            "schema": {
+              "$ref": "#/definitions/prepared_shipment"
+            },
+            "examples": {
+              "application/json": {
+                "id": "3a186c51d4281acbecf5ed38805b1db92a9d668b",
+                "carrier_tracking_no": "84168117830018",
+                "tracking_url": "http://track.shipcloud.io/3a186c51d4",
+                "label_url": "http://api.shipcloud.io/shipping_label_3a186c51d4.pdf",
+                "price": 3.4
+              }
+            }
+          }
+        }
+      }
+    },
+    "/shipments/{id}": {
+      "get": {
+        "description": "returns information about a shipment",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of a shipment",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/shipment"
+            },
+            "examples": {
+              "application/json": {
+                "id": "3a186c51d4281acbecf5ed38805b1db92a9d668b",
+                "carrier_tracking_no": "84168117830018",
+                "carrier": "dhl",
+                "created_at": "2013-04-16T10:43:04Z",
+                "tracking_url": "http://track.shipcloud.io/3a186c51d4",
+                "label_url": "http://api.shipcloud.io/shipping_label_3a186c51d4.pdf",
+                "from": {
+                  "company": "Musterfirma",
+                  "first_name": "Hans",
+                  "last_name": "Meier",
+                  "care_of": null,
+                  "street": "Musterstraße",
+                  "street_no": "22",
+                  "city": "Musterstadt",
+                  "zip_code": "12345",
+                  "state": null,
+                  "country": "DE"
+                },
+                "to": {
+                  "company": "Receiver Inc.",
+                  "first_name": "Max",
+                  "last_name": "Mustermann",
+                  "street": "Beispielstrasse",
+                  "street_no": "42",
+                  "city": "Hamburg",
+                  "zip_code": "22100",
+                  "state": null,
+                  "country": "DE"
+                },
+                "packages": [
+                  {
+                    "id": "3af8f7e5af196e1950deebd389a87406e1e5bb80",
+                    "weight": 1.5,
+                    "length": 10.0,
+                    "width": 6.0,
+                    "height": 8.0,
+                    "tracking_events": [
+                      {
+                        "timestamp": "2013-05-26T16:55:24+02:00",
+                        "location": "Hamburg, Deutschland",
+                        "status": "delivered",
+                        "details": "Die Sendung wurde erfolgreich zugestellt."
+                      },
+                      {
+                        "timestamp": "2013-05-26T08:12:12+02:00",
+                        "location": "Hamburg, Deutschland",
+                        "status": "out_for_delivery",
+                        "details": "Die Sendung wurde in das Zustellfahrzeug geladen."
+                      },
+                      {
+                        "timestamp": "2013-05-25T11:46:34+02:00",
+                        "location": "Hamburg, Deutschland",
+                        "status": "transit",
+                        "details": "Die Sendung wurde im Start-Paketzentrum bearbeitet."
+                      }
+                    ]
+                  }
+                ],
+                "price": 3.4,
+                "reference_number": "ref123456"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Update a existing shipment with new data **notice:** Only shipments where *\"create_shipping_label\"* is false can be updated, because no transaction with a carrier has been done until this point.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of a shipment",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "carrier",
+            "in": "body",
+            "description": "acronym of the carrier you want to use",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "dhl",
+              "ups",
+              "dpd",
+              "hermes",
+              "gls",
+              "fedex",
+              "liefery"
+            ]
+          },
+          {
+            "name": "service",
+            "in": "body",
+            "description": "The service that should be used for the shipment. standard: The standard (ground) service for each carrier. returns: Returns service. one_day: express delivery. one_day_early: express delivery until 10am.",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "standard",
+              "returns",
+              "one_day",
+              "one_day_early",
+              "same_day"
+            ],
+            "default": "standard"
+          },
+          {
+            "name": "from",
+            "in": "body",
+            "description": "The senders address. If missing, the default sender address (if defined in your shipcloud account) will be used",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/address"
+            }
+          },
+          {
+            "name": "to",
+            "in": "body",
+            "description": "the receivers address",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/address"
+            }
+          },
+          {
+            "name": "package",
+            "in": "body",
+            "description": "package dimensions",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/package"
+            }
+          },
+          {
+            "name": "reference_number",
+            "type": "string",
+            "in": "body",
+            "description": "a reference number (max. 30 characters) that you want this shipment to be identified with. You can use this afterwards to easier find the shipment in the shipcloud.io backoffice",
+            "required": false
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "in": "body",
+            "description": "text that describes the contents of the shipment. This parameter is mandatory if you're using UPS and the following conditions are true: from and to countries are not the same; from and/or to countries are not in the EU; from and to countries are in the EU and the shipments service is not standard",
+            "required": false
+          },
+          {
+            "name": "notification_email",
+            "type": "string",
+            "format": "email",
+            "in": "body",
+            "description": "email address that we should notify once there's an update for this shipment",
+            "required": false
+          },
+          {
+            "name": "additional_services",
+            "in": "body",
+            "description": "additional services",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/additional_services"
+            }
+          },
+          {
+            "name": "create_shipping_label",
+            "type": "boolean",
+            "in": "body",
+            "description": "determines if a shipping label should be created at the carrier (**this means you will be charged**)",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "shipment response",
+            "schema": {
+              "$ref": "#/definitions/prepared_shipment"
+            },
+            "examples": {
+              "application/json": {
+                "id": "3a186c51d4281acbecf5ed38805b1db92a9d668b",
+                "carrier_tracking_no": "84168117830018",
+                "tracking_url": "http://track.shipcloud.io/3a186c51d4",
+                "label_url": "http://api.shipcloud.io/shipping_label_3a186c51d4.pdf",
+                "price": 3.4
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "deletes a single shipment **notice:** Only shipments where *\"create_shipping_label\"* is false can be updated, because no transaction with a carrier has been done until this point.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of a shipment",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "shipment has been deleted",
+            "schema": { }
+          }
+        }
+      }
+    },
+    "/webhooks": {
+      "post": {
+        "description": "Creating a webhook",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "body",
+            "description": "url we should call if an event occurs",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "event_types",
+            "in": "body",
+            "description": "array of events you want to subscribe",
+            "required": true,
+            "type": "array",
+            "enum": [
+              "shipment.tracking.shipcloud_label_created",
+              "shipment.tracking.label_created",
+              "shipment.tracking.picked_up",
+              "shipment.tracking.transit",
+              "shipment.tracking.out_for_delivery",
+              "shipment.tracking.delivered",
+              "shipment.tracking.awaits_pickup_by_receiver",
+              "shipment.tracking.canceled",
+              "shipment.tracking.delayed",
+              "shipment.tracking.exception",
+              "shipment.tracking.not_delivered",
+              "shipment.tracking.notification",
+              "shipment.tracking.unknown"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "webhook response",
+            "schema": {
+              "$ref": "#/definitions/webhook"
+            },
+            "examples": {
+              "application/json": {
+                "id": "e0ff4250-6c8e-494d-a069-afd9d566e372",
+                "url": "https://example.com/webhook",
+                "event_types": [
+                  "shipment.tracking.delayed",
+                  "shipment.tracking.delivered"
+                ],
+                "deactivated": false
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Get a list of defined webhooks",
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/webhook"
+              }
+            },
+            "examples": {
+              "application/json": {
+                "webhooks": [
+                  {
+                    "id": "583cfd8b-77c7-4447-a3a0-1568bb9cc553",
+                    "url": "https://example.com/webhook",
+                    "event_types": [
+                      "shipment.tracking.picked_up",
+                      "shipment.tracking.delivered"
+                    ],
+                    "deactivated": false
+                  },
+                  {
+                    "id": "e0ff4250-6c8e-494d-a069-afd9d566e372",
+                    "url": "https://example.com/webhook",
+                    "event_types": [
+                      "shipment.tracking.delayed",
+                      "shipment.tracking.delivered"
+                    ],
+                    "deactivated": false
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/webhooks/{id}": {
+      "get": {
+        "description": "returns information about a webhook",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of a webhook",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/webhook"
+            },
+            "examples": {
+              "application/json": {
+                "id": "e0ff4250-6c8e-494d-a069-afd9d566e372",
+                "url": "https://example.com/webhook",
+                "event_types": [
+                  "shipment.tracking.delayed",
+                  "shipment.tracking.delivered"
+                ],
+                "deactivated": false
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "deletes a single webhook",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of a webhook",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "webhook has been deleted",
+            "schema": { }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "address": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier of an address. Will be generated by shipcloud."
+        },
+        "company": {
+          "type": "string",
+          "description": "Company name"
+        },
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "care_of": {
+          "type": "string",
+          "description": "The c/o attribute"
+        },
+        "street": {
+          "type": "string"
+        },
+        "street_no": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "zip_code": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string",
+          "description": "Country as uppercase ISO 3166-1 alpha-2 code"
+        },
+        "phone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "last_name",
+        "street",
+        "street_no",
+        "city",
+        "zip_code",
+        "country"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "id": "522a7cb1-d6c8-418c-ac26-011127ab5bbe",
+        "company": "Sample Company",
+        "first_name": "John",
+        "last_name": "Doe",
+        "street": "Somestreet",
+        "street_no": "42",
+        "zip_code": "54321",
+        "city": "Somewhere",
+        "country": "DE",
+        "phone": "555-555"
+      }
+    },
+    "additional_services": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "enum": [
+              "advance_notice",
+              "cash_on_delivery",
+              "drop_authorization",
+              "saturday_delivery"
+            ],
+            "description": "key to identify the additional service"
+          },
+          "properties": {
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "number",
+                "description": "amount the carrier should collect from the buyer (**required** for cash_on_delivery)"
+              },
+              "bank_code": {
+                "type": "string",
+                "description": "bank code of the account the collected money should be transferred to (**required** for cash_on_delivery)"
+              },
+              "bank_name": {
+                "type": "string",
+                "description": "name of the bank the collected money should be transferred to (**required** for cash_on_delivery)"
+              },
+              "bank_account_holder": {
+                "type": "string",
+                "description": "name of the account holder for the account the collected money should be transferred to (**required** for cash_on_delivery)"
+              },
+              "bank_account_number": {
+                "type": "string",
+                "description": "bank account number for the account the collected money should be transferred to (**required** for cash_on_delivery)"
+              },
+              "currency": {
+                "type": "string",
+                "description": "currency symbol for the money that should be collected - e.g. EUR (**required** for cash_on_delivery)"
+              },
+              "email": {
+                "type": "string",
+                "format": "email",
+                "description": "email address that should be notified of changes (**used** for advance_notice)"
+              },
+              "language": {
+                "type": "string",
+                "description": "language the customer should be notified in. Please use the ISO-639-1 format (**required** for advance_notice)"
+              },
+              "sms": {
+                "type": "string",
+                "description": "cell phone number to be notified via sms (**used** for advance_notice)"
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "carrier": {
+      "type": "object",
+      "description": "carrier representation",
+      "properties": {
+        "name":  {
+          "type": "string"
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "services": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "standard",
+              "returns",
+              "one_day",
+              "one_day_early",
+              "same_day"
+            ]
+          }
+        }
+      },
+      "required": [
+        "name",
+        "hedisplay_nameight",
+        "services"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "name": "dhl",
+        "display_name": "Deutsche Post DHL",
+        "services": [
+          "standard",
+          "returns",
+          "one_day",
+          "one_day_early"
+        ]
+      }
+    },
+    "package": {
+      "type": "object",
+      "description": "defines package dimensions",
+      "properties": {
+        "width":  {
+          "type": "number"
+        },
+        "height": {
+          "type": "number"
+        },
+        "length": {
+          "type": "number"
+        },
+        "weight": {
+          "type": "number"
+        },
+        "declared_value": {
+          "type": "object",
+          "description": "describing the value of the package contents",
+          "properties": {
+            "amount": {
+              "type": "number"
+            },
+            "currency": {
+              "type": "string"
+            }
+          }
+        },
+        "description": {
+          "type": "string",
+          "description": "text that describes the contents of the package. This parameter is mandatory if you're using UPS with service returns or DHL with service express"
+        },
+        "package_type": {
+          "type": "string",
+          "enum": [
+            "bulk",
+            "parcel_letter"
+          ],
+          "description": "defines packages of being of a certain type"
+        }
+      },
+      "required": [
+        "width",
+        "height",
+        "length",
+        "weight"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "weight": 1.5,
+        "length": 20,
+        "width": 20,
+        "height": 20,
+        "declared_value": {
+          "amount": 123.45,
+          "currency": "EUR"
+        }
+      }
+    },
+    "pickup_request": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "shipcloud identifier for this pickup request"
+        },
+        "carrier": {
+          "type": "string",
+          "description": "carrier used for this pickup request"
+        },
+        "pickup_time": {
+          "description": "defines a time window when the carrier should pickup shipments",
+          "$ref": "#/definitions/pickup_time"
+        }
+      },
+      "required": [
+        "id",
+        "carrier",
+        "pickup_time"
+      ],
+      "additionalProperties": false
+    },
+    "pickup_time": {
+      "type": "object",
+      "properties": {
+        "earliest": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "latest": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "description": "defines a time window in which the carrier should pickup shipments",
+      "required": [
+        "earliest",
+        "latest"
+      ],
+      "additionalProperties": false
+    },
+    "pickup_request_shipmment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "id": "3a186c51d4281acbecf5ed38805b1db92a9d668b"
+      }
+    },
+    "prepared_shipment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "the shipment id that can be used for requesting info about a shipment or tracking it"
+        },
+        "carrier_tracking_no": {
+          "type": "string",
+          "description": "the original tracking number that can be used on the carriers website (not returned if prepared shipment)"
+        },
+        "tracking_url": {
+          "type": "string",
+          "description": "URL you can send your customers so they can track this shipment"
+        },
+        "label_url": {
+          "type": "string",
+          "description": "URL where you can download the label in pdf format (not returned if prepared shipment)"
+        },
+        "price": {
+          "type": "number",
+          "description": "price that we're going to charge you - excluding VAT  (not returned if prepared shipment)"
+        }
+      },
+      "required": [
+        "id",
+        "tracking_url"
+      ],
+      "additionalProperties": false
+    },
+    "shipment": {
+      "description": "Complete shipment returned when asked about a shipment",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "the shipment id that can be used for requesting info about a shipment or tracking it"
+        },
+        "carrier_tracking_no": {
+          "type": "string",
+          "description": "the original tracking number that can be used on the carriers website"
+        },
+        "carrier": {
+          "type": "string",
+          "enum": ["dhl", "ups", "dpd", "hermes", "gls"],
+          "description": "acronym of the carrier"
+        },
+        "created_at": {
+          "type": "date-time",
+          "description": "timestamp the shipment was created"
+        },
+        "tracking_url": {
+          "type": "string",
+          "description": "URL you can send your customers so they can track this shipment"
+        },
+        "label_url": {
+          "type": "string",
+          "description": "URL where you can download the label in pdf format"
+        },
+        "from": {
+          "$ref": "#/definitions/address",
+          "description": "If missing, the default sender address (if defined in your shipcloud account) will be used"
+        },
+        "to": {
+          "$ref": "#/definitions/address",
+          "description": "the receivers address"
+        },
+        "packages": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "#/definitions/package"
+              }
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "identifier for a single package"
+              },
+              "tracking_events": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "timestamp": {
+                      "type": "date-time",
+                      "description": "timestamp of when this event occured"
+                    },
+                    "location": {
+                      "type": "string",
+                      "description": "location of the package at this moment"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "shipcloud_label_created",
+                        "label_created",
+                        "picked_up",
+                        "delivered",
+                        "not_delivered",
+                        "transit",
+                        "exception",
+                        "out_for_delivery",
+                        "unknown",
+                        "canceled"
+                      ],
+                      "description": "key describing the status"
+                    },
+                    "details": {
+                      "type": "string",
+                      "description": "message the carrier sends to describe the package status"
+                    }
+                  },
+                  "required": [
+                    "timestamp",
+                    "location",
+                    "status",
+                    "details"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "price": {
+          "type": "number",
+          "description": "price that we're going to charge you (excluding VAT)"
+        },
+        "reference_number": {
+          "type": "string",
+          "description": "a reference number (max. 30 characters) that you want this shipment to be identified with. You can use this afterwards to easier find the shipment in the shipcloud.io backoffice"
+        }
+      },
+      "required": [
+        "id",
+        "carrier_tracking_no",
+        "carrier",
+        "created_at",
+        "tracking_url",
+        "label_url",
+        "from",
+        "to",
+        "packages",
+        "price"
+      ],
+      "additionalProperties": false
+    },
+    "shipment_quote": {
+      "type": "object",
+      "properties": {
+        "price": {
+          "type": "number",
+          "description": "price that we're going to charge you (excluding VAT)"
+        }
+      },
+      "required": [
+        "price"
+      ],
+      "additionalProperties": false
+    },
+    "webhook": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "the webhook id that can be used for requesting info about a webhook or deleting it"
+        },
+        "url": {
+          "type": "string",
+          "description": "the URL of the webhook"
+        },
+        "event_types": {
+          "type": "array",
+          "description": "the subscribed event types",
+          "items": {
+            "type": "string"
+          }
+        },
+        "deactivated": {
+          "type": "boolean",
+          "description": "is set to true, if the call of the webhook url fails ten times."
+        }
+      },
+      "required": [
+        "id",
+        "url",
+        "event_types"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "responses": {
+    "200": {
+      "description": "Everything went fine."
+    },
+    "204": {
+      "description": "There is no message body. You'll get this code when deleting a shipment was successful."
+    },
+    "400": {
+      "description": "Your request was not correct. Please see the response body for more detailed information."
+    },
+    "402": {
+      "description": "You've reached the maximum of your current plan. Please upgrade to a higher plan."
+    },
+    "403": {
+      "description": "You are not allowed to talk to this endpoint. This can either be due to a wrong authentication or when you're trying to reach an endpoint that your account isn't allowed to access."
+    },
+    "404": {
+      "description": "The api endpoint you were trying to reach can't be found."
+    },
+    "422": {
+      "description": "Your request was well-formed but couldn't be followed due to semantic errors. Please see the response body for more detailed information."
+    },
+    "500": {
+      "description": "Something has seriously gone wrong. Don't worry, we'll have a look at it."
+    },
+    "502": {
+      "description": "Something has gone wrong while talking to the carrier backend. Please see the response body for more detailed information."
+    },
+    "504": {
+      "description": "Unfortunately we couldn't connect to the carrier backend. It is either very slow or not reachable at all. If you want to stay informed about the carrier status, follow our developer twitter account at @shipcloud_devs."
+    }
+  },
+  "securityDefinitions": {
+    "basicAuth": {
+      "type": "basic",
+      "in": "header",
+      "description": "HTTP Basic Authentication"
+    }
+  },
+  "security": [
+    {
+      "basicAuth": []
+    }
+  ]
+}
