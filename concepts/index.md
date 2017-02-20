@@ -189,6 +189,26 @@ day.
 * when using the service ___one_day___ or ___one_day_early___ the parameter
 ___package.description___ is mandatory
 
+### DHL Express
+
+#### Shipments with Pickup Requests
+If you don't have regular pickups by DHL Express you will have to request a pickup when creating a
+shipment. Therefore, you can add a pickup element to your shipment request.
+
+The following rules apply for pickups by DHL Express:
+
+* the date for `pickup_time.earliest` and `pickup_time.latest` has to be the same
+* supplying a `pickup_address` is optional
+* supplying a `description` is mandatory
+* supplying `phone` is mandatory for sender and recipient addresses
+* `state` has to be 2 characters long
+
+<kbd>POST</kbd> __/v1/shipments__
+
+{% highlight json %}
+{% include shipments_post_request_with_pickup_by_dhl_express.json %}
+{% endhighlight %}
+
 ### GLS
 * shipments will receive a carrier tracking number (```carrier_tracking_no```) with the first scan
 by the carrier, which is why this parameter won't be included in the response when creating a
@@ -207,7 +227,7 @@ contrast to other carriers we support, pickup requests for TNT have to be done a
 differently. When creating a shipment for TNT a pickup request has to be made at the same time.
 Therefore you can add a pickup element when creating your shipment request.
 
-The following rules apply for pickups:
+The following rules apply for pickups by TNT:
 
 * the date for `pickup_time.earliest` and `pickup_time.latest` has to be same
 * supplying a `pickup_address` is optional

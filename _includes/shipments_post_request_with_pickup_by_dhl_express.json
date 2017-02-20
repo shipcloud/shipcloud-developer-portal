@@ -1,0 +1,40 @@
+{
+  "to": {
+      "company": "Receiver Inc.",
+      "first_name": "Max",
+      "last_name": "Mustermann",
+      "street": "Beispielstrasse",
+      "street_no": "42",
+      "city": "Hamburg",
+      "state": "HH",
+      "zip_code": "22100",
+      "country": "DE",
+      "phone": "555-12345"
+  },
+  "package": {
+      "weight": 1.5,
+      "length": 20,
+      "width": 20,
+      "height": 20
+  },
+  "pickup": {
+    "pickup_time": {
+      "earliest": "2015-09-15T09:00:00+02:00",
+      "latest": "2015-09-15T18:00:00+02:00"
+    },
+    "pickup_address": {
+      "company": "Sender Ltd.",
+      "first_name": "Jane",
+      "last_name": "Doe",
+      "street": "Musterstraße",
+      "street_no": "42",
+      "zip_code": "54321",
+      "city": "Musterstadt",
+      "country": "DE"
+     }
+  },
+  "description": "Important goods that need to be delivered fast!",
+  "carrier": "dhl_express",
+  "service": "one_day",
+  "create_shipping_label": true
+}
