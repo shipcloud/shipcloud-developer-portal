@@ -11,7 +11,7 @@ integration_guide_url:
   de: >
     https://www.dropbox.com/s/klycgg1p1d3v20v/shipcloud_integration_guide_de.pdf?dl=0
   en: >
-    https://www.dropbox.com/s/0c2mguqlvwdwclg/shipcloud_integration_guide_v_0_7.pdf?dl=0
+    https://www.dropbox.com/s/dgi9r9w8p40snuu/shipcloud_integration_guide_en.pdf?dl=0
 shipcloud:
   supported_carriers:
     as_display_names: 'DHL, Deutsche Post, UPS, DPD, Hermes, GLS, MyDPD Business (iloxx), TNT, FedEx, Liefery and GO!'
