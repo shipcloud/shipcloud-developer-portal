@@ -119,13 +119,32 @@
         }
       },
       "post": {
-        "description": "An address for a shipments to or from address",
+        "description": "Create an address to be used for a shipment",
         "parameters": [
+          {
+            "name": "care_of",
+            "in": "body",
+            "type": "string"
+          },
+          {
+            "name": "city",
+            "in": "body",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "country",
+            "in": "body",
+            "type": "string",
+            "description": "Country as uppercase ISO 3166-1 alpha-2 code",
+            "required": true
+          },
           {
             "name": "company",
             "in": "body",
             "type": "string",
-            "description": "Company name"
+            "description": "Company name",
+            "required": true
           },
           {
             "name": "first_name",
@@ -139,7 +158,12 @@
             "required": true
           },
           {
-            "name": "care_of",
+            "name": "phone",
+            "in": "body",
+            "type": "string"
+          },
+          {
+            "name": "state",
             "in": "body",
             "type": "string"
           },
@@ -156,28 +180,10 @@
             "required": true
           },
           {
-            "name": "city",
-            "in": "body",
-            "type": "string",
-            "required": true
-          },
-          {
             "name": "zip_code",
             "in": "body",
             "type": "string",
             "required": true
-          },
-          {
-            "name": "country",
-            "in": "body",
-            "type": "string",
-            "description": "Country as uppercase ISO 3166-1 alpha-2 code",
-            "required": true
-          },
-          {
-            "name": "phone",
-            "in": "body",
-            "type": "string"
           }
         ],
         "responses": {
