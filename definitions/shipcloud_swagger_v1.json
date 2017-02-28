@@ -871,12 +871,12 @@
         }
       },
       "delete": {
-        "description": "deletes a single shipment **notice:** Only shipments where *\"create_shipping_label\"* is false can be updated, because no transaction with a carrier has been done until this point.",
+        "description": "Deletes a single shipment. **Notice:**  Prepared shipments (where `create_shipping_label` is `false`) can be deleted at any time, because no transaction with the carrier has happened until this point and no actual shipping label has been created. In case you've created a shipping label you can delete it before the cutoff time of the carrier. Cutoff times differ from carrier to carrier and are some time between 5pm and 8pm.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "ID of a shipment",
+            "description": "ID of the shipment you would like to delete",
             "required": true,
             "type": "string"
           }
@@ -894,20 +894,12 @@
         "description": "Creating a webhook",
         "parameters": [
           {
-            "name": "url",
-            "in": "body",
-            "description": "url we should call if an event occurs",
-            "required": true,
-            "type": "string"
-          },
-          {
             "name": "event_types",
             "in": "body",
             "description": "array of events you want to subscribe",
             "required": true,
             "type": "array",
             "enum": [
-              "shipment.tracking.shipcloud_label_created",
               "shipment.tracking.label_created",
               "shipment.tracking.picked_up",
               "shipment.tracking.transit",
@@ -921,6 +913,13 @@
               "shipment.tracking.notification",
               "shipment.tracking.unknown"
             ]
+          },
+          {
+            "name": "url",
+            "in": "body",
+            "description": "url we should call if an event occurs",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -928,17 +927,6 @@
             "description": "webhook response",
             "schema": {
               "$ref": "#/definitions/webhook"
-            },
-            "examples": {
-              "application/json": {
-                "id": "e0ff4250-6c8e-494d-a069-afd9d566e372",
-                "url": "https://example.com/webhook",
-                "event_types": [
-                  "shipment.tracking.delayed",
-                  "shipment.tracking.delivered"
-                ],
-                "deactivated": false
-              }
             }
           }
         }
@@ -1609,7 +1597,16 @@
         "url",
         "event_types"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "example": {
+        "id": "e0ff4250-6c8e-494d-a069-afd9d566e372",
+        "url": "https://example.com/webhook",
+        "event_types": [
+          "shipment.tracking.delayed",
+          "shipment.tracking.delivered"
+        ],
+        "deactivated": false
+      }
     }
   },
   "responses": {
