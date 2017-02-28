@@ -1055,6 +1055,9 @@
           "type": "string",
           "description": "The c/o attribute"
         },
+        "state": {
+          "type": "string"
+        },
         "street": {
           "type": "string"
         },
