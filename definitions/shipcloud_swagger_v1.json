@@ -198,7 +198,7 @@
     },
     "/addresses/{id}": {
       "get": {
-        "description": "returns details of an address",
+        "description": "Returns details about an address",
         "parameters": [
           {
             "name": "id",
@@ -415,7 +415,7 @@
     },
     "/shipments": {
       "get": {
-        "description": "getting a list of shipments",
+        "description": "Getting a list of shipments",
         "parameters": [
           {
             "name": "carrier",
@@ -732,7 +732,7 @@
     },
     "/shipments/{id}": {
       "get": {
-        "description": "returns information about a shipment",
+        "description": "Returns information about a shipment",
         "parameters": [
           {
             "name": "id",
@@ -751,7 +751,7 @@
         }
       },
       "put": {
-        "description": "Update a existing shipment with new data. **Notice:** Only shipments where `create_shipping_label` is false can be updated, because no transaction with a carrier has been done until this point.",
+        "description": "Update an existing shipment with new data. **Notice:** Only shipments where `create_shipping_label` is false can be updated, because no transaction with a carrier has been done until this point.",
         "parameters": [
           {
             "name": "additional_services",
