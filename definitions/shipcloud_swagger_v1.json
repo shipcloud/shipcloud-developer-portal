@@ -331,7 +331,7 @@
     },
     "/shipment_quotes": {
       "post": {
-        "description": "Creating a shipment quote",
+        "description": "Creating/getting a shipment quote",
         "parameters": [
           {
             "name": "carrier",
@@ -341,13 +341,35 @@
             "type": "string",
             "enum": [
               "dhl",
-              "ups",
+              "dpag",
               "dpd",
-              "hermes",
-              "gls",
               "fedex",
-              "liefery"
+              "gls",
+              "go",
+              "hermes",
+              "iloxx",
+              "liefery",
+              "tnt",
+              "ups"
             ]
+          },
+          {
+            "name": "from",
+            "in": "body",
+            "description": "The senders address. If missing, the default sender address (if defined in your shipcloud account) will be used",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/address"
+            }
+          },
+          {
+            "name": "package",
+            "in": "body",
+            "description": "package dimensions",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/package"
+            }
           },
           {
             "name": "service",
@@ -365,30 +387,12 @@
             "default": "standard"
           },
           {
-            "name": "from",
-            "in": "body",
-            "description": "The senders address. If missing, the default sender address (if defined in your shipcloud account) will be used",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/address"
-            }
-          },
-          {
             "name": "to",
             "in": "body",
             "description": "the receivers address",
             "required": true,
             "schema": {
               "$ref": "#/definitions/address"
-            }
-          },
-          {
-            "name": "package",
-            "in": "body",
-            "description": "package dimensions",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/package"
             }
           }
         ],
@@ -1287,7 +1291,10 @@
         "package_type": {
           "type": "string",
           "enum": [
+            "books",
             "bulk",
+            "letter",
+            "parcel",
             "parcel_letter"
           ],
           "description": "defines packages of being of a certain type"
@@ -1299,7 +1306,6 @@
         "length",
         "weight"
       ],
-      "additionalProperties": false,
       "example": {
         "weight": 1.5,
         "length": 20,
@@ -1308,7 +1314,8 @@
         "declared_value": {
           "amount": 123.45,
           "currency": "EUR"
-        }
+        },
+        "type:": "parcel"
       }
     },
     "pickup_request": {
