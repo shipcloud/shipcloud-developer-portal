@@ -1214,6 +1214,33 @@
         ]
       }
     },
+    "http_204": {
+      "description": "There is no message body. You'll get this code when deleting an object was successful."
+    },
+    "http_400": {
+      "description": "Your request was not correct. Please see the response body for more detailed information."
+    },
+    "http_402": {
+      "description": "You've reached the maximum of your current plan. Please upgrade to a higher plan."
+    },
+    "http_403": {
+      "description": "You are not allowed to talk to this endpoint. This can either be due to a wrong authentication or when you're trying to reach an endpoint that your account isn't allowed to access."
+    },
+    "http_404": {
+      "description": "The api endpoint you were trying to reach can't be found."
+    },
+    "http_422": {
+      "description": "Your request was well-formed but couldn't be followed due to semantic errors. Please see the response body for more detailed information."
+    },
+    "http_500": {
+      "description": "Something has seriously gone wrong. Don't worry, we'll have a look at it."
+    },
+    "http_502": {
+      "description": "Something has gone wrong while talking to the carrier backend. Please see the response body for more detailed information."
+    },
+    "http_504": {
+      "description": "Unfortunately we couldn't connect to the carrier backend. It is either very slow or not reachable at all. If you want to stay informed about the carrier status, follow our developer twitter account at @shipcloud_devs or visit our status page at http://status.shipcloud.io"
+    },
     "package": {
       "type": "object",
       "description": "defines package dimensions",
