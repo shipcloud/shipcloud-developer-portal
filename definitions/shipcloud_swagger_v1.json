@@ -278,7 +278,7 @@
     },
     "/pickup_requests": {
       "post": {
-        "description": "An address for a shipments to or from address",
+        "description": "Requesting a pickup for a specific carrier and address",
         "parameters": [
           {
             "name": "carrier",
@@ -294,6 +294,13 @@
             ]
           },
           {
+            "name": "pickup_date",
+            "in": "body",
+            "type": "string",
+            "pattern": "^[0-9]{4}\/[0-9]{2}\/[0-9]{2}$",
+            "description": "deprecated: please use **pickup_time** instead."
+          },
+          {
             "name": "pickup_time",
             "in": "body",
             "description": "defines a time window in which the carrier should pickup shipments",
@@ -301,13 +308,6 @@
             "schema": {
               "$ref": "#/definitions/pickup_time"
             }
-          },
-          {
-            "name": "pickup_date",
-            "in": "body",
-            "type": "string",
-            "pattern": "^[0-9]{4}\/[0-9]{2}\/[0-9]{2}$",
-            "description": "deprecated: please use **pickup_time** instead."
           },
           {
             "name": "shipments",
@@ -324,16 +324,6 @@
             "description": "pickup request response",
             "schema": {
               "$ref": "#/definitions/pickup_request"
-            },
-            "examples": {
-              "application/json": {
-                "id": "123456",
-                "carrier": "dpd",
-                "pickup_time": {
-                  "earliest": "2015-09-15T09:00:00+02:00",
-                  "latest": "2015-09-15T18:00:00+02:00"
-                }
-              }
             }
           }
         }
@@ -1331,6 +1321,10 @@
         "carrier": {
           "type": "string",
           "description": "carrier used for this pickup request"
+        },
+        "pickup_address": {
+          "description": "address where the carrier should pick up the shipments",
+          "$ref": "#/definitions/address"
         },
         "pickup_time": {
           "description": "defines a time window when the carrier should pickup shipments",
