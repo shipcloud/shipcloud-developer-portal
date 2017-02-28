@@ -110,11 +110,17 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/definitions/http_400"
+          },
           "402": {
             "$ref": "#/definitions/http_402"
           },
-          "403": {
-            "$ref": "#/definitions/http_403"
+          "422": {
+            "$ref": "#/definitions/http_422"
+          },
+          "500": {
+            "$ref": "#/definitions/http_500"
           }
         }
       },
@@ -192,6 +198,18 @@
             "schema": {
               "$ref": "#/definitions/address"
             }
+          },
+          "400": {
+            "$ref": "#/definitions/http_400"
+          },
+          "402": {
+            "$ref": "#/definitions/http_402"
+          },
+          "422": {
+            "$ref": "#/definitions/http_422"
+          },
+          "500": {
+            "$ref": "#/definitions/http_500"
           }
         }
       }
@@ -213,6 +231,18 @@
             "schema": {
               "$ref": "#/definitions/address"
             }
+          },
+          "400": {
+            "$ref": "#/definitions/http_400"
+          },
+          "402": {
+            "$ref": "#/definitions/http_402"
+          },
+          "422": {
+            "$ref": "#/definitions/http_422"
+          },
+          "500": {
+            "$ref": "#/definitions/http_500"
           }
         }
       }
@@ -272,6 +302,18 @@
                 }
               ]
             }
+          },
+          "400": {
+            "$ref": "#/definitions/http_400"
+          },
+          "402": {
+            "$ref": "#/definitions/http_402"
+          },
+          "422": {
+            "$ref": "#/definitions/http_422"
+          },
+          "500": {
+            "$ref": "#/definitions/http_500"
           }
         }
       }
@@ -325,6 +367,24 @@
             "schema": {
               "$ref": "#/definitions/pickup_request"
             }
+          },
+          "400": {
+            "$ref": "#/definitions/http_400"
+          },
+          "402": {
+            "$ref": "#/definitions/http_402"
+          },
+          "422": {
+            "$ref": "#/definitions/http_422"
+          },
+          "500": {
+            "$ref": "#/definitions/http_500"
+          },
+          "502": {
+            "$ref": "#/definitions/http_502"
+          },
+          "504": {
+            "$ref": "#/definitions/http_504"
           }
         }
       }
@@ -409,6 +469,18 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/definitions/http_400"
+          },
+          "402": {
+            "$ref": "#/definitions/http_402"
+          },
+          "422": {
+            "$ref": "#/definitions/http_422"
+          },
+          "500": {
+            "$ref": "#/definitions/http_500"
           }
         }
       }
@@ -604,6 +676,18 @@
                 }]
               }
             }
+          },
+          "400": {
+            "$ref": "#/definitions/http_400"
+          },
+          "402": {
+            "$ref": "#/definitions/http_402"
+          },
+          "422": {
+            "$ref": "#/definitions/http_422"
+          },
+          "500": {
+            "$ref": "#/definitions/http_500"
           }
         }
       },
@@ -726,6 +810,24 @@
                 "price": 3.4
               }
             }
+          },
+          "400": {
+            "$ref": "#/definitions/http_400"
+          },
+          "402": {
+            "$ref": "#/definitions/http_402"
+          },
+          "422": {
+            "$ref": "#/definitions/http_422"
+          },
+          "500": {
+            "$ref": "#/definitions/http_500"
+          },
+          "502": {
+            "$ref": "#/definitions/http_502"
+          },
+          "504": {
+            "$ref": "#/definitions/http_504"
           }
         }
       }
@@ -747,6 +849,18 @@
             "schema": {
               "$ref": "#/definitions/shipment"
             }
+          },
+          "400": {
+            "$ref": "#/definitions/http_400"
+          },
+          "402": {
+            "$ref": "#/definitions/http_402"
+          },
+          "422": {
+            "$ref": "#/definitions/http_422"
+          },
+          "500": {
+            "$ref": "#/definitions/http_500"
           }
         }
       },
@@ -867,6 +981,24 @@
             "schema": {
               "$ref": "#/definitions/prepared_shipment"
             }
+          },
+          "400": {
+            "$ref": "#/definitions/http_400"
+          },
+          "402": {
+            "$ref": "#/definitions/http_402"
+          },
+          "422": {
+            "$ref": "#/definitions/http_422"
+          },
+          "500": {
+            "$ref": "#/definitions/http_500"
+          },
+          "502": {
+            "$ref": "#/definitions/http_502"
+          },
+          "504": {
+            "$ref": "#/definitions/http_504"
           }
         }
       },
@@ -885,6 +1017,24 @@
           "204": {
             "description": "shipment has been deleted",
             "schema": { }
+          },
+          "400": {
+            "$ref": "#/definitions/http_400"
+          },
+          "402": {
+            "$ref": "#/definitions/http_402"
+          },
+          "422": {
+            "$ref": "#/definitions/http_422"
+          },
+          "500": {
+            "$ref": "#/definitions/http_500"
+          },
+          "502": {
+            "$ref": "#/definitions/http_502"
+          },
+          "504": {
+            "$ref": "#/definitions/http_504"
           }
         }
       }
@@ -928,6 +1078,18 @@
             "schema": {
               "$ref": "#/definitions/webhook"
             }
+          },
+          "400": {
+            "$ref": "#/definitions/http_400"
+          },
+          "402": {
+            "$ref": "#/definitions/http_402"
+          },
+          "422": {
+            "$ref": "#/definitions/http_422"
+          },
+          "500": {
+            "$ref": "#/definitions/http_500"
           }
         }
       },
@@ -965,6 +1127,18 @@
                 ]
               }
             }
+          },
+          "400": {
+            "$ref": "#/definitions/http_400"
+          },
+          "402": {
+            "$ref": "#/definitions/http_402"
+          },
+          "422": {
+            "$ref": "#/definitions/http_422"
+          },
+          "500": {
+            "$ref": "#/definitions/http_500"
           }
         }
       }
@@ -986,6 +1160,18 @@
             "schema": {
               "$ref": "#/definitions/webhook"
             }
+          },
+          "400": {
+            "$ref": "#/definitions/http_400"
+          },
+          "402": {
+            "$ref": "#/definitions/http_402"
+          },
+          "422": {
+            "$ref": "#/definitions/http_422"
+          },
+          "500": {
+            "$ref": "#/definitions/http_500"
           }
         }
       },
@@ -1004,6 +1190,18 @@
           "204": {
             "description": "webhook has been deleted",
             "schema": { }
+          },
+          "400": {
+            "$ref": "#/definitions/http_400"
+          },
+          "402": {
+            "$ref": "#/definitions/http_402"
+          },
+          "422": {
+            "$ref": "#/definitions/http_422"
+          },
+          "500": {
+            "$ref": "#/definitions/http_500"
           }
         }
       }
@@ -1206,7 +1404,7 @@
       "description": "Something has gone wrong while talking to the carrier backend. Please see the response body for more detailed information."
     },
     "http_504": {
-      "description": "Unfortunately we couldn't connect to the carrier backend. It is either very slow or not reachable at all. If you want to stay informed about the carrier status, follow our developer twitter account at @shipcloud_devs or visit our status page at http://status.shipcloud.io"
+      "description": "Unfortunately we couldn't connect to the carrier backend. It is either very slow or not reachable at all. If you want to stay informed about the carrier status, follow our developer twitter account at [@shipcloud_devs](https://twitter.com/shipcloud_devs) or visit our status page at http://status.shipcloud.io"
     },
     "package": {
       "type": "object",
