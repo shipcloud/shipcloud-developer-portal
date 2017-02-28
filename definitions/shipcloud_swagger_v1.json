@@ -27,6 +27,30 @@
         "description": "Get a list of addresses",
         "parameters": [
           {
+            "name": "care_of",
+            "in": "path",
+            "type": "string",
+            "description": "Filter addresses by care_of"
+          },
+          {
+            "name": "city",
+            "in": "path",
+            "type": "string",
+            "description": "Filter addresses by city"
+          },
+          {
+            "name": "company",
+            "in": "path",
+            "type": "string",
+            "description": "Filter addresses by company name"
+          },
+          {
+            "name": "country",
+            "in": "path",
+            "type": "string",
+            "description": "Filter addresses by country code"
+          },
+          {
             "name": "first_name",
             "in": "path",
             "type": "string",
@@ -39,16 +63,23 @@
             "description": "Filter addresses by last name"
           },
           {
-            "name": "company",
+            "name": "page",
             "in": "path",
-            "type": "string",
-            "description": "Filter addresses by company name"
+            "type": "integer",
+            "description": "Number of page that should be returned"
           },
           {
-            "name": "care_of",
+            "name": "per_page",
+            "in": "path",
+            "type": "integer",
+            "description": "Number of items that should be shown on a page",
+            "default": 100
+          },
+          {
+            "name": "phone",
             "in": "path",
             "type": "string",
-            "description": "Filter addresses by care_of"
+            "description": "Filter addresses by phone number"
           },
           {
             "name": "street",
@@ -67,47 +98,23 @@
             "in": "path",
             "type": "string",
             "description": "Filter addresses by zip code"
-          },
-          {
-            "name": "city",
-            "in": "path",
-            "type": "string",
-            "description": "Filter addresses by city"
-          },
-          {
-            "name": "country",
-            "in": "path",
-            "type": "string",
-            "description": "Filter addresses by country code"
-          },
-          {
-            "name": "phone",
-            "in": "path",
-            "type": "string",
-            "description": "Filter addresses by phone number"
-          },
-          {
-            "name": "page",
-            "in": "path",
-            "type": "integer",
-            "description": "Number of page that should be returned"
-          },
-          {
-            "name": "per_page",
-            "in": "path",
-            "type": "integer",
-            "description": "Number of items that should be shown on a page",
-            "default": 100
           }
         ],
         "responses": {
           "200": {
+            "description": "List of addresses",
             "schema": {
               "type": "array",
               "items": {
                 "$ref": "#/definitions/address"
               }
             }
+          },
+          "402": {
+            "$ref": "#/definitions/http_402"
+          },
+          "403": {
+            "$ref": "#/definitions/http_403"
           }
         }
       },
