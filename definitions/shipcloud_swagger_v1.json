@@ -421,31 +421,26 @@
             "name": "carrier",
             "in": "path",
             "type": "string",
-            "description": "Filter shipments by carrier name"
-          },
-          {
-            "name": "service",
-            "in": "path",
-            "type": "string",
-            "description": "Filter shipments by service"
-          },
-          {
-            "name": "reference_number",
-            "in": "path",
-            "type": "string",
-            "description": "Filter shipments by reference number"
+            "description": "Filter shipments by carrier name",
+            "enum": [
+              "dhl",
+              "dpag",
+              "dpd",
+              "fedex",
+              "gls",
+              "go",
+              "hermes",
+              "iloxx",
+              "liefery",
+              "tnt",
+              "ups"
+            ]
           },
           {
             "name": "carrier_tracking_no",
             "in": "path",
             "type": "string",
             "description": "Filter shipments by carrier tracking number"
-          },
-          {
-            "name": "tracking_status",
-            "in": "path",
-            "type": "string",
-            "description": "Filter shipments by our internal tracking status mappings (e.g. tracking_status=out_for_delivery)"
           },
           {
             "name": "page",
@@ -459,6 +454,46 @@
             "type": "integer",
             "description": "Number of items that should be shown on a page",
             "default": 100
+          },
+          {
+            "name": "reference_number",
+            "in": "path",
+            "type": "string",
+            "description": "Filter shipments by reference number"
+          },
+          {
+            "name": "service",
+            "in": "path",
+            "type": "string",
+            "description": "Filter shipments by service",
+            "enum": [
+              "standard",
+              "returns",
+              "one_day",
+              "one_day_early",
+              "same_day"
+            ]
+          },
+          {
+            "name": "tracking_status",
+            "in": "path",
+            "type": "string",
+            "description": "Filter shipments by our internal tracking status mappings (e.g. tracking_status=out_for_delivery)",
+            "enum": [
+              "label_created",
+              "picked_up",
+              "transit",
+              "out_for_delivery",
+              "delivered",
+              "awaits_pickup_by_receiver",
+              "canceled",
+              "delayed",
+              "exception",
+              "not_delivered",
+              "destroyed",
+              "notification",
+              "unknown"
+            ]
           }
         ],
         "responses": {
@@ -480,7 +515,7 @@
                   "created_at": "2014-11-12T14:03:45+01:00",
                   "price": 3.5,
                   "reference_number": null,
-                  "tracking_url": "http://track.shipcloud.dev/de/86afb143f9",
+                  "tracking_url": "https://track.shipcloud.io/de/86afb143f9",
                   "to": {
                     "company": null,
                     "first_name": "Hans",
@@ -511,10 +546,11 @@
                     "width": 10.0,
                     "height": 10.0,
                     "weight": 1.5,
+                    "type": "parcel",
                     "tracking_events": [{
                       "timestamp": "2014-11-12T14:03:45+01:00",
                       "location": "shipcloud",
-                      "status": "shipcloud_label_created",
+                      "status": "label_created",
                       "details": "Es wurde eine Sendung angelegt"
                     }]
                   }]
@@ -526,7 +562,7 @@
                   "created_at": "2014-11-12T14:03:45+01:00",
                   "price": 3.0,
                   "reference_number": null,
-                  "tracking_url": "http://track.shipcloud.dev/de/be598a2fd2",
+                  "tracking_url": "https://track.shipcloud.io/de/be598a2fd2",
                   "to": {
                     "company": null,
                     "first_name": "Test",
@@ -557,10 +593,11 @@
                     "width": 20.0,
                     "height": 10.0,
                     "weight": 2.0,
+                    "type": "parcel",
                     "tracking_events": [{
                       "timestamp": "2014-11-12T14:03:45+01:00",
                       "location": "shipcloud",
-                      "status": "shipcloud_label_created",
+                      "status": "label_created",
                       "details": "Es wurde eine Sendung angelegt"
                     }]
                   }]
