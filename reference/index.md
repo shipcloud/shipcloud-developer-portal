@@ -488,7 +488,7 @@ __URL parameters:__
 {% endhighlight %}
 
 ## Trackers
-Trackers make it possible to track a shipment that wasn't creating using shipcloud. They are
+Trackers make it possible to track a shipment that wasn't created using shipcloud. They are
 basically a way to monitor shipments created elsewhere. All you have to do is provide us with the
 tracking number you received from the carrier as well as its corresponding name acronym.
 
