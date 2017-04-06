@@ -4,9 +4,7 @@ cache:
   bundler: true
   directories:
     - node_modules
-rvm:
-- 2.2
-script: bundle exec jekyll build && bundle exec htmlproof ./_site --href-swap "https?\W{1}\/\/developers\.shipcloud\.io":""
+script: bundle exec jekyll build && bundle exec htmlproofer ./_site --url-swap "https?\W{1}\/\/developers\.shipcloud\.io":""
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
