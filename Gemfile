@@ -13,4 +13,4 @@ gem 'liquid', '~> 3.0.x'
 
 # Plugins
 gem 'jekyll-sitemap', '1.0.0'
-gem 'html-proofer', '3.6.0'
+gem 'html-proofer', "~> 3.7.x"
