@@ -9,7 +9,7 @@ env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
 before_install:
-  - npm list firebase-tools --depth=0 || npm install firebase-tools
+  - npm list firebase-tools --depth=0 || npm install firebase-tools --no-optional
 deploy:
   provider: script
   script: firebase deploy --token "$FIREBASE_TOKEN"
