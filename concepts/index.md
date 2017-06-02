@@ -336,6 +336,43 @@ You can currently subscribe to the following event types:
 
 {% include concepts/webhooks_legend.html %}
 
+## Catch all webhooks
+If you don't want to subscribe to a specific event or you want to be notified by all events we're
+firing using one of our catch all options is the best way to go. Defining a catch all webhook is
+easy. Simply use an asterisk instead of a specific status as the last element in the notation.
+
+We're supporting all places in the notation hierarchy as long as the asterisk is the last element
+defined.
+
+__Notice:__ By using catch all webhooks you are going the first step in getting notified about all
+current and future events we're supporting.
+
+### Examples for catch all webhooks
+
+#### All events for tracking shipments
+{% highlight json %}
+{
+  "url": "https://example.com/webhook",
+  "event_types": ["shipment.tracking.*"]
+}
+{% endhighlight %}
+
+#### All events for shipments
+{% highlight json %}
+{
+  "url": "https://example.com/webhook",
+  "event_types": ["shipment.*"]
+}
+{% endhighlight %}
+
+#### All events
+{% highlight json %}
+{
+  "url": "https://example.com/webhook",
+  "event_types": ["*"]
+}
+{% endhighlight %}
+
 ## Configuration
 To configure webhooks just click on __Configurations__ in the shipcloud
 backoffice to reveal a webhook nav entry. There you can add webhooks and
