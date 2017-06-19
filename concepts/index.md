@@ -231,6 +231,7 @@ The following rules apply for pickups by TNT:
 
 * the date for `pickup_time.earliest` and `pickup_time.latest` has to be same
 * supplying a `pickup_address` is optional
+* supplying a `package.description` is mandatory
 
 <kbd>POST</kbd> __/v1/shipments__
 
