@@ -59,9 +59,9 @@ __GET parameters:__
 - __street_no__, e.g. 'street_no=42'
 - __zip_code__, e.g. 'zip_code=12345'
 - __state__, e.g. 'state=CA'
-- __city__, e.g. 'street_no=Musterstadt'
-- __country__, e.g. 'street_no=DE'
-- __phone__, e.g. 'street_no=555-555'
+- __city__, e.g. 'city=Musterstadt'
+- __country__, e.g. 'country=DE'
+- __phone__, e.g. 'phone=555-555'
 - __page__, show page number x, e.g. 'page=2'
 - __per_page__, show x number of shipments on a page (default & max: 100), e.g. 'per_page=25'
 
