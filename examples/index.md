@@ -281,7 +281,7 @@ POST https://api.shipcloud.io/v1/shipments
 ### DPD - Predict
 
 DPD allows recipients to be notified of a pending delivery within the next hour. The so called
-[predict service](http://www.dpd.com/de_en/home/produkte_services/zusatzleistungen/national/predict)
+[predict service](https://www.dpd.com/de_en/sending_parcels/our_options/predict)
 can be used with shipcloud by specifying it as an additional service. You can either specify the
 email address or phone number of your customer to be notified.
 
@@ -428,7 +428,7 @@ POST https://api.shipcloud.io/v1/shipments
 {% endhighlight %}
 
 ## DPD parcel letter
-DPD defines [parcel letters](http://www.dpd.com/de_en/home/produkte_services/special_services/dpd_parcelletter)
+DPD defines [parcel letters](https://www.dpd.com/de_en/sending_parcels/our_shipping_services/parcelletter)
 as "everything which is too small for a parcel but larger and heavier than a classical letter"
 
 __Requirements:__

@@ -4,7 +4,7 @@ cache:
   bundler: true
   directories:
     - node_modules
-script: bundle exec jekyll build && bundle exec htmlproofer ./_site --url-swap "https?\W{1}\/\/developers\.shipcloud\.io":""
+script: bundle exec rake build test
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
