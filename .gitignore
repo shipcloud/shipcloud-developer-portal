@@ -13,3 +13,6 @@ vendor/bundle
 
 # Ignore twitter cache
 /.tweet-cache
+
+.tags
+.tags1
