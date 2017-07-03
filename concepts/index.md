@@ -54,13 +54,13 @@ fail!
 Many API methods take optional parameters. For GET requests, any parameters not specified as a segment in the path can be passed as an HTTP query string parameter:
 
 {% highlight shell %}
-curl -i -u api_key "https://api.shipcloud.io/v1/shipments?service=returns"
+curl -i -u {{ site.apikey }}: "https://api.shipcloud.io/v1/shipments?service=returns"
 {% endhighlight %}
 
 For POST, PATCH, PUT, and DELETE requests, parameters not included in the URL should be encoded as JSON with a Content-Type of ‘application/json’:
 
 {% highlight shell %}
-curl -i -u f7ca956fd5670b2fa8fdee47672b2a26 -d '{"service":["returns"]}' "https://api.shipcloud.io/v1/shipments"
+curl -i -u {{ site.apikey }}: -H "Content-Type: application/json" -d '{"service":["returns"]}' "https://api.shipcloud.io/v1/shipments"
 {% endhighlight %}
 
 ## Versioning
@@ -151,13 +151,29 @@ correct according to the carrier.
 
 {% include concepts/carrier_specific_field_lengths_dhl.md %}
 
-### UPS
+### DHL Express
 
-{% include concepts/carrier_specific_field_lengths_ups.md %}
+{% include concepts/carrier_specific_field_lengths_dhl_express.md %}
+
+### GO!
+
+{% include concepts/carrier_specific_field_lengths_go.md %}
+
+### Hermes (ProPS)
+
+{% include concepts/carrier_specific_field_lengths_hermes_props.md %}
 
 ### MyDPD Pro / MyDPD Business
 
 {% include concepts/carrier_specific_field_lengths_dpd.md %}
+
+### TNT
+
+{% include concepts/carrier_specific_field_lengths_tnt.md %}
+
+### UPS
+
+{% include concepts/carrier_specific_field_lengths_ups.md %}
 
 ## Carrier specific label sizes
 Each carrier can provide label sizes in a specific DIN format. Here's an overview of the label
