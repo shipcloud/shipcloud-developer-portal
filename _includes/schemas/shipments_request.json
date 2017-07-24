@@ -30,7 +30,7 @@
     },
     "description": {
       "type": "string",
-      "description": "text that describes the contents of the shipment. This parameter is mandatory if you're using UPS and the following conditions are true: from and to countries are not the same; from and/or to countries are not in the EU; from and to countries are in the EU and the shipments service is not standard"
+      "description": "text that describes the contents of the shipment. This parameter is mandatory if you're using UPS and the following conditions are true: from and to countries are not the same; from and/or to countries are not in the EU; from and to countries are in the EU and the shipments service is not 'standard'. The parameter is also mandatory when using DHL Express as carrier."
     },
     "label": {
       "$ref": "#/definitions/label",
@@ -147,7 +147,7 @@
         },
         "description": {
           "type": "string",
-          "description": "text that describes the contents of the package. This parameter is mandatory if you're using UPS with service returns or DHL with service express"
+          "description": "text that describes the contents of the package. This parameter is mandatory if you're using UPS with service 'returns' or TNT with service 'one_day' or 'one_day_early'"
         },
         "type": {
           "type": "string",
