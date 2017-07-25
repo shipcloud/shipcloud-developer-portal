@@ -192,7 +192,9 @@ for the driver to come to you and how far their depot is located from you.
 
 UPS also has a list of cutoff times for postcodes in Germany, you can find within a service pdf
 which is provided as a
-[download on the UPS website](https://www.ups.com/media/de/service_guide_de_preview.pdf).
+<a href="https://www.ups.com/media/de/service_guide_de_preview.pdf" data-proofer-ignore>
+  download on the UPS website
+</a>.
 
 ### Hermes
 If the volume is below 2m<sup>3</sup>, you can request a pickup for the next day until 9pm the day
