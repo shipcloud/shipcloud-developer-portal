@@ -8,7 +8,7 @@ __Parameters:__
   - __length__ (float), length of the package in cm
   - __height__ (float), height of the package in cm
   - __weight__ (float), weight in kg
-  - __declared_value__, object describing the value of the package contents
+  - __declared_value__, object describing the value of the package contents. Mandatory if you want to book a higher insurance. See [higher insurance]({{ site.baseurl }}/examples/#dhl-higher-insurance) for detailed information about when to supply this.
     - __amount__ (float), value of package contents
     - __currency__ (string), currency as uppercase ISO 4217 code
   - __description__ (string), if you're using UPS with service _returns_ or DHL with service _express_ this is mandatory otherwise it's optional
