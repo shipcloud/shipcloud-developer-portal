@@ -139,7 +139,7 @@
         "weight": { "type": "number" },
         "declared_value": {
           "type": "object",
-          "description": "describing the value of the package contents",
+          "description": "Use this to book additional insurance or expand the liability for a shipment. Caution: Please keep in mind that additional fees are charged by the carrier.",
           "properties": {
             "amount": { "type": "number" },
             "currency": { "type": "string" }
