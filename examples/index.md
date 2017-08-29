@@ -387,11 +387,20 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
-## DHL higher insurance
-If you want your DHL shipment to have a so called __higher insurance__  you'll have to specify the
-parameter ```declared_value``` as part of the package object with the value of the goods
-you're shipping. All __shipments up to 500 Euros are automatically insured__. You shouldn't specify
-declared_value when creating a shipment of lesser value.
+## DHL additional insurance
+With
+<a href="https://www.dhl.de/content/dam/dhlde/downloads/paket/produkte-services/dhl-service-additional-insurance-072016.pdf" target="_blank">DHL additional insurance</a>,
+you can insure your parcel beyond the usual liability limits of EUR 500. To book DHL additional
+insurance  you'll have to specify the parameter `declared_value` as part of the package object with
+the value of the goods you’re shipping.
+
+__Caution:__
+- Please keep in mind that additional fees will be charged by DHL. Check your DHL contract or ask
+  your DHL Account Manager to get a quote.
+- You shouldn’t specify "declared_value" when creating a shipment up to EUR 500 or lesser value unless you actually want the insurance instead of the liability.
+
+__Requirements:__
+- You’ll have to use your own DHL contract
 
 {% include examples/declared_value_dhl.md %}
 
