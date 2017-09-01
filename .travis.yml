@@ -1,11 +1,10 @@
 sudo: false
+dist: trusty
 language: ruby
 cache:
   bundler: true
   directories:
     - node_modules
-install:
-  - npm install -g firebase-tools@3.5.0
 script: bundle exec rake build test
 env:
   global:
