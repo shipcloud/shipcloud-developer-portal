@@ -401,7 +401,7 @@ specify which events should trigger sending a message to your URL.
 There are a lot of tools out there for testing webhooks. If you'd like a starting point check out
 this blogpost called [_60+ Tools and Services for API and Webhook Logging, Debugging, Testing,
 Monitoring, Documentation and Discovery_](http://john-sheehan.com/blog/ultimate-api-webhook-backend-service-debugging-testing-monitoring-and-discovery-tools-list).
-We'd recommend using a service like [requestb.in](http://requestb.in) or [mocky.io](http://mocky.io)
+We'd recommend using a service like [requestb.in](https://requestb.in) or [mocky.io](http://mocky.io)
 to have reliable responses for your tests. This way you don't have to create shipments just for
 testing handling shipments afterwards.
 
