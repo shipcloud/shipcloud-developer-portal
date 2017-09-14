@@ -127,7 +127,7 @@ POST https://api.shipcloud.io/v1/shipments
 ### DHL - Delivery Time (Preferred Time)
 
 With the
-<a href="https://www.dhl.de/en/paket/information/geschaeftskunden/service-wunschzeit.html" target="_blank" data-proofer-ignore>DHL preferred time service</a>
+[DHL preferred time service](https://www.dhl.de/en/paket/information/geschaeftskunden/service-wunschzeit.html)
 you can choose between several two-hour time frames for
 the delivery of your item. The following options are available for ```time_of_day_earliest``` and
 ```time_of_day_latest``` (Monday - Saturday):

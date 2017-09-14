@@ -13,7 +13,12 @@ task :test do
     ],
     typhoeus: {
       ssl_verifypeer: false
-    }
+    },
+    url_ignore: [
+      "https://requestb.in",
+      "https://www.ups.com/media/de/service_guide_de_preview.pdf",
+      "https://www.dhl.de/en/paket/information/geschaeftskunden/service-wunschzeit.html"
+    ]
   }
   HTMLProofer.check_directory("./_site", options).run
 end
