@@ -336,6 +336,7 @@ sample payload you get when testing a webhook through our website:
 {% highlight json %}
 {
   "id": "ef9df623-6974-4a4b-9a99-c0ec5b58b136",
+  "webhook_id": "77ba9db5-2207-4b21-be06-dff0ba7f6989",
   "occured_at": "2015-02-17T14:20:42+01:00",
   "type": "example.event",
   "data": {
