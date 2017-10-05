@@ -235,6 +235,15 @@ shipment.
 * Since GO! doesn't provide regular pickups, you will always have to provide a pickup object, when
 creating a shipment. See TNT below for a detailed description of how you need to specify this.
 
+### Liefery
+<p class="bg-warning">
+  <i class="glyphicon glyphicon-warning-sign"></i>
+  We previously supported the same day delivery service <strong><i>Liefery</i></strong>.
+  <br />
+  Due to a new business focus at Liefery, their offering isn't compatible with our services at the
+  moment.
+</p>
+
 ### TNT
 
 #### Shipments with Pickup Requests
