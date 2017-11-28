@@ -8,3 +8,10 @@
 * ```state``` 0 - 30 characters
 * ```phone``` 0 - 20 characters
 * ```notification_email``` 0 - 70 characters
+* `customs_declaration`
+  * `contents_explanation` 0 - 256 characters
+  * `invoice_number` 0 - 35 characters
+  * `drop_off_location` 0 - 35 characters
+  * `items`
+    * `description` 0 - 256 characters
+    * `hs_tariff_number` 1 - 10 characters
