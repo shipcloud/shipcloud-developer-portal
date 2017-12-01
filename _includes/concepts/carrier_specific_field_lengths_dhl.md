@@ -1,5 +1,5 @@
 * ```company``` 2 - 50 characters
-* ```last_name``` 1 - 50 characters (firstname + last_name <= 50 characters)
+* ```last_name``` 1 - 35 characters (firstname + last_name <= 35 characters)
 * ```care_of``` 0 - 35 characters
 * ```street``` 1 - 35 characters
 * ```street_no``` 1 - 5 characters
