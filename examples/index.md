@@ -335,7 +335,6 @@ POST https://api.shipcloud.io/v1/shipments
     // see [1]
   },
   "to": {
-    "company": "shipcloud GmbH",
     "first_name": "Hans",
     "last_name": "Meier",
     "care_of": "12345678",
@@ -369,7 +368,6 @@ POST https://api.shipcloud.io/v1/shipments
     // see [1]
   },
   "to": {
-    "company": "shipcloud GmbH",
     "first_name": "Hans",
     "last_name": "Meier",
     "care_of": "1234567",
