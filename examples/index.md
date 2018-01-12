@@ -388,6 +388,41 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
+### UPS - Cash on delivery
+
+__Requirements:__
+
+- only collection of cash is available for now, no collection of checks
+- you'll have to use your own contract with the carrier
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    // see [2]
+  },
+  "additional_services": [
+    {
+      "name": "cash_on_delivery",
+      "properties": {
+        "amount": 123.45,
+        "currency": "EUR",
+      }
+    }
+  ],
+  "carrier": "ups",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
 ## DHL Packstation
 When sending to a DHL Packstation the following parameters have to be defined:
 
