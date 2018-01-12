@@ -250,6 +250,40 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
+### DHL Express - Saturday delivery
+
+When sending packages on a Friday you can specify that they should be delivered on Saturday.
+
+__Requirements:__
+
+- ```service``` has to be _'one_day'_ or _'one_day_early'_
+- you'll have to use your own contract with the carrier
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    // see [2]
+  },
+  "additional_services": [
+    {
+      "name": "saturday_delivery"
+    }
+  ],
+  "carrier": "dhl_express",
+  "service": "one_day",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
 ### DPD - Drop authorization
 
 When sending packages via DPD the sender can allow the carrier to leave the shipment with someone
