@@ -355,6 +355,39 @@ label via our api you can send us the size the shipping label should have.
 }
 {% endhighlight %}
 
+### UPS - Adult signature
+
+When sending packages via UPS you can specify that the receiver needs to be an adult, and prove the fact with his or her signature.
+
+__Requirements:__
+
+- you'll have to use your own contract with the carrier
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    // see [2]
+  },
+  "additional_services": [
+    {
+      "name": "ups_adult_signature"
+    }
+  ],
+  "carrier": "ups",
+  "service": "one_day",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
 ## DHL Packstation
 When sending to a DHL Packstation the following parameters have to be defined:
 
