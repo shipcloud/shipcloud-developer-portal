@@ -47,7 +47,7 @@
         "properties": {
           "name": {
             "type": "string",
-            "enum": ["advance_notice", "cash_on_delivery", "delivery_time", "drop_authorization", "saturday_delivery"],
+            "enum": ["advance_notice", "cash_on_delivery", "delivery_time", "drop_authorization", "premium_international", "saturday_delivery"],
             "description": "key to identify the additional service"
           },
           "properties": {
