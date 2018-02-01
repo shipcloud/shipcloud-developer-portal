@@ -17,6 +17,11 @@ work with any other release modifiers than major versions.
 ### Added
 - Additional service [UPS adult signature]({{ site.baseurl }}/examples/#ups---adult-signature)
 
+## [20180126] - 2018-01-26
+
+### Added
+- Additional service [DHL Premium International]({{ site.baseurl }}/examples/#dhl---premium-international)
+
 ## [20170202] - 2017-02-02
 
 ### Changed
