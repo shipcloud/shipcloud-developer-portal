@@ -12,6 +12,11 @@ work with any other release modifiers than major versions.
 
 **Notice**: Not everything we do affects the viewable parts of our api.
 
+## [20180201] - 2018-02-01
+
+### Added
+- Additional service [UPS adult signature]({{ site.baseurl }}/examples/#ups---adult-signature)
+
 ## [20170202] - 2017-02-02
 
 ### Changed
