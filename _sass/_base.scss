@@ -239,3 +239,11 @@ pre {
     padding: 5px 10px;
   }
 }
+
+*[id]:before {
+  display: block;
+  content: " ";
+  margin-top: -75px;
+  height: 75px;
+  visibility: hidden;
+}
