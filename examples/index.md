@@ -389,6 +389,48 @@ label via our api you can send us the size the shipping label should have.
 }
 {% endhighlight %}
 
+### GLS - Cash on delivery
+> Cash on delivery parcels with GLS: The recipient pays for the goods on delivery in cash. GLS
+> accepts the money and transfers it securely and quickly to the sender’s account – usually within
+> five working days after delivery.
+
+__Requirements:__
+
+- Maximum cash on delivery amount and liability limit: € 2,500
+- The sender has to be located in Germany
+- The recipient has to be located in Germany or Austria
+- You'll have to use your own contract with the carrier
+- Only available when using GLS Web API integration
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    // see [2]
+  },
+  "additional_services": [
+    {
+      "name": "cash_on_delivery",
+      "properties": {
+        "amount": 123.45,
+        "currency": "EUR",
+        "reference1": "reason for transfer"
+      }
+    }
+  ],
+  "carrier": "gls",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
 ### UPS - Adult signature
 
 When sending packages via UPS you can specify that the receiver needs to be an adult, and prove the fact with his or her signature.
