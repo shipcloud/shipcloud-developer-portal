@@ -26,6 +26,10 @@ __Requirements:__
 - ```language``` has to be provided as a
 [ISO 639-1 code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
 
+__Available for the following carriers:__
+- [DHL](#dhl---advance-notice)
+- [DPD](#dpd---predict)
+
 #### Notification via email
 
 {% highlight http %}
@@ -85,11 +89,27 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
+### Cash on delivery
+
+__Available for the following carriers:__
+- [DHL](#dhl---cash-on-delivery)
+- [UPS](#ups---cash-on-delivery)
+
+### Saturday delivery
+
+__Available for the following carriers:__
+- [DHL Express](#dhl-express---saturday-delivery)
+- [DPD](#dpd---saturday-delivery)
+
 ### DHL - Advance notice
 DHL currently only supports advance notice via email. You can find an example above in our
 [advance notice](#notification-via-email) section.
 
 ### DHL - Cash on delivery
+
+__Requirements:__
+
+- You'll have to use your own DHL contract
 
 {% highlight http %}
 POST https://api.shipcloud.io/v1/shipments
