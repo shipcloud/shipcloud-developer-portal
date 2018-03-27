@@ -379,6 +379,10 @@ email address or phone number of your customer to be notified.
 
 For examples see [advance notice](#advance-notice)
 
+__Requirements:__
+
+- `service` has to be _'standard'_
+
 ## Label size
 Not all carriers use the same size of labels. Have a look at our chart of the
 [carrier specific label sizes]({{ site.baseurl }}/concepts/#carrier-specific-label-sizes)
