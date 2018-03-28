@@ -383,36 +383,6 @@ __Requirements:__
 
 - `service` has to be _'standard'_
 
-## Label size
-Not all carriers use the same size of labels. Have a look at our chart of the
-[carrier specific label sizes]({{ site.baseurl }}/concepts/#carrier-specific-label-sizes)
-we support.
-
-You can configure the standard size we should create labels for each and every carrier from within
-the shipcloud backoffice, so you won't have to think about handling different label sizes. You can
-however define the size of the label on a per shipment basis. So, when you're creating a shipping
-label via our api you can send us the size the shipping label should have.
-
-{% highlight json %}
-{
-  "from": {
-    // see [1]
-  },
-  "to": {
-    // see [1]
-  },
-  "package": {
-    // see [2]
-  },
-  "carrier": "dhl",
-  "service": "standard",
-  "label": {
-    "size": "A5"
-  },
-  "create_shipping_label": true
-}
-{% endhighlight %}
-
 ### GLS - Cash on delivery
 > Cash on delivery parcels with GLS: The recipient pays for the goods on delivery in cash. GLS
 > accepts the money and transfers it securely and quickly to the sender’s account – usually within
@@ -523,6 +493,47 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
+## Additional insurance
+Some carriers are offering you the option of an additional insurance which you can book instead of
+their normal liability. To book additional insurance you'll have to specify the parameter
+`declared_value` as part of the package object with the value of the goods you're shipping.
+
+__Available for the following carriers:__
+- [DHL](#dhl-additional-insurance)
+- [UPS](#ups-declared-value)
+
+{% include examples/declared_value_dhl.md %}
+
+## Label size
+Not all carriers use the same size of labels. Have a look at our chart of the
+[carrier specific label sizes]({{ site.baseurl }}/concepts/#carrier-specific-label-sizes)
+we support.
+
+You can configure the standard size we should create labels for each and every carrier from within
+the shipcloud backoffice, so you won't have to think about handling different label sizes. You can
+however define the size of the label on a per shipment basis. So, when you're creating a shipping
+label via our api you can send us the size the shipping label should have.
+
+{% highlight json %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    // see [2]
+  },
+  "carrier": "dhl",
+  "service": "standard",
+  "label": {
+    "size": "A5"
+  },
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
 ## DHL Packstation
 When sending to a DHL Packstation the following parameters have to be defined:
 
@@ -589,22 +600,35 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
-## DHL additional insurance
+### DHL additional insurance
 With
 <a href="https://www.dhl.de/content/dam/dhlde/downloads/paket/produkte-services/dhl-service-additional-insurance-072016.pdf" target="_blank">DHL additional insurance</a>,
-you can insure your parcel beyond the usual liability limits of EUR 500. To book DHL additional
-insurance  you'll have to specify the parameter `declared_value` as part of the package object with
-the value of the goods you’re shipping.
+you can insure your parcel beyond the usual liability limits of EUR 500.
 
 __Caution:__
 - Please keep in mind that additional fees will be charged by DHL. Check your DHL contract or ask
   your DHL Account Manager to get a quote.
-- You shouldn’t specify "declared_value" when creating a shipment up to EUR 500 or lesser value unless you actually want the insurance instead of the liability.
+- You shouldn't specify _"declared_value"_ when creating a shipment up to EUR 500 or lesser value unless you actually want the insurance instead of the liability.
 
 __Requirements:__
 - You’ll have to use your own DHL contract
 
-{% include examples/declared_value_dhl.md %}
+### UPS declared value
+By using
+<a href="https://www.ups.com/de/de/shipping/services/value-added/declared-value.page" target="_blank">
+  UPS declared value
+</a>
+you can insure your parcel beyond the usual liability limits of EUR 510.
+
+__Caution:__
+
+- Additional fees will be charged by UPS. Check your UPS contract or ask your account manager to get
+  a quote.
+- You shouldn't specify "declared_value" when creating a shipment up to EUR 510 or lesser value
+  unless you actually want the insurance instead of the liability.
+
+__Requirements:__
+- You’ll have to use your own UPS contract
 
 ## DHL bulk shipments
 Shipments that don't fall into the normal dimensions can be send by specifying them as bulk
