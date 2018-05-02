@@ -20,6 +20,10 @@
     "from": {
       "$ref": "#/definitions/address",
       "description": "the senders address"
+    },
+    "notification_email": {
+      "type": "string",
+      "description": "email address that we should notify once there's an update for this shipment"
     }
   },
   "required": ["carrier_tracking_no", "carrier"],
