@@ -7,7 +7,7 @@ All notable changes to our api will be documented in this file. This way you can
 about all changes we made in the past and see if there's anything new you have to consider since
 you've last visited the api documentation.
 
-This changelog does not follow [Semantic Versioning](http://semver.org/), since we currently do not
+This changelog does not follow [Semantic Versioning](https://semver.org/), since we currently do not
 work with any other release modifiers than major versions.
 
 **Notice**: Not everything we do affects the viewable parts of our api.
