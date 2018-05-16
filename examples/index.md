@@ -503,6 +503,44 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
+### GLS - Guaranteed24Service
+When using the additional service
+<a href="https://gls-group.eu/DE/de/versand-services/guaranteed-24-service" target="_blank">Guaranteed24Service</a>
+the carrier GLS is guaranteeing delivery on the next business day (except Saturdays) for shipments
+within Germany. If the delivery can't be made within time, GLS will refund the extra charges for
+the service.
+
+__Requirements:__
+
+- Only applicable for shipments within Germany
+- The sender and recipient have to be located in Germany
+- You'll have to use your own contract with the carrier
+- Only available when using GLS Web API integration
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    // see [2]
+  },
+  "additional_services": [
+    {
+      "name": "gls_guaranteed24service"
+    }
+  ],
+  "carrier": "gls",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
 ### UPS - Adult signature
 
 When sending packages via UPS you can specify that the receiver needs to be an adult, and prove the fact with his or her signature.
