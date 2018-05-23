@@ -29,6 +29,7 @@ __Requirements:__
 __Available for the following carriers:__
 - [DHL](#dhl---advance-notice)
 - [DPD](#dpd---predict)
+- [GLS](#gls---flexdeliveryservice)
 
 #### Notification via email
 
@@ -93,6 +94,7 @@ POST https://api.shipcloud.io/v1/shipments
 
 __Available for the following carriers:__
 - [DHL](#dhl---cash-on-delivery)
+- [GLS](#gls---cash-on-delivery)
 - [UPS](#ups---cash-on-delivery)
 
 ### Saturday delivery
@@ -503,6 +505,46 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
+### GLS - FlexDeliveryService
+> The <a href="https://gls-group.eu/DE/en/flexdelivery" target="_blank">FlexDeliveryService</a> gives recipients numerous possibilities to customise parcel delivery.
+> [...]
+> The recipient gets information via e-mail about the upcoming parcel delivery, including the estimated delivery time frame. If the recipient will not be at home, he can choose from a range of practical delivery options – actively influencing the delivery of the parcel.
+
+__Requirements:__
+- `service` has to be `standard`
+- `properties.email` is mandatory
+- Can be used for shipments from Germany and Austria to the following countries: AT, BE, CZ, DE, DK, ES, FR, HR, HU, LU, NL, PL, RO, SI, SK
+- Only available when using GLS Web API integration
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    // see [2]
+  },
+  "additional_services": [
+    {
+      "name": "cash_on_delivery",
+      "properties": {
+        "email": "test@example.com",
+        "sms": "+4917012345678"
+      }
+    }
+  ],
+  "service": "standard",
+  "carrier": "gls",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
 ### GLS - Guaranteed24Service
 When using the additional service
 <a href="https://gls-group.eu/DE/de/versand-services/guaranteed-24-service" target="_blank">Guaranteed24Service</a>
@@ -536,7 +578,56 @@ POST https://api.shipcloud.io/v1/shipments
       "name": "gls_guaranteed24service"
     }
   ],
+  "service": "standard",
   "carrier": "gls",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
+### GLS - ShopDeliveryService
+> GLS delivers parcels (except tyres) directly to a ParcelShop. Recipients select in advance the ParcelShop to which the parcel should be sent.
+> Once parcels have arrived, GLS informs recipients by e-mail or text message. They can collect their parcels from the GLS ParcelShop within the next eight working days after the day of delivery.
+
+__Requirements:__
+
+- `email` is mandatory
+- `drop_off_point.drop_off_point_id` is mandatory
+- `drop_off_point.type` has to be `parcel_shop`
+- The sender has to be located in Germany
+- The recipient has to be located in one of the following countries: AT, DE, BE, DK, PL
+- Only available when using GLS Web API integration
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "to": {
+    "first_name": "Erik",
+    "last_name": "Empfänger",
+    "street": "Paketshopstraße",
+    "street_no": "99",
+    "zip_code": "22081",
+    "city": "Hamburg",
+    "country": "DE",
+    "email": "receiver@mail.com",
+    "phone": "0151-12345678",
+    "drop_off_point": {
+      "drop_off_point_id": "2760095246",
+      "type": "parcel_shop"
+    }
+  },
+  "package": {
+    "weight": 1.5,
+    "length": 20,
+    "width": 20,
+    "height": 20
+  },
+  "service": "standard",
+  "carrier": "gls",
+  "label": {
+    "size": "A5"
+  },
   "create_shipping_label": true
 }
 {% endhighlight %}
