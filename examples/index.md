@@ -471,7 +471,8 @@ label via our api you can send us the size the shipping label should have.
 __Requirements:__
 
 - Maximum cash on delivery amount and liability limit: € 2,500
-- The sender has to be located in Germany
+- The Currency has to be EUR
+- The sender has to be located in Germany or Austria
 - The recipient has to be located in Germany or Austria
 - You'll have to use your own contract with the carrier
 - Only available when using GLS Web API integration
@@ -513,7 +514,8 @@ POST https://api.shipcloud.io/v1/shipments
 __Requirements:__
 - `service` has to be `standard`
 - `properties.email` is mandatory
-- Can be used for shipments from Germany and Austria to the following countries: AT, BE, CZ, DE, DK, ES, FR, HR, HU, LU, NL, PL, RO, SI, SK
+- Can be used for shipments from Austria, Belgium, Denmark and Germany to the following countries:
+  AT, BE, CZ, DE, DK, ES, FR, HR, HU, LU, NL, PL, RO, SI, SK
 - Only available when using GLS Web API integration
 
 {% highlight http %}
@@ -532,7 +534,7 @@ POST https://api.shipcloud.io/v1/shipments
   },
   "additional_services": [
     {
-      "name": "cash_on_delivery",
+      "name": "advance_notice",
       "properties": {
         "email": "test@example.com",
         "sms": "+4917012345678"
@@ -590,10 +592,12 @@ POST https://api.shipcloud.io/v1/shipments
 
 __Requirements:__
 
-- `email` is mandatory
-- `drop_off_point.drop_off_point_id` is mandatory
+- `to.first_name` is mandatory
+- `to.last_name` is mandatory
+- `to.email` is mandatory
+- `drop_off_point.drop_off_point_id` is mandatory (can be determined through the [GLS parcelshop search](https://gls-group.eu/DE/en/depot-parcelshop-search))
 - `drop_off_point.type` has to be `parcel_shop`
-- The sender has to be located in Germany
+- The sender has to be located in Austria, Belgium or Germany
 - The recipient has to be located in one of the following countries: AT, DE, BE, DK, PL
 - Only available when using GLS Web API integration
 
@@ -603,12 +607,12 @@ POST https://api.shipcloud.io/v1/shipments
 {% highlight json %}
 {
   "to": {
-    "first_name": "Erik",
-    "last_name": "Empfänger",
-    "street": "Paketshopstraße",
-    "street_no": "99",
-    "zip_code": "22081",
-    "city": "Hamburg",
+    "first_name": "Karl",
+    "last_name": "Müller",
+    "street": "Musterstraße",
+    "street_no": "14a",
+    "city": "Paderborn",
+    "zip_code": "33089",
     "country": "DE",
     "email": "receiver@mail.com",
     "phone": "0151-12345678",
