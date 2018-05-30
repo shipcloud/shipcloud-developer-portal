@@ -47,28 +47,34 @@
         "properties": {
           "name": {
             "type": "string",
-            "enum": ["advance_notice", "cash_on_delivery", "delivery_time", "drop_authorization", "premium_international", "saturday_delivery", "ups_adult_signature"],
+            "enum": ["advance_notice", "cash_on_delivery", "delivery_time", "dhl_ident_check", "drop_authorization", "gls_guaranteed24service", "premium_international", "saturday_delivery", "ups_adult_signature"],
             "description": "key to identify the additional service"
           },
           "properties": {
             "type": "object",
             "properties": {
               "amount": { "type": "number" },
-              "bank_code": { "type": "string" },
-              "bank_name": { "type": "string" },
               "bank_account_holder": { "type": "string" },
               "bank_account_number": { "type": "string" },
-              "reference1": {
-                "type": "string",
-                "description": "Text that should be displayed as the reason for transfer"
-              },
+              "bank_code": { "type": "string" },
+              "bank_name": { "type": "string" },
               "currency": { "type": "string" },
+              "date_of_birth": { "type": "string" },
               "email": { "type": "string" },
+              "first_name": { "type": "string" },
               "language": {
                 "type": "string",
                 "description": "language the customer should be notified in (ISO-639-1 format)"
               },
-              "sms": { "type": "string" }
+              "last_name": { "type": "string" },
+              "minimum_age": { "type": "string" },
+              "reference1": {
+                "type": "string",
+                "description": "Text that should be displayed as the reason for transfer"
+              },
+              "sms": { "type": "string" },
+              "time_of_day_earliest": { "type": "string" },
+              "time_of_day_latest": { "type": "string" }
             }
           }
         }
@@ -113,6 +119,10 @@
         "phone": {
           "type": "string",
           "description": "telephone number (mandatory when the following terms apply - when carrier is UPS: service is one_day or one_day_early or ship to country is different than ship from country. Carrier is DHL Express: always provide phone number.)"
+        },
+        "email": {
+          "type": "string",
+          "description": "email address of the receiver to get notified by the carrier. Currently only used when sending shipments via GLS - ShopDeliveryService"
         }
       },
       "required": ["last_name", "street", "street_no", "city", "zip_code", "country"],
