@@ -6,6 +6,7 @@
 * ```city``` 1 - 30 characters (only 15 characters will be printed on the label)
 * ```state``` 2 characters
 * ```phone``` 0 - 15 characters
+* ```reference_number``` 0 - 35 characters
 
 **Pickup Requests**
 
