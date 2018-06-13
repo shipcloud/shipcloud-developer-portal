@@ -14,9 +14,9 @@ integration_guide_url:
     https://www.dropbox.com/s/dgi9r9w8p40snuu/shipcloud_integration_guide_en.pdf?dl=0
 shipcloud:
   supported_carriers:
-    as_display_names: 'DHL, Deutsche Post, UPS, DPD, Hermes, GLS, MyDPD Business (iloxx), TNT, FedEx, GO! and PARCEL.ONE'
-    as_keys: '"dhl", "dpag", "ups", "dpd", "hermes", "gls", "iloxx", "tnt", "fedex", "go" and "parcel.one"'
-    as_keys_array: '"dhl", "dpag", "ups", "dpd", "hermes", "gls", "iloxx", "tnt", "fedex", "go", "parcel.one"'
+    as_display_names: 'DHL, DHL Express, Deutsche Post, UPS, DPD, Hermes, GLS, MyDPD Business (iloxx), TNT, FedEx, GO! and PARCEL.ONE'
+    as_keys: '"dhl", "dhl_express", "dpag", "ups", "dpd", "hermes", "gls", "iloxx", "tnt", "fedex", "go" and "parcel_one"'
+    as_keys_array: '"dhl", "dhl_express", "dpag", "ups", "dpd", "hermes", "gls", "iloxx", "tnt", "fedex", "go", "parcel_one"'
 
 # Build settings
 markdown: kramdown
