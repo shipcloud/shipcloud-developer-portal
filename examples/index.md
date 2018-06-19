@@ -956,6 +956,37 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
+## UPS - Express 12:00
+The UPS service [Express 12:00](https://www.ups.com/de/en/shipping/services/intra/express-1200.page?loc=en_DE)
+ensures a next business day delivery by noon throughout the country.
+
+__Requirements:__
+
+- The sender and recipient have to be located in Germany
+- ```service``` has to be _'ups_express_1200'_
+- Label size can be A5 & A6
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    // see [2]
+  },
+  "carrier": "ups",
+  "service": "ups_express_1200",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
 ## Returns
 Return shipments are created the same way you'd create a normal shipment. The only thing that's
 different is the service parameter and that you can't use (additional) services like express

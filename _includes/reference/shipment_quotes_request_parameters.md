@@ -1,7 +1,7 @@
 __Parameters:__
 
 - __carrier__* (string), the carrier you want to use. Possible values are {{ site.shipcloud.supported_carriers.as_keys }}
-- __service__ (string), service that should be used. Available values are "returns", "standard", "one_day" , "one_day_early", "same_day". See [supported services]({{ site.baseurl }}/concepts/#supported-services) for detailed information
+- __service__ (string), service that should be used. Available values are {{ site.shipcloud.supported_services.as_keys_array }}. See [supported services]({{ site.baseurl }}/concepts/#supported-services) for detailed information
 - __to__* (object), describes the receivers address. See [address request]({{ site.baseurl }}/reference/#addresses) for a detailed definition.
 - __from__ (object, optional), describes the senders address. See [address request]({{ site.baseurl }}/reference/#addresses) for a detailed definition.
 - __package__*, object describing the package dimensions

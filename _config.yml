@@ -17,6 +17,8 @@ shipcloud:
     as_display_names: 'DHL, DHL Express, Deutsche Post, UPS, DPD, Hermes, GLS, MyDPD Business (iloxx), TNT, FedEx, GO! and PARCEL.ONE'
     as_keys: '"dhl", "dhl_express", "dpag", "ups", "dpd", "hermes", "gls", "iloxx", "tnt", "fedex", "go" and "parcel_one"'
     as_keys_array: '"dhl", "dhl_express", "dpag", "ups", "dpd", "hermes", "gls", "iloxx", "tnt", "fedex", "go", "parcel_one"'
+  supported_services:
+    as_keys_array: '"standard", "one_day" , "one_day_early", "ups_express_1200", "returns"'
 
 # Build settings
 markdown: kramdown

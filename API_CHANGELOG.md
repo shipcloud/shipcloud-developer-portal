@@ -12,6 +12,11 @@ work with any other release modifiers than major versions.
 
 **Notice**: Not everything we do affects the viewable parts of our api.
 
+## [20180619] - 2018-06-19
+
+### Added
+- Service [UPS Express 12:00]({{ site.baseurl }}/examples/#ups---express-1200)
+
 ## [20180201] - 2018-02-01
 
 ### Added
