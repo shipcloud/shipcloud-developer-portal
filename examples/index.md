@@ -645,7 +645,7 @@ POST https://api.shipcloud.io/v1/shipments
       "name": "cash_on_delivery",
       "properties": {
         "amount": 123.45,
-        "currency": "EUR",
+        "currency": "EUR"
       }
     }
   ],
