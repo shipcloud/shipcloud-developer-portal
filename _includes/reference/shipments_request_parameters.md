@@ -13,7 +13,7 @@ __Parameters:__
     - __currency__ (string), currency as uppercase ISO 4217 code
   - __description__ (string), if you're using UPS with service _returns_ or DHL with service _express_ this is mandatory otherwise it's optional
   - __type__ (string, optional), carrier specific package type declaration. Available values are "books", "bulk", "letter", "parcel" and "parcel_letter". See [package types]({{ site.baseurl }}/concepts/#package-types) for detailed information.
-- __service__ (string, optional), service that should be used. Available values are "returns", "standard", "one_day" , "one_day_early". See [supported services]({{ site.baseurl }}/concepts/#supported-services) for detailed information.
+- __service__ (string, optional), service that should be used. Available values are {{ site.shipcloud.supported_services.as_keys_array }}. See [supported services]({{ site.baseurl }}/concepts/#supported-services) for detailed information.
 - __additional_services__ (array, optional), array of objects where you can define additional services to be used. See [additional services]({{ site.baseurl }}/examples/#additional-services) for detailed information
 - __pickup__ (object, optional), describes the pickup request. Mandatory for creating shipments with TNT as carrier - see [TNT specifics]({{ site.baseurl }}/concepts/#shipments-with-pickup-requests)
   - __pickup_time__ (object), contains the earliest and latest pickup time in iso8601

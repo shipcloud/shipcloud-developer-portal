@@ -16,7 +16,7 @@
         {
           "type": "string",
           "description": "key for referencing the service within shipcloud",
-          "enum": ["standard", "returns", "one_day", "one_day_early", "same_day"],
+          "enum": [{{ site.shipcloud.supported_services.as_keys_array }}],
           "default": "standard"
         }
       ]

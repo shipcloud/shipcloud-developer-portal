@@ -283,6 +283,8 @@ We currently support sending packages via the following carriers and services:
 - **one_day:** A express shipment that will be delivered the next working day
 - **one_day_early:** Same as *one_day*. The only difference is, that the carrier will deliver the
 shipment before noon
+- **ups_express_1200:** Express shipment with next business day delivery by noon. See our
+  [example]({{ site.baseurl }}/examples/#ups---express-1200) for detailed information
 - **returns:** A shipment that the customer sends back to the store / sender
 - **collections:** The carrier will pick up the shipments from you
 

@@ -243,9 +243,7 @@ no payload
     "display_name": "Deutsche Post DHL",
     "services": [
       "standard",
-      "returns",
-      "one_day",
-      "one_day_early"
+      "returns"
     ],
     "package_types": [
       "parcel",

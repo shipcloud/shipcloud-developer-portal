@@ -20,9 +20,9 @@
     },
     "service": {
       "type": "string",
-      "enum": ["standard", "returns", "one_day", "one_day_early", "same_day"],
+      "enum": [{{ site.shipcloud.supported_services.as_keys_array }}],
       "default": "standard",
-      "description": "The service that should be used for the shipment. standard: The standard (ground) service for each carrier. returns: Returns service. one_day: express delivery. one_day_early: express delivery until 10am."
+      "description": "The service that should be used for the shipment."
     },
     "reference_number": {
       "type": "string",
