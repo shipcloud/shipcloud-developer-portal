@@ -896,6 +896,53 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
+## Deutsche Post Warenpost
+When using the [Deutsche Post Warenpost](https://www.deutschepost.de/en/w/warenpost.html) as your
+service you can send letters that will have shipment tracking and are usually delivered on the next
+day.
+
+__Requirements:__
+
+- ```carrier``` has to be _'dpag'_
+- ```package.type``` has to be _'parcel_letter'_
+- ```service``` has to be _'dpag_warenpost'_
+- The sender and recipient have to be located in Germany
+- For shipments up to 1,000g
+- Maximum dimensions: length 353mm, width 250mm, thickness 50mm
+- Minimum volume: 200 items per year
+- you'll have to use your own contract with the carrier
+
+__Notice:__
+Since this is a new offering of Deutsche Post, the tracking events returned by the carrier can
+differ from the ones shown on the carriers' tracking page. We therefore advise you to send customers
+to the carrier's tracking page for now until the carrier has figured out a way to return meaningful
+tracking events.
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    "weight": 0.5,
+    "length": 20,
+    "width": 15,
+    "height": 5,
+    "type": "parcel_letter"
+  },
+  "carrier": "dpag",
+  "service": "dpag_warenpost",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
 ## Deutsche Post Warensendung
 You can send a variety of merchandise related things to your customers using the service
 [Warensendung](https://www.deutschepost.de/en/w/warensendung.html) by Deutsche Post AG.
