@@ -128,17 +128,9 @@ If you want to create a shipment, this is the way to go!
 no payload
 {% endhighlight %}
 
-You can filter the shipments list using one or more of the following
+You can filter the shipments list by using one or more of the following GET parameters. 
 
-__GET parameters:__
-
-- __carrier__, e.g. 'carrier=dhl'
-- __service__, e.g. 'service=returns'
-- __reference_number__, e.g. 'reference_number=ref123456'
-- __carrier_tracking_no__, e.g. 'carrier_tracking_no=43128000105'
-- __tracking_status__, e.g. 'tracking_status=out_for_delivery'
-- __page__, show page number x, e.g. 'page=2'
-- __per_page__, show x number of shipments on a page (default & max: 100), e.g. 'per_page=25'
+{% include reference/shipments_index_request_togglebox.html %}
 
 #### Response
 {% include headers/200_ok.html %}

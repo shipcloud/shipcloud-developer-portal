@@ -12,6 +12,11 @@ work with any other release modifiers than major versions.
 
 **Notice**: Not everything we do affects the viewable parts of our api.
 
+## [20180814] - 2018-08-14
+
+### Added
+- More parameters to filter a [list of shipments]({{ site.baseurl }}/reference/#getting-a-list-of-shipments)
+
 ## [20180619] - 2018-06-19
 
 ### Added
