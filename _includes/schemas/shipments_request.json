@@ -86,6 +86,94 @@
       "$ref": "#/definitions/pickup",
       "description": "pickup request for this shipment"
     },
+    "customs_declaration": {
+      "type": "object",
+      "description": "declaration of customs related information",
+      "properties": {
+        "contents_type": {
+          "type": "string",
+          "enum": ["commercial_goods", "commercial_sample", "documents", "gift", "returned_goods"],
+          "description": "Type of contents"
+        },
+        "contents_explanation": {
+          "type": "string",
+          "description": "description of contents. Mandatory if contents_type is 'commercial_goods. Max 256 characters, when using DHL as your carrier'"
+        },
+        "currency": {
+          "type": "string",
+          "description": "a valid ISO 4217 curreny code"
+        },
+        "additional_fees": {
+          "type": "number",
+          "description": "additional custom fees to be payed"
+        },
+        "drop_off_location": {
+          "type": "string",
+          "description": "location where the package will be dropped of with the carrier"
+        },
+        "exporter_reference": {
+          "type": "string",
+          "description": "a note for the exporter"
+        },
+        "importer_reference": {
+          "type": "string",
+          "description": "a note for the importer"
+        },
+        "posting_date": {
+          "type": "string",
+          "format": "date",
+          "description": "date of commital at carrier"
+        },
+        "invoice_number": {
+          "type": "string",
+          "description": "invoice number for the order"
+        },
+        "total_value_amount": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000,
+          "description": "the overall value of the shipments' contents"
+        },
+        "items": {
+          "type": "array",
+          "description": "array of item objects",
+          "items": {
+            "type": "object",
+            "properties": {
+              "origin_country": {
+                "type": "string",
+                "description": "Country as uppercase ISO 3166-1 alpha-2 code"
+              },
+              "description": {
+                "type": "string",
+                "description": "a description of the item"
+              },
+              "hs_tariff_number": {
+                "type": "string",
+                "description": "customs tariff number. See https://en.wikipedia.org/wiki/Harmonized_System#Tariffs_by_region for detailed information on region specific tariff numbers",
+                "maxLength": 10
+              },
+              "quantity": {
+                "type": "integer",
+                "description": "Number that defines how many items of this kind are in the shipment"
+              },
+              "value_amount": {
+                "type": "string",
+                "description": "The total value for items of this kind"
+              },
+              "net_weight": {
+                "type": "number",
+                "description": "Total weight for items of this kind"
+              }
+            },
+            "required": ["origin_country", "description", "quantity", "value_amount", "net_weight"],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": ["contents_type", "currency", "total_value_amount", "items"],
+      "additionalProperties": false
+    },
     "create_shipping_label": {
       "type": "boolean",
       "description": "determines if a shipping label should be created at the carrier (this means you will be charged when using the production api key)"

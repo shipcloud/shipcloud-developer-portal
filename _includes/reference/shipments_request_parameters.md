@@ -20,6 +20,24 @@ __Parameters:__
     - __earliest__ (datetime), timestamp describing the earliest time the carrier should pickup the shipment
     - __latest__ (datetime), timestamp describing the latest time the carrier should pickup the shipment
   - __pickup_address__ (object, optional), describes the pickup address. See [address request]({{ site.baseurl }}/reference/#addresses) for a detailed definition.
+- __customs_declaration__ (object, optional), customs declaration information
+  - __contents_type__ (string), type of shipment contents. Possible values are "commercial_goods", "commercial_sample", "documents", "gift", "returned_goods"
+  - __contents_explanation__ (string, optional), description of contents. Mandatory if contents_type is "commercial_goods". Max 256 characters, when using DHL as your carrier
+  - __currency__ (string), currency as uppercase ISO 4217 code
+  - __additional_fees__ (float, optional), additional custom fees to be payed
+  - __drop_off_location__ (string, optional), location where the package will be dropped of with the carrier
+  - __exporter_reference__ (string, optional), a note for the exporter
+  - __importer_reference__ (string, optional), a note for the importer
+  - __posting_date__ (string, optional), date of commital at carrier
+  - __invoice_number__ (string, optional), invoice number for the order
+  - __total_value_amount__ (float, optional), the overall value of the shipments' contents. Has to be between 0 and 1000
+  - __items__ (array), array of objects describing the items included in the shipments
+    - __origin_country__ (string), country as uppercase ISO 3166-1 alpha-2 code
+    - __description__ (string), a description of this item
+    - __hs_tariff_number__ (integer, optional), customs tariff number. See [wikipedia](https://en.wikipedia.org/wiki/Harmonized_System#Tariffs_by_region) for detailed information on region specific tariff numbers
+    - __quantity__ (integer), Number that defines how many items of this kind are in the shipment
+    - __value_amount__ (float), The total value for items of this kind
+    - __net_weight__ (float), Total weight for items of this kind
 - __reference_number__ (string, optional), a reference number (max. 30 characters) that you want this shipment to be identified with. You can use this afterwards to easier find the shipment in the shipcloud.io backoffice
 - __description__ (string), mandatory if you're using UPS and the following conditions are true: from and to countries are not the same; from and/or to countries are not in the EU; from and to countries are in the EU and the shipments service is not standard
 - __label__ (object, optional), define the DIN size the returned label should have. See [label size recipe]({{ site.baseurl }}/examples/#label-size) for detailed information
