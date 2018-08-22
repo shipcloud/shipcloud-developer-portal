@@ -804,6 +804,9 @@ __Requirements:__
 
 - ```customs_declaration.currency``` has to be _'EUR'_
 
+__Notice:__
+This feature is currently in public beta. 
+
 {% highlight http %}
 POST https://api.shipcloud.io/v1/shipments
 {% endhighlight %}
