@@ -9,3 +9,4 @@
 * ```state``` 2 characters (for US only)
 * ```country``` 2 characters
 * ```phone``` 1 - 25 characters
+* ```description``` 1 - 35 characters
