@@ -4,6 +4,7 @@
   {% include head.html %}
 
   <body data-spy="scroll" data-target="#sub-nav" data-offset="90">
+    {% include google_tag_manager_body.html %}
 
     {% include header.html %}
 
@@ -28,7 +29,7 @@
               {{ content }}
             </div>
           {% endif %}
-          
+
         </div>
         {% include edit_on_github.html %}
       </div>
@@ -47,7 +48,6 @@
 
     {% include footer.html %}
     <script type="text/javascript" src="{{ site.baseurl }}/scripts/retina.min.js"></script>
-    {% include google_analytics.html %}
     {% include js_files.html %}
   </body>
 
