@@ -226,9 +226,9 @@ The following rules apply for pickups by DHL Express:
 {% endhighlight %}
 
 ### GLS
-* shipments will receive a carrier tracking number (```carrier_tracking_no```) with the first scan
-by the carrier, which is why this parameter won't be included in the response when creating a
-shipment.
+* When using the service GLS Uniship shipments will receive a carrier tracking number
+(```carrier_tracking_no```) with the first scan by the carrier, which is why this parameter won't be
+included in the response when creating a shipment.
 
 ### GO!
 
