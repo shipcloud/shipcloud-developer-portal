@@ -16,7 +16,8 @@
       "description": "key describing the current status"
     },
     "created_at": {
-      "type": "date-time",
+      "type": "string",
+      "format": "date-time",
       "description": "timestamp the tracker was created"
     },
     "from": {
@@ -24,15 +25,18 @@
       "description": "the senders address"
     },
     "tracking_status_updated_at": {
-      "type": "date-time",
+      "type": "string",
+      "format": "date-time",
       "description": "timestamp the tracking status was last updated"
     },
     "last_polling_at": {
-      "type": "date-time",
+      "type": "string",
+      "format": "date-time",
       "description": "timestamp the shipment status was last polled at the carrier"
     },
     "next_polling_at": {
-      "type": "date-time",
+      "type": "string",
+      "format": "date-time",
       "description": "timestamp the shipment status will be polled the next time"
     },
     "shipment_id": {
@@ -54,7 +58,8 @@
         "type": "object",
         "properties": {
           "timestamp": {
-            "type": "date-time",
+            "type": "string",
+            "format": "date-time",
             "description": "timestamp of when this event occured"
           },
           "location": {
