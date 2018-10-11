@@ -416,3 +416,20 @@ table.status_codes {
         }
     }
 }
+
+.table {
+  &.label-sizes {
+    th, td {
+      width: 16.67%;
+    }
+  }
+
+  &.label-sizes-cargo-international {
+    th, td {
+      width: 350px;
+      &:first-child {
+        width: 142px;
+      }
+    }
+  }
+}

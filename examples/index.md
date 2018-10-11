@@ -630,6 +630,7 @@ their normal liability. To book additional insurance you'll have to specify the 
 `declared_value` as part of the package object with the value of the goods you're shipping.
 
 __Available for the following carriers:__
+- [Cargo International](#additional-insurance-1)
 - [DHL](#dhl---additional-insurance)
 - [UPS](#ups---declared-value)
 
@@ -661,6 +662,122 @@ label via our api you can send us the size the shipping label should have.
   "label": {
     "size": "A5"
   },
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
+## Cargo International
+
+### Disposable pallet
+
+Use a [disposable pallet](https://www.cargointernational.de/einwegpalette) for sending goods via a
+cheaper pallet transport.
+
+__Requirements:__
+
+- max. dimensions 240 cm x 120 cm x 200 cm
+- max. weight 1000 kg per pallet
+- sender and recipient have to be located in Germany
+
+{% highlight json %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    "weight": "200",
+    "length":"100",
+    "width": "100",
+    "height": "50",
+    "type": "disposable_pallet"
+  },
+  "carrier": "cargo_international",
+  "service": "cargo_international_express",
+  "description": "a short description of the shipment content",
+  "reference_number": "order's reference number",
+  "notification_email": "receiver@mail.com",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
+### Euro pallet
+
+Use a [euro pallet (EPAL)](https://www.cargointernational.de/europalette) for sending goods via a
+cheap pallet transport.
+
+__Requirements:__
+
+- max. dimensions 240 cm x 120 cm x 200 cm
+- max. weight 1000 kg per pallet
+- sender and recipient have to be located in Germany
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    "weight": "200",
+    "length":"100",
+    "width": "100",
+    "height": "50",
+    "type": "euro_pallet"
+  },
+  "carrier": "cargo_international",
+  "service": "cargo_international_express",
+  "description": "a short description of the shipment content",
+  "reference_number": "order's reference number",
+  "notification_email": "receiver@mail.com",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
+### Additional insurance
+
+An additional insurance beyond legal liablity of 10 EUR/kg can be booked by using the
+`declared_value` parameter.
+
+__Requirements:__
+
+- the object `declared_value` has to be specified stating the amount and currency of the shipment
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    "weight": "1000",
+    "length":"240",
+    "width": "120",
+    "height": "60",
+    "type": "euro_pallet",
+    "declared_value": {
+      "amount": 5000,
+      "currency": "EUR"
+     }
+  },
+  "carrier": "cargo_international",
+  "service": "standard",
+  "description": "a short description of the shipment content",
+  "reference_number": "order's reference number",
+  "notification_email": "receiver@mail.com",
   "create_shipping_label": true
 }
 {% endhighlight %}
