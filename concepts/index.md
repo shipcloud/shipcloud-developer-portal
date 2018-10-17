@@ -285,6 +285,9 @@ We currently support sending packages via the following carriers and services:
 shipment before noon
 - **ups_express_1200:** Express shipment with next business day delivery by noon. See our
   [example]({{ site.baseurl }}/examples/#ups---express-1200) for detailed information
+- **dhl_europaket:** B2B solution for delivery within the next 48 hours. See our
+  [example]({{ site.baseurl }}/examples/#dhl---europaket) for detailed
+  information
 - **returns:** A shipment that the customer sends back to the store / sender
 - **collections:** The carrier will pick up the shipments from you
 
