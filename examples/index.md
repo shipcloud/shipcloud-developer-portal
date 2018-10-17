@@ -630,8 +630,8 @@ their normal liability. To book additional insurance you'll have to specify the 
 `declared_value` as part of the package object with the value of the goods you're shipping.
 
 __Available for the following carriers:__
-- [DHL](#dhl-additional-insurance)
-- [UPS](#ups-declared-value)
+- [DHL](#dhl---additional-insurance)
+- [UPS](#ups---declared-value)
 
 {% include examples/declared_value_dhl.md %}
 
@@ -665,7 +665,9 @@ label via our api you can send us the size the shipping label should have.
 }
 {% endhighlight %}
 
-## DHL Packstation
+## DHL
+
+### DHL - Packstation
 When sending to a DHL Packstation the following parameters have to be defined:
 
 - ```care_of``` = customer id number (_postnummer_)
@@ -698,7 +700,7 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
-## DHL Postfiliale
+### DHL - Postfiliale
 When sending to a DHL post office the following parameters have to be defined:
 
 - ```care_of``` = customer id number (_postnummer_)
@@ -731,7 +733,7 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
-### DHL additional insurance
+### DHL - Additional insurance
 With
 <a href="https://www.dhl.de/content/dam/dhlde/downloads/paket/produkte-services/dhl-service-additional-insurance-072016.pdf" target="_blank">DHL additional insurance</a>,
 you can insure your parcel beyond the usual liability limits of EUR 500.
@@ -744,24 +746,7 @@ __Caution:__
 __Requirements:__
 - You’ll have to use your own DHL contract
 
-### UPS declared value
-By using
-<a href="https://www.ups.com/de/de/shipping/services/value-added/declared-value.page" target="_blank">
-  UPS declared value
-</a>
-you can insure your parcel beyond the usual liability limits of EUR 510.
-
-__Caution:__
-
-- Additional fees will be charged by UPS. Check your UPS contract or ask your account manager to get
-  a quote.
-- You shouldn't specify "declared_value" when creating a shipment up to EUR 510 or lesser value
-  unless you actually want the insurance instead of the liability.
-
-__Requirements:__
-- You’ll have to use your own UPS contract
-
-## DHL bulk shipments
+## DHL - Bulk shipments
 Shipments that don't fall into the normal dimensions can be send by specifying them as bulk
 items when sending via DHL. When doing this you won't have to specify the length, width or height
 of your package.
@@ -795,7 +780,7 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
-## DHL customs declaration
+### DHL - Customs declaration
 If you want to send a shipment to a country where a customs declaration is necessary you can specify
 this the following way. Detailed information about the parameters can be found in our
 [documentation of creating a shipment]({{ site.baseurl }}/reference/#shipments).
@@ -805,7 +790,7 @@ __Requirements:__
 - ```customs_declaration.currency``` has to be _'EUR'_
 
 __Notice:__
-This feature is currently in public beta. 
+This feature is currently in public beta.
 
 {% highlight http %}
 POST https://api.shipcloud.io/v1/shipments
@@ -905,7 +890,7 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
-## DPD parcel letter
+## DPD - Parcel letter
 DPD defines [parcel letters](https://www.dpd.com/de_en/sending_parcels/our_shipping_services/parcelletter)
 as "everything which is too small for a parcel but larger and heavier than a classical letter"
 
@@ -938,41 +923,9 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
-## Deutsche Post Büchersendung
-You can send books, brochures, sheets of music and maps using the service
-[Büchersendung](https://www.deutschepost.de/en/b/buechersendung_national.html) by Deutsche Post AG.
+## Deutsche Post
 
-__Requirements:__
-
-- ```package.type``` has to be _'books'_
-- ```carrier``` has to be _'dpag'_
-
-{% highlight http %}
-POST https://api.shipcloud.io/v1/shipments
-{% endhighlight %}
-
-{% highlight json %}
-{
-  "from": {
-    // see [1]
-  },
-  "to": {
-    // see [1]
-  },
-  "package": {
-    "weight": 0.5,
-    "length": 25,
-    "width": 18,
-    "height": 5,
-    "type": "books"
-  },
-  "carrier": "dpag",
-  "service": "standard",
-  "create_shipping_label": true
-}
-{% endhighlight %}
-
-## Deutsche Post Brief
+### Deutsche Post - Brief
 If you want to send a simple [letter](https://www.deutschepost.de/en/b/brief_postkarte.html) using
 the Deutsche Post AG services you can do that as well.
 
@@ -1006,7 +959,41 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
-## Deutsche Post Warenpost
+### Deutsche Post - Büchersendung
+You can send books, brochures, sheets of music and maps using the service
+[Büchersendung](https://www.deutschepost.de/en/b/buechersendung_national.html) by Deutsche Post AG.
+
+__Requirements:__
+
+- ```package.type``` has to be _'books'_
+- ```carrier``` has to be _'dpag'_
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    "weight": 0.5,
+    "length": 25,
+    "width": 18,
+    "height": 5,
+    "type": "books"
+  },
+  "carrier": "dpag",
+  "service": "standard",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
+### Deutsche Post - Warenpost
 When using the [Deutsche Post Warenpost](https://www.deutschepost.de/en/w/warenpost.html) as your
 service you can send letters that will have shipment tracking and are usually delivered on the next
 day.
@@ -1053,7 +1040,7 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
-## Deutsche Post Warensendung
+### Deutsche Post - Warensendung
 You can send a variety of merchandise related things to your customers using the service
 [Warensendung](https://www.deutschepost.de/en/w/warensendung.html) by Deutsche Post AG.
 
@@ -1137,7 +1124,26 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
-## UPS - Express 12:00
+## UPS
+
+### UPS - Declared value
+By using
+<a href="https://www.ups.com/de/de/shipping/services/value-added/declared-value.page" target="_blank">
+  UPS declared value
+</a>
+you can insure your parcel beyond the usual liability limits of EUR 510.
+
+__Caution:__
+
+- Additional fees will be charged by UPS. Check your UPS contract or ask your account manager to get
+  a quote.
+- You shouldn't specify "declared_value" when creating a shipment up to EUR 510 or lesser value
+  unless you actually want the insurance instead of the liability.
+
+__Requirements:__
+- You’ll have to use your own UPS contract
+
+### UPS - Express 12:00
 The UPS service [Express 12:00](https://www.ups.com/de/en/shipping/services/intra/express-1200.page?loc=en_DE)
 ensures a next business day delivery by noon throughout the country.
 
