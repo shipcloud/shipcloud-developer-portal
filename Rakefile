@@ -19,6 +19,7 @@ task :test do
       "https://www.ups.com/media/de/service_guide_de_preview.pdf",
       "https://www.dhl.de/en/paket/information/geschaeftskunden/service-wunschzeit.html",
       "https://us7.campaign-archive.com/home/?u=61172dea8790607c71d26bb86&id=4319f24b6f",
+      "http://john-sheehan.com/blog/ultimate-api-webhook-backend-service-debugging-testing-monitoring-and-discovery-tools-list",
     ]
   }
   HTMLProofer.check_directory("./_site", options).run

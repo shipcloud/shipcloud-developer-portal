@@ -15,7 +15,7 @@ work with any other release modifiers than major versions.
 ## [20180822] - 2018-08-22
 
 ### Added
-- You can now supply [customs declaration data]({{ site.baseurl }}/examples/#dhl-customs-declaration)
+- You can now supply [customs declaration data]({{ site.baseurl }}/examples/#dhl---customs-declaration)
 when creating a shipment and we will return the corresponding customs forms for the selected carrier.
 
 ## [20180814] - 2018-08-14
