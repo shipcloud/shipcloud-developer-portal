@@ -22,6 +22,8 @@ when creating a shipment and we will return the corresponding customs forms for 
 
 ### Added
 - More parameters to filter a [list of shipments]({{ site.baseurl }}/reference/#getting-a-list-of-shipments)
+- API endpoint to query [all pickup requests]({{ site.baseurl }}/reference/#getting-a-list-of-pickup-requests)
+- API endpoint to query the [details of a single pickup request]({{ site.baseurl }}/reference/#getting-information-about-a-pickup-request)
 
 ## [20180619] - 2018-06-19
 
