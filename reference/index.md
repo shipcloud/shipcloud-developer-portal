@@ -128,7 +128,7 @@ If you want to create a shipment, this is the way to go!
 no payload
 {% endhighlight %}
 
-You can filter the shipments list by using one or more of the following GET parameters. 
+You can filter the shipments list by using one or more of the following GET parameters.
 
 {% include reference/shipments_index_request_togglebox.html %}
 
@@ -338,7 +338,7 @@ With this call you can find out how much a specific package will cost you.
 
 ## Pickup requests
 
-### Requesting pickup
+### Requesting a pickup
 There are two ways you can request shipments to be picked up by a specific carrier. By simply
 stating that all shipments that haven't been picked up already should be picked up or by specifying
 which shipments should by picked up.
@@ -396,6 +396,42 @@ account for picking up shipments. In those cases we'll return ```null``` as pick
 {% include headers/200_ok.html %}
 {% highlight json %}
 {% include pickup_post_requests_response.json %}
+{% endhighlight %}
+
+<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Pickup Requests response]({{ site.baseurl }}/reference/pickup_requests_response_schema.html)
+
+### Getting a list of pickup requests
+
+#### Request
+
+<kbd>GET</kbd> __/v1/pickup_requests__
+
+{% highlight shell %}
+no payload
+{% endhighlight %}
+
+#### Response
+
+{% include headers/200_ok.html %}
+{% highlight json %}
+{% include pickup_requests_index_response.json %}
+{% endhighlight %}
+
+### Getting information about a pickup request
+
+#### Request
+
+<kbd>GET</kbd> __/v1/pickup_requests/:id__
+
+{% highlight shell %}
+no payload
+{% endhighlight %}
+
+#### Response
+
+{% include headers/200_ok.html %}
+{% highlight json %}
+{% include pickup_requests_get_response.json %}
 {% endhighlight %}
 
 <i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Pickup Requests response]({{ site.baseurl }}/reference/pickup_requests_response_schema.html)
