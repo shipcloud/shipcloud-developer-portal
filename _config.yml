@@ -18,7 +18,7 @@ shipcloud:
     as_keys: '"dhl", "dhl_express", "dpag", "ups", "dpd", "hermes", "gls", "iloxx", "tnt", "fedex", "go" and "parcel_one"'
     as_keys_array: '"dhl", "dhl_express", "dpag", "ups", "dpd", "hermes", "gls", "iloxx", "tnt", "fedex", "go", "parcel_one"'
   supported_services:
-    as_keys_array: '"standard", "one_day" , "one_day_early", "ups_express_1200", "returns"'
+    as_keys_array: '"standard", "one_day" , "one_day_early", "ups_express_1200", "dhl_europaket", "returns"'
 
 # Build settings
 markdown: kramdown
