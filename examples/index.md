@@ -1167,7 +1167,7 @@ POST https://api.shipcloud.io/v1/shipments
 
 ### UPS - Declared value
 By using
-<a href="https://www.ups.com/de/de/shipping/services/value-added/declared-value.page" target="_blank">
+<a href="https://www.ups.com/de/en/shipping/services/value-added/declared-value.page?loc=en_DE" target="_blank">
   UPS declared value
 </a>
 you can insure your parcel beyond the usual liability limits of EUR 510.
@@ -1181,6 +1181,52 @@ __Caution:__
 
 __Requirements:__
 - You’ll have to use your own UPS contract
+
+### UPS - Expedited
+If you want to send less urgent shipments to destinations outside of Europe you can use the UPS
+service
+<a href="https://www.ups.com/de/en/shipping/international/services/expedited.page?loc=en_DE" target="_blank">
+  expedited
+</a>
+to reach more than 220 countries and territories.
+
+__Requirements:__
+- `description` is mandatory
+- `service` has to be _'ups_expedited'_
+- You’ll have to use your own UPS contract
+- The recipient has to be located outside of the EU, Liechtenstein, Norway or Switzerland
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    "company": "Apple Inc.",
+    "first_name": "Tim",
+    "last_name": "Cook",
+    "care_of": null,
+    "street": "Infinite Loop",
+    "street_no": "1",
+    "zip_code": "95014",
+    "city": "Cupertino",
+    "state": "CA",
+    "country": "US",
+    "phone": "408-996-1010"
+  },
+  "package": {
+    // see [2]
+  },
+  "carrier": "ups",
+  "service": "ups_expedited",
+  "description": "Linkwood 25 years",
+  "create_shipping_label": true
+}
+{% endhighlight %}
 
 ### UPS - Express 12:00
 The UPS service [Express 12:00](https://www.ups.com/de/en/shipping/services/intra/express-1200.page?loc=en_DE)
