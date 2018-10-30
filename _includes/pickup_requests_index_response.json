@@ -13,19 +13,19 @@
       ],
       "pickup_date": "2018/10/26",
       "pickup_address": {
-        "company": "Weingut Fries",
-        "first_name": "Reiner u. Anke",
-        "last_name": "Fries",
+        "company": "Apple Inc.",
+        "first_name": "Tim",
+        "last_name": "Cook",
         "care_of": null,
-        "street": "Bachstraße",
-        "street_no": "66",
-        "zip_code": "56333",
-        "city": "Winningen",
-        "state": null,
-        "country": "DE",
-        "phone": "02606-2686",
+        "street": "Infinite Loop",
+        "street_no": "1",
+        "zip_code": "95014",
+        "city": "Cupertino",
+        "state": "CA",
+        "country": "US",
+        "phone": "408-996-1010",
         "email": null,
-        "id": "a0a2406b-07c4-7df0-2ec6-07bcff92c4b8"
+        "id": "7ea2a290-b456-4ecf-9010-e82b3da298f0"
       }
     }, {
       "id": "7342d2cc-416c-434f-a999-f7a845c64f1a",
