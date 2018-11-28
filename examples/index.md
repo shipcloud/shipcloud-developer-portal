@@ -18,15 +18,12 @@ calling them _additional services_.
 
 ### Advance notice
 Some carriers provide the option to notify the recipient of a shipment of its arrival date and /
-or time. We currently support advance notices for DHL and DPD. While DHL supports notifications via
-email DPD also allows the recipient to also be notified via SMS.
-
-__Requirements:__
-
-- ```language``` has to be provided as a
-[ISO 639-1 code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
+or time. We currently support advance notices for Cargo International, DHL and DPD. While DHL
+supports notifications via email DPD also allows the recipient to be notified via SMS. When using
+Cargo International you only have the option to be notified via a phone call.
 
 __Available for the following carriers:__
+- [Cargo International](#cargo-international---appointment-announcement)
 - [DHL](#dhl---advance-notice)
 - [DPD](#dpd---predict)
 - [GLS](#gls---flexdeliveryservice)
@@ -102,6 +99,49 @@ __Available for the following carriers:__
 __Available for the following carriers:__
 - [DHL Express](#dhl-express---saturday-delivery)
 - [DPD](#dpd---saturday-delivery)
+
+### Cargo International - Appointment announcement
+
+If you want the recipient to get a call from the carrier some time before the shipment will arrive
+at its destination you can specify the phone number of the recipient via our additional service
+advance_notice.
+
+__Requirements:__
+
+- `service` has to be _'standard'_
+- `package.type` can be _'disposable_pallet'_, _'euro_pallet'_ or
+  _'cargo_international_large_parcel'_
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    // see [2]
+  },
+  "additional_services": [
+    {
+      "name": "advance_notice",  
+      "properties": {  
+        "phone": "015112345678"  
+      }
+    }
+  ],
+  "carrier": "cargo_international",
+  "service": "standard",
+  "description": "a short description of the shipment content",
+  "reference_number": "order's reference number",
+  "notification_email": "receiver@mail.com",
+  "create_shipping_label": true
+}
+{% endhighlight %}
 
 ### DHL - Advance notice
 DHL currently only supports advance notice via email. You can find an example above in our
@@ -735,6 +775,46 @@ POST https://api.shipcloud.io/v1/shipments
   },
   "carrier": "cargo_international",
   "service": "cargo_international_express",
+  "description": "a short description of the shipment content",
+  "reference_number": "order's reference number",
+  "notification_email": "receiver@mail.com",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
+### Large parcel
+
+__Requirements:__
+
+- max. dimensions 320 cm x 200 cm x 200 cm
+- max. girth 700cm
+- max. weight 100 kg
+- max. dimensional weight: 800kg
+- sender and recipient have to be located in Germany
+- `service` can be _'standard'_ or _'cargo_international_express'_
+- `package.type` has to be _'cargo_international_large_parcel'_
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    "weight": "100",
+    "length":"120",
+    "width": "60",
+    "height": "30",
+    "type": "cargo_international_large_parcel"
+  },
+  "carrier": "cargo_international",
+  "service": "standard",
   "description": "a short description of the shipment content",
   "reference_number": "order's reference number",
   "notification_email": "receiver@mail.com",
