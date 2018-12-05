@@ -68,6 +68,7 @@
               },
               "last_name": { "type": "string" },
               "minimum_age": { "type": "string" },
+              "phone": { "type": "string" },
               "reference1": {
                 "type": "string",
                 "description": "Text that should be displayed as the reason for transfer"
@@ -249,7 +250,7 @@
         },
         "type": {
           "type": "string",
-          "enum": ["books", "bulk", "letter", "parcel", "parcel_letter"],
+          "enum": ["books", "bulk", "letter", "parcel", "parcel_letter", "cargo_international_large_parcel"],
           "description": "defines packages of being of a certain type - if no value is given, parcel will be used"
         }
       },
