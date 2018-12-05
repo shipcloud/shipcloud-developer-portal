@@ -9,7 +9,7 @@ gem 'jekyll-sass-converter', '~> 1.5.x'
 gem 'kramdown', '~> 1.13.x'
 
 # Liquid
-gem 'liquid', '~> 3.0.x'
+gem 'liquid', '~> 4.0.1'
 
 # Plugins
 gem 'jekyll-sitemap', '1.0.0'
