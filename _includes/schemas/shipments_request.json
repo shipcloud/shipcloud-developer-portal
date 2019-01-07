@@ -40,6 +40,10 @@
       "type": "string",
       "description": "email address that we should notify once there's an update for this shipment"
     },
+    "incoterm": {
+      "type": "string",
+      "enum": ["ddp", "ddp_untaxed", "dap", "dap_cleared", "ddu", "ddu_cleared"]
+    },
     "additional_services": {
       "type": "array",
       "items": {
