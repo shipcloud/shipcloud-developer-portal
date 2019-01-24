@@ -12,6 +12,12 @@ work with any other release modifiers than major versions.
 
 **Notice**: Not everything we do affects the viewable parts of our api.
 
+## [20190109] - 2019-01-09
+
+### Added
+- You can now supply an [incoterm]({{ site.baseurl }}/examples/#gls---incoterms) code when sending
+  shipments to dutiable countries _(when using GLS)_.
+
 ## [20180822] - 2018-08-22
 
 ### Added

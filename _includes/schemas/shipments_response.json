@@ -23,6 +23,10 @@
       "type": "string",
       "description": "the shipment id that can be used for requesting info about a shipment or tracking it"
     },
+    "incoterm": {
+      "type": "string",
+      "enum": ["ddp", "ddp_untaxed", "dap", "dap_cleared", "ddu", "ddu_cleared"]
+    },
     "label_url": {
       "type": "string",
       "description": "URL where you can download the label in pdf format"
