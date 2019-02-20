@@ -155,6 +155,14 @@ correct according to the carrier.
 
 {% include concepts/carrier_specific_field_lengths_dhl_express.md %}
 
+### GLS (Uniship)
+
+{% include concepts/carrier_specific_field_lengths_gls_uniship.md %}
+
+### GLS (Web API)
+
+{% include concepts/carrier_specific_field_lengths_gls_web_api.md %}
+
 ### GO!
 
 {% include concepts/carrier_specific_field_lengths_go.md %}
