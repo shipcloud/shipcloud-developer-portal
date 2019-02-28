@@ -1,4 +1,0 @@
----
-layout: none
----
-{% include schemas/rates_request.json %}

@@ -1,9 +1,0 @@
-{
-  "name": "shipcloud-developer-portal",
-  "root": "_site",
-  "clean_urls": true,
-  "error_page": "404.html",
-  "redirects": {
-    "/libraries": "/integrations"
-  }
-}

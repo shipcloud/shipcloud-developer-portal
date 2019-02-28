@@ -1,4 +1,0 @@
----
-layout: none
----
-{% include schemas/shipments_response_reduced.json %}
