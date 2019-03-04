@@ -1,26 +1,17 @@
 sudo: false
 dist: trusty
-language: ruby
-cache:
-  bundler: true
-  directories:
-    - node_modules
-script: bundle exec rake build test
-env:
-  global:
-  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+language: node_js
+cache: npm
+node_js:
+  - "8"
+script:
+  - "npm run docs:build"
 deploy:
-  provider: firebase
-  token:
-    secure: "$FIREBASE_TOKEN"
+  provider: pages
+  github-token: $GITHUB_TOKEN
+  local-dir: .vuepress/dist
+  keep-history: true
   on:
     repo: shipcloud/shipcloud.github.io
-    branch: master
+    branch: replace-jekyll-with-vuepress
   skip_cleanup: true
-notifications:
-  flowdock:
-    secure: JoghBZRgtGMnBFdvp/bfkVaAKwYs7qr8bQ7RByLVWzh9qxrzsdACcWo9vyhaLc7KOp+C2wkxlYHs5NGWo+3sHjdHG7ZGwTFXrGnzSiXcm7hcSM/cNAR+nNDzrt/KfrOGA4vc8zZWuD6R1OpmcPwa9x5ZCMxsRT1F1BqR2RDlcoE=
-addons:
-  apt:
-    packages:
-    - libcurl4-openssl-dev
