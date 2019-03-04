@@ -5,6 +5,7 @@ cache: npm
 node_js:
   - "8"
 script:
+  - "npm install"
   - "npm run docs:build"
 deploy:
   provider: pages
