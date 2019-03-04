@@ -1,4 +1,0 @@
-{
-  "url": "https://example.com/webhook",
-  "event_types": ["shipment.tracking.delayed", "shipment.tracking.delivered"]
-}

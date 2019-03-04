@@ -1,6 +1,0 @@
-{
-  "id": "e0ff4250-6c8e-494d-a069-afd9d566e372",
-  "url": "https://example.com/webhook",
-  "event_types": ["shipment.tracking.delayed", "shipment.tracking.delivered"],
-  "deactivated": false
-}
