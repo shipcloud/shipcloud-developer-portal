@@ -7,16 +7,16 @@
     <meta name="description" content="{{ site.description }}">
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="{{ "/assets/css/bootstrap.min.css" | prepend: site.baseurl }}">
     <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
     <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico">
 
     {% include google_tag_manager_head.html %}
-    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="{{ "/assets/js/jquery-2.1.1.min.js" | prepend: site.baseurl }}"></script>
+    <script src="{{ "/assets/js/bootstrap.min.js" | prepend: site.baseurl }}"></script>
+
     {% if page.url contains "/playground/" %}
       <!-- using jjv for testing JSON calls against our schemas -->
       <!-- https://github.com/acornejo/jjv -->
