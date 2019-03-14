@@ -6,4 +6,4 @@ title: shipcloud shipments request JSON schema
 {% include schemas/shipments_request.json %}
 {% endhighlight %}
 
-<i class="glyphicon glyphicon-download-alt"></i> [download]({{ site.baseurl }}/schemas/shipments_request.json)
+<i class="fas fa-download"></i> [download]({{ site.baseurl }}/schemas/shipments_request.json)

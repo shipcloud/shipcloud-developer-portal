@@ -26,11 +26,11 @@ customers with a seamless user experience as well as showing you what we're call
 features__ of the shipcloud api.
 
 <a href="{{ site.integration_guide_url.en }}">
-  <i class="glyphicon glyphicon-download-alt"></i> Integration Guide in English
+  <i class="fas fa-download"></i> Integration Guide in English
 </a>
 
 <a href="{{ site.integration_guide_url.de }}">
-  <i class="glyphicon glyphicon-download-alt"></i> Integration Guide in German
+  <i class="fas fa-download"></i> Integration Guide in German
 </a>
 
 ## Authentication
@@ -245,7 +245,7 @@ creating a shipment. See TNT below for a detailed description of how you need to
 
 ### Liefery
 <p class="bg-warning">
-  <i class="glyphicon glyphicon-warning-sign"></i>
+  <i class="fas fa-exclamation-triangle"></i>
   We previously supported the same day delivery service <strong><i>Liefery</i></strong>.
   <br />
   Due to a new business focus at Liefery, their offering isn't compatible with our services at the

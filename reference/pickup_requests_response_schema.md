@@ -6,4 +6,4 @@ title: shipcloud pickup requests response JSON schema
 {% include schemas/pickup_requests_response.json %}
 {% endhighlight %}
 
-<i class="glyphicon glyphicon-download-alt"></i> [download]({{ site.baseurl }}/schemas/pickup_requests_response.json)
+<i class="fas fa-download"></i> [download]({{ site.baseurl }}/schemas/pickup_requests_response.json)

@@ -6,4 +6,4 @@ title: shipcloud shipments response JSON schema
 {% include schemas/shipments_response_reduced.json %}
 {% endhighlight %}
 
-<i class="glyphicon glyphicon-download-alt"></i> [download]({{ site.baseurl }}/schemas/shipments_response_reduced.json)
+<i class="fas fa-download"></i> [download]({{ site.baseurl }}/schemas/shipments_response_reduced.json)

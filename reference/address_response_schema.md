@@ -6,4 +6,4 @@ title: shipcloud address response JSON schema
 {% include schemas/address_response.json %}
 {% endhighlight %}
 
-<i class="glyphicon glyphicon-download-alt"></i> [download]({{ site.baseurl }}/schemas/address_response.json)
+<i class="fas fa-download"></i> [download]({{ site.baseurl }}/schemas/address_response.json)

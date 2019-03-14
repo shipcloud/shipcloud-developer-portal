@@ -6,4 +6,4 @@ title: shipcloud create tracker request JSON schema
 {% include schemas/trackers_request.json %}
 {% endhighlight %}
 
-<i class="glyphicon glyphicon-download-alt"></i> [download]({{ site.baseurl }}/schemas/trackers_request.json)
+<i class="fas fa-download"></i> [download]({{ site.baseurl }}/schemas/trackers_request.json)

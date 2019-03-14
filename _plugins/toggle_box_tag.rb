@@ -40,7 +40,7 @@ html = <<-EOS
     <div class="panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion_#{modifier}" href="#collapsable_#{modifier}">
-          <i class="glyphicon glyphicon-chevron-down"></i> #{@headline}
+          <i class="fas fa-chevron-down"></i> #{@headline}
         </a>
       </h4>
     </div>

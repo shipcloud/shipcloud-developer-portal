@@ -32,7 +32,7 @@ If you want to create an Address, this is the way to go!
 {% include addresses_post_put_request.json %}
 {% endhighlight %}
 
-<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Create addresses request]({{ site.baseurl }}/reference/post_addresses_request_schema.html)
+<i class="fas fa-arrow-right"></i> JSON schema: [Create addresses request]({{ site.baseurl }}/reference/post_addresses_request_schema.html)
 
 #### Response
 {% include headers/200_ok.html %}
@@ -40,7 +40,7 @@ If you want to create an Address, this is the way to go!
 {% include addresses_post_put_response.json %}
 {% endhighlight %}
 
-<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Create addresses response]({{ site.baseurl }}/reference/address_response_schema.html)
+<i class="fas fa-arrow-right"></i> JSON schema: [Create addresses response]({{ site.baseurl }}/reference/address_response_schema.html)
 
 ### Getting a list of addresses
 
@@ -86,14 +86,14 @@ __GET parameters:__
 {% include addresses_get_response.json %}
 {% endhighlight %}
 
-<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Address response]({{ site.baseurl }}/reference/address_response_schema.html)
+<i class="fas fa-arrow-right"></i> JSON schema: [Address response]({{ site.baseurl }}/reference/address_response_schema.html)
 
 ## Shipments
 The following is a section of resources related to shipments. Be advised: We will charge you only for shipments that a
 label was created for.
 
 <p class="bg-info">
-  <i class="glyphicon glyphicon-info-sign"></i>
+  <i class="fas fa-info-circle"></i>
   Please notice the requirements regarding the use of the parameter "description" (either in the
   root or as part of the "package" attribute).
 </p>
@@ -110,7 +110,7 @@ If you want to create a shipment, this is the way to go!
 {% include shipments_post_put_request.json %}
 {% endhighlight %}
 
-<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Shipments request]({{ site.baseurl }}/reference/shipments_request_schema.html)
+<i class="fas fa-arrow-right"></i> JSON schema: [Shipments request]({{ site.baseurl }}/reference/shipments_request_schema.html)
 
 #### Response
 {% include headers/200_ok.html %}
@@ -118,7 +118,7 @@ If you want to create a shipment, this is the way to go!
 {% include shipments_post_put_response.json %}
 {% endhighlight %}
 
-<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Shipments response]({{ site.baseurl }}/reference/shipments_response_reduced_schema.html)
+<i class="fas fa-arrow-right"></i> JSON schema: [Shipments response]({{ site.baseurl }}/reference/shipments_response_reduced_schema.html)
 
 ### Getting a list of shipments
 
@@ -140,11 +140,11 @@ You can filter the shipments list by using one or more of the following GET para
 
 ### Getting information about a shipment
 <p class="bg-info">
-  <i class="glyphicon glyphicon-info-sign"></i>
+  <i class="fas fa-info-circle"></i>
   Only shipments where create_shipping_label is true contain prices and may contain tracking_events
 </p>
 <p class="bg-info">
-  <i class="glyphicon glyphicon-info-sign"></i>
+  <i class="fas fa-info-circle"></i>
   Shipments that are created on the sandbox system aren't send to the carriers. Therefore they won't contain
   tracking_events.
 </p>
@@ -165,7 +165,7 @@ __URL parameters:__
 {% include shipments_get_response.json %}
 {% endhighlight %}
 
-<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Shipments response]({{ site.baseurl }}/reference/shipments_query_response_schema.html)
+<i class="fas fa-arrow-right"></i> JSON schema: [Shipments response]({{ site.baseurl }}/reference/shipments_query_response_schema.html)
 
 ### Updating a shipment
 
@@ -190,7 +190,7 @@ __URL parameters:__
 <kbd>DELETE</kbd> __/v1/shipments/:id__
 
 <p class="bg-info">
-  <i class="glyphicon glyphicon-info-sign"></i>
+  <i class="fas fa-info-circle"></i>
   Prepared shipments (where create_shipping_label is false) can be deleted at any time, because no
   transaction with the carrier has happened until this point and no actual shipping label has been
   created. In case you've created a shipping label you can delete it before the cutoff time of the
@@ -270,7 +270,7 @@ no payload
   }
 ]
 {% endhighlight %}
-<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [carriers response]({{ site.baseurl }}/reference/carriers_response_schema.html)
+<i class="fas fa-arrow-right"></i> JSON schema: [carriers response]({{ site.baseurl }}/reference/carriers_response_schema.html)
 
 ## Shipment Quotes
 With this call you can find out how much we will charge you for a specific shipment.
@@ -296,7 +296,7 @@ providing a complete set of address data.
 You can also omit the ```from``` parameter if the users has configured a standard ship from address
 in her/his shipcloud profile.
 
-<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Shipment Quotes request]({{ site.baseurl }}/reference/shipment_quotes_request_schema.html)
+<i class="fas fa-arrow-right"></i> JSON schema: [Shipment Quotes request]({{ site.baseurl }}/reference/shipment_quotes_request_schema.html)
 
 #### Response
 {% include headers/200_ok.html %}
@@ -304,20 +304,20 @@ in her/his shipcloud profile.
 {% include shipment_quotes_post_response.json %}
 {% endhighlight %}
 
-<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Shipment Quotes response]({{ site.baseurl }}/reference/shipment_quotes_response_schema.html)
+<i class="fas fa-arrow-right"></i> JSON schema: [Shipment Quotes response]({{ site.baseurl }}/reference/shipment_quotes_response_schema.html)
 
 ## Rates
 
 ### Getting the rate for a package
 <p class="bg-warning">
-  <i class="glyphicon glyphicon-warning-sign"></i>
+  <i class="fas fa-exclamation-triangle"></i>
   The rates call is <b>deprecated</b>. Please use <a href="{{ site.baseurl }}/reference/#shipment-quotes">Shipment Quotes</a>.
 </p>
 
 With this call you can find out how much a specific package will cost you.
 
 <p class="bg-info">
-  <i class="glyphicon glyphicon-info-sign"></i>
+  <i class="fas fa-info-circle"></i>
   You'll have to use your live api key to get the correct prices.
 </p>
 
@@ -386,7 +386,7 @@ If you want to only have specific shipments be picked up you add the shipment id
 {% include pickup_post_requests_request.json %}
 {% endhighlight %}
 
-<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Pickup Requests request]({{ site.baseurl }}/reference/pickup_requests_request_schema.html)
+<i class="fas fa-arrow-right"></i> JSON schema: [Pickup Requests request]({{ site.baseurl }}/reference/pickup_requests_request_schema.html)
 
 #### Response
 
@@ -398,7 +398,7 @@ account for picking up shipments. In those cases we'll return ```null``` as pick
 {% include pickup_post_requests_response.json %}
 {% endhighlight %}
 
-<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Pickup Requests response]({{ site.baseurl }}/reference/pickup_requests_response_schema.html)
+<i class="fas fa-arrow-right"></i> JSON schema: [Pickup Requests response]({{ site.baseurl }}/reference/pickup_requests_response_schema.html)
 
 ### Getting a list of pickup requests
 
@@ -434,7 +434,7 @@ no payload
 {% include pickup_requests_get_response.json %}
 {% endhighlight %}
 
-<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Pickup Requests response]({{ site.baseurl }}/reference/pickup_requests_response_schema.html)
+<i class="fas fa-arrow-right"></i> JSON schema: [Pickup Requests response]({{ site.baseurl }}/reference/pickup_requests_response_schema.html)
 
 ## Webhooks
 The following is a section of resources related to webhooks.
@@ -452,7 +452,7 @@ If you want to create a webhook, this is the way to go!
 {% include webhooks_post_put_request.json %}
 {% endhighlight %}
 
-<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Create webhook request]({{ site.baseurl }}/reference/webhooks_request_schema.html)
+<i class="fas fa-arrow-right"></i> JSON schema: [Create webhook request]({{ site.baseurl }}/reference/webhooks_request_schema.html)
 
 #### Response
 {% include headers/200_ok.html %}
@@ -460,7 +460,7 @@ If you want to create a webhook, this is the way to go!
 {% include webhooks_post_put_response.json %}
 {% endhighlight %}
 
-<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Create webhooks response]({{ site.baseurl }}/reference/webhooks_response_schema.html)
+<i class="fas fa-arrow-right"></i> JSON schema: [Create webhooks response]({{ site.baseurl }}/reference/webhooks_response_schema.html)
 
 ### Getting a list of webhooks
 
@@ -488,7 +488,7 @@ __GET parameters:__
 {% include webhooks_get_response.json %}
 {% endhighlight %}
 
-<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Webhook response]({{ site.baseurl }}/reference/webhooks_response_schema.html)
+<i class="fas fa-arrow-right"></i> JSON schema: [Webhook response]({{ site.baseurl }}/reference/webhooks_response_schema.html)
 
 ### Deleting a webhook
 
@@ -532,7 +532,7 @@ carriers ({{ site.shipcloud.supported_carriers.as_display_names }})
 {% include trackers_post_put_request.json %}
 {% endhighlight %}
 
-<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Create tracker request]({{ site.baseurl }}/reference/trackers_request_schema.html)
+<i class="fas fa-arrow-right"></i> JSON schema: [Create tracker request]({{ site.baseurl }}/reference/trackers_request_schema.html)
 
 #### Response
 {% include headers/200_ok.html %}
@@ -540,7 +540,7 @@ carriers ({{ site.shipcloud.supported_carriers.as_display_names }})
 {% include trackers_post_put_response.json %}
 {% endhighlight %}
 
-<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Create tracker response]({{ site.baseurl }}/reference/trackers_response_schema.html)
+<i class="fas fa-arrow-right"></i> JSON schema: [Create tracker response]({{ site.baseurl }}/reference/trackers_response_schema.html)
 
 ### Getting a list of trackers
 
@@ -568,4 +568,4 @@ __GET parameters:__
 {% include trackers_get_response.json %}
 {% endhighlight %}
 
-<i class="glyphicon glyphicon-arrow-right"></i> JSON schema: [Tracker response]({{ site.baseurl }}/reference/trackers_response_schema.html)
+<i class="fas fa-arrow-right"></i> JSON schema: [Tracker response]({{ site.baseurl }}/reference/trackers_response_schema.html)

@@ -6,4 +6,4 @@ title: shipcloud trackers response JSON schema
 {% include schemas/trackers_response.json %}
 {% endhighlight %}
 
-[<i class="glyphicon glyphicon-download-alt"></i> download]({{ site.baseurl }}/schemas/trackers_response.json)
+[<i class="fas fa-download"></i> download]({{ site.baseurl }}/schemas/trackers_response.json)
