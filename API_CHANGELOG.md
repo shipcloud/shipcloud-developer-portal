@@ -12,6 +12,17 @@ work with any other release modifiers than major versions.
 
 **Notice**: Not everything we do affects the viewable parts of our api.
 
+## [20190312] - 2019-03-12
+
+### Added
+- Hermes (HSI) [customer alert]({{ site.baseurl }}/examples/#hermes---customer-alert) via sms and 
+  email
+- Hermes (HSI) [bulk shipments]({{ site.baseurl }}/examples/#hermes---bulk-shipments)
+- Hermes (HSI) [ident check]({{ site.baseurl }}/examples/#hermes---identservice)
+- You can send Hermes (HSI) shipments directly to a parcel shop with the 
+  [Hermes ParcelShopDeliveryService]({{ site.baseurl }}/examples/#hermes---parcelshopdeliveryservice) 
+- Hermes (HSI) [return shipments]({{ site.baseurl }}/examples/#hermes---returns)
+
 ## [20190109] - 2019-01-09
 
 ### Added
