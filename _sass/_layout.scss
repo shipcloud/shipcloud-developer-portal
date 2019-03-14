@@ -134,6 +134,16 @@ table.status_codes {
   .nav .nav {
     display: none;
   }
+
+  .nav {
+    .nav--level-2 {
+      a {
+        font-size: 14px;
+        padding-bottom: 2px;
+        padding-top: 2px;
+      }
+    }
+  }
 }
 
 .panel-body {
