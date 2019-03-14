@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 # Jekyll
 gem 'jekyll', '~> 3.8.x'
-gem 'jekyll-coffeescript', '~> 1.0.x'
+gem 'jekyll-coffeescript', '~> 1.1.x'
 gem 'jekyll-sass-converter', '~> 1.5.x'
 
 # Converters
