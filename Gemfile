@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Jekyll
-gem 'jekyll', '~> 3.4.x'
+gem 'jekyll', '~> 3.8.x'
 gem 'jekyll-coffeescript', '~> 1.0.x'
 gem 'jekyll-sass-converter', '~> 1.5.x'
 
@@ -9,10 +9,10 @@ gem 'jekyll-sass-converter', '~> 1.5.x'
 gem 'kramdown', '~> 1.13.x'
 
 # Liquid
-gem 'liquid', '~> 3.0.x'
+gem 'liquid', '~> 4.0.x'
 
 # Plugins
 gem 'jekyll-sitemap', '1.0.0'
-gem 'html-proofer', "~> 3.7.x"
+gem 'html-proofer', "~> 3.10.x"
 
 gem "rake"
