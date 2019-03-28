@@ -27,6 +27,7 @@ __Available for the following carriers:__
 - [DHL](#dhl---advance-notice)
 - [DPD](#dpd---predict)
 - [GLS](#gls---flexdeliveryservice)
+- [Hermes](#hermes---customer-alert)
 
 #### Notification via email
 
@@ -595,6 +596,175 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
+### Hermes - Customer alert
+When using the additional service Hermes customer alert you are requesting Hermes to notify your 
+customers of a pending delivery by contacting them directly either via email or SMS.
+
+__Requirements:__
+
+- You have to use your own (Hermes HSI) carrier contract
+
+#### Notification via email
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "company": "Receiver AG",
+    "care_of": "3. Liftstock",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE"
+  },
+  "package": {
+    "weight": "2.5",
+    "length": "40",
+    "width": "20",
+    "height": "10",
+    "type": "parcel"
+  },
+  "service": "standard",
+  "carrier": "hermes",
+  "additional_services": [
+    {
+      "name": "advance_notice",
+      "properties": {
+        "email": "receiver@mail.com"
+      }
+    }
+  ],
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
+#### Notification via SMS
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "company": "Receiver AG",
+    "care_of": "3. Liftstock",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE"
+  },
+  "package": {
+    "weight": "2.5",
+    "length": "40",
+    "width": "20",
+    "height": "10",
+    "type": "parcel"
+  },
+  "service": "standard",
+  "carrier": "hermes",
+  "additional_services": [
+    {
+      "name": "advance_notice",
+      "properties": {
+        "sms": "+4915123456789"
+      }
+    }
+  ],
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
+### Hermes - IdentService
+
+You can have the carrier Hermes check the identity of a recipient by specifying this additional 
+service (more details about the [IdentService at the Hermes website](https://blog.myhermes.de/hermesabc/identservice/)). 
+The shipment will be handed over to the recipient only if the data on the shipping label matches 
+100% to the shown ID.
+
+__Requirements:__
+
+- You have to use your own (Hermes HSI) carrier contract
+- `id_type` is mandatory and can be one of the following values: _'german_identity_card'_, 
+  _'german_passport'_, _'international_passport'_
+- `id_number` is mandatory
+- Applicable only for domestic shipments whithin Germany
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "company": "Receiver AG",
+    "care_of": "3. Liftstock",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE"
+  },
+  "package": {
+    "weight": "2.5",
+    "length": "40",
+    "width": "20",
+    "height": "10",
+    "type": "parcel"
+  },
+  "service": "standard",
+  "carrier": "hermes",
+  "additional_services": [
+    {
+      "name": "hermes_ident_check",
+      "properties": {
+        "id_type": "german_identity_card",
+        "id_number": "ID123ABC"
+      }
+    }
+  ],
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
 ### UPS - Adult signature
 
 When sending packages via UPS you can specify that the receiver needs to be an adult, and prove the fact with his or her signature.
@@ -980,7 +1150,7 @@ __Caution:__
 __Requirements:__
 - You’ll have to use your own DHL contract
 
-## DHL - Bulk shipments
+### DHL - Bulk shipments
 Shipments that don't fall into the normal dimensions can be send by specifying them as bulk
 items when sending via DHL. When doing this you won't have to specify the length, width or height
 of your package.
@@ -1393,6 +1563,155 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
+## Hermes
+
+### Hermes - Bulk shipments
+
+__Requirements:__
+
+- ```package.type``` has to be _'bulk'_
+- You have to use your own (Hermes HSI) carrier contract
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "company": "Receiver AG",
+    "care_of": "3. Liftstock",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE"
+  },
+  "package": {
+    "weight": 5.5,
+    "length": 25,
+    "width": 36,
+    "height": 5,
+    "type": "bulk"
+  },
+  "carrier": "hermes",
+  "service": "standard",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
+### Hermes - ParcelShopDeliveryService
+
+__Requirements:__
+
+- You have to use your own (Hermes HSI) carrier contract
+- `drop_off_point.drop_off_point_id` is mandatory (can be determined through the [Hermes Website](https://www.myhermes.de/paketshop/))
+- `drop_off_point.type` has to be `parcel_shop`
+
+__Options:__
+
+- Hermes can notify the receiver via sms or email if you provide the additional service
+  [advance notice](#hermes---customer-alert)
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "company": "Hermes Paketshop Schmidt",
+    "care_of": "3. Liftstock",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE",
+    "drop_off_point": {
+      "drop_off_point_id": "660328",
+      "type": "parcel_shop"
+    }
+  },
+  "package": {
+    "weight": "2.5",
+    "length": "40",
+    "width": "20",
+    "height": "10",
+    "type": "parcel"
+  },
+  "service": "standard",
+  "carrier": "hermes",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
+### Hermes - Returns
+
+__Requirements:__
+
+- When using Hermes HSI you will have to use your own carrier contract
+- Applicable only for domestic return shipments whithin Germany
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "package": {
+    "weight": "2.5",
+    "length": "40",
+    "width": "20",
+    "height": "10",
+    "type": "parcel"
+  },
+  "service": "returns",
+  "carrier": "hermes",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
 ## UPS
 
 ### UPS - Declared value
@@ -1497,7 +1816,7 @@ shipping.
 __Requirements:__
 
 - ```service``` has to be _'returns'_
-- ```carrier``` can be _'dhl', 'ups', 'hermes' or 'dpd'_
+- ```carrier``` can be _'dhl', 'ups', 'hermes' ([details for Hermes HSI](#hermes---returns)) or 'dpd'_
 
 {% highlight http %}
 POST https://api.shipcloud.io/v1/shipments

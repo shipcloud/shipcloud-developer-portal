@@ -51,7 +51,7 @@
         "properties": {
           "name": {
             "type": "string",
-            "enum": ["advance_notice", "cash_on_delivery", "delivery_time", "dhl_ident_check", "drop_authorization", "gls_guaranteed24service", "premium_international", "saturday_delivery", "ups_adult_signature"],
+            "enum": ["advance_notice", "cash_on_delivery", "delivery_time", "dhl_ident_check", "drop_authorization", "gls_guaranteed24service", "hermes_ident_check", "premium_international", "saturday_delivery", "ups_adult_signature"],
             "description": "key to identify the additional service"
           },
           "properties": {
@@ -66,6 +66,19 @@
               "date_of_birth": { "type": "string" },
               "email": { "type": "string" },
               "first_name": { "type": "string" },
+              "id_type": {
+                "type": "string",
+                "enum": [
+                  "german_identity_card", 
+                  "german_passport", 
+                  "international_passport"
+                ],
+                "description": "Type of ID document that should be used for verifying a Hermes recipient"
+              },
+              "id_number": {
+                "type": "string",
+                "description": "ID number from the document"
+              },
               "language": {
                 "type": "string",
                 "description": "language the customer should be notified in (ISO-639-1 format)"
@@ -216,6 +229,22 @@
         "email": {
           "type": "string",
           "description": "email address of the receiver to get notified by the carrier. Currently only used when sending shipments via GLS - ShopDeliveryService"
+        },
+        "drop_off_point": {
+          "type": "object",
+          "properties": {
+            "drop_off_point_id": {
+              "type": "string",
+              "description": "identifier for where the shipment should be dropped off"
+            },
+            "type": {
+              "type": "string",
+              "description": "the type of the dropoff location",
+              "enum": ["parcel_shop"]
+            }
+          },
+          "required": ["drop_off_point_id", "parcel_shop"],
+          "additionalProperties": false
         }
       },
       "required": ["last_name", "street", "street_no", "city", "zip_code", "country"],
