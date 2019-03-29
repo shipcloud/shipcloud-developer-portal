@@ -1513,6 +1513,48 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
+### GLS - Returns
+__Requirements:__
+
+- Only available when using GLS Web API integration
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "package": {
+    "weight": "2.5",
+    "length": "40",
+    "width": "20",
+    "height": "10",
+    "type": "parcel"
+  },
+  "service": "returns",
+  "carrier": "gls",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
 ### GLS - ShopDeliveryService
 > GLS delivers parcels (except tyres) directly to a ParcelShop. Recipients select in advance the ParcelShop to which the parcel should be sent.
 > Once parcels have arrived, GLS informs recipients by e-mail or text message. They can collect their parcels from the GLS ParcelShop within the next eight working days after the day of delivery.
@@ -1890,7 +1932,7 @@ shipping.
 __Requirements:__
 
 - ```service``` has to be _'returns'_
-- ```carrier``` can be _'dhl', 'ups', 'hermes' ([details for Hermes HSI](#hermes---returns)) or 'dpd'_
+- ```carrier``` can be _'dhl', 'dpd', 'gls' ([details for GLS Web API](#gls---returns)), 'hermes' ([details for Hermes HSI](#hermes---returns)) or 'ups'_
 
 {% highlight http %}
 POST https://api.shipcloud.io/v1/shipments
