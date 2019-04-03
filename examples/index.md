@@ -839,7 +839,7 @@ their normal liability. To book additional insurance you'll have to specify the 
 `declared_value` as part of the package object with the value of the goods you're shipping.
 
 __Available for the following carriers:__
-- [Cargo International](#additional-insurance-1)
+- [Cargo International](#cargo-international---additional-insurance)
 - [DHL](#dhl---additional-insurance)
 - [UPS](#ups---declared-value)
 
@@ -877,7 +877,7 @@ label via our api you can send us the size the shipping label should have.
 
 ## Cargo International
 
-### Disposable pallet
+### Cargo International - Disposable pallet
 
 Use a [disposable pallet](https://www.cargointernational.de/einwegpalette) for sending goods via a
 cheaper pallet transport.
@@ -912,7 +912,7 @@ __Requirements:__
 }
 {% endhighlight %}
 
-### Euro pallet
+### Cargo International - Euro pallet
 
 Use a [euro pallet (EPAL)](https://www.cargointernational.de/europalette) for sending goods via a
 cheap pallet transport.
@@ -951,7 +951,7 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
-### Large parcel
+### Cargo International - Large parcel
 
 __Requirements:__
 
@@ -991,7 +991,7 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
-### Additional insurance
+### Cargo International - Additional insurance
 
 An additional insurance beyond legal liablity of 10 EUR/kg can be booked by using the
 `declared_value` parameter.
