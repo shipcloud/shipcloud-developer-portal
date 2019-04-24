@@ -1442,6 +1442,136 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
+### Deutsche Post - Warenpost International
+You can also send international shipments using the Warenpost service of Deutsche Post from outside 
+of Germany. There are two different services you can use. The normal use case are tracked shipments 
+using the service _'dpag_warenpost'_. You can also have international shipments without tracking 
+information. For this you just specify the service to be _'dpag_warenpost_untracked'_.
+
+__Requirements:__
+
+- ```carrier``` has to be _'dpag'_
+- ```package.type``` has to be _'parcel_letter'_
+- ```service``` can be _'dpag_warenpost'_ or _'dpag_warenpost_untracked'_
+- The sender has to be located in Germany
+- The recipient has to be located outside of Germany
+- Only applicable for shipments up to 2,000g
+- Maximum dimensions: lenghth 600mm, width 600mm, length + width + thickness combined 900mm
+- you'll have to use your own contract with the carrier
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    "company": "Sender Corp.",
+    "first_name": "Susan",
+    "last_name": "Sender",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "company": "Receiver AG",
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Vienna",
+    "zip_code": "1040",
+    "country": "AT"
+  },
+  "package": {
+      "weight": 0.5,
+      "length": 40,
+      "width": 20,
+      "height": 10,
+      "type": "parcel_letter"
+  },
+  "carrier": "dpag",
+  "service": "dpag_warenpost_untracked",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
+#### Customs declaration using CN22
+If you want to send a shipment to a country where a customs declaration is necessary you can specify
+this the following way. Detailed information about the parameters can be found in our
+[documentation of creating a shipment]({{ site.baseurl }}/reference/#shipments).
+
+__Requirements:__
+
+- ```customs_declaration.contents_type``` is mandatory
+- ```customs_declaration.currency``` has to be _'EUR'_
+- ```customs_declaration.items``` is mandatory
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    "company": "Sender Inc",
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "street": "Senderstr.",
+    "street_no": "99",
+    "city": "Hamburg",
+    "zip_code": "20148",
+    "country": "DE"
+  },
+  "to": {
+      "company": "Receiver Inc.",
+      "first_name": "Rolf",
+      "last_name": "Receiver",
+      "street": "Pennsylvania Ave NW",
+      "street_no": "1600",
+      "city": "Washington D.C.",
+      "zip_code": "20500",
+      "state": "DC",
+      "country": "US",
+  },
+  "package": {
+      "weight": 1.5,
+      "length": 30,
+      "width": 15,
+      "height": 5,
+      "type": "parcel_letter"
+  },
+  "customs_declaration": {
+    "contents_type": "commercial_goods",
+    "contents_explanation": "Goods for sale",
+    "currency": "EUR",
+    "total_value_amount": 150,
+    "items": [{
+        "origin_country": "DE",
+        "description": "Linkwood 25 years",
+        "hs_tariff_number": "62032280",
+        "quantity": 1,
+        "value_amount": 70,
+        "net_weight": 1.0
+      },
+      {
+        "origin_country": "DE",
+        "description": "Caol Ila 18 years",
+        "hs_tariff_number": "62032280",
+        "quantity": 1,
+        "value_amount": 80,
+        "net_weight": 0.5
+      }
+    ]
+  },
+  "carrier": "dpag",
+  "service": "dpag_warenpost",
+  "create_shipping_label": true
+} 
+{% endhighlight %}
+
 ### Deutsche Post - Warensendung
 You can send a variety of merchandise related things to your customers using the service
 [Warensendung](https://www.deutschepost.de/en/w/warensendung.html) by Deutsche Post AG.

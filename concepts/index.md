@@ -155,6 +155,10 @@ correct according to the carrier.
 
 {% include concepts/carrier_specific_field_lengths_dhl_express.md %}
 
+### Deutsche Post - Warenpost International
+
+{% include concepts/carrier_specific_field_lengths_deutsche_post_wpi.md %}
+
 ### GLS (Uniship)
 
 {% include concepts/carrier_specific_field_lengths_gls_uniship.md %}
