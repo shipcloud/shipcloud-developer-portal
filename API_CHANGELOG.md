@@ -12,6 +12,13 @@ work with any other release modifiers than major versions.
 
 **Notice**: Not everything we do affects the viewable parts of our api.
 
+## [20190424] - 2019-04-24
+
+### Added
+- Deutsche Post service 
+  [Warenpost International]({{ site.baseurl }}/examples/#deutsche-post---warenpost-international)
+  (tracked & untracked)
+
 ## [20190312] - 2019-03-12
 
 ### Added
@@ -34,6 +41,7 @@ work with any other release modifiers than major versions.
 ### Added
 - You can now supply [customs declaration data]({{ site.baseurl }}/examples/#dhl---customs-declaration)
 when creating a shipment and we will return the corresponding customs forms for the selected carrier.
+- Deutsche Post service [Warenpost]({{ site.baseurl }}/examples/#deutsche-post---warenpost)
 
 ## [20180814] - 2018-08-14
 
