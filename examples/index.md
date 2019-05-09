@@ -1693,7 +1693,7 @@ __Requirements:__
 
 - `to.first_name` is mandatory
 - `to.last_name` is mandatory
-- `to.email` is mandatory
+- `to.email` or `to.phone` has to be specified
 - `drop_off_point.drop_off_point_id` is mandatory (can be determined through the [GLS parcelshop search](https://gls-group.eu/DE/en/depot-parcelshop-search))
 - `drop_off_point.type` has to be `parcel_shop`
 - The sender has to be located in Austria, Belgium or Germany
