@@ -129,9 +129,9 @@ POST https://api.shipcloud.io/v1/shipments
   },
   "additional_services": [
     {
-      "name": "advance_notice",  
-      "properties": {  
-        "phone": "015112345678"  
+      "name": "advance_notice",
+      "properties": {
+        "phone": "015112345678"
       }
     }
   ],
@@ -464,7 +464,7 @@ POST https://api.shipcloud.io/v1/shipments
 ### DPD - Predict
 
 DPD allows recipients to be notified of a pending delivery within the next hour. The so called
-predict service can be used with shipcloud by specifying it as an additional service. You can either 
+predict service can be used with shipcloud by specifying it as an additional service. You can either
 specify the email address or phone number of your customer to be notified.
 
 For examples see [advance notice](#advance-notice)
@@ -597,7 +597,7 @@ POST https://api.shipcloud.io/v1/shipments
 {% endhighlight %}
 
 ### Hermes - Customer alert
-When using the additional service Hermes customer alert you are requesting Hermes to notify your 
+When using the additional service Hermes customer alert you are requesting Hermes to notify your
 customers of a pending delivery by contacting them directly either via email or SMS.
 
 __Requirements:__
@@ -704,15 +704,15 @@ POST https://api.shipcloud.io/v1/shipments
 
 ### Hermes - IdentService
 
-You can have the carrier Hermes check the identity of a recipient by specifying this additional 
-service (more details about the [IdentService at the Hermes website](https://blog.myhermes.de/hermesabc/identservice/)). 
-The shipment will be handed over to the recipient only if the data on the shipping label matches 
+You can have the carrier Hermes check the identity of a recipient by specifying this additional
+service (more details about the [IdentService at the Hermes website](https://blog.myhermes.de/hermesabc/identservice/)).
+The shipment will be handed over to the recipient only if the data on the shipping label matches
 100% to the shown ID.
 
 __Requirements:__
 
 - You have to use your own (Hermes HSI) carrier contract
-- `id_type` is mandatory and can be one of the following values: _'german_identity_card'_, 
+- `id_type` is mandatory and can be one of the following values: _'german_identity_card'_,
   _'german_passport'_, _'international_passport'_
 - `id_number` is mandatory
 - Applicable only for domestic shipments whithin Germany
@@ -1293,7 +1293,7 @@ POST https://api.shipcloud.io/v1/shipments
 {% endhighlight %}
 
 ## DPD - Parcel letter
-DPD defines parcel letters as "everything which is too small for a parcel but larger and heavier 
+DPD defines parcel letters as "everything which is too small for a parcel but larger and heavier
 than a classical letter"
 
 __Requirements:__
@@ -1443,9 +1443,9 @@ POST https://api.shipcloud.io/v1/shipments
 {% endhighlight %}
 
 ### Deutsche Post - Warenpost International
-You can also send international shipments using the Warenpost service of Deutsche Post from outside 
-of Germany. There are two different services you can use. The normal use case are tracked shipments 
-using the service _'dpag_warenpost'_. You can also have international shipments without tracking 
+You can also send international shipments using the Warenpost service of Deutsche Post from outside
+of Germany. There are two different services you can use. The normal use case are tracked shipments
+using the service _'dpag_warenpost'_. You can also have international shipments without tracking
 information. For this you just specify the service to be _'dpag_warenpost_untracked'_.
 
 __Requirements:__
@@ -1569,7 +1569,7 @@ POST https://api.shipcloud.io/v1/shipments
   "carrier": "dpag",
   "service": "dpag_warenpost",
   "create_shipping_label": true
-} 
+}
 {% endhighlight %}
 
 ### Deutsche Post - Warensendung
@@ -2147,9 +2147,9 @@ pakadoo is a service that lets you receive personal packages at work. For this a
 point is being installed in your companies office rooms. For more information visit
 [http://www.pakadoo.de](http://www.pakadoo.de)
 
-There are 2 ways you can create a shipment that’s going to be send to a pakadoo point:  
+There are 2 ways you can create a shipment that’s going to be send to a pakadoo point:
 
-- create an address and use the id that’s returned for the address to create a shipment  
+- create an address and use the id that’s returned for the address to create a shipment
 - create a shipment by specifying the pakadoo ID in the to address object of the shipments call.
 
 In both cases you can either specify the pakadoo ID as ```pakadoo_id``` or you simply use
