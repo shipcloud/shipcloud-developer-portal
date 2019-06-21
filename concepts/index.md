@@ -330,6 +330,9 @@ If at any time you feel the need to generate a new set of api keys (e.g. because
 has been compromised) you can do that in the shipcloud backoffice by clicking your email address at the upper right
 corner and selecting the menu item ```API Key```.
 
+## Shipment prices
+When using the sandbox key we will always return 0,0 as price.
+
 ## Cleanup
 We're currently deleting sandbox shipments 2 weeks after they've been created. So it's best
 practice to create a new shipment first if you want to test updating or deleting it.
