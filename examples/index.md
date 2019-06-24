@@ -88,6 +88,39 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
+#### Notification via phone
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "from": {
+    // see [1]
+  },
+  "to": {
+    // see [1]
+  },
+  "package": {
+    // see [2]
+  },
+  "additional_services": [
+    {
+      "name": "advance_notice",
+      "properties": {
+        "phone": "015112345678"
+      }
+    }
+  ],
+  "carrier": "cargo_international",
+  "service": "standard",
+  "description": "a short description of the shipment content",
+  "reference_number": "order's reference number",
+  "notification_email": "receiver@mail.com",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
 ### Cash on delivery
 
 __Available for the following carriers:__
