@@ -14,11 +14,11 @@ integration_guide_url:
     https://www.dropbox.com/s/dgi9r9w8p40snuu/shipcloud_integration_guide_en.pdf?dl=0
 shipcloud:
   supported_carriers:
-    as_display_names: 'DHL, DHL Express, Deutsche Post, UPS, DPD, Hermes, GLS, MyDPD Business (iloxx), TNT, FedEx, GO!, PARCEL.ONE, Seven Senders und Cargo International'
-    as_keys: '"dhl", "dhl_express", "dpag", "ups", "dpd", "hermes", "gls", "iloxx", "tnt", "fedex", "go", "parcel_one", "seven_senders" and "cargo_international"'
-    as_keys_array: '"dhl", "dhl_express", "dpag", "ups", "dpd", "hermes", "gls", "iloxx", "tnt", "fedex", "go", "parcel_one", "seven_senders", "cargo_international"'
+    as_display_names: 'DHL, DHL Express, Deutsche Post, UPS, DPD, Hermes, GLS, MyDPD Business (iloxx), TNT, FedEx, GO!, PARCEL.ONE, Seven Senders, Cargo International und ANGEL'
+    as_keys: '"dhl", "dhl_express", "dpag", "ups", "dpd", "hermes", "gls", "iloxx", "tnt", "fedex", "go", "parcel_one", "seven_senders", "cargo_international" and "angel"'
+    as_keys_array: '"dhl", "dhl_express", "dpag", "ups", "dpd", "hermes", "gls", "iloxx", "tnt", "fedex", "go", "parcel_one", "seven_senders", "cargo_international", "angel"'
   supported_services:
-    as_keys_array: '"standard", "one_day" , "one_day_early", "cargo_international_express", "dpag_warenpost", "dpag_warenpost_untracked", "ups_express_1200", "dhl_europaket", "returns"'
+    as_keys_array: '"standard", "one_day" , "one_day_early", "cargo_international_express", "dpag_warenpost", "dpag_warenpost_untracked", "ups_express_1200", "dhl_europaket", "returns", "same_day"'
 
 # Build settings
 markdown: kramdown

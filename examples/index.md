@@ -134,6 +134,74 @@ __Available for the following carriers:__
 - [DHL Express](#dhl-express---saturday-delivery)
 - [DPD](#dpd---saturday-delivery)
 
+### Angel - MyTime
+
+__Requirements:__
+
+- you'll have to use your own contract with the carrier
+- carrier ANGEL needs to be activated by shipcloud
+- sender and recipient have to be located in Germany
+- `carrier` has to be _'angel_de'_
+- `pickup.pickup_time` is mandatory
+- delivery will take place from 6 pm to 11 pm (if not specified)
+- `to.email` is mandatory
+- pickups always take place at the contracts' account address
+- available timeslots for `angel_de_delivery_date_time`
+  - 16:00 - 19:00
+  - 18:00 - 21:00
+  - 20:00 - 23:00
+
+{% highlight json %}
+{
+  "from": {
+    "company": "Sender Inc",
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "street": "Senderstr.",
+    "street_no": "99",
+    "city": "Hamburg",
+    "zip_code": "20148",
+    "country": "DE"
+  },
+  "to": {
+    "company": "Receiver AG",
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "street": "Mittelweg",
+    "street_no": "162",
+    "city": "Hamburg",
+    "zip_code": "20148",
+    "country": "DE"
+  },
+  "package": {
+    "weight": 1.5,
+    "length": 30,
+    "width": 15,
+    "height": 5,
+    "type": "parcel"
+  },
+  "pickup": {
+    "pickup_time": {
+      "earliest": "2019-06-25T15:00:00+02:00",
+      "latest": "2019-06-25T18:00:00+02:00"
+    }
+  },
+  "additional_services": [
+    {
+      "name": "angel_de_delivery_date_time",
+      "properties": {
+        "date": "2019-06-25",
+        "time_of_day_earliest": "20:00",
+        "time_of_day_latest": "23:00"
+      }
+    }
+  ],
+  "carrier": "angel_de",
+  "service": "same_day",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
 ### Cargo International - Appointment announcement
 
 If you want the recipient to get a call from the carrier some time before the shipment will arrive
