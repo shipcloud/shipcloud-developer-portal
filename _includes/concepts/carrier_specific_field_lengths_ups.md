@@ -7,6 +7,11 @@
 * ```state``` 2 characters
 * ```phone``` 0 - 15 characters
 * ```reference_number``` 0 - 35 characters
+* `customs_declaration`
+  * `invoice_number` 0 - 35 characters
+  * `items`
+    * `description` 0 - 35 characters
+    * `hs_tariff_number` 6 - 15 characters
 
 **Pickup Requests**
 
