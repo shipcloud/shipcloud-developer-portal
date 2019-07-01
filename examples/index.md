@@ -1659,6 +1659,60 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
+### GLS - Pick&ShipService
+Using the [Pick&ShipService](https://gls-group.eu/DE/de/versand-services/pick-ship-service) you can
+request GLS to pick up a parcel at the address of your choice and deliver it directly to the
+recipient.
+
+__Requirements:__
+
+- the sender has to be located in Germany or Austria
+- you'll have to use your own contract with the carrier
+- only available when using GLS Web API integration
+
+__Additional information:__
+
+- pickup will take place the next working day at the shipping address
+- the label within our response can't be used for shipping, since the carrier will bring a shipping
+  label when picking up the parcel. It can be used for internal processes or for package assignment.
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "package": {
+    "weight": "2.5",
+    "length": "40",
+    "width": "20",
+    "height": "10",
+    "type": "parcel"
+  },
+  "service": "gls_pick_and_ship",
+  "carrier": "gls",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
 ### GLS - Returns
 __Requirements:__
 
