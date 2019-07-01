@@ -1172,7 +1172,7 @@ POST https://api.shipcloud.io/v1/shipments
 
 ### DHL - Additional insurance
 With
-<a href="https://www.dhl.de/content/dam/images/pdf/GK/Services/dhl-infoblatt-transportversicherung-en-062019.pdf" target="_blank">DHL additional insurance</a>,
+<a href="https://www.dhl.de/content/dam/images/pdf/GK/Services/dhl-infoblatt-transportversicherung-en-06-2019.pdf" target="_blank">DHL additional insurance</a>,
 you can insure your parcel beyond the usual liability limits of EUR 500.
 
 __Caution:__
