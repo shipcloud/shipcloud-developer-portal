@@ -1172,7 +1172,7 @@ POST https://api.shipcloud.io/v1/shipments
 
 ### DHL - Additional insurance
 With
-<a href="https://www.dhl.de/content/dam/images/pdf/GK/Services/dhl-infoblatt-transportversicherung-en-062019.pdf" target="_blank">DHL additional insurance</a>,
+<a href="https://www.dhl.de/content/dam/images/pdf/GK/Services/dhl-infoblatt-transportversicherung-en-06-2019.pdf" target="_blank">DHL additional insurance</a>,
 you can insure your parcel beyond the usual liability limits of EUR 500.
 
 __Caution:__
@@ -1394,14 +1394,16 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
-### Deutsche Post - Büchersendung
-You can send books, brochures, sheets of music and maps using the service
-[Büchersendung](https://www.deutschepost.de/en/b/buechersendung_national.html) by Deutsche Post AG.
+### Deutsche Post - Bücher- und Warenversand
+If you want to send books, replacement parts, electronic devices, mobile telephone accessories,
+data storage devices, textiles and household goods you can do so by using the service
+[Bücher- und Warenversand](https://www.deutschepost.de/en/w/buecherundwarensendung.html) by Deutsche Post AG.
 
 __Requirements:__
 
-- ```package.type``` has to be _'books'_
-- ```carrier``` has to be _'dpag'_
+- `package.type` has to be _'parcel_letter'_
+- `carrier` has to be _'dpag'_
+- `service` has to be _'standard'_
 
 {% highlight http %}
 POST https://api.shipcloud.io/v1/shipments
@@ -1427,6 +1429,14 @@ POST https://api.shipcloud.io/v1/shipments
   "create_shipping_label": true
 }
 {% endhighlight %}
+
+### Deutsche Post - Büchersendung
+<p class="bg-warning">
+  <i class="fas fa-exclamation-triangle"></i>
+  The product Büchersendung has been replaced by
+  <a href="#deutsche-post---bücher--und-warenversand">Bücher- und Warenversand</a> as of July 1st
+  2019.
+</p>
 
 ### Deutsche Post - Warenpost
 When using the [Deutsche Post Warenpost](https://www.deutschepost.de/en/w/warenpost.html) as your
@@ -1606,38 +1616,12 @@ POST https://api.shipcloud.io/v1/shipments
 {% endhighlight %}
 
 ### Deutsche Post - Warensendung
-You can send a variety of merchandise related things to your customers using the service
-[Warensendung](https://www.deutschepost.de/en/w/warensendung.html) by Deutsche Post AG.
-
-__Requirements:__
-
-- ```package.type``` has to be _'parcel_letter'_
-- ```carrier``` has to be _'dpag'_
-
-{% highlight http %}
-POST https://api.shipcloud.io/v1/shipments
-{% endhighlight %}
-
-{% highlight json %}
-{
-  "from": {
-    // see [1]
-  },
-  "to": {
-    // see [1]
-  },
-  "package": {
-    "weight": 0.8,
-    "length": 20,
-    "width": 20,
-    "height": 5,
-    "type": "parcel_letter"
-  },
-  "carrier": "dpag",
-  "service": "standard",
-  "create_shipping_label": true
-}
-{% endhighlight %}
+<p class="bg-warning">
+  <i class="fas fa-exclamation-triangle"></i>
+  The product Warensendung has been replaced by
+  <a href="#deutsche-post---bücher--und-warenversand">Bücher- und Warenversand</a> as of July 1st
+  2019.
+</p>
 
 ## GLS
 
