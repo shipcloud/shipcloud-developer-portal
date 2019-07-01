@@ -557,8 +557,7 @@ POST https://api.shipcloud.io/v1/shipments
 __Requirements:__
 - `service` has to be `standard`
 - `properties.email` is mandatory
-- Can be used for shipments from Austria, Belgium, Denmark and Germany to the following countries:
-  AT, BE, CZ, DE, DK, ES, FR, HR, HU, LU, NL, PL, RO, SI, SK
+- Can be used for shipments from Austria, Belgium, Denmark and Germany
 - Only available when using GLS Web API integration
 
 {% highlight http %}
