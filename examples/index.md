@@ -877,15 +877,61 @@ __Available for the following carriers:__
 
 {% include examples/declared_value_dhl.md %}
 
-## Label size
-Not all carriers use the same size of labels. Have a look at our chart of the
-[carrier specific label sizes]({{ site.baseurl }}/concepts/#carrier-specific-label-sizes)
-we support.
+## Label format
+Some carriers are providing the shipping labels in different sizes and formats (have a look at our
+chart of the [carrier specific label sizes]({{ site.baseurl }}/concepts/#carrier-specific-label-sizes)
+we support for detailed information).
 
-You can configure the standard size we should create labels for each and every carrier from within
-the shipcloud backoffice, so you won't have to think about handling different label sizes. You can
-however define the size of the label on a per shipment basis. So, when you're creating a shipping
-label via our api you can send us the size the shipping label should have.
+You can configure a standard that you want us to use when creating shipping labels for each and
+every carrier from within the shipcloud backoffice, so you won't have to specify the format with
+every single request to our api. You can however define the format of the shipping label on a per
+shipment basis. So, when you're creating a shipping label via our api you can send us the size the
+shipping label should have.
+
+{% highlight json %}
+{
+"from": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "company": "Receiver AG",
+    "care_of": "3. Liftstock",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE"
+  },
+  "package": {
+    "weight": "2.5",
+    "length": "40",
+    "width": "20",
+    "height": "10",
+    "type": "parcel"
+  },
+  "carrier": "dhl",
+  "service": "standard",
+  "label": {
+    "format": "pdf_a5"
+  },
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
+## Label size
+<p class="bg-warning">
+  <i class="fas fa-exclamation-triangle"></i>
+  Specifying label sizes is <b>deprecated</b>. Please use <a href="{{ site.baseurl }}/examples/#label-format">label.format</a> instead.
+</p>
 
 {% highlight json %}
 {
