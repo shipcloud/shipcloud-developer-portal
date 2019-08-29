@@ -466,7 +466,7 @@ the carrier supports this).
 
 __Requirements:__
 
-- ```service``` has to be _'one_day'_ or _'one_day_early'_
+- ```service``` has to be _'one_day_early'_
 - you'll have to use your own contract with the carrier
 
 {% highlight http %}
