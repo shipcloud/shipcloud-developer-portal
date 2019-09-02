@@ -2035,6 +2035,10 @@ If you want to send a shipment to a country where a customs declaration is neces
 this the following way. Detailed information about the parameters can be found in our
 [documentation of creating a shipment]({{ site.baseurl }}/reference/#shipments).
 
+___Notice:___
+
+- If you don't provide a `buyer_address` the receiver address will be used
+
 __Requirements:__
 
 - ```customs_declaration.currency``` has to be _'EUR'_
