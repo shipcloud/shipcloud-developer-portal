@@ -295,6 +295,7 @@ We currently support sending packages via the following carriers and services:
 - **one_day:** A express shipment that will be delivered the next working day
 - **one_day_early:** Same as *one_day*. The only difference is, that the carrier will deliver the
 shipment before noon
+- **same_day:** Shipment will be picked up and delivered on the same business day
 - **ups_express_1200:** Express shipment with next business day delivery by noon. See our
   [example]({{ site.baseurl }}/examples/#ups---express-1200) for detailed information
 - **dhl_europaket:** B2B solution for delivery within the next 48 hours. See our
