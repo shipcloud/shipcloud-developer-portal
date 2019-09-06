@@ -134,6 +134,87 @@ __Available for the following carriers:__
 - [DHL Express](#dhl-express---saturday-delivery)
 - [DPD](#dpd---saturday-delivery)
 
+### ANGEL - MyTime
+
+With the ANGEL MyTime service you can choose between several two-hour time frames for the delivery
+of your item. The following options are available for `time_of_day_earliest` and
+`time_of_day_latest` (Monday - Saturday):
+
+- In specific German conurbations for evening deliveries:
+  - 18:00 - 20:00
+  - 19:00 - 21:00
+  - 20:00 - 22:00
+  - 21:00 - 23:00
+
+__Requirements:__
+- `carrier` has to be _'angel_de'_
+- `package.type` has to be _'parcel'_
+- `service` has to be _'same_day'_
+- `pickup` is mandatory
+- `to.email` is mandatory
+- You'll have to use your own ANGEL contract.
+- Sender and recipient have to be located in Germany.
+- You'll need to provide a delivery date and a valid delivery time slot.
+
+__Notice:__
+- When creating a shipment for ANGEL without specifying the additional service
+  `angel_de_delivery_date_time`, the delivery time will be defined as being
+  between 18:00 and 23:00
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "from": {
+    "company": "shipcloud GmbH",
+    "street": "Mittelweg",
+    "street_no": "162",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "company": "Receiver Inc.",
+    "first_name": "Rolf",
+    "last_name": "Receiver",
+    "street": "Lohhof",
+    "street_no": "24",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE",
+    "email": "receiver@example.com"
+  },
+  "package": {
+    "height": "23",
+    "length": "30",
+    "width": "20",
+    "weight": "1.5",
+    "type": "parcel"
+  },
+  "pickup": {
+    "pickup_time": {
+      "earliest": "2019-09-02T15:00:00+02:00",
+      "latest": "2019-09-02T18:00:00+02:00"
+    }
+  },
+  "reference_number": "ReferenceNumber",
+  "additional_services": [
+    {
+      "name": "angel_de_delivery_date_time",
+      "properties": {
+        "date": "2019-09-02",
+        "time_of_day_earliest": "20:00",
+        "time_of_day_latest": "22:00"
+      }
+    }
+  ],
+  "carrier": "angel_de",
+  "service": "same_day",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
 ### Cargo International - Appointment announcement
 
 If you want the recipient to get a call from the carrier some time before the shipment will arrive
