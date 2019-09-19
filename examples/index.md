@@ -1847,7 +1847,7 @@ __Requirements:__
 - `to.email` or `to.phone` has to be specified
 - `drop_off_point.drop_off_point_id` is mandatory (can be determined through the [GLS parcelshop search](https://gls-group.eu/DE/en/depot-parcelshop-search))
 - `drop_off_point.type` has to be `parcel_shop`
-- The sender has to be located in Austria, Belgium or Germany
+- The sender has to be located in Austria, Belgium, Denmark, Germany or Poland
 - The recipient has to be located in one of the following countries: AT, DE, BE, DK, PL
 - Only available when using GLS Web API integration
 
