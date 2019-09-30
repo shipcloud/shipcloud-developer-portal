@@ -1935,6 +1935,60 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
+### Hermes - Cover address
+
+When sending parcels from a different location than what is specified by your contract, you can
+specify a so called _cover address_ that will be printed on the label as the sender. This is
+especially useful for customers who are using a fulfillment provider for their shipments.
+
+__Requirements:__
+
+- You have to use your own (Hermes HSI) carrier contract
+- The feature needs to be activated by Hermes
+- `cover_address` needs to be specified at the root level
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "cover_address": {
+    "company": "CoverCompany",
+    "first_name": "CoverFirstName",
+    "last_name": "CoverLastName",
+    "care_of": "CoverCareOf",
+    "street": "CoverStreet",
+    "street_no": "99",
+    "city": "CoverCity",
+    "zip_code": "20148",
+    "state": "CoverState",
+    "country": "DE",
+    "phone": "+4915112345678",
+    "email": "cover@mail.com"
+  },
+  "to": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "company": "Receiver Ltd.",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE"
+  },
+  "package": {
+    "weight": "2.5",
+    "length": "40",
+    "width": "20",
+    "height": "10",
+    "type": "parcel"
+  },
+  "service": "standard",
+  "carrier": "hermes",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
 ### Hermes - ParcelShopDeliveryService
 
 __Requirements:__

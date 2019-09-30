@@ -3,6 +3,7 @@ __Parameters:__
 - __carrier__* (string), the carrier you want to use. Possible values are {{ site.shipcloud.supported_carriers.as_keys }}
 - __to__* (object), describes the receivers address. See [address request]({{ site.baseurl }}/reference/#addresses) for a detailed definition.
 - __from__* (object), describes the senders address. If missing, the default sender address (if defined in your shipcloud account) will be used. See [address request]({{ site.baseurl }}/reference/#addresses) for a detailed definition.
+- __cover_address__ (object, optional), this overwrites the sender address on the shipping label. See [cover address]({{ site.baseurl }}/examples/#hermes---cover-address) for details.
 - __package__*, object describing the package dimensions
   - __width__ (float), width of the package in cm
   - __length__ (float), length of the package in cm
