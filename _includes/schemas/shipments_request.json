@@ -15,6 +15,10 @@
       "$ref": "#/definitions/address",
       "description": "If missing, the default sender address (if defined in your shipcloud account) will be used"
     },
+    "cover_address": {
+      "$ref": "#/definitions/address",
+      "description": "Overwrites the sender address on the shipping label"
+    },
     "package": {
       "$ref": "#/definitions/package"
     },

@@ -103,6 +103,10 @@
     "tracking_url": {
       "type": "string",
       "description": "URL you can send your customers so they can track this shipment"
+    },
+    "cover_address": {
+      "$ref": "#/definitions/address",
+      "description": "Overwrites the sender address on the shipping label"
     }
   },
   "required": ["id", "carrier_tracking_no", "carrier", "created_at", "tracking_url", "label_url", "from", "to", "packages", "price", "reference_number", "service"],
