@@ -960,8 +960,8 @@ __Available for the following carriers:__
 
 ## Label format
 You can specify the format of the shipping label that you want to get returned by adding
-`label.format` to the request. Using this entry you can currently specify the format / size using
-one of the predefined strings.
+`label.format` to the request. Using this entry you can specify the format / size using one of the
+predefined strings.
 
 Not all carriers use the same sizes for their labels. Have a look at our chart of the
 [carrier specific label sizes]({{ site.baseurl }}/concepts/#carrier-specific-label-sizes)
