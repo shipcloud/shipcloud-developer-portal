@@ -958,15 +958,68 @@ __Available for the following carriers:__
 
 {% include examples/declared_value_dhl.md %}
 
-## Label size
-Not all carriers use the same size of labels. Have a look at our chart of the
+## Label format
+You can specify the format of the shipping label that you want to get returned by adding
+`label.format` to the request. Using this entry you can specify the format / size using one of the
+predefined strings.
+
+Not all carriers use the same sizes for their labels. Have a look at our chart of the
 [carrier specific label sizes]({{ site.baseurl }}/concepts/#carrier-specific-label-sizes)
 we support.
 
+__Requirements:__
+
+- `label.format` can be one of the following
+  - `pdf_a5`
+  - `pdf_a6`
+
+__Notice:__
 You can configure the standard size we should create labels for each and every carrier from within
-the shipcloud backoffice, so you won't have to think about handling different label sizes. You can
-however define the size of the label on a per shipment basis. So, when you're creating a shipping
-label via our api you can send us the size the shipping label should have.
+the shipcloud backoffice, so you won't have to think about handling different label sizes/formats.
+You can however define the size of the label on a per shipment basis using `label.format`.
+
+{% highlight json %}
+{
+  "from": {
+    "company": "shipcloud GmbH",
+    "street": "Mittelweg",
+    "street_no": "162",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "company": "Receiver Inc.",
+    "first_name": "Rolf",
+    "last_name": "Receiver",
+    "street": "Lohhof",
+    "street_no": "24",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE",
+    "email": "receiver@example.com"
+  },
+  "package": {
+    "height": "23",
+    "length": "30",
+    "width": "20",
+    "weight": "1.5",
+    "type": "parcel"
+  },
+  "carrier": "dhl",
+  "service": "standard",
+  "label": {
+    "format": "pdf_a6"
+  },
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
+## Label size
+<p class="bg-warning">
+  <i class="fas fa-exclamation-triangle"></i>
+  Using label.size is <b>deprecated</b>. Please use <a href="{{ site.baseurl }}/examples/#label-format">label format</a> instead.
+</p>
 
 {% highlight json %}
 {

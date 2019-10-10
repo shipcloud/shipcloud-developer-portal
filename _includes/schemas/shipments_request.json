@@ -257,10 +257,16 @@
     "label": {
       "type": "object",
       "properties": {
+        "format": {
+          "type": "string",
+          "enum": ["pdf_a5", "pdf_a6"],
+          "description": "defines the format that the returned label should have"
+        },
         "size":  {
           "type": "string",
           "enum": ["A5", "A6"],
-          "description": "defines the DIN size that the returned label should have"
+          "description": "defines the DIN size that the returned label should have",
+          "deprecated": true
         }
       },
       "additionalProperties": false,
