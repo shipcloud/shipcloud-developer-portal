@@ -124,6 +124,7 @@ POST https://api.shipcloud.io/v1/shipments
 ### Cash on delivery
 
 __Available for the following carriers:__
+- [Cargo International](#cargo-international---cash-on-delivery)
 - [DHL](#dhl---cash-on-delivery)
 - [GLS](#gls---cash-on-delivery)
 - [UPS](#ups---cash-on-delivery)
@@ -255,6 +256,70 @@ POST https://api.shipcloud.io/v1/shipments
   "reference_number": "order's reference number",
   "notification_email": "receiver@mail.com",
   "create_shipping_label": true
+}
+{% endhighlight %}
+
+### Cargo International - Cash on delivery
+As with the other carriers, Cargo Internaional too can collect payment upon delivery.
+
+__Requirements:__
+- You’ll have to use your own contract with the carrier
+- Only applicable for shipments within Germany
+- The sender and recipient have to be located in Germany
+- The maximum `amount` is 1.500
+- `currency` has to be "EUR"
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "carrier": "cargo_international",
+  "service": "standard",
+  "create_shipping_label": true,
+  "from": {
+    "company": "Sender Company",
+    "first_name": "Sally",
+    "last_name": "Sender",
+    "street": "Senderweg",
+    "street_no": "173",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE",
+    "phone": "040/12345678",
+    "email": "from@example.com"
+  },
+  "to": {
+    "company": "Empfänger Company",
+    "first_name": "Erika",
+    "last_name": "Empfängerin",
+    "street": "Empfängerstr.",
+    "street_no": "99",
+    "city": "ToCity",
+    "zip_code": "20535",
+    "country": "DE",
+    "phone": "040/87654321",
+    "email": "to@example.com"
+  },
+  "package": {
+    "height": "60",
+    "length": "120",
+    "width": "80",
+    "weight": "50",
+    "type": "euro_pallet",
+  },
+  "description": "a short description of the shipment content",
+  "additional_services": [
+    {
+      "name": "cash_on_delivery",
+      "properties": {
+        "amount": 849,
+        "currency": "EUR",
+        "bank_account_number": "DE12500105170648489890",
+        "bank_code": "BENEDEPPYYY"
+      }
+    }
+  ]
 }
 {% endhighlight %}
 
