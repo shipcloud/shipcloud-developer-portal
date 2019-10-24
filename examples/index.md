@@ -1675,6 +1675,7 @@ POST https://api.shipcloud.io/v1/shipments
 {% endhighlight %}
 
 #### Customs declaration using CN22
+{: #deutsche-post---warenpost-international---with-cn22}
 If you want to send a shipment to a country where a customs declaration is necessary you can specify
 this the following way. Detailed information about the parameters can be found in our
 [documentation of creating a shipment]({{ site.baseurl }}/reference/#shipments).
@@ -1744,6 +1745,63 @@ POST https://api.shipcloud.io/v1/shipments
   },
   "carrier": "dpag",
   "service": "dpag_warenpost",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
+#### With signature
+{: #deutsche-post---warenpost-international---with-signature}
+When you want to make sure the recipient received the shipment you can ask the carrier to get their
+signature upon delivery. This works with international shipments within the EU and if you add
+customs declaration data you can also create a CN22 document.
+
+__Requirements:__
+
+- ```carrier``` has to be _'dpag'_
+- ```package.type``` has to be _'parcel_letter'_
+- ```service``` can be _'dpag_warenpost_signature'_
+- For shipments outside of the EU you will have to provide `customs_declaration`
+- The sender has to be located in Germany
+- The recipient has to be located outside of Germany
+- Only applicable for shipments up to 2,000g
+- Maximum dimensions: lenghth 600mm, width 600mm, length + width + thickness combined 900mm
+- you'll have to use your own contract with the carrier
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+
+{
+  "from": {
+    "company": "Sender Corp.",
+    "first_name": "Susan",
+    "last_name": "Sender",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Vienna",
+    "zip_code": "1040",
+    "country": "AT"
+  },
+  "package": {
+      "weight": 0.5,
+      "length": 20,
+      "width": 10,
+      "height": 5,
+      "type": "parcel_letter"
+  },
+  "carrier": "dpag",
+  "service": "dpag_warenpost_signature",
   "create_shipping_label": true
 }
 {% endhighlight %}

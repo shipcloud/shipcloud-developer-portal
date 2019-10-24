@@ -143,6 +143,13 @@ table.status_codes {
         padding-top: 2px;
       }
     }
+    .nav--level-3 {
+      a {
+        font-size: 12px;
+        padding-bottom: 2px;
+        padding-top: 2px;
+      }
+    }
   }
 }
 
@@ -367,7 +374,7 @@ table.status_codes {
     .glyphicon.glyphicon-ok-circle {
       color: #4aa739;
     }
-    
+
     .glyphicon.glyphicon-ban-circle {
       color: #269bd0;
     }
