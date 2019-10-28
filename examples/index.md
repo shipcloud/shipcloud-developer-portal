@@ -354,6 +354,57 @@ POST https://api.shipcloud.io/v1/shipments
 }
 {% endhighlight %}
 
+### DHL - GoGreen
+Using the additional service DHL GoGreen you benefit from climate-neutral dispatch within Germany
+and internationally.
+
+__Requirements:__
+- You'll have to use your own DHL contract
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "from": {
+    "company": "Sender Company",
+    "first_name": "Sally",
+    "last_name": "Sender",
+    "street": "Senderweg",
+    "street_no": "173",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "company": "Receiver AG",
+    "care_of": "3. Liftstock",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE"
+  },
+  "package": {
+    "length": "40",
+    "width": "20",
+    "height": "10",
+    "weight": "3",
+    "type": "parcel"
+  },
+  "service": "standard",
+  "carrier": "dhl",
+  "additional_services": [
+    {
+      "name": "dhl_gogreen"
+    }
+  ],
+  "create_shipping_label": true
+}
+{% endhighlight %}
+
 ### DHL - Ident Check
 If you want the carrier to only deliver the shipment to a specific person you can use the DHL ident
 check. DHL will ask the recepient to show them a valid ID. Thus you will be able to minimize fraud,
