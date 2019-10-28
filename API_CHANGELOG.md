@@ -12,22 +12,51 @@ work with any other release modifiers than major versions.
 
 **Notice**: Not everything we do affects the viewable parts of our api.
 
+## [20191022] - 2019-10-22
+
+### Added
+- Additional service [Cargo International - Cash on delivery]({{ site.baseurl }}/examples/#cargo-international---cash-on-delivery)
+- Additional service [DHL - GoGreen]({{ site.baseurl }}/examples/#dhl---gogreen)
+- Service [Deutsche Post - Warenpost International with signature]({{ site.baseurl }}/examples/#deutsche-post---warenpost-international---with-signature)
+
+## [20191010] - 2019-10-10
+
+### Changed
+- [Label format]({{ site.baseurl }}/examples/#label-format) can now be specified by using the
+  attribute `label.format`. With this the attribute `label.size` is deprecated from now on.
+
+## [20190930] - 2019-09-30
+
+### Added
+- You can now specify a [cover address]({{ site.baseurl }}/examples/#hermes---cover-address) that
+  will be printed on the shipping label instead of the actual senders' address.
+
+## [20190701] - 2019-07-01
+
+### Added
+- Service [GLS - Pick&ShipService]({{ site.baseurl }}/examples/#gls---pickshipservice)
+- Customs declaration documents for UPS can now be created using [UPS Commercial invoice]({{ site.baseurl }}/examples/#ups---customs-declaration-commercial-invoice)
+
+### Changed
+- The Deutsche Post discontinues the package types _Büchersendung_ and _Warensendung_. Instead
+  they introduced the new type [Bücher- und Warenversand]({{ site.baseurl }}/examples/#deutsche-post---bücher--und-warenversand)
+
 ## [20190424] - 2019-04-24
 
 ### Added
-- Deutsche Post service 
+- Deutsche Post service
   [Warenpost International]({{ site.baseurl }}/examples/#deutsche-post---warenpost-international)
   (tracked & untracked)
 
 ## [20190312] - 2019-03-12
 
 ### Added
-- Hermes (HSI) [customer alert]({{ site.baseurl }}/examples/#hermes---customer-alert) via sms and 
+- Hermes (HSI) [customer alert]({{ site.baseurl }}/examples/#hermes---customer-alert) via sms and
   email
 - Hermes (HSI) [bulk shipments]({{ site.baseurl }}/examples/#hermes---bulk-shipments)
 - Hermes (HSI) [ident check]({{ site.baseurl }}/examples/#hermes---identservice)
-- You can send Hermes (HSI) shipments directly to a parcel shop with the 
-  [Hermes ParcelShopDeliveryService]({{ site.baseurl }}/examples/#hermes---parcelshopdeliveryservice) 
+- You can send Hermes (HSI) shipments directly to a parcel shop with the
+  [Hermes ParcelShopDeliveryService]({{ site.baseurl }}/examples/#hermes---parcelshopdeliveryservice)
 - Hermes (HSI) [return shipments]({{ site.baseurl }}/examples/#hermes---returns)
 
 ## [20190109] - 2019-01-09
