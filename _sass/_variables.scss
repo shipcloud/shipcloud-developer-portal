@@ -1,0 +1,57 @@
+$shipcloud-color-blue-dark: #154193;
+$shipcloud-color-blue: #1a70b8;
+$shipcloud-color-blue-light: #009fe2;
+$shipcloud-color-green: #76b82a;
+$shipcloud-color-red: #e42221;
+$shipcloud-color-orange: #eb6839;
+$shipcloud-color-teal: #87cdd2;
+$shipcloud-color-yellow: #fab900;
+
+$shipcloud-color-grey-darker: #565655;
+$shipcloud-color-grey-dark: #7d7d7d;
+$shipcloud-color-grey: #9d9d9c;
+$shipcloud-color-grey-light: #e2e2e2;
+
+$font-highlight: 'Quicksand', sans-serif;
+$font-text: 'Quicksand', sans-serif;
+
+$shipcloud-color-carrier-angel: #76b82a;
+$shipcloud-color-carrier-cargo-international: #428bca;
+$shipcloud-color-carrier-dhl: #ffcc00;
+$shipcloud-color-carrier-dhl-express: #ffcc00;
+$shipcloud-color-carrier-dpag: #ffcc00;
+$shipcloud-color-carrier-dpd: #e42221;
+$shipcloud-color-carrier-hermes: #009fe2;
+$shipcloud-color-carrier-gls: #009fe2;
+$shipcloud-color-carrier-go: #a8073a;
+$shipcloud-color-carrier-parcel-one: #3e4c69;
+$shipcloud-color-carrier-seven-senders: #009fe2;
+$shipcloud-color-carrier-tnt: #f60;
+$shipcloud-color-carrier-ups: #82604b;
+
+// convenience definition for making it possible to use interpolation
+// get color from map e.g.
+// background-color: map-get($shipcloud-colors-carrier, "dhl");
+$shipcloud-colors-carrier: (
+  "angel": $shipcloud-color-carrier-angel,
+  "cargo_international": $shipcloud-color-carrier-cargo-international,
+  "dhl": $shipcloud-color-carrier-dhl,
+  "dhl_express": $shipcloud-color-carrier-dhl-express,
+  "deutsche_post": $shipcloud-color-carrier-dpag,
+  "dpd": $shipcloud-color-carrier-dpd,
+  "hermes": $shipcloud-color-carrier-hermes,
+  "gls": $shipcloud-color-carrier-gls,
+  "go": $shipcloud-color-carrier-go,
+  "parcel_one": $shipcloud-color-carrier-parcel-one,
+  "seven_senders": $shipcloud-color-carrier-seven-senders,
+  "tnt": $shipcloud-color-carrier-tnt,
+  "ups": $shipcloud-color-carrier-ups,
+);
+
+// gridvalues
+$space-base: 16px;
+$space-s: $space-base / 2;
+$space-m: $space-base;
+$space-l: $space-m * 2;
+$space-xl: $space-l * 2;
+$space-xxl: $space-xl * 2;
