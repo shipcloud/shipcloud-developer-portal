@@ -1,0 +1,39 @@
+<ul class="list-outside list-disc">
+  <li>
+    <strong>carrier</strong>* (string), the carrier you want to use. Possible values are
+    {{ site.shipcloud.supported_carriers.as_keys }}
+  </li>
+  <li>
+    <strong>service</strong> (string), service that should be used. Available values are
+    {{ site.shipcloud.supported_services.as_keys_array }}.
+  </li>
+  <li>
+    <strong>to</strong>* (object), describes the receivers address. See
+    <a href="{{ site.baseurl }}/reference/#addresses">
+      address request
+    </a> for a detailed definition.
+  </li>
+  <li>
+    <strong>from</strong> (object, optional), describes the senders address. See
+    <a href="{{ site.baseurl }}/reference/#addresses">
+      address request
+    </a> for a detailed definition.
+  </li>
+  <li>
+    <strong>package</strong>*, object describing the package dimensions
+    <ul class="list-outside list-disc">
+      <li>
+        <strong>width</strong> (float), width of the package in cm
+      </li>
+      <li>
+        <strong>length</strong> (float), length of the package in cm
+      </li>
+      <li>
+        <strong>height</strong> (float), height of the package in cm
+      </li>
+      <li>
+        <strong>weight</strong> (float), weight in kg
+      </li>
+    </ul>
+  </li>
+</ul>

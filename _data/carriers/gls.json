@@ -1,0 +1,79 @@
+{
+  "css_key": "gls",
+  "display_name": "GLS",
+  "key": "gls",
+  "interfaces": {
+    "web_api": {
+      "display_name": "Web API",
+      "implementations": {
+        "shipcloud": {
+          "services": [{
+              "display_name": "Standard",
+              "key": "standard"
+            },
+            {
+              "display_name": "Returns",
+              "key": "returns"
+            },
+            {
+              "display_name": "Pick&ShipService",
+              "key": "gls_pick_and_ship"
+            }
+          ],
+          "package_types": [{
+            "display_name": "Parcel",
+            "key": "parcel"
+          }],
+          "additional_services": [{
+              "display_name": "Cash on delivery",
+              "key": "cash_on_delivery"
+            },
+            {
+              "display_name": "FlexDeliveryService",
+              "key": "advance_notice"
+            },
+            {
+              "display_name": "Guaranteed24Service",
+              "key": "gls_guaranteed24service"
+            }
+          ],
+          "other_attributes": [{
+              "display_name": "ShopDeliveryService",
+              "key": "drop_off_point"
+            },
+            {
+              "display_name": "Incoterms",
+              "key": "incoterms"
+            }
+          ],
+          "label_sizes": [{
+              "display_name": "DIN A5",
+              "key": "A5"
+            },
+            {
+              "display_name": "DIN A6",
+              "key": "A6"
+            }
+          ],
+          "field_lengths": {
+            "company": "2 - 40 characters",
+            "last_name": "2 - 40 characters (first_name + last_name <= 40 characters)",
+            "care_of": "0 - 40 characters",
+            "street": "3 - 40 characters",
+            "street_no": "1 - 10 characters",
+            "zip_code": "1 - 10 characters",
+            "city": "2 - 40 characters",
+            "phone": "0 - 40 characters (with \"+\" prefix)",
+            "email": "3 - 100 characters"
+          }
+        }
+      }
+    }
+  },
+  "marketing": {
+    "en": {
+      "help_center": "https://support.shipcloud.io/en/collections/1544045-carriers#gls",
+      "website": "https://www.shipcloud.io/en/partner/carriers/gls"
+    }
+  }
+}

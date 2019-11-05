@@ -3,52 +3,32 @@
 
   {% include head.html %}
 
-  <body data-spy="scroll" data-target="#sub-nav" data-offset="90">
+  <body class="bg-white" data-offset="90">
     {% include google_tag_manager_body.html %}
 
     {% include header.html %}
 
-    <div class="page-content">
-      <div class="container">
-        <div class="row">
-          {% if page.nav %}
-            <div class="col-md-9">
-              {{ content }}
-            </div>
-            <div class="col-md-3">
-              {% if page.nav == "reference" %}
-                {% include navs/reference_nav.html %}
-              {% elsif page.nav == "concepts" %}
-                {% include navs/concepts_nav.html %}
-              {% elsif page.nav == "examples" %}
-                {% include navs/examples_nav.html %}
-              {% endif %}
-            </div>
-          {% else %}
-            <div class="col-md-12">
-              {{ content }}
-            </div>
-          {% endif %}
-
+    <div class="DocSearch-content">
+      {% include navs/main.html %}
+      <div class="flex ml-56 pt-16">
+        <div class="block px-4 pb-xl w-7/12">
+          <div class="p-l pb-xl">
+            {{ content }}
+          </div>
         </div>
-        {% include edit_on_github.html %}
-      </div>
-    </div>
-
-    {% if page.footnote_path %}
-      <div class="footnotes">
-        <div class="container">
-          <div class="row">
-            {% capture footnote_include_path %}{% include {{ page.footnote_path }}/footnotes.html %}{% endcapture %}
-            {{ footnote_include_path | markdownify }}
+        <div class="min-h-screen max-h-full bg-blue-dark px-4 w-4/12 pb-24 flex-grow">
+          <div class="pb-xl">
+            {% if page.nav == "carriers" %}
+              {% include utils/carrier_subnav.html carrier=page.carrier %}
+            {% endif %}
           </div>
         </div>
       </div>
-    {% endif %}
+    </div>
 
     {% include footer.html %}
-    <script type="text/javascript" src="{{ site.baseurl }}/scripts/retina.min.js"></script>
+
+    <script src="{{ "/assets/js/utils.js" | prepend: site.baseurl }}"></script>
     {% include js_files.html %}
   </body>
-
 </html>

@@ -1,0 +1,75 @@
+@font-face {
+  font-family: 'shipcloud-carriers';
+  src: url("/assets/fonts/shipcloud-carriers.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.shipcloud-carrier {
+  display: inline-block;
+  font-family: 'shipcloud-carriers' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.shipcloud-carrier-angel:before {
+  content: "\e900";
+}
+
+.shipcloud-carrier-cargo-international:before {
+  content: "\e901";
+}
+
+.shipcloud-carrier-dhl-express:before {
+  content: "\e902";
+}
+
+.shipcloud-carrier-dhl:before {
+  content: "\e903";
+}
+
+.shipcloud-carrier-deutsche-post:before {
+  content: "\e904";
+}
+
+.shipcloud-carrier-mydpd-business:before {
+  content: "\e905";
+}
+
+.shipcloud-carrier-dpd:before {
+  content: "\e906";
+}
+
+.shipcloud-carrier-gls:before {
+  content: "\e907";
+}
+
+.shipcloud-carrier-go:before {
+  content: "\e908";
+}
+
+.shipcloud-carrier-hermes:before {
+  content: "\e909";
+}
+
+.shipcloud-carrier-parcel-one:before {
+  content: "\e90a";
+}
+
+.shipcloud-carrier-seven-senders:before {
+  content: "\e90b";
+}
+
+.shipcloud-carrier-tnt:before {
+  content: "\e90c";
+}
+
+.shipcloud-carrier-ups:before {
+  content: "\e90d";
+}

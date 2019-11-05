@@ -1,0 +1,112 @@
+<h4 id="v1---angel-de-delivery-date-time" class="text-blue">
+  MyTime
+</h4>
+
+<p>
+  With the ANGEL MyTime service you can choose between several two-hour time frames for the delivery
+  of your item. The following options are available for <code>time_of_day_earliest</code> and
+  <code>time_of_day_latest</code> (Monday - Saturday).
+</p>
+
+<p class="mt-m">
+  In specific German conurbations for evening deliveries:
+</p>
+<ul class="list-inside list-disc">
+  <li>18:00 - 20:00</li>
+  <li>19:00 - 21:00</li>
+  <li>20:00 - 22:00</li>
+  <li>21:00 - 23:00</li>
+</ul>
+
+<p class="mt-m">
+  <strong>Requirements:</strong>
+</p>
+
+<ul class="list-inside list-disc">
+  <li><code>carrier</code> has to be <code><em>angel_de</em></code></li>
+  <li><code>package.type</code> has to be <code><em>parcel</em></code></li>
+  <li><code>service</code> has to be <code><em>same_day</em></code></li>
+  <li><code>pickup</code> is mandatory</li>
+  <li><code>to.email</code> is mandatory</li>
+  <li>You'll have to use your own ANGEL contract.</li>
+  <li>Sender and recipient have to be located in Germany.</li>
+  <li>You'll need to provide a delivery date and a valid delivery time slot.</li>
+</ul>
+
+<p class="mt-m">
+  <strong>Notice:</strong>
+</p>
+
+<ul class="list-outside list-disc pl-m">
+  <li>
+      When creating a shipment for ANGEL without specifying the additional service
+      <code>angel_de_delivery_date_time</code>, the delivery time will be defined as being
+      between 18:00 and 23:00
+  </li>
+</ul>
+
+<section class="shadow my-m">
+  <article class="border-b">
+    <div class="border-l-2 border-transparent">
+      {% include utils/toggle_element.html target="#v1_mytime_togglebox" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="v1_mytime_togglebox">
+        <div class="mt-m">
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    "company": "shipcloud GmbH",
+    "street": "Mittelweg",
+    "street_no": "162",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "company": "Receiver Inc.",
+    "first_name": "Rolf",
+    "last_name": "Receiver",
+    "street": "Lohhof",
+    "street_no": "24",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE",
+    "email": "receiver@example.com"
+  },
+  "package": {
+    "height": "23",
+    "length": "30",
+    "width": "20",
+    "weight": "1.5",
+    "type": "parcel"
+  },
+  "pickup": {
+    "pickup_time": {
+      "earliest": "2019-09-02T15:00:00+02:00",
+      "latest": "2019-09-02T18:00:00+02:00"
+    }
+  },
+  "reference_number": "ReferenceNumber",
+  "additional_services": [
+    {
+      "name": "angel_de_delivery_date_time",
+      "properties": {
+        "date": "2019-09-02",
+        "time_of_day_earliest": "20:00",
+        "time_of_day_latest": "22:00"
+      }
+    }
+  ],
+  "carrier": "angel_de",
+  "service": "same_day",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

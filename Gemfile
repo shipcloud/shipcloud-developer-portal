@@ -11,8 +11,11 @@ gem 'kramdown', '~> 1.13.x'
 # Liquid
 gem 'liquid', '~> 4.0.x'
 
-# Plugins
-gem 'jekyll-sitemap', '1.0.0'
-gem 'html-proofer', "~> 3.10.x"
-
 gem "rake"
+
+group :jekyll_plugins do
+  gem "jekyll-postcss"
+  gem "jekyll-purgecss"
+  gem "jekyll-sitemap"
+  gem "html-proofer", "~> 3.10.x"
+end

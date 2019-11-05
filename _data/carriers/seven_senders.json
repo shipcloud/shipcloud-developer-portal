@@ -1,0 +1,37 @@
+{
+  "css_key": "seven-senders",
+  "display_name": "Seven Senders",
+  "key": "seven_senders",
+  "interfaces": {
+    "v1": {
+      "display_name": "Api V1",
+      "implementations": {
+        "shipcloud": {
+          "services": [{
+            "display_name": "Standard",
+            "key": "standard"
+          }],
+          "package_types": [{
+            "display_name": "Parcel",
+            "key": "parcel"
+          }],
+          "label_sizes": [{
+              "display_name": "DIN A5",
+              "key": "A5"
+            },
+            {
+              "display_name": "DIN A6",
+              "key": "A6"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "marketing": {
+    "en": {
+      "help_center": "https://support.shipcloud.io/en/collections/1544045-carriers#seven-senders",
+      "website": "https://www.shipcloud.io/en/partner/carriers/seven_senders"
+    }
+  }
+}

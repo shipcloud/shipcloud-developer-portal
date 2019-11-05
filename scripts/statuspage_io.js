@@ -5,8 +5,10 @@ var sp = new StatusPage.page({ page : 'dlccblhllckf' });
 sp.status({
   success: function(data) {
     // adds the text description to the dropdown
-    $('.color-description').text(data.status.description);
+    // $('.color-description').text(data.status.description);
+    document.getElementsByClassName('color-description')[0].textContent = data.status.description;
     // appends the status indicator as a class name so we can use the right color for the status light thing
-    $('.color-dot').addClass(data.status.indicator);
+    // $('.color-dot').addClass(data.status.indicator);
+    document.getElementsByClassName('color-dot')[0].classList.add(data.status.indicator);
   }
 });

@@ -1,54 +1,36 @@
 ---
-layout: full
+layout: default
 ---
 
-<div class="home">
-  <div class="container">
-    <div class="cnt">
-      <div class="row">
-        <div class="header">
-          <h1>shipcloud for developers</h1>
-          <br />
-          <h2>staying ahead of the devpack</h2>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="container intro">
-  <h2>
+<section class="mb-m">
+  <h2 class="mb-m">
     <i class="fas fa-terminal"></i>
     Welcome
   </h2>
-  <div class="row">
-    <div class="col-md-12">
-      to the shipcloud developer portal where you - the developer - will hopefully get all the information you
-      need to get started with integrating shipcloud into your own service, shop, app or other crazy idea.
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      This is supposed to be your one stop for all developer needs. If you have any questions, feel free to contact us.
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      If there's anything missing in this portal, you've found a typo, bug or something isn't clear, the developer
-      portal is build as a public repository on github. Feel free to fork it, change things, make a pull request or
-      even run your own local version of it.
-    </div>
-  </div>
-  <h2>
+  <p class="mb-m">
+    to the shipcloud developer portal where you - the developer - will hopefully get all the
+    information you need to get started with integrating shipcloud into your own service, shop, app
+    or other crazy idea.
+  </p>
+  <p class="mb-m">
+    This is supposed to be your one stop for all developer needs. If you have any questions, feel free to contact us.
+  </p>
+  <p>
+    If there's anything missing in this portal, you've found a typo, bug or something isn't clear, the developer
+    portal is build as a public repository on github. Feel free to fork it, change things, make a pull request or
+    even run your own local version of it.
+  </p>
+</section>
+<section class="mb-m">
+  <h2 class="mb-m">
     <i class="fas fa-book"></i>
     Getting started
   </h2>
-  <div class="row">
-    <div class="col-md-12">
-      If you want to start testing our services fast - this is the way to go! Just follow these
-      simple steps:
-    </div>
-  </div>
-  <ol>
+  <p>
+    If you want to start testing our services fast - this is the way to go! Just follow these
+    simple steps:
+  </p>
+  <ul class="list-outside list-disc ml-m">
     <li>
       First of all you
       <a href="https://app.shipcloud.io/de/users/sign_up?plan=developer" target="_blank">
@@ -63,148 +45,81 @@ layout: full
     </li>
     <li>
       Start implementing your first api call using our
-      <a href="{{ site.baseurl }}/reference/#deleting-a-shipment">api reference</a>.
+      <a href="{{ site.baseurl }}/reference/">api reference</a>.
     </li>
-  </ol>
-  <h3>
+  </ul>
+</section>
+<!-- <section class="mb-m">
+  <h3 class="mb-m">
     Integration guide
   </h3>
-  <div class="row">
-    <div class="col-md-12">
-      If you like to know the ins and outs of our services and our api or want to write a new
-      plugin, extension, module, or library for your software or programming language, the best way
-      to get started is by downloading and reading the
-      <a href="{{ site.baseurl }}/concepts/#integration-guide">
-        integration guide.
-      </a>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      In our integration guide we're trying to give you the best possible overview of what
-      shipcloud is trying to support you with. We're also providing you with an overview of
-      possible use cases and pitfalls when implemeting a shipping solution.
-      </a>
-    </div>
-  </div>
-  <h3>
+  <p>
+    If you like to know the ins and outs of our services and our api or want to write a new
+    plugin, extension, module, or library for your software or programming language, the best way
+    to get started is by downloading and reading the
+    <a href="{{ site.baseurl }}/concepts/#integration-guide">
+      integration guide.
+    </a>
+  </p>
+  <p>
+    In our integration guide we're trying to give you the best possible overview of what
+    shipcloud is trying to support you with. We're also providing you with an overview of
+    possible use cases and pitfalls when implemeting a shipping solution.
+  </p>
+</section> -->
+<section class="mb-m">
+  <h3 class="mb-m">
     Concepts
   </h3>
-  <div class="row">
-    <div class="col-md-12">
-      Afterwards you should consider reading about a few of the
-      <a href="{{ site.baseurl }}/concepts/">
-        concepts
-      </a>
-      and principles that our api and services are adhering to. On our concepts page we're trying
-      to explain stuff like authentication, versioning, timeouts and a lot more basic and important
-      things you should know about when working with our api.
-    </div>
-  </div>
-
-  <!-- <h3>Postman</h3>
-  <div class="row">
-    <div class="col-md-12">
-      To make it easier to test our api we've created a collection that you can import into
-      <a href="https://www.getpostman.com" target="_blank">postman</a>. Just enter your api keys in
-      the form below and click the "Run in postman" button to import it into your postman app.
-      After importing the collection you can
-      <a href="https://www.getpostman.com/docs/test_multi_environments" target="_blank">select the
-      specific environment</a> (sandbox or production) from within the postman app and make calls
-      to our api.
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      We've tried to add as many of our examples to the collection, so feel free to explore the
-      collection a bit.
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <form id="api-keys">
-        <div class="row">
-          <div class="col-md-2">
-            <label for="sandbox">sandbox api key</label>
-          </div>
-          <div class="col-md-3">
-            <input type="text" id="sandbox" style="width: 100%;">
-          </div>
-          <div class="col-md-2">
-            <label for="production">production api key</label>
-          </div>
-          <div class="col-md-3">
-            <input type="text" id="production" style="width: 100%;">
-          </div>
-          <div class="col-md-2">
-            <div class="postman-run-button"
-              data-postman-action="collection/import"
-              data-postman-var-1="fa265d769a11d85d1e9e">
-            </div>
-            <script type="text/javascript">
-              (function (p,o,s,t,m,a,n) {
-                !p[s] && (p[s] = function () { (p[t] || (p[t] = [])).push(arguments); });
-                !o.getElementById(s+t) && o.getElementsByTagName("head")[0].appendChild((
-                  (n = o.createElement("script")),
-                  (n.id = s+t), (n.async = 1), (n.src = m), n
-                ));
-              }(window, document, "_pm", "PostmanRunObject", "https://run.pstmn.io/button.js"));
-              $( ".postman-run-button" ).on( "click", function() {
-                _pm('env.create', 'shipcloud sandbox', {
-                  basic_auth: "Basic " + btoa($('#api-keys #sandbox').val() + ":")
-                });
-                _pm('env.create', 'shipcloud production', {
-                  basic_auth: "Basic " + btoa($('#api-keys #production').val() + ":")
-                });
-              });
-            </script>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div> -->
-  <div class="row">
-    <div class="col-md-12">
-      <h2>
-        <i class="fas fa-envelope-open"></i>
-        Newsletter
-      </h2>
-      <p>
-        Always stay up to date with our
-        <a href="{{ site.baseurl }}/newsletter">
-          developer journal
-        </a>
-        where we're writing about changes and updates to our api, providing you with useful insights
-        and keeping you up to date about where you can meet us to talk about the development side of
-        our services.
-      </p>
-    </div>
-  </div>
-  <h2>
+  <p>
+    Afterwards you should consider reading about a few of the
+    <a href="{{ site.baseurl }}/concepts/">
+      concepts
+    </a>
+    and principles that our api and services are adhering to. On our concepts page we're trying
+    to explain stuff like authentication, versioning, timeouts and a lot more basic and important
+    things you should know about when working with our api.
+  </p>
+</section>
+<section class="mb-m">
+  <h2 class="mb-m">
+    <i class="fas fa-envelope-open"></i>
+    Newsletter
+  </h2>
+  <p>
+    Always stay up to date with our
+    <a href="{{ site.baseurl }}/newsletter">
+      developer journal
+    </a>
+    where we're writing about changes and updates to our api, providing you with useful insights
+    and keeping you up to date about where you can meet us to talk about the development side of
+    our services.
+  </p>
+</section>
+<section class="mb-m">
+  <h2 class="mb-m">
     <i class="fas fa-code"></i>
     Not a developer?
   </h2>
-  <div class="row">
-    <div class="col-md-12">
-      Don't panic! We've got you covered! There are already a hand full of
-      <a href="{{ site.baseurl }}/integrations">
-        plugins
-      </a>
-      written by other developers for a lot of the largest online shopping software solutions.
-      We're also directly integrated into a few shopping services like Gambio, Jimdo and
-      VersaCommerce.
-    </div>
-  </div>
-  <h2>
+  <p>
+    Don't panic! We've got you covered! There are already a hand full of
+    <a href="{{ site.baseurl }}/integrations">
+      plugins
+    </a>
+    written by other developers for a lot of the largest online shopping software solutions.
+    We're also directly integrated into a few shopping services like Gambio, Jimdo and
+    VersaCommerce.
+  </p>
+</section>
+<section class="mb-m">
+  <h2 class="mb-m">
     <i class="fas fa-life-ring"></i>
     Need help?
   </h2>
-  <div class="row">
-    <div class="col-md-12">
-      If at any point you're getting the feeling that you're lost or you're simply having a
-      question, because something we're describing isn't clear to you. Don't hesitate to
-      <a href="{{ site.baseurl }}/support">contact us</a>. We also have a Slack channel. If you
-      want to join us there, just send an email and we'll invite you.
-    </div>
-  </div>
-</div>
+  <p>
+    If at any point you're getting the feeling that you're lost or you're simply having a
+    question, because something we're describing isn't clear to you. Don't hesitate to
+    <a href="{{ site.baseurl }}/support">contact us</a>. We also have a Slack channel. If you
+    want to join us there, just send an email and we'll invite you.
+  </p>
+</section>

@@ -1,0 +1,482 @@
+---
+title: Concepts behind shipcloud
+nav: concepts
+footnote_path: concepts
+---
+
+<h1 id="api" class="text-blue">
+  API
+</h1>
+
+<section class="mb-m">
+  <h2 id="introduction" class="text-blue">
+    Introduction
+  </h2>
+  <p>
+    shipcloud is a shipping service provider that makes it easy for developers to integrate shipping
+    using one of the major carriers on the German market into their own software, onlineshop or ERP
+    solution. We've basically built a wrapper around the carriers' webservices we support so you
+    won't have to integrate each and every carrier by yourself.
+  </p>
+  <p class="mt-m">
+    To make it easier for you the developer, we've created the shipcloud API deliberately using the
+    RESTful architectural style. This means if you're familiar with REST and using RESTful services,
+    you will have no problems using our API. As it's common when implementing a REST-API we're using
+    resource-oriented URLs and HTTP authentication.
+  </p>
+</section>
+
+<section class="mb-m">
+  <h2 id="authentication" class="text-blue">Authentication</h2>
+  <p>
+    For developers to test their code before shipping it, we're supplying every account with test
+    and live API keys. Every call to our API is secured by an API key. This key is tied specificly
+    to your account and therefore should never be given to anyone else outside of your control. You
+    are able to manage your API keys from your account page.
+  </p>
+  <p class="mt-m">
+    To use the API key you'll have to send it with every request being made. We're using http Basic
+    Authentication to our API has to be done via
+    <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">HTTP Basic
+    Auth</a>. You'll have to provide your API key as the basic auth username. You don't have to
+    provide a password.
+  </p>
+  <p class="mt-m">
+    <strong>Be advised:</strong>
+    The API key has to be <a href="http://en.wikipedia.org/wiki/Base64" target="_blank">Base64</a>
+    encoded.
+  </p>
+  <p class="mt-m">
+    Aside from sending your API key all API requests must be made using HTTPS. Don't bother trying
+    to use HTTP. It will fail!
+  </p>
+</section>
+
+<section class="mb-m">
+  <h2 id="parameters" class="text-blue">Parameters</h2>
+  <p>
+    Many API methods take optional parameters. For GET requests, any parameters not specified as a
+    segment in the path can be passed as an HTTP query string parameter:
+  </p>
+  <p class="mt-m">
+{% highlight shell %}
+curl -i -u {{ site.apikey }}: "https://api.shipcloud.io/v1/shipments?service=returns"
+{% endhighlight %}
+  </p>
+  <p class="mt-m">
+    For POST, PATCH, PUT, and DELETE requests, parameters not included in the URL should be encoded
+    as JSON with a Content-Type of <code>application/json</code>:
+  </p>
+  <p class="mt-m">
+{% highlight shell %}
+curl -i -u {{ site.apikey }}: -H "Content-Type: application/json" -d '{"service":["returns"]}' "https://api.shipcloud.io/v1/shipments"
+{% endhighlight %}
+  </p>
+</section>
+
+<section class="mb-m">
+  <h2 id="versioning" class="text-blue">Versioning</h2>
+  <p>
+    As with every API we will be releasing new versions from time to time. We do promise to adhere
+    to the following API contract:
+  </p>
+  <ul class="list-disc list-inside ml-m">
+    <li>No value types or fields will be changed or deleted in the same API version</li>
+    <li>
+      What we will change within the same API version:
+      <ul class="list-disc list-inside ml-m">
+        <li>add new fields to an object</li>
+        <li>add new API endpoints</li>
+        <li>required fields can become optional</li>
+        <li>endpoints can become deprecated</li>
+      </ul>
+    </li>
+  </ul>
+  <p class="mt-m">
+    In case we introduce <strong>breaking changes</strong> we will adjust the API base path to
+    reflect each new major version. So consecutive releases will be called using /v2/, /v3/ and so
+    on.
+  </p>
+</section>
+
+<section class="mb-m">
+  <h2 id="address-handling" class="text-blue">Address handling</h2>
+  <p>
+    When sending <code>to</code> or <code>from</code> parameters you have to specify a contact for
+    the shipment. This can either be a company or a person identified by <code>first_name</code> and
+    <code>last_name</code>. So although the entries are marked as being optional, one of them has to
+    be specified in the request.
+  </p>
+</section>
+
+<section class="mb-m">
+  <h2 id="label-format" class="text-blue">Label Format</h2>
+  <p>
+    You can specify the format of the shipping label that you want to get returned by adding
+    <code>label.format</code> to the request. Using this entry you can specify the format / size
+    using one of the predefined strings.
+  </p>
+
+  <p class="mt-m">
+    Not all carriers use the same sizes for their labels. You can find out which label sizes we
+    support on each of the <a href="{{ site.baseurl }}/carriers">carrier pages</a>.
+  </p>
+
+  <p class="mt-m">
+    <strong>Requirements:</strong>
+  </p>
+
+  <ul class="list-inside list-disc">
+    <li>
+      <code>label.format</code> can be one of the following
+      <ul class="list-inside list-disc">
+        <li>
+          <code><em>pdf_a5</em></code>
+        </li>
+        <li>
+          <code><em>pdf_a6</em></code>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section class="mb-m">
+  <h2 id="multi-package-shipments" class="text-blue">Multi package shipments</h2>
+  <p>
+    At the moment we're only supporting sending a single package with one shipment. Our api
+    responses however return an array to be able to switch to sending  multiple packages with a
+    single shipment in the future
+  </p>
+</section>
+
+<section class="mb-m">
+  <h2 id="metadata" class="text-blue">Metadata</h2>
+  <p>
+    We've been giving you the possibility to specifiy a reference number when creating a shipment to
+    make it easier for you to find out, which shipcloud shipment belongs to which order in your shop or
+    system. When creating a shipment you are now able to send us additional data, that we store for
+    you. This so called metadata is a structured object and can be any combination of key-value pairs.
+  </p>
+  <p class="mt-m">
+{% highlight http %}
+POST /shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "metadata": {
+    "products": {
+      "product": {
+        "id": 1234567,
+        "name": "blue shirt",
+        "price": 42.12,
+        "currency": "EUR"
+      },
+      "product": {
+        "id": 0987654,
+        "name": "yellow shirt",
+        "price": 22.99,
+        "currency": "EUR"
+      }
+    },
+    "order_number": "123456",
+    "order_date": "2015-06-01",
+    "user_e_mail": "user@example.com",
+    "order_total": {
+      "amount": 65.11,
+      "currency": "EUR"
+    }
+  }
+}
+{% endhighlight %}
+  </p>
+</section>
+
+<section class="mb-m">
+  <h2 id="timeouts" class="text-blue">Timeouts</h2>
+  <p>
+    The services of the carriers we're supporting can be very slow at times. Since we're not queing
+    requests to create shipping labels at a later point in time, please account for slow response
+    times. We'd suggest setting a timeout of a little more than a minute to be absolutely sure that
+    you're not missing our responses.
+  </p>
+</section>
+
+<section class="mb-m">
+  <h2 id="sandbox-vs-production" class="text-blue">
+    Sandbox vs. Production
+  </h2>
+
+  <p>
+    When creating an account at shipcloud you get access for 2 systems. A sandbox and a production
+    system. The first one can be used to tinker with (e.g. for developing the integration of
+    shipcloud into your own platform) while the production system is used for the actual creation of
+    shipping labels.
+  </p>
+
+  <h3 id="keys" class="text-blue mt-m">
+    Keys
+  </h3>
+  <p>
+    Therefore when you create an account at shipcloud, 2 api keys get generated. A sandbox key that
+    you can use for testing our api and a live key, that can be used to create the actual shipping
+    labels you're going to put on the packages you're sending.
+  </p>
+  <p class="mt-m">
+    If at any time you feel the need to generate a new set of api keys (e.g. because you get the
+    feeling, that your system has been compromised) you can do that in the shipcloud backoffice by
+    clicking your email address at the upper right corner and selecting the menu item
+    <code>API Key</code>.
+  </p>
+
+  <h3 id="shipment-prices" class="text-blue mt-m">
+    Shipment prices
+  </h3>
+  <p>
+    When using the sandbox key we will always return 0,0 as price.
+  </p>
+
+  <h3 id="cleanup" class="text-blue mt-m">
+    Cleanup
+  </h3>
+  <p>
+    We're currently deleting sandbox shipments 2 weeks after they've been created. So it's best
+    practice to create a new shipment first if you want to test updating or deleting it.
+  </p>
+</section>
+
+<section class="mb-m">
+  <h2 id="plan-up-downgrades" class="text-blue">
+    Plan up-/downgrades
+  </h2>
+
+  <p>
+    If you feel like tinkering with our api you can always register for free using our developer
+    plan. If you're satisfied with our service feel free to upgrade to a payed plan. Upgrades from
+    one payed plan to a higher one can be done at any time. We use the balance of your current plan
+    against the first month of your new one, so you won't be billed extra for upgrading before your
+    current plan runs out.
+  </p>
+</section>
+
+<section class="mb-m">
+  <h2 id="prices--vat" class="text-blue">
+    Prices & Vat
+  </h2>
+
+  <p>
+    All of our prices are displayed in Euro and without VAT. We will however charge you with the
+    full German value added tax which is 19% at the moment.
+  </p>
+</section>
+
+<section class="mb-m">
+  <h2 id="pickup-requests" class="text-blue">
+    Pickup Requests
+  </h2>
+  <p>
+    Some carriers require you to provide pickup information for creating a shipment to make the
+    process of planning pickups easier for them. Others want you to send them a (detailed) pickup
+    request at the end of the business day so they can plan pickups for the following work day.
+    See below for a detailed description about what to use when.
+  </p>
+
+  <h3 id="while-creating-shipments" class="text-blue mt-m">
+    While creating shipments
+  </h3>
+  <p>
+    For some carriers if you don't have regular pickups you will have to provide the information
+    when creating a shipment. For this you can add a pickup element to your shipment request. This
+    method is applicable for the following carriers:
+  </p>
+
+  {% assign carriers = site.data.carriers | sort %}
+  <ul class="list-inside list-disc">
+    {% for carrier in carriers %}
+      {% for interface in carrier[1].interfaces %}
+        {% assign pickup_requests = interface[1].implementations.shipcloud.pickup_requests %}
+        {% for pickup_request in pickup_requests %}
+          {% if pickup_request.key == "shipment_with_pickup_request" %}
+            <li>
+              <a href="{{site.baseurl}}/carriers/{{ carrier[1].key }}.html#{{ interface[0] | slugify }}---shipment-with-pickup-request">
+                {{ carrier[1].display_name }}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    {% endfor %}
+  </ul>
+
+  <div class="mt-m bg-grey-light border-t-4 border-grey-darker text-grey-darker rounded-b px-4 py-3 shadow-md my-2" role="alert">
+    <div class="flex">
+      <div>
+        <i class="fas fa-info-circle h-6 w-6 mr-4"></i>
+      </div>
+      <div>
+          <strong>Notice</strong>:
+          The carrier GO! does not provide regular pickups, you will always have to provide a
+          pickup object, when creating a shipment.
+      </div>
+    </div>
+  </div>
+
+  <h3 id="for-existing-shipments" class="text-blue mt-m">
+    For existing shipments
+  </h3>
+  <p>
+    Most of the carriers we provide want you to send them a pickup request with the aggregated
+    shipment numbers at the end of the business day. To achieve this you can
+    <a href="{{site.baseurl}}/reference/#requesting-a-pickup">create a pickup request</a> and send
+    us either just the name of the carrier and additionally the shipment ids of the shipments you
+    want to have picked up.
+  </p>
+</section>
+
+<section class="mb-m">
+  <h2 id="webhooks" class="text-blue">
+    Webhooks
+  </h2>
+
+  <p>
+    If you automatically want to react to events happening within the shipcloud system, webhooks are
+    the right thing for you. All you need to do is provide us with a URL we should call once
+    something happens. You can also specify which events should trigger calling your URL. Maybe you
+    only want to be notified, when a package gets delivered to one of your customers.
+  </p>
+  <p class="mt-m">
+    When an event is triggered, we'll send an HTTP POST request to your URL, containing a JSON
+    payload, with all the information necessary. Here's our sample payload you get when testing a
+    webhook through our website:
+  </p>
+  <div class="mt-m">
+{% highlight json %}
+{
+  "id": "ef9df623-6974-4a4b-9a99-c0ec5b58b136",
+  "webhook_id": "77ba9db5-2207-4b21-be06-dff0ba7f6989",
+  "occured_at": "2015-02-17T14:20:42+01:00",
+  "type": "example.event",
+  "data": {
+    "id": "es40a6e7a83ea8253f54eb414606626172b523d8",
+    "url": "/v1/shipments/es40a6e7a83ea8253f54eb414606626172b523d8",
+    "object_type": "shipment"
+  }
+}
+{% endhighlight %}
+  </div>
+  <p class="mt-m">
+    <strong>Notice:</strong>
+    Our payload only contains the data that was mentioned above. This means that after a webhook was
+    fired, you will have to call our api to get detailed information about the shipment. This way
+    only someone with the correct api key is able to access your customers data.
+  </p>
+
+  <h3 id="event-types" class="text-blue mt-m">
+    Event types
+  </h3>
+  <p>
+    You can currently subscribe to the following event types:
+  </p>
+  {% include concepts/webhooks_legend.html %}
+
+  <h3 id="catch-all-webhooks" class="text-blue mt-m">
+    Catch all webhooks
+  </h3>
+  <p>
+    If you don't want to subscribe to a specific event or you want to be notified by all events
+    we're firing using one of our catch all options is the best way to go. Defining a catch all
+    webhook is easy. Simply use an asterisk instead of a specific status as the last element in the
+    notation.
+  </p>
+  <p>
+    We're supporting all places in the notation hierarchy as long as the asterisk is the last element
+    defined.
+  </p>
+  <p class="mt-m">
+    <strong>Notice:</strong>
+    By using catch all webhooks you are going the first step in getting notified about all current
+    and future events we're supporting.
+  </p>
+
+  <h4 class="text-blue mt-m">
+    Examples for catch all webhooks
+  </h4>
+  <h5 class="text-blue mt-m">
+    All events for tracking shipments
+  </h5>
+  <div class="mt-m">
+{% highlight json %}
+{
+  "url": "https://example.com/webhook",
+  "event_types": ["shipment.tracking.*"]
+}
+{% endhighlight %}
+  </div>
+
+  <h5 class="text-blue mt-l">
+    All events for shipments
+  </h5>
+  <div class="mt-m">
+{% highlight json %}
+{
+  "url": "https://example.com/webhook",
+  "event_types": ["shipment.*"]
+}
+{% endhighlight %}
+  </div>
+
+  <h5 class="text-blue mt-l">
+    All events
+  </h5>
+  <div class="mt-m">
+{% highlight json %}
+{
+  "url": "https://example.com/webhook",
+  "event_types": ["*"]
+}
+{% endhighlight %}
+  </div>
+
+  <h3 id="configuration" class="text-blue mt-m">
+    Configuration
+  </h3>
+  <p>
+    To configure webhooks just click on <code>Configurations</code> in the shipcloud backoffice to
+    reveal a webhook nav entry. There you can add webhooks and specify which events should trigger
+    sending a message to your URL.
+  </p>
+
+  <h3 id="testing" class="text-blue mt-m">
+    Testing
+  </h3>
+  <p>
+    There are a lot of tools out there for testing webhooks. If you'd like a starting point check
+    out this blogpost called
+    <a href="http://john-sheehan.com/blog/ultimate-api-webhook-backend-service-debugging-testing-monitoring-and-discovery-tools-list" target="_blank">
+    60+ Tools and Services for API and Webhook Logging, Debugging, Testing, Monitoring,
+    Documentation and Discovery</a>). We'd recommend using a service like
+    <a href="https://requestbin.com" target="_blank">requestbin.com</a> or
+    <a href="http://mocky.io" target="_blank">mocky.io</a> to have reliable responses for your
+    tests. This way you don't have to create shipments just for testing handling shipments
+    afterwards.
+  </p>
+
+  <h3 id="developer-accounts" class="text-blue mt-m">
+    Developer accounts
+  </h3>
+  <p>
+    If you're usind TDD (test driven development) another thing we'd recommend is creating a second
+    account at shipcloud for all your testing needs. This way you can separate further development
+    on your platform from your live processes.
+  </p>
+
+  <h3 id="automatic-deactivation" class="text-blue mt-m">
+    Automatic deactivation
+  </h3>
+  <p>
+    If the URL you provided when configuring the webhook can't be reached, we'll try to contact it a
+    few minutes later. <strong>After 15 failed attempts</strong> to send you the data, we're giving
+    up and the webhook will be deactivated automatically. You can reactivate it in shipcloud once
+    your system is up and reachable again.
+  </p>
+</section>

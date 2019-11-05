@@ -46,6 +46,8 @@ GEM
     jekyll-coffeescript (1.1.1)
       coffee-script (~> 2.2)
       coffee-script-source (~> 1.11.1)
+    jekyll-postcss (0.2.2)
+    jekyll-purgecss (0.2.0)
     jekyll-sass-converter (1.5.2)
       sass (~> 3.4)
     jekyll-sitemap (1.0.0)
@@ -91,8 +93,10 @@ DEPENDENCIES
   html-proofer (~> 3.10.x)
   jekyll (~> 3.8.x)
   jekyll-coffeescript (~> 1.1.x)
+  jekyll-postcss
+  jekyll-purgecss
   jekyll-sass-converter (~> 1.5.x)
-  jekyll-sitemap (= 1.0.0)
+  jekyll-sitemap
   kramdown (~> 1.13.x)
   liquid (~> 4.0.x)
   rake

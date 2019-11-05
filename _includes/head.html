@@ -7,22 +7,17 @@
     <meta name="description" content="{{ site.description }}">
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="{{ "/assets/css/bootstrap.min.css" | prepend: site.baseurl }}">
-    <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+    <link rel="stylesheet" href="{{ "/assets/css/base.css" | prepend: site.baseurl }}">
 
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
     <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico">
+    <script defer src="{{ "/assets/js/fontawesome/solid.min.js" | prepend: site.baseurl }}"></script>
+    <script defer src="{{ "/assets/js/fontawesome/brands.min.js" | prepend: site.baseurl }}"></script>
+    <script defer src="{{ "/assets/js/fontawesome/fontawesome.min.js" | prepend: site.baseurl }}"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"
+    />
 
     {% include google_tag_manager_head.html %}
-    <script src="{{ "/assets/js/jquery-2.1.1.min.js" | prepend: site.baseurl }}"></script>
-    <script src="{{ "/assets/js/bootstrap.min.js" | prepend: site.baseurl }}"></script>
-    <script src="{{ "/assets/js/fontawesome-all.min.js" | prepend: site.baseurl }}"></script>
-
-    {% if page.url contains "/playground/" %}
-      <!-- using jjv for testing JSON calls against our schemas -->
-      <!-- https://github.com/acornejo/jjv -->
-      <script type="text/javascript" src="/scripts/jjv.js"></script>
-      <script type="text/javascript" src="/scripts/esprima.js"></script>
-      <script type="text/javascript" src="/scripts/js-yaml.min.js"></script>
-    {% endif %}
 </head>

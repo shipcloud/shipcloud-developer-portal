@@ -5,7 +5,8 @@ cache:
   bundler: true
   directories:
     - node_modules
-script: bundle exec rake build test
+  yarn: true
+script: yarn install && bundle exec rake build test
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
@@ -24,3 +25,6 @@ addons:
   apt:
     packages:
     - libcurl4-openssl-dev
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.19.1
+  - export PATH="$HOME/.yarn/bin:$PATH"

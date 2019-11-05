@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body class="bg-white" data-offset="90">
+    {% include google_tag_manager_body.html %}
+
+    {% include header.html %}
+
+    <div class="DocSearch-content">
+      {% include navs/main.html %}
+      <div class="pb-24">
+        {{ content }}
+      </div>
+    </div>
+
+    {% include footer.html %}
+
+    <script src="{{ "/assets/js/utils.js" | prepend: site.baseurl }}"></script>
+    {% include js_files.html %}
+  </body>
+</html>

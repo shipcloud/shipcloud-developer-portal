@@ -1,0 +1,198 @@
+<ul class="list-outside list-disc">
+  <li>
+    <strong>carrier</strong>* (string), the carrier you want to use. Possible values are
+    {{ site.shipcloud.supported_carriers.as_keys }}
+  </li>
+  <li>
+    <strong>to</strong>* (object), describes the receivers address. See
+    <a href="{{ site.baseurl }}/reference/#addresses">
+      address request
+    </a> for a detailed definition.
+  </li>
+  <li>
+    <strong>from</strong>* (object), describes the senders address. If missing, the default sender
+    address (if defined in your shipcloud account) will be used. See
+    <a href="{{ site.baseurl }}/reference/#addresses">
+      address request
+    </a> for a detailed definition.
+  </li>
+  <li>
+    <strong>cover_address</strong> (object, optional), this overwrites the sender address on the
+    shipping label. See
+    <a href="{{ site.baseurl }}/carriers/hermes#hsi---cover-address">
+      cover address
+    </a> for details.
+  </li>
+  <li>
+    <strong>package</strong>*, object describing the package dimensions
+    <ul class="list-outside list-disc">
+      <li>
+        <strong>width</strong> (float), width of the package in cm
+      </li>
+      <li>
+        <strong>length</strong> (float), length of the package in cm
+      </li>
+      <li>
+        <strong>height</strong> (float), height of the package in cm
+      </li>
+      <li>
+        <strong>weight</strong> (float), weight in kg
+      </li>
+      <li>
+        <strong>declared_value</strong>, object describing the value of the package contents. Use
+        this to book additional insurance or expand the liability for a shipment. Caution: Please
+        keep in mind that additional fees are charged by the carrier.
+        <ul class="list-outside list-disc">
+          <li>
+            <strong>amount</strong> (float), value of package contents
+          </li>
+          <li>
+            <strong>currency</strong> (string), currency as uppercase ISO 4217 code
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>description</strong> (string), if you're using UPS with service <code>returns</code>
+        this is mandatory otherwise it's optional
+      </li>
+      <li>
+        <strong>type</strong> (string, optional), carrier specific package type declaration.
+        Available values are <code>books</code>, <code>bulk</code>, <code>letter</code>,
+        <code>parcel</code> and <code>parcel_letter</code>.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <strong>service</strong> (string, optional), service that should be used. Available values are
+    {{ site.shipcloud.supported_services.as_keys_array }}.
+  </li>
+  <li>
+    <strong>additional_services</strong> (array, optional), array of objects where you can define
+    additional services to be used.
+  </li>
+  <li>
+    <strong>pickup</strong> (object, optional), describes the pickup request. Mandatory for creating
+    shipments with TNT as carrier - see
+    <a href="{{ site.baseurl }}/carriers/tnt#express-connect---shipment-with-pickup-request">
+      TNT specifics
+    </a>
+    <ul class="list-outside list-disc">
+      <li>
+        <strong>pickup_time</strong> (object), contains the earliest and latest pickup time in
+        iso8601
+      </li>
+      <li>
+        <strong>earliest</strong> (datetime), timestamp describing the earliest time the carrier
+        should pickup the shipment
+      </li>
+      <li>
+        <strong>latest</strong> (datetime), timestamp describing the latest time the carrier should
+        pickup the shipment
+      </li>
+      <li>
+        <strong>pickup_address</strong> (object, optional), describes the pickup address. See
+        <a href="{{ site.baseurl }}/reference/#addresses">
+          address request
+        </a> for a detailed definition.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <strong>customs_declaration</strong> (object, optional), customs declaration information
+    <ul class="list-outside list-disc">
+      <li>
+        <strong>contents_type</strong> (string), type of shipment contents. Possible values are
+        <code>commercial_goods</code>, <code>commercial_sample</code>, <code>documents</code>,
+        <code>gift</code>, <code>returned_goods</code>
+      </li>
+      <li>
+        <strong>contents_explanation</strong> (string, optional), description of contents. Mandatory
+        if contents_type is <code>commercial_goods</code>. Max 256 characters, when using DHL as
+        your carrier
+      </li>
+      <li>
+        <strong>currency</strong> (string), currency as uppercase ISO 4217 code
+      </li>
+      <li>
+        <strong>additional_fees</strong> (float, optional), additional custom fees to be payed
+      </li>
+      <li>
+        <strong>drop_off_location</strong> (string, optional), location where the package will be
+        dropped of with the carrier
+      </li>
+      <li>
+        <strong>exporter_reference</strong> (string, optional), a note for the exporter
+      </li>
+      <li>
+        <strong>importer_reference</strong> (string, optional), a note for the importer
+      </li>
+      <li>
+        <strong>posting_date</strong> (string, optional), date of commital at carrier
+      </li>
+      <li>
+        <strong>invoice_number</strong> (string, optional), invoice number for the order
+      </li>
+      <li>
+        <strong>total_value_amount</strong> (float, optional), the overall value of the shipments'
+        contents. Has to be between 0 and 1000
+      </li>
+      <li>
+        <strong>items</strong> (array), array of objects describing the items included in the
+        shipments
+        <ul class="list-outside list-disc">
+          <li>
+            <strong>origin_country</strong> (string), country as uppercase ISO 3166-1 alpha-2 code
+          </li>
+          <li>
+            <strong>description</strong> (string), a description of this item
+          </li>
+          <li>
+            <strong>hs_tariff_number</strong> (integer, optional), customs tariff number. See
+            <a href="https://en.wikipedia.org/wiki/Harmonized_System#Tariffs_by_region">
+              wikipedia
+            </a> for detailed information on region specific tariff numbers
+          </li>
+          <li>
+            <strong>quantity</strong> (integer), Number that defines how many items of this kind are
+            in the shipment
+          </li>
+          <li>
+            <strong>value_amount</strong> (float), The total value for items of this kind
+          </li>
+          <li>
+            <strong>net_weight</strong> (float), Total weight for items of this kind
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <strong>reference_number</strong> (string, optional), a reference number (max. 30 characters)
+    that you want this shipment to be identified with. You can use this afterwards to easier find
+    the shipment in the shipcloud.io backoffice
+  </li>
+  <li>
+    <strong>description</strong> (string), mandatory if you're using UPS and the following
+    conditions are true: from and to countries are not the same; from and/or to countries are not in
+    the EU; from and to countries are in the EU and the shipments service is not standard
+  </li>
+  <li>
+    <strong>label</strong> (object, optional), specify label specific things
+    <ul class="list-outside list-disc">
+      <li>
+        <strong>format</strong> (string, optional), the format you want the label to have. See
+        <a href="{{ site.baseurl }}/concepts/#label-format">
+          label format
+        </a> for detailed information
+      </li>
+    </ul>
+  </li>
+  <li>
+    <strong>notification_email</strong> (string, optional), email address that we should notify once
+    there's an update for this shipment
+  </li>
+  <li>
+    <strong>create_shipping_label</strong> (boolean), determines if a shipping label should be
+    created at the carrier (this means you will be charged when using the production api key)
+  </li>
+</ul>

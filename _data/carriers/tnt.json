@@ -1,0 +1,52 @@
+{
+  "css_key": "tnt",
+  "display_name": "TNT",
+  "key": "tnt",
+  "interfaces": {
+    "express_connect": {
+      "display_name": "Express Connect",
+      "implementations": {
+        "shipcloud": {
+          "services": [{
+              "display_name": "One day",
+              "key": "one_day"
+            },
+            {
+              "display_name": "One day early",
+              "key": "one_day_early"
+            }
+          ],
+          "package_types": [{
+            "display_name": "Parcel",
+            "key": "parcel"
+          }],
+          "label_sizes": [{
+            "display_name": "DIN A5",
+            "key": "A5"
+          }],
+          "pickup_requests": [{
+            "display_name": "Shipment with pickup request",
+            "key": "shipment_with_pickup_request"
+          }],
+          "field_lengths": {
+            "last_name": "1 - 25 characters (firstname + last_name <= 25 characters)",
+            "company": "2 - 50 characters",
+            "care_of": "0 - 30 characters",
+            "street": "1 - 30 characters (street + street_no <= 30 characters)",
+            "zip_code": "0 - 9 characters",
+            "city": "1 - 30 characters",
+            "state": "0 - 30 characters",
+            "country": "3 characters",
+            "phone": "4 - 16 characters (contactdialcode = 1 - 7 characters; contacttelephone = 1 - 9 characters)"
+          }
+        }
+      }
+    }
+  },
+  "marketing": {
+    "en": {
+      "help_center": "https://support.shipcloud.io/en/collections/1544045-carriers#tnt",
+      "website": "https://www.shipcloud.io/en/partner/carriers/tnt"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+<ul class="list-outside list-disc">
+  <li>
+    <strong>carrier</strong> (string), the carrier you want to use. Possible values are "dpd",
+    "fedex", "hermes", "ups".
+  </li>
+  <li>
+    <strong>pickup_time</strong> (object), contains the earliest and latest pickup time in iso8601.
+    <ul class="list-outside list-disc">
+      <li>
+        <strong>earliest</strong> (datetime), the date the shipments are ready for pickup.
+      </li>
+      <li>
+        <strong>latest</strong> (datetime), the latest date for pick up.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <strong>pickup_address</strong> (object, optional), address where the carrier should pick up
+    shipments. See <a href="{{ site.baseurl }}/reference/#addresses">address request</a> for a
+    detailed definition.
+  </li>
+  <li>
+    <strong>shipments</strong> (array of shipment objects, optional), if you want only certain
+    shipments to get picked up, you can send the specific shipment objects with the request. Please
+    keep in mind that return shipments can't be picked up.
+  </li>
+</ul>
+
+<div class="bg-grey-light border-t-4 border-grey rounded-b px-4 py-3 shadow-md my-2" role="alert">
+  <p class="flex mb-m">
+    <i class="fas fa-info h-6 w-6 mr-4"></i>
+    <strong>Deprecated Parameters:</strong>
+  </p>
+  <ul class="list-outside list-disc">
+    <li>
+      <strong>pickup_date (string)</strong>, pickup date (e.g. 2014/02/12). Please use
+      <code>pickup_time</code> instead.
+    </li>
+  </ul>
+</div>

@@ -16,3 +16,9 @@ vendor/bundle
 
 .tags
 .tags1
+
+node_modules
+
+# ignore firebase stuff
+.firebase
+firebase-debug.log

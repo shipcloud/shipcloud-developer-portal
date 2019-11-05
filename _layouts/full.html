@@ -3,33 +3,17 @@
 
   {% include head.html %}
 
-  <body data-spy="scroll" data-target="#sub-nav" data-offset="90">
+  <body>
     {% include google_tag_manager_body.html %}
 
     {% include header.html %}
 
-    <div class="full-page-content">
-      <div class="row">
-        {% if page.nav %}
-          <div class="col-md-9">
-            {{ content }}
-          </div>
-          <div class="col-md-3">
-            {% if page.nav == "reference" %}
-              {% include navs/reference_nav.html %}
-            {% elsif page.nav == "concepts" %}
-              {% include navs/concepts_nav.html %}
-            {% elsif page.nav == "examples" %}
-              {% include navs/examples_nav.html %}
-            {% endif %}
-          </div>
-        {% else %}
-          <div class="col-md-12">
-            {{ content }}
-          </div>
-        {% endif %}
+    <div class="flex">
+      <div class="px-4 pt-24 w-full lg:w-2/3">
+        <div class="pb-xl">
+          {{ content }}
+        </div>
       </div>
-      {% include edit_on_github.html %}
     </div>
 
     {% include footer.html %}

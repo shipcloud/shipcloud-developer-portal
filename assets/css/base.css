@@ -1,0 +1,166 @@
+---
+---
+@import "tailwindcss/base";
+
+
+@import "assets/css/fonts";
+@import "assets/css/shipcloud-carriers";
+@import "assets/css/shipcloud-icons";
+@import "assets/css/syntax-highlighting";
+@import "assets/css/statuspage_io";
+
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  --color-primary: theme('colors.blue.default');
+  --color-secondary: theme('colors.blue.light');
+}
+
+*[id]:before {
+  display: block;
+  content: " ";
+  margin-top: -75px;
+  height: 75px;
+  visibility: hidden;
+}
+
+body {
+  color: theme('colors.grey.darker');
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+/* p {
+  padding-bottom: theme('spacing.m');
+} */
+
+a {
+  color: theme('colors.red');
+}
+
+a:hover {
+  color: theme('colors.orange');
+}
+
+/* code {
+  background-color: #eef;
+  border: 1px solid theme('colors.grey.light');
+  border-radius: 3px;
+  padding: theme('spacing.s');
+}
+
+code,
+pre {
+  background-color: #eef;
+}
+pre {
+  border: 1px solid theme('colors.grey.light');
+  padding: theme('spacing.s') 0;
+} */
+
+/* .nav li {
+  margin-bottom: theme('spacing.m');
+} */
+
+pre {
+  padding: 8px 12px;
+  overflow-x: scroll;
+}
+
+pre > code {
+  border: 0;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+  white-space: pre-wrap;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+code {
+  padding: 1px 5px;
+}
+
+pre, code {
+  font-size: 15px;
+  border: 1px solid #e8e8e8;
+  border-radius: 3px;
+  background-color: theme('colors.grey.lighter');
+}
+
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+
+.algolia-autocomplete {
+  width: 100%;
+}
+
+.highlight {
+  background-color: transparent;
+}
+
+li {
+  margin-left: theme('spacing.m');
+}
+
+li.nav--level-2 {
+  font-weight: initial;
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+li.nav--level-2 a {
+  color: theme('colors.grey.dark');
+}
+
+nav a {
+  color: theme('colors.grey.darker');
+}
+
+nav a:hover {
+  color: theme('colors.red');
+}
+
+.example figure:first-of-type {
+  margin-bottom: theme('spacing.s');
+}

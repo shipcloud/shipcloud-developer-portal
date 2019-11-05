@@ -1,17 +1,12 @@
-<div class="panel-group" id="shipments_index_request_togglebox">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#shipments_index_request_togglebox" href="#shipments_index_request_togglebox_collapsable">
-          <i class="fas fa-chevron-down"></i> Parameter description (GET)
-        </a>
-      </h4>
-    </div>
-    <div id="shipments_index_request_togglebox_collapsable" class="panel-collapse collapse">
-      <div class="panel-body">
-        {% capture shipments_index_request_parameters %}{% include reference/shipments_index_request_parameters.md %}{% endcapture %}
-        {{ shipments_index_request_parameters | markdownify }}
-      </div>
-    </div>
-  </div>
-</div>
+<section class="shadow my-m">
+    <article class="border-b">
+        <div class="border-l-2 border-transparent">
+          {% include utils/toggle_element.html target="#shipments_index_request_togglebox" link_text="Parameter description (GET)"%}
+          <div class="px-4 pb-2 text-grey-darkest hidden" id="shipments_index_request_togglebox">
+            <p>
+              {% include reference/shipments_index_request_parameters.html %}
+            </p>
+          </div>
+        </div>
+    </article>
+</section>

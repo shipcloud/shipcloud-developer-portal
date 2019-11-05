@@ -1,0 +1,72 @@
+<h4 id="hsi---cover-address" class="text-blue">
+  Cover address
+</h4>
+
+<p>
+  When sending parcels from a different location than what is specified by your contract, you can
+  specify a so called <em>"cover address"</em> that will be printed on the label as the sender. This
+  is especially useful for customers who are using a fulfillment provider for their shipments.
+</p>
+
+<p class="mt-m">
+  <strong>Requirements:</strong>
+</p>
+
+<ul class="list-inside list-disc">
+  <li>You have to use your own (Hermes HSI) carrier contract</li>
+  <li>The feature needs to be activated by Hermes</li>
+  <li><code>cover_address</code> needs to be specified at the root level</li>
+</ul>
+
+<section class="shadow my-m">
+  <article class="border-b">
+    <div class="border-l-2 border-transparent">
+      {% include utils/toggle_element.html target="#hsi_cover_address_service_togglebox" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="hsi_cover_address_service_togglebox">
+        <div class="mt-m">
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "cover_address": {
+    "company": "CoverCompany",
+    "first_name": "CoverFirstName",
+    "last_name": "CoverLastName",
+    "care_of": "CoverCareOf",
+    "street": "CoverStreet",
+    "street_no": "99",
+    "city": "CoverCity",
+    "zip_code": "20148",
+    "state": "CoverState",
+    "country": "DE",
+    "phone": "+4915112345678",
+    "email": "cover@mail.com"
+  },
+  "to": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "company": "Receiver Ltd.",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE"
+  },
+  "package": {
+    "weight": "2.5",
+    "length": "40",
+    "width": "20",
+    "height": "10",
+    "type": "parcel"
+  },
+  "service": "standard",
+  "carrier": "hermes",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

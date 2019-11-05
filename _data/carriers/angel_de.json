@@ -1,0 +1,43 @@
+{
+  "css_key": "angel",
+  "display_name": "ANGEL",
+  "key": "angel_de",
+  "interfaces": {
+    "v1": {
+      "display_name": "ANGEL DE API V1",
+      "implementations": {
+        "shipcloud": {
+          "services": [{
+              "display_name": "Same Day",
+              "key": "same_day"
+            }
+          ],
+          "package_types": [{
+              "display_name": "Parcel",
+              "key": "parcel"
+            }
+          ],
+          "additional_services": [{
+            "display_name": "MyTime",
+            "key": "angel_de_delivery_date_time"
+          }],
+          "label_sizes": [{
+              "display_name": "DIN A5",
+              "key": "A5"
+            },
+            {
+              "display_name": "DIN A6",
+              "key": "A6"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "marketing": {
+    "en": {
+      "help_center": "https://support.shipcloud.io/en/collections/1544045-carriers#angel",
+      "website": "https://www.shipcloud.io/en/partner/carriers/angel"
+    }
+  }
+}

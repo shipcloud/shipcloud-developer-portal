@@ -1,0 +1,69 @@
+<h4 id="v3---parcel-letter" class="text-blue">
+  Bücher- und Warenversand
+</h4>
+
+<p>
+  If you want to send books, replacement parts, electronic devices, mobile telephone accessories,
+  data storage devices, textiles and household goods you can do so by using the service
+  <a href="https://www.deutschepost.de/en/w/buecherundwarensendung.html" target="_blank">Bücher- und
+  Warenversand</a> by Deutsche Post AG.
+</p>
+
+
+<p class="mt-m">
+  <strong>Requirements:</strong>
+</p>
+<ul class="list-inside list-disc">
+  <li><code>package.type</code> has to be <code><em>parcel_letter</em></code></li>
+  <li><code>carrier</code> has to be <code><em>dpag</em></code></li>
+  <li><code>service</code> has to be <code><em>standard</em></code></li>
+</ul>
+
+<section class="shadow my-m">
+  <article class="border-b">
+    <div class="border-l-2 border-transparent">
+      {% include utils/toggle_element.html target="#v3_parcel_letter_togglebox" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="v3_parcel_letter_togglebox">
+        <div class="mt-m">
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+    "from": {
+        "first_name": "Serge",
+        "last_name": "Sender",
+        "company": "Sender Corp.",
+        "street": "Sender Str.",
+        "street_no": "99",
+        "zip_code": "20148",
+        "city": "Hamburg",
+        "country": "DE"
+    },
+    "to": {
+        "first_name": "Roger",
+        "last_name": "Receiver",
+        "street": "Receiver Str.",
+        "street_no": "1",
+        "city": "Hamburg",
+        "zip_code": "20535",
+        "country": "DE"
+    },
+    "package": {
+        "weight": 0.5,
+        "length": 25,
+        "width": 36,
+        "height": 5,
+        "type": "parcel_letter"
+    },
+    "carrier": "{{page.carrier}}",
+    "service": "standard",
+    "create_shipping_label": true
+}
+{% endhighlight %}
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

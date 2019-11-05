@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "shipcloud-developer-portal"
+    "default": "shipcloud-developer-portal",
+    "staging": "shipcloud-dev-portal-staging"
   }
 }

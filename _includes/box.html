@@ -1,9 +1,7 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">{{ include.headline }}</h3>
-  </div>
-  <div class="panel-body">
+<section class="my-m">
+  <h3 class="text-blue">{{ include.headline }}</h3>
+  <div class="mt-m">
     {% capture include_file %}{% include {{include.body-file}} %}{% endcapture %}
     {{ include_file | markdownify }}
   </div>
-</div>
+</section>

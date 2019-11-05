@@ -1,0 +1,79 @@
+{
+  "css_key": "hermes",
+  "display_name": "Hermes",
+  "key": "hermes",
+  "interfaces": {
+    "hsi": {
+      "display_name": "Hermes Shipping Interface",
+      "implementations": {
+        "shipcloud": {
+          "services": [{
+              "display_name": "Standard",
+              "key": "standard"
+            },
+            {
+              "display_name": "Returns",
+              "key": "returns"
+            }
+          ],
+          "package_types": [{
+              "display_name": "Bulk shipments",
+              "key": "bulk"
+            },
+            {
+              "display_name": "Parcel",
+              "key": "parcel"
+            }
+          ],
+          "additional_services": [{
+              "display_name": "Customer Alert",
+              "key": "advance_notice"
+            },
+            {
+              "display_name": "IdentService",
+              "key": "hermes_identservice"
+            }
+          ],
+          "other_attributes": [{
+
+            "display_name": "Cover address",
+            "key": "cover_address"
+          },
+          {
+            "display_name": "ParcelShopDeliveryService",
+            "key": "parcel_shop_delivery_service"
+          }],
+          "label_sizes": [{
+              "display_name": "DIN A5",
+              "key": "A5"
+            },
+            {
+              "display_name": "DIN A6",
+              "key": "A6"
+            }
+          ],
+          "misc": [{
+            "display_name": "Cutoff times",
+            "key": "cutoff_times"
+          }],
+          "field_lengths": {
+            "first_name": "0 - 20 characters",
+            "last_name": "1 - 30 characters",
+            "company": "0 - 20 characters",
+            "care_of": "0 - 20 characters",
+            "street": "1 - 27 characters",
+            "street_no": "1 - 5 characters",
+            "zip_code": "1 - 8 characters",
+            "city": "1 - 30 characters"
+          }
+        }
+      }
+    }
+  },
+  "marketing": {
+    "en": {
+      "help_center": "https://support.shipcloud.io/en/collections/1544045-carriers#hermes",
+      "website": "https://www.shipcloud.io/en/partner/carriers/hermes"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{% assign carriers = site.data.carriers | sort %}
+<ul class="list-inside list-disc">
+  {% for carrier in carriers %}
+    {% for interface in carrier[1].interfaces %}
+      {% assign additional_services = interface[1].implementations.shipcloud.additional_services %}
+      {% for additional_service in additional_services %}
+        {% if additional_service.key == include.additional_service %}
+          <li>
+            <a href="{{site.baseurl}}/carriers/{{ carrier[1].key }}.html#{{ interface[0] | slugify }}---{{ include.additional_service | slugify }}">
+              {{ carrier[1].display_name }}
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  {% endfor %}
+</ul>

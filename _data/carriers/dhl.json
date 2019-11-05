@@ -1,0 +1,118 @@
+{
+  "css_key": "dhl",
+  "display_name": "DHL",
+  "key": "dhl",
+  "interfaces": {
+    "v2": {
+      "display_name": "DHL Api V2.1",
+      "implementations": {
+        "shipcloud": {
+          "services": [{
+              "display_name": "Standard",
+              "key": "standard"
+            },
+            {
+              "display_name": "Returns",
+              "key": "returns"
+            },
+            {
+              "display_name": "Europaket",
+              "key": "dhl_europaket"
+            }
+          ],
+          "package_types": [{
+              "display_name": "Bulk shipments",
+              "key": "bulk"
+            },
+            {
+              "display_name": "Parcel",
+              "key": "parcel"
+            }
+          ],
+          "additional_services": [{
+              "display_name": "Advance notice",
+              "key": "advance_notice"
+            },
+            {
+              "display_name": "Cash on delivery",
+              "key": "cash_on_delivery"
+            },
+            {
+              "display_name": "Go Green",
+              "key": "dhl_gogreen"
+            },
+            {
+              "display_name": "Ident Check",
+              "key": "dhl_ident_check"
+            },
+            {
+              "display_name": "Preferred delivery time",
+              "key": "delivery_time"
+            },
+            {
+              "display_name": "Premium international",
+              "key": "premium_international"
+            },
+            {
+              "display_name": "Visual age check",
+              "key": "visual_age_check"
+            }
+          ],
+          "other_attributes": [{
+              "display_name": "Additional insurance",
+              "key": "declared_value"
+            },
+            {
+              "display_name": "Customs declaration",
+              "key": "customs_declaration"
+            },
+            {
+              "display_name": "Packstation",
+              "key": "packstation"
+            },
+            {
+              "display_name": "Postfiliale",
+              "key": "postfiliale"
+            }
+          ],
+          "label_sizes": [{
+              "display_name": "DIN A5",
+              "key": "A5"
+            },
+            {
+              "display_name": "DIN A6",
+              "key": "A6"
+            }
+          ],
+          "field_lengths": {
+            "company": "2 - 50 characters",
+            "last_name": "1 - 35 characters (firstname + last_name <= 35 characters)",
+            "care_of": "0 - 35 characters",
+            "street": "1 - 35 characters",
+            "street_no": "1 - 5 characters",
+            "zip_code": "1 - 10 characters",
+            "city": "1 - 35 characters",
+            "state": "0 - 30 characters",
+            "phone": "0 - 20 characters",
+            "notification_email": "0 - 70 characters",
+            "customs_declaration": {
+              "contents_explanation": "0 - 256 characters",
+              "invoice_number": "0 - 35 characters",
+              "drop_off_location": "0 - 35 characters",
+              "items": {
+                "description": "0 - 256 characters",
+                "hs_tariff_number": "1 - 10 characters"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "marketing": {
+    "en": {
+      "help_center": "https://support.shipcloud.io/en/collections/1544045-carriers#dhl",
+      "website": "https://www.shipcloud.io/en/partner/carriers/dhl"
+    }
+  }
+}

@@ -1,94 +1,91 @@
-<div class="row">
-  <div class="col-md-12">
-    <table class="table status_codes">
-      <thead>
-        <tr>
-          <th>Code</th>
-          <th>Name</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>200</td>
-          <td>ok</td>
-          <td>Everything went fine.</td>
-        </tr>
-        <tr>
-          <td>204</td>
-          <td>no content</td>
-          <td>
-            There is no message body. You'll get this code when
-            <a href="{{ site.baseurl }}/reference/#deleting-a-shipment">deleting a shipment</a>
-            was successful.
-          </td>
-        </tr>
-        <tr>
-          <td>400</td>
-          <td>bad request</td>
-          <td>
-            Your request was not correct. Please see the response body for more detailed information.
-          </td>
-        </tr>
-        <tr>
-          <td>401</td>
-          <td>Unauthorized</td>
-          <td>
-            You didn't authorize with our api. Probably because you forgot to send your api key for
-            authorizing at our api.
-          </td>
-        </tr>
-        <tr>
-          <td>402</td>
-          <td>payment required</td>
-          <td>You've reached the maximum of your current plan. Please upgrade to a higher plan.</td>
-        </tr>
-        <tr>
-          <td>403</td>
-          <td>forbidden</td>
-          <td>
-            You are not allowed to talk to this endpoint. This can either be due to a wrong
-            authentication or when you're trying to reach an endpoint that your account isn't
-            allowed to access.
-          </td>
-        </tr>
-        <tr>
-          <td>404</td>
-          <td>not found</td>
-          <td>The api endpoint you were trying to reach can't be found.</td>
-        </tr>
-        <tr>
-          <td>422</td>
-          <td>unprocessable entity</td>
-          <td>
-            Your request was well-formed but couldn't be followed due to semantic errors. Please see the response body
-            for more detailed information.
-          </td>
-        </tr>
-        <tr>
-          <td>500</td>
-          <td>internal server error</td>
-          <td>Something has seriously gone wrong. Don't worry, we'll have a look at it.</td>
-        </tr>
-        <tr>
-          <td>502</td>
-          <td>bad gateway</td>
-          <td>
-            Something has gone wrong while talking to the carrier backend. Please see the response body for more
-            detailed information.
-          </td>
-        </tr>
-        <tr>
-          <td>504</td>
-          <td>gateway timeout</td>
-          <td>
-            Unfortunately we couldn't connect to the carrier backend. It is either very slow or not reachable at all.
-            If you want to stay informed about the carrier status, follow our developer twitter account at
-            <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank">
-              @{{ site.twitter_username }}</a>.
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+<table class="table-fixed text-left status_codes">
+  <thead>
+    <tr>
+      <th class="px-4 py-2 border-b bg-grey-light">Code</th>
+      <th class="px-4 py-2 border-b bg-grey-light w-1/6">Name</th>
+      <th class="px-4 py-2 border-b bg-grey-light">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="px-4 py-2 border-b text-center">200</td>
+      <td class="px-4 py-2 border-b">ok</td>
+      <td class="px-4 py-2 border-b">Everything went fine.</td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b text-center">204</td>
+      <td class="px-4 py-2 border-b">no content</td>
+      <td class="px-4 py-2 border-b">
+        There is no message body. You'll get this code when
+        <a href="{{ site.baseurl }}/reference/#deleting-a-shipment">deleting a shipment</a>
+        was successful.
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b text-center">400</td>
+      <td class="px-4 py-2 border-b">bad request</td>
+      <td class="px-4 py-2 border-b">
+        Your request was not correct. Please see the response body for more detailed information.
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b text-center">401</td>
+      <td class="px-4 py-2 border-b">Unauthorized</td>
+      <td class="px-4 py-2 border-b">
+        You didn't authorize with our api. Probably because you forgot to send your api key for
+        authorizing at our api.
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b text-center">402</td>
+      <td class="px-4 py-2 border-b">payment required</td>
+      <td class="px-4 py-2 border-b">You've reached the maximum of your current plan. Please upgrade to a higher plan.</td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b text-center">403</td>
+      <td class="px-4 py-2 border-b">forbidden</td>
+      <td class="px-4 py-2 border-b">
+        You are not allowed to talk to this endpoint. This can either be due to a wrong
+        authentication or when you're trying to reach an endpoint that your account isn't
+        allowed to access.
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b text-center">404</td>
+      <td class="px-4 py-2 border-b">not found</td>
+      <td class="px-4 py-2 border-b">The api endpoint you were trying to reach can't be found.</td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b text-center">422</td>
+      <td class="px-4 py-2 border-b">unprocessable entity</td>
+      <td class="px-4 py-2 border-b">
+        Your request was well-formed but couldn't be followed due to semantic errors. Please see the response body
+        for more detailed information.
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b text-center">500</td>
+      <td class="px-4 py-2 border-b">internal server error</td>
+      <td class="px-4 py-2 border-b">Something has seriously gone wrong. Don't worry, we'll have a look at it.</td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b text-center">502</td>
+      <td class="px-4 py-2 border-b">bad gateway</td>
+      <td class="px-4 py-2 border-b">
+        Something has gone wrong while talking to the carrier backend. Please see the response body for more
+        detailed information.
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 text-center">504</td>
+      <td class="px-4 py-2">gateway timeout</td>
+      <td class="px-4 py-2">
+        Unfortunately we couldn't connect to the carrier backend. It is either very slow or not reachable at all.
+        If you want to stay informed about the carrier status, follow our developer twitter account at
+        <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank">
+          @{{ site.twitter_username }}</a>.
+      </td>
+    </tr>
+  </tbody>
+</table>
+

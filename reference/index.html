@@ -1,0 +1,1238 @@
+---
+title: shipcloud api reference
+nav: reference
+layout: request_response
+---
+<div class="ml-56 flex flex-col pt-16">
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l pt-l">
+        <h1>
+          shipcloud API v1
+        </h1>
+
+        <h2 class="mt-l" id="changelog">
+          Changelog
+        </h2>
+        <p>
+          If you haven't seen it already in the
+          <a href="https://github.com/shipcloud/shipcloud.github.io/">github-repo for this website</a> -
+          we've got a
+          <a href="{{ site.baseurl }}/API_CHANGELOG.html">
+          api changelog</a> where you can see the changes we've made to our api.
+        </p>
+
+        <h2 class="mt-l" id="http-status-codes">
+          http status codes
+        </h2>
+        <p class="my-m">
+          When talking to our API you can receive the following status codes:
+        </p>
+        <p>
+          {% include reference/http_status_codes.html %}
+        </p>
+      </div>
+    </div>
+    <div class="bg-blue-dark w-4/12 flex-grow">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h2 class="mt-l" id="addresses">
+          Addresses
+        </h2>
+        <p>
+          The following is a section of resources related to addresses.
+        </p>
+        <p>
+          {% include reference/addresses_request_togglebox.html %}
+        </p>
+        <h3 class="mt-l" id="creating-an-address">
+          Creating an address
+        </h3>
+        <p>
+          If you want to create an Address, this is the way to go!
+        </p>
+      </div>
+    </div>
+    <div class="bg-blue-dark w-4/12 flex-grow">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h4 class="mt-l">
+          Request
+        </h4>
+        <p class="my-m">
+          <button class="px-2 py-1 rounded bg-green text-white font bold">POST</button> <strong>/v1/addresses</strong>
+        </p>
+
+{% highlight json %}
+{% include addresses_post_put_request.json %}
+{% endhighlight %}
+
+        <p class="mt-s">
+          JSON schema: <a href="{{ site.baseurl }}/reference/post_addresses_request_schema.html">
+          Create addresses request</a>
+        </p>
+      </div>
+    </div>
+    <div class="bg-blue-dark px-xl w-4/12 flex-grow">
+      <div class="pb-l h-full">
+        <h4 class="mt-l text-white">
+          Response
+        </h4>
+        {% include headers/200_ok.html %}
+{% highlight json %}
+{% include addresses_post_put_response.json %}
+{% endhighlight %}
+
+        <p class="mt-s text-white">
+          JSON schema: <a href="{{ site.baseurl }}/reference/address_response_schema.html">
+          Create addresses response</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h3 class="mt-l" id="getting-a-list-of-addresses">
+          Getting a list of addresses
+        </h3>
+      </div>
+    </div>
+    <div class="bg-blue-dark w-4/12 flex-grow">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h4 class="mt-l">
+          Request
+        </h4>
+        <p class="my-m">
+          <button class="px-2 py-1 rounded bg-green text-white font bold">GET</button> <strong>/v1/addresses</strong>
+        </p>
+        <p>
+          You can filter the shipments list using one or more of the following
+        </p>
+        {% include reference/addresses_request_filter_togglebox.html %}
+      </div>
+    </div>
+    <div class="bg-blue-dark px-xl w-4/12 flex-grow">
+      <div class="pb-l h-full">
+        <h4 class="mt-l text-white">
+          Response
+        </h4>
+        {% include headers/200_ok.html %}
+{% highlight json %}
+{% include addresses_index_response.json %}
+{% endhighlight %}
+      </div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h3 class="mt-l" id="show-an-address">
+          Show an Address
+        </h3>
+      </div>
+    </div>
+    <div class="bg-blue-dark w-4/12 flex-grow">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h4 class="mt-l">
+          Request
+        </h4>
+        <p class="my-m">
+          <button class="px-2 py-1 rounded bg-green text-white font bold">GET</button> <strong>/v1/addresses/:id</strong>
+        </p>
+
+        <strong>GET parameters:</strong>
+        <ul class="list-inside list-disc">
+          <li><strong>id</strong>, the id attribute that was returned when creating the address</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bg-blue-dark px-xl w-4/12 flex-grow">
+      <div class="pb-l h-full">
+        <h4 class="mt-l text-white">
+          Response
+        </h4>
+        {% include headers/200_ok.html %}
+        {% highlight json %}
+        {% include addresses_get_response.json %}
+        {% endhighlight %}
+
+        <p class="mt-s text-white">
+          JSON schema: <a href="{{ site.baseurl }}/reference/address_response_schema.html">
+          Address response</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h2 class="mt-l" id="shipments">
+          Shipments
+        </h2>
+        <p>
+          The following is a section of resources related to shipments. Be advised: We will charge you only for shipments that a
+          label was created for.
+        </p>
+
+        <div class="bg-grey-light border-t-4 border-grey-darker text-grey-darker rounded-b px-4 py-3 shadow-md my-2" role="alert">
+          <div class="flex">
+            <div>
+              <i class="fas fa-info-circle h-6 w-6 mr-4"></i>
+            </div>
+            <div>
+                Please notice the requirements regarding the use of the parameter "description" (either in
+                the root or as part of the "package" attribute).
+            </div>
+          </div>
+        </div>
+
+        {% include reference/shipments_request_togglebox.html %}
+
+        <h3 class="mt-l" id="creating-a-shipment">
+          Creating a shipment
+        </h3>
+        <p>
+          If you want to create a shipment, this is the way to go!
+        </p>
+      </div>
+    </div>
+    <div class="bg-blue-dark w-4/12 flex-grow">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l h-full">
+        <h4 class="mt-l">
+          Request
+        </h4>
+        <p class="my-m">
+          <button class="px-2 py-1 rounded bg-green text-white font bold">POST</button> <strong>/v1/shipments</strong>
+        </p>
+
+{% highlight json %}
+{% include shipments_post_put_request.json %}
+{% endhighlight %}
+
+        <p class="mt-s">
+          JSON schema: <a href="{{ site.baseurl }}/reference/shipments_request_schema.html">
+          Shipments request</a>
+        </p>
+
+      </div>
+    </div>
+    <div class="bg-blue-dark px-xl w-4/12 flex-grow">
+      <div class="pb-l h-full">
+        <h4 class="mt-l text-white">
+          Response
+        </h4>
+        {% include headers/200_ok.html %}
+{% highlight json %}
+{% include shipments_post_put_response.json %}
+{% endhighlight %}
+
+        <p class="mt-s text-white">
+          JSON schema: <a href="{{ site.baseurl }}/reference/shipments_response_reduced_schema.html">
+          Shipments response</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h3 class="mt-l" id="getting-a-list-of-shipments">
+          Getting a list of shipments
+        </h3>
+      </div>
+    </div>
+    <div class="bg-blue-dark w-4/12 flex-grow">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l h-full">
+        <h4 class="mt-l">
+          Request
+        </h4>
+        <p class="my-m">
+          <button class="px-2 py-1 rounded bg-green text-white font bold">GET</button> <strong>/v1/shipments</strong>
+        </p>
+
+{% highlight json %}
+no payload
+{% endhighlight %}
+
+        <p class="my-m">
+          You can filter the shipments list by using one or more of the following GET parameters.
+        </p>
+
+        {% include reference/shipments_index_request_togglebox.html %}
+      </div>
+    </div>
+    <div class="bg-blue-dark px-xl w-4/12 flex-grow">
+      <div class="pb-l h-full">
+        <h4 class="mt-l text-white">
+          Response
+        </h4>
+        {% include headers/200_ok.html %}
+{% highlight json %}
+{% include shipments_index_response.json %}
+{% endhighlight %}
+      </div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h3 class="mt-l" id="getting-information-about-a-shipment">
+          Getting information about a shipment
+        </h3>
+        <div class="bg-grey-light border-t-4 border-grey-darker text-grey-darker rounded-b px-4 py-3 shadow-md my-2" role="alert">
+          <div class="flex">
+            <div>
+              <i class="fas fa-info-circle h-6 w-6 mr-4"></i>
+            </div>
+            <div>
+                Only shipments where <code>create_shipping_label</code> is <code>true</code> contain prices
+                and may contain tracking_events
+            </div>
+          </div>
+          <div class="flex">
+            <div>
+              <i class="fas fa-info-circle h-6 w-6 mr-4"></i>
+            </div>
+            <div>
+                Shipments that are created on the sandbox system aren't send to the carriers. Therefore they
+                won't contain tracking events.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-blue-dark w-4/12 flex-grow">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l h-full">
+        <h4 class="mt-l">
+          Request
+        </h4>
+        <p class="my-m">
+          <button class="px-2 py-1 rounded bg-green text-white font bold">GET</button> <strong>/v1/shipments/:id</strong>
+        </p>
+
+{% highlight shell %}
+no payload
+{% endhighlight %}
+
+        <p class="mt-m">
+          <strong>URL parameters:</strong>
+        </p>
+
+        <ul class="list-inside list-disc">
+          <li><strong>id</strong>, the id attribute that was returned when creating the shipment</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bg-blue-dark px-xl w-4/12 flex-grow">
+      <div class="pb-l h-full">
+        <h4 class="mt-l text-white">
+          Response
+        </h4>
+        {% include headers/200_ok.html %}
+{% highlight json %}
+{% include shipments_get_response.json %}
+{% endhighlight %}
+
+        <p class="mt-s text-white">
+          JSON schema: <a href="{{ site.baseurl }}/reference/shipments_query_response_schema.html">
+          Shipments response</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h3 class="mt-l" id="updating-a-shipment">
+          Updating a shipment
+        </h3>
+      </div>
+    </div>
+    <div class="bg-blue-dark w-4/12 flex-grow">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l h-full">
+        <h4 class="mt-l">
+          Request
+        </h4>
+
+        <p class="my-m">
+          <button class="px-2 py-1 rounded bg-green text-white font bold">PUT</button> <strong>/v1/shipments/:id</strong>
+        </p>
+
+{% highlight json %}
+{% include shipments_post_put_request.json %}
+{% endhighlight %}
+      </div>
+    </div>
+    <div class="bg-blue-dark px-xl w-4/12 flex-grow">
+      <div class="pb-l h-full">
+        <h4 class="mt-l text-white">
+          Response
+        </h4>
+        {% include headers/200_ok.html %}
+{% highlight json %}
+{% include shipments_post_put_response.json %}
+{% endhighlight %}
+      </div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h3 class="mt-l" id="deleting-a-shipment">
+          Deleting a shipment
+        </h3>
+        <div class="bg-grey-light border-t-4 border-grey-darker text-grey-darker rounded-b px-4 py-3 shadow-md my-2" role="alert">
+          <div class="flex">
+            <div>
+              <i class="fas fa-info-circle h-6 w-6 mr-4"></i>
+            </div>
+            <div>
+                Prepared shipments (<code>create_shipping_label</code> is <code>false</code>) can be deleted
+                at any time, because no transaction with the carrier has happened until this point and no
+                actual shipping label has been created. In case you've created a shipping label you can
+                delete it before the cutoff time of the carrier. Cutoff times differ from carrier to carrier
+                and are some time between 5pm and 8pm.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-blue-dark w-4/12 flex-grow">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l h-full">
+        <h4 class="mt-l">
+          Request
+        </h4>
+
+        <p class="my-m">
+          <button class="px-2 py-1 rounded bg-green text-white font bold">DELETE</button> <strong>/v1/shipments/:id</strong>
+        </p>
+
+{% highlight shell %}
+no payload
+{% endhighlight %}
+
+        <p class="mt-m">
+          <strong>URL parameters:</strong>
+        </p>
+        <ul class="list-inside list-disc">
+          <li><strong>id</strong>, the id attribute that was returned when creating the shipment</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bg-blue-dark px-xl w-4/12 flex-grow">
+      <div class="pb-l h-full">
+        <h4 class="mt-l text-white">
+          Response
+        </h4>
+        <p class="my-m font-bold text-white">
+          204 (No Content)
+        </p>
+
+{% highlight json %}
+{}
+{% endhighlight %}
+      </div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h2 class="mt-l" id="shipment-quotes">
+          Shipment Quotes
+        </h2>
+        <p>
+          With this call you can find out how much we will charge you for a specific shipment.
+        </p>
+
+        {% include reference/shipment_quotes_request_togglebox.html %}
+
+        <h3 class="mt-l" id="creating-a-shipment-quote">
+          Creating a shipment quote
+        </h3>
+      </div>
+    </div>
+    <div class="bg-blue-dark w-4/12 flex-grow">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l h-full">
+        <h4 class="mt-l">
+          Request
+        </h4>
+        <p class="my-m">
+          <button class="px-2 py-1 rounded bg-green text-white font bold">POST</button> <strong>/v1/shipment_quotes</strong>
+        </p>
+
+{% highlight json %}
+{% include shipment_quotes_post_request.json %}
+{% endhighlight %}
+
+        <p class="my-m">
+          In case you've previously added an adress and know its <code>id</code>, you can use it instead of
+          providing a complete set of address data.
+        </p>
+
+{% highlight json %}
+{% include shipment_quotes_post_request_with_address_id.json %}
+{% endhighlight %}
+
+        <p class="mt-m">
+          You can also omit the <code>from</code> parameter if the users has configured a standard ship from address
+          in her/his shipcloud profile.
+        </p>
+
+        <p class="mt-s">
+          JSON schema: <a href="{{ site.baseurl }}/reference/shipment_quotes_request_schema.html">
+          Shipment Quotes request</a>
+        </p>
+      </div>
+    </div>
+    <div class="bg-blue-dark px-xl w-4/12 flex-grow">
+      <div class="pb-l h-full">
+        <h4 class="mt-l text-white">
+          Response
+        </h4>
+        {% include headers/200_ok.html %}
+{% highlight json %}
+{% include shipment_quotes_post_response.json %}
+{% endhighlight %}
+
+        <p class="mt-s text-white">
+          JSON schema: <a href="{{ site.baseurl }}/reference/shipment_quotes_response_schema.html">
+          Shipment Quotes response</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h2 class="mt-l" id="carriers">
+          Carriers
+        </h2>
+
+        <h3 class="mt-l" id="get-all-carriers-available-for-your-account">
+          Get all carriers available for your account
+        </h3>
+      </div>
+    </div>
+    <div class="bg-blue-dark w-4/12 flex-grow">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l h-full">
+        <h4 class="mt-l">
+          Request
+        </h4>
+
+        <p class="my-m">
+          <button class="px-2 py-1 rounded bg-green text-white font bold">GET</button> <strong>/v1/carriers</strong>
+        </p>
+
+{% highlight shell %}
+no payload
+{% endhighlight %}
+      </div>
+    </div>
+    <div class="bg-blue-dark px-xl w-4/12 flex-grow">
+      <div class="pb-l h-full">
+        <h4 class="mt-l text-white">
+          Response
+        </h4>
+        {% include headers/200_ok.html %}
+{% highlight json %}
+[
+  {
+    "name": "dhl",
+    "display_name": "Deutsche Post DHL",
+    "services": [
+      "standard",
+      "returns"
+    ],
+    "package_types": [
+      "parcel",
+      "bulk"
+    ]
+  },
+  {
+    "name": "dpag",
+    "display_name": "Deutsche Post",
+    "services": [
+      "standard"
+    ],
+    "package_types": [
+      "letter",
+      "parcel_letter",
+      "books"
+    ]
+  },
+  {
+    "name": "dpd",
+    "display_name": "DPD - Dynamic Parcel Distribution",
+    "services": [
+      "standard",
+      "returns",
+      "one_day",
+      "one_day_early"
+    ],
+    "package_types": [
+      "parcel",
+      "parcel_letter"
+    ]
+  }
+]
+{% endhighlight %}
+        <p class="mt-s text-white">
+          JSON schema: <a href="{{ site.baseurl }}/reference/carriers_response_schema.html">
+          Carriers response</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h2 class="mt-l" id="rates">
+          Rates
+        </h2>
+
+        <div class="bg-orange border-t-4 border-red text-white rounded-b px-4 py-3 shadow-md my-2" role="alert">
+          <div class="flex">
+            <p>
+              <i class="fas fa-exclamation-triangle h-6 w-6 mr-4"></i>
+            </p>
+            <p>
+              The rates call is <strong>deprecated</strong>.
+              Please use <a href="{{ site.baseurl }}/reference/#shipment-quotes" class="text-white hover:text-white underline">
+              Shipment Quotes</a>.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="mt-l" id="getting-the-rate-for-a-package">
+          Getting the rate for a package
+        </h3>
+
+        <div class="bg-grey-light border-t-4 border-grey-darker text-grey-darker rounded-b px-4 py-3 shadow-md my-2" role="alert">
+          <div class="flex">
+            <div>
+              <i class="fas fa-info-circle h-6 w-6 mr-4"></i>
+            </div>
+            <div>
+              You'll have to use your live api key to get the correct prices.
+            </div>
+          </div>
+        </div>
+
+        <p class="mt-m">
+          With this call you can find out how much a specific package will cost you.
+        </p>
+
+        {% include reference/rates_request_togglebox.html %}
+      </div>
+    </div>
+    <div class="bg-blue-dark w-4/12 flex-grow">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l h-full">
+        <h4 class="mt-l">
+          Request
+        </h4>
+        <p class="my-m">
+          <button class="px-2 py-1 rounded bg-green text-white font bold">POST</button> <strong>/v1/rates</strong>
+        </p>
+
+{% highlight json %}
+{% include rates_post_request.json %}
+{% endhighlight %}
+      </div>
+    </div>
+    <div class="bg-blue-dark px-xl w-4/12 flex-grow">
+      <div class="pb-l h-full">
+        <h4 class="mt-l text-white">
+          Response
+        </h4>
+        {% include headers/200_ok.html %}
+{% highlight json %}
+{% include rates_post_response.json %}
+{% endhighlight %}
+      </div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h2 class="mt-l" id="pickup-requests">
+          Pickup requests
+        </h2>
+
+        <h3 class="mt-l" id="requesting-a-pickup">
+          Requesting a pickup
+        </h3>
+        <p>
+          There are two ways you can request shipments to be picked up by a specific carrier. By simply
+          stating that all shipments that haven't been picked up already should be picked up or by specifying
+          which shipments should by picked up.
+        </p>
+        <div class="bg-grey-light border-t-4 border-grey-darker text-grey-darker rounded-b px-4 py-3 shadow-md my-2" role="alert">
+          <div class="flex">
+            <div>
+              <i class="fas fa-info-circle h-6 w-6 mr-4"></i>
+            </div>
+            <div>
+                <strong>Notice</strong>:
+                If you don't supply a pickup_address in your request, we're using the default from
+                address that's being defined in the shipcloud profile for requesting a pickup by the
+                carrier. Please keep in mind there are
+                <a href="{{ site.baseurl }}/carriers">carrier specific field lengths</a> you have to
+                take into account.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-blue-dark w-4/12 flex-grow">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l h-full">
+        <h4 class="mt-l">
+          Request
+        </h4>
+        <p>
+          Here's an example for having all shipments being picked up by a specific carrier:
+        </p>
+
+        {% include reference/pickup_requests_request_togglebox.html %}
+
+        <p class="my-m">
+          <button class="px-2 py-1 rounded bg-green text-white font bold">POST</button> <strong>/v1/pickup_requests</strong>
+        </p>
+
+{% highlight json %}
+{
+  "carrier": "dpd",
+  "pickup_time": {
+    "earliest": "2015-09-15T09:00:00+02:00",
+    "latest": "2015-09-15T18:00:00+02:00"
+  },
+  "pickup_address": {
+    "company": "Muster-Company",
+    "first_name": "Max",
+    "last_name": "Mustermann",
+    "street": "Musterstraße",
+    "street_no": "42",
+    "zip_code": "54321",
+    "city": "Musterstadt",
+    "country": "DE",
+    "phone": "555-555"
+  }
+}
+{% endhighlight %}
+
+        <p class="mt-m">
+          If you want to only have specific shipments be picked up you add the shipment ids to the call:
+        </p>
+
+        <p class="my-m">
+          <button class="px-2 py-1 rounded bg-green text-white font bold">POST</button> <strong>/v1/pickup_requests</strong>
+        </p>
+
+        {% highlight json %}
+        {% include pickup_post_requests_request.json %}
+        {% endhighlight %}
+
+        <p class="mt-s">
+          JSON schema: <a href="{{ site.baseurl }}/reference/pickup_requests_request_schema.html">
+          Pickup Requests request</a>
+        </p>
+      </div>
+    </div>
+    <div class="bg-blue-dark px-xl w-4/12 flex-grow">
+      <div class="pb-l h-full">
+        <h4 class="mt-l text-white">
+          Response
+        </h4>
+        <div class="bg-grey-light border-t-4 border-grey-darker text-grey-darker rounded-b px-4 py-3 shadow-md my-2" role="alert">
+          <div class="flex">
+            <div>
+              <i class="fas fa-info-circle h-6 w-6 mr-4"></i>
+            </div>
+            <div>
+                <strong>Notice</strong>:
+                Some carriers (e.g. Hermes) are using the address that's being defined at
+                the carrier account for picking up shipments. In those cases we'll return
+                <code>null</code> as pickup_address.
+            </div>
+          </div>
+        </div>
+
+        {% include headers/200_ok.html %}
+        {% highlight json %}
+        {% include pickup_post_requests_response.json %}
+        {% endhighlight %}
+
+        <p class="mt-s text-white">
+          JSON schema: <a href="{{ site.baseurl }}/reference/pickup_requests_response_schema.html">
+          Pickup Requests response</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h3 class="mt-l" id="getting-a-list-of-pickup-requests">
+          Getting a list of pickup requests
+        </h3>
+      </div>
+    </div>
+    <div class="bg-blue-dark w-4/12 flex-grow">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l h-full">
+        <h4 class="mt-l">
+          Request
+        </h4>
+
+        <p class="my-m">
+          <button class="px-2 py-1 rounded bg-green text-white font bold">GET</button> <strong>/v1/pickup_requests</strong>
+        </p>
+
+{% highlight shell %}
+no payload
+{% endhighlight %}
+      </div>
+    </div>
+    <div class="bg-blue-dark px-xl w-4/12 flex-grow">
+      <div class="pb-l h-full">
+        <h4 class="mt-l text-white">
+          Response
+        </h4>
+
+        {% include headers/200_ok.html %}
+{% highlight json %}
+{% include pickup_requests_index_response.json %}
+{% endhighlight %}
+      </div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h3 class="mt-l" id="getting-information-about-a-pickup-request">
+          Getting information about a pickup request
+        </h3>
+      </div>
+    </div>
+    <div class="bg-blue-dark w-4/12 flex-grow">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l h-full">
+        <h4 class="mt-l">
+          Request
+        </h4>
+        <p class="my-m">
+          <button class="px-2 py-1 rounded bg-green text-white font bold">GET</button> <strong>/v1/pickup_requests/:id</strong>
+        </p>
+{% highlight shell %}
+no payload
+{% endhighlight %}
+      </div>
+    </div>
+    <div class="bg-blue-dark px-xl w-4/12 flex-grow">
+      <div class="pb-l h-full">
+        <h4 class="mt-l text-white">
+          Response
+        </h4>
+
+        {% include headers/200_ok.html %}
+        {% highlight json %}
+        {% include pickup_requests_get_response.json %}
+        {% endhighlight %}
+
+        <p class="mt-s text-white">
+          JSON schema: <a href="{{ site.baseurl }}/reference/pickup_requests_response_schema.html">
+          Pickup Requests response</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h2 class="mt-l" id="webhooks">
+          Webhooks
+        </h2>
+        <p>
+          The following is a section of resources related to webhooks.
+        </p>
+
+        {% include reference/webhooks_request_togglebox.html %}
+
+        <h3 class="mt-l" id="creating-a-webhook">
+          Creating a webhook
+        </h3>
+        <p>
+          If you want to create a webhook, this is the way to go!
+        </p>
+      </div>
+    </div>
+    <div class="bg-blue-dark w-4/12 flex-grow">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l h-full">
+        <h4 class="mt-l">
+          Request
+        </h4>
+        <p class="my-m">
+          <button class="px-2 py-1 rounded bg-green text-white font bold">POST</button> <strong>/v1/webhooks</strong>
+        </p>
+
+{% highlight json %}
+{% include webhooks_post_put_request.json %}
+{% endhighlight %}
+
+        <p class="mt-s">
+          JSON schema: <a href="{{ site.baseurl }}/reference/webhooks_request_schema.html">
+          Create webhook request</a>
+        </p>
+      </div>
+    </div>
+    <div class="bg-blue-dark px-xl w-4/12 flex-grow">
+      <div class="pb-l h-full">
+        <h4 class="mt-l text-white">
+          Response
+        </h4>
+        {% include headers/200_ok.html %}
+{% highlight json %}
+{% include webhooks_post_put_response.json %}
+{% endhighlight %}
+
+        <p class="mt-s text-white">
+          JSON schema: <a href="{{ site.baseurl }}/reference/webhooks_response_schema.html">
+          Create webhook response</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h3 class="mt-l" id="getting-a-list-of-webhooks">
+          Getting a list of webhooks
+        </h3>
+      </div>
+    </div>
+    <div class="bg-blue-dark w-4/12 flex-grow">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l h-full">
+        <h4 class="mt-l">
+          Request
+        </h4>
+        <p class="my-m">
+          <button class="px-2 py-1 rounded bg-green text-white font bold">GET</button> <strong>/v1/webhooks</strong>
+        </p>
+{% highlight shell %}
+no payload
+{% endhighlight %}
+      </div>
+    </div>
+    <div class="bg-blue-dark px-xl w-4/12 flex-grow">
+      <div class="pb-l h-full">
+        <h4 class="mt-l text-white">
+          Response
+        </h4>
+        {% include headers/200_ok.html %}
+{% highlight json %}
+{% include webhooks_index_response.json %}
+{% endhighlight %}
+      </div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h3 class="mt-l" id="show-a-webhook">
+          Show a webhook
+        </h3>
+      </div>
+    </div>
+    <div class="bg-blue-dark w-4/12 flex-grow">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l h-full">
+        <h4 class="mt-l">
+          Request
+        </h4>
+        <p class="my-m">
+          <button class="px-2 py-1 rounded bg-green text-white font bold">GET</button> <strong>/v1/webhooks/:id</strong>
+        </p>
+
+        <strong>GET parameters:</strong>
+        <ul class="list-inside list-disc">
+          <li><strong>id</strong>, the id attribute that was returned when creating the webhook</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bg-blue-dark px-xl w-4/12 flex-grow">
+      <div class="pb-l h-full">
+        <h4 class="mt-l text-white">
+          Response
+        </h4>
+        {% include headers/200_ok.html %}
+{% highlight json %}
+{% include webhooks_get_response.json %}
+{% endhighlight %}
+
+        <p class="mt-s text-white">
+          JSON schema: <a href="{{ site.baseurl }}/reference/webhooks_response_schema.html">
+          Create webhook response</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h3 class="mt-l" id="deleting-a-webhook">
+          Deleting a webhook
+        </h3>
+      </div>
+    </div>
+    <div class="bg-blue-dark w-4/12 flex-grow">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l h-full">
+        <h4 class="mt-l">
+          Request
+        </h4>
+        <p class="my-m">
+          <button class="px-2 py-1 rounded bg-green text-white font bold">DELETE</button> <strong>/v1/webhooks/:id</strong>
+        </p>
+
+{% highlight shell %}
+no payload
+{% endhighlight %}
+
+        <p class="mt-m">
+          <strong>URL parameters:</strong>
+        </p>
+        <ul class="list-inside list-disc">
+          <li><strong>id</strong>, the id attribute that was returned when creating the webhook</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bg-blue-dark px-xl w-4/12 flex-grow">
+      <div class="pb-l h-full">
+        <h4 class="mt-l text-white">
+          Response
+        </h4>
+        <p class="my-m font-bold text-white">
+          204 (No Content)
+        </p>
+
+{% highlight json %}
+{}
+{% endhighlight %}
+      </div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h2 class="mt-l" id="trackers">
+          Trackers
+        </h2>
+        <p>
+          Trackers make it possible to track a shipment that wasn't created using shipcloud. They are
+          basically a way to monitor shipments created elsewhere. All you have to do is provide us with the
+          tracking number you received from the carrier as well as its corresponding name acronym.
+        </p>
+
+        {% include reference/trackers_request_togglebox.html %}
+
+        <h3 class="mt-l" id="creating-a-tracker">
+          Creating a tracker
+        </h3>
+
+        This is the way to create a tracker based on a tracking number provided by one of our supported
+        carriers ({{ site.shipcloud.supported_carriers.as_display_names }})
+      </div>
+    </div>
+    <div class="bg-blue-dark w-4/12 flex-grow">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l h-full">
+        <h4 class="mt-l">
+          Request
+        </h4>
+        <p class="my-m">
+          <button class="px-2 py-1 rounded bg-green text-white font bold">POST</button> <strong>/v1/trackers</strong>
+        </p>
+
+{% highlight json %}
+{% include trackers_post_put_request.json %}
+{% endhighlight %}
+
+        <p class="mt-s">
+          JSON schema: <a href="{{ site.baseurl }}/reference/trackers_request_schema.html">
+          Create tracker request</a>
+        </p>
+
+      </div>
+    </div>
+    <div class="bg-blue-dark px-xl w-4/12 flex-grow">
+      <div class="pb-l h-full">
+        <h4 class="mt-l text-white">
+          Response
+        </h4>
+        {% include headers/200_ok.html %}
+{% highlight json %}
+{% include trackers_post_put_response.json %}
+{% endhighlight %}
+
+        <p class="mt-s text-white">
+          JSON schema: <a href="{{ site.baseurl }}/reference/trackers_response_schema.html">
+          Create tracker response</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h3 class="mt-l" id="getting-a-list-of-trackers">
+          Getting a list of trackers
+        </h3>
+      </div>
+    </div>
+    <div class="bg-blue-dark w-4/12 flex-grow">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l h-full">
+        <h4 class="mt-l">
+          Request
+        </h4>
+        <p class="my-m">
+          <button class="px-2 py-1 rounded bg-green text-white font bold">GET</button> <strong>/v1/trackers</strong>
+        </p>
+{% highlight json %}
+no payload
+{% endhighlight %}
+      </div>
+    </div>
+    <div class="bg-blue-dark px-xl w-4/12 flex-grow">
+      <div class="pb-l h-full">
+        <h4 class="mt-l text-white">
+          Response
+        </h4>
+        {% include headers/200_ok.html %}
+{% highlight json %}
+{% include trackers_index_response.json %}
+{% endhighlight %}
+      </div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h3 class="mt-l" id="show-a-tracker">
+          Show a tracker
+        </h3>
+      </div>
+    </div>
+    <div class="bg-blue-dark w-4/12 flex-grow">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l h-full">
+        <h4 class="mt-l">
+          Request
+        </h4>
+        <p class="my-m">
+          <button class="px-2 py-1 rounded bg-green text-white font bold">GET</button> <strong>/v1/trackers/:id</strong>
+        </p>
+
+        <strong>GET parameters:</strong>
+        <ul class="list-inside list-disc">
+          <li><strong>id</strong>, the id attribute that was returned when creating the tracker</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bg-blue-dark px-xl w-4/12 flex-grow">
+      <div class="pb-l h-full">
+        <h4 class="mt-l text-white">
+          Response
+        </h4>
+        {% include headers/200_ok.html %}
+{% highlight json %}
+{% include trackers_get_response.json %}
+{% endhighlight %}
+
+        <p class="mt-s text-white">
+          JSON schema: <a href="{{ site.baseurl }}/reference/trackers_response_schema.html">
+          Tracker response</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

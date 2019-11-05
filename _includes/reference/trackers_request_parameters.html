@@ -1,0 +1,26 @@
+<ul class="list-outside list-disc">
+  <li>
+    <strong>carrier_tracking_no</strong> (string), the tracking number provided by the carrier
+  </li>
+  <li>
+    <strong>carrier</strong> (array), name of the carrier you want to use. Possible values are
+    {{ site.shipcloud.supported_carriers.as_keys }}
+  </li>
+  <li>
+    <strong>to</strong>* (object, optional), describes the receivers address. See
+    <a href="{{ site.baseurl }}/reference/#addresses">
+      address request
+    </a> for a detailed definition.
+  </li>
+  <li>
+    <strong>from</strong>* (object, optional), describes the senders address. If missing, the
+    default sender address (if defined in your shipcloud account) will be used. See
+    <a href="{{ site.baseurl }}/reference/#addresses">
+      address request
+    </a> for a detailed definition.
+  </li>
+  <li>
+    <strong>notification_email</strong> (string, optional), email address that we should notify once
+    there's an update for this shipment
+  </li>
+</ul>

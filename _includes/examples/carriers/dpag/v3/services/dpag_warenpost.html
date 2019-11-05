@@ -1,0 +1,88 @@
+<h4 id="v3---dpag-warenpost" class="text-blue">
+  Warenpost - National / International
+</h4>
+
+<p>
+  When using the
+  <a href="https://www.deutschepost.de/en/w/warenpost.html" target="_blank">Deutsche Post
+  Warenpost</a> as your service you can send letters that will have shipment tracking and are
+  usually delivered on the next day.
+</p>
+
+<p class="mt-m">
+  <strong>Requirements:</strong>
+</p>
+<ul class="list-inside list-disc">
+  <li><code>carrier</code> has to be <code><em>dpag</em></code></li>
+  <li><code>package.type</code> has to be <code><em>parcel_letter</em></code></li>
+  <li><code>service</code> has to be <code><em>dpag_warenpost</em></code></li>
+  <li>The sender and recipient have to be located in Germany</li>
+  <li>For shipments up to 1,000g</li>
+  <li>Maximum dimensions: length 353mm, width 250mm, thickness 50mm</li>
+  <li>Minimum volume: 200 items per year</li>
+  <li>you'll have to use your own contract with the carrier</li>
+</ul>
+
+<div class="mt-m bg-grey-light border-t-4 border-grey-darker text-grey-darker rounded-b px-4 py-3 shadow-md my-2" role="alert">
+  <div class="flex">
+    <div>
+      <i class="fas fa-info-circle h-6 w-6 mr-4"></i>
+    </div>
+    <div>
+      <strong>Notice</strong>:
+      Since this is a new offering of Deutsche Post, the tracking events returned by the carrier can
+      differ from the ones shown on the carriers' tracking page. We therefore advise you to send
+      customers to the carrier's tracking page for now until the carrier has figured out a way to
+      return meaningful tracking events.
+    </div>
+  </div>
+</div>
+
+<section class="shadow my-m">
+  <article class="border-b">
+    <div class="border-l-2 border-transparent">
+      {% include utils/toggle_element.html target="#v3_warenpost_togglebox" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="v3_warenpost_togglebox">
+        <div class="mt-m">
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE"
+  },
+  "package": {
+    "weight": 0.5,
+    "length": 20,
+    "width": 15,
+    "height": 5,
+    "type": "parcel_letter"
+  },
+  "carrier": "dpag",
+  "service": "dpag_warenpost",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
