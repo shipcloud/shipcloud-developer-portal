@@ -1,0 +1,66 @@
+<h4 id="{{ include.carrier_interface | slugify }}---letter" class="text-blue">
+  Brief
+</h4>
+
+<p>
+  If you want to send a simple
+  <a href="https://www.deutschepost.de/en/b/brief_postkarte.html" target="_blank"
+  rel="noopener noreferrer">letter</a> using the Deutsche Post AG services you can do that as well.
+</p>
+
+<p class="mt-m">
+  <strong>Requirements:</strong>
+</p>
+<ul class="list-inside list-disc">
+  <li><code>carrier</code> has to be <code><em>dpag</em></code></li>
+  <li><code>package.type</code> has to be <code><em>letter</em></code></li>
+</ul>
+
+<section class="shadow my-m">
+  <article class="border-b">
+    <div class="border-l-2 border-transparent">
+      {% include utils/toggle_element.html target="#v3_package_type_letter_togglebox" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="v3_package_type_letter_togglebox">
+        <div class="mt-m">
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE"
+  },
+ "package": {
+    "weight": 0.5,
+    "length": 14,
+    "width": 10,
+    "height": 0.3,
+    "type": "letter"
+  },
+  "carrier": "{{page.carrier}}",
+  "service": "standard",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

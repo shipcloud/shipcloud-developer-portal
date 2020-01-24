@@ -1,0 +1,95 @@
+<h4 id="v1---cash-on-delivery" class="text-blue">
+  Cash on delivery
+</h4>
+
+<p>
+  As with the other carriers, Cargo Internaional too can collect payment upon delivery.
+</p>
+
+<p class="mt-m">
+  <strong>Requirements:</strong>
+</p>
+
+<ul class="list-inside list-disc">
+  <li>
+    You'll have to use your own contract with the carrier
+  </li>
+  <li>
+    Only applicable for shipments within Germany
+  </li>
+  <li>
+    The sender and recipient have to be located in Germany
+  </li>
+  <li>
+      The maximum <code>amount</code> is 1.500
+  </li>
+  <li>
+      <code>currency</code> has to be <code><em>EUR</em></code>
+  </li>
+</ul>
+
+<section class="shadow my-m">
+  <article class="border-b">
+    <div class="border-l-2 border-transparent">
+      {% include utils/toggle_element.html target="#v1_cash_on_delivery_togglebox" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="v1_cash_on_delivery_togglebox">
+        <div class="mt-m">
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "carrier": "cargo_international",
+  "service": "standard",
+  "create_shipping_label": true,
+  "from": {
+    "company": "Sender Company",
+    "first_name": "Sally",
+    "last_name": "Sender",
+    "street": "Senderweg",
+    "street_no": "173",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE",
+    "phone": "040/12345678",
+    "email": "from@example.com"
+  },
+  "to": {
+    "company": "Empfänger Company",
+    "first_name": "Erika",
+    "last_name": "Empfängerin",
+    "street": "Empfängerstr.",
+    "street_no": "99",
+    "city": "ToCity",
+    "zip_code": "20535",
+    "country": "DE",
+    "phone": "040/87654321",
+    "email": "to@example.com"
+  },
+  "package": {
+    "height": "60",
+    "length": "120",
+    "width": "80",
+    "weight": "50",
+    "type": "euro_pallet",
+  },
+  "description": "a short description of the shipment content",
+  "additional_services": [
+    {
+      "name": "cash_on_delivery",
+      "properties": {
+        "amount": 849,
+        "currency": "EUR",
+        "bank_account_number": "DE12500105170648489890",
+        "bank_code": "BENEDEPPYYY"
+      }
+    }
+  ]
+}
+{% endhighlight %}
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

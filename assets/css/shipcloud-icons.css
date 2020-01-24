@@ -1,0 +1,129 @@
+@font-face {
+  font-family: 'shipcloud-icons';
+  src: url('/assets/fonts/shipcloud-icons.eot?6ayy9r');
+  src: url('/assets/fonts/shipcloud-icons.eot?6ayy9r#iefix') format('embedded-opentype'),
+      url('/assets/fonts/shipcloud-icons.ttf') format('truetype'),
+      url('/assets/fonts/shipcloud-icons.woff?6ayy9r') format('woff'),
+      url('/assets/fonts/shipcloud-icons.svg?6ayy9r#shipcloud-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.shipcloud-icon {
+  display: inline-block;
+  font-family: 'shipcloud-icons' !important;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-transform: none;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.shipcloud-icon-api-plug:before {
+  content: "\e905";
+}
+
+.shipcloud-icon-award:before {
+  content: "\e911";
+}
+
+.shipcloud-icon-basket2:before {
+  content: "\e912";
+}
+
+.shipcloud-icon-bigbusiness:before {
+  content: "\e913";
+}
+
+.shipcloud-icon-bigdata:before {
+  content: "\e9041";
+}
+
+.shipcloud-icon-cooperation:before {
+  content: "\e920";
+}
+
+.shipcloud-icon-customer:before {
+  content: "\e906";
+}
+
+.shipcloud-icon-edit:before {
+  content: "\e907";
+}
+
+.shipcloud-icon-expenses:before {
+  content: "\e908";
+}
+
+.shipcloud-icon-expenses2:before {
+  content: "\e909";
+}
+
+.shipcloud-icon-integration2:before {
+  content: "\e921";
+}
+
+.shipcloud-icon-international:before {
+  content: "\e922";
+}
+
+.shipcloud-icon-mail:before {
+  content: "\e923";
+}
+
+.shipcloud-icon-parcel:before {
+  content: "\e924";
+}
+
+.shipcloud-icon-labels:before {
+  content: "\e900";
+}
+
+.shipcloud-icon-basket:before {
+  content: "\e901";
+}
+
+.shipcloud-icon-integration:before {
+  content: "\e910";
+}
+
+.shipcloud-icon-tracking:before {
+  content: "\e903";
+}
+
+.shipcloud-icon-speed:before {
+  content: "\e904";
+}
+
+.shipcloud-icon-carriers:before {
+  content: "\e902";
+}
+
+.shipcloud-icon-return:before {
+  content: "\e914";
+}
+
+.shipcloud-icon-returnportal:before {
+  content: "\e915";
+}
+
+.shipcloud-icon-tracking2:before {
+  content: "\e916";
+}
+
+.shipcloud-icon-truck:before {
+  content: "\e917";
+}
+
+.shipcloud-icon-truck2:before {
+  content: "\e918";
+}
+
+.shipcloud-icon-trucks:before {
+  content: "\e919";
+}

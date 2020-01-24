@@ -1,0 +1,154 @@
+---
+layout: full
+title: Carrier Features Overview
+---
+
+{% assign carriers = site.data.carriers | sort %}
+<table class="table-auto mb-xl">
+  <thead>
+    <tr>
+      <th>&nbsp;</th>
+      {% for carrier in carriers %}
+        <th class="px-4 py-2">
+          {{ carrier[1].display_name }}
+        </th>
+      {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="border p-2 align-top">Services</td>
+      {% for carrier in carriers %}
+        <td class="border p-2 align-top">
+          {% assign all_services = '' | split: '' %}
+          {% for interface in carrier[1].interfaces %}
+            {% assign all_services = all_services | concat: interface[1].implementations.shipcloud.services | uniq %}
+          {% endfor %}
+          <ul class="list-outside list-disc">
+            {% for service in all_services %}
+              <li>
+                {{ service.display_name }}
+              </li>
+            {% endfor %}
+          </ul>
+        </td>
+      {% endfor %}
+    </tr>
+    <tr class="bg-gray-100">
+      <td class="border p-2 align-top">Package Types</td>
+      {% for carrier in carriers %}
+        <td class="border p-2 align-top">
+          {% assign all_package_types = '' | split: '' %}
+          {% for interface in carrier[1].interfaces %}
+            {% assign all_package_types = all_package_types | concat: interface[1].implementations.shipcloud.package_types | uniq %}
+          {% endfor %}
+          <ul class="list-outside list-disc">
+            {% for package_type in all_package_types %}
+              <li>
+                {{ package_type.display_name }}
+              </li>
+            {% endfor %}
+          </ul>
+        </td>
+      {% endfor %}
+    </tr>
+    <tr>
+      <td class="border p-2 align-top">Additional Services</td>
+      {% for carrier in carriers %}
+        <td class="border p-2 align-top">
+          {% assign all_additional_services = '' | split: '' %}
+          {% for interface in carrier[1].interfaces %}
+            {% if interface[1].implementations.shipcloud.additional_services.size > 0 %}
+              {% assign all_additional_services = all_additional_services | concat: interface[1].implementations.shipcloud.additional_services | uniq %}
+            {% endif %}
+          {% endfor %}
+          <ul class="list-outside list-disc">
+            {% for additional_service in all_additional_services %}
+              <li>
+                {{ additional_service.display_name }}
+              </li>
+            {% endfor %}
+          </ul>
+        </td>
+      {% endfor %}
+    </tr>
+    <tr class="bg-gray-100">
+      <td class="border p-2 align-top">Other attributes</td>
+      {% for carrier in carriers %}
+        <td class="border p-2 align-top">
+          {% assign all_other_attributes = '' | split: '' %}
+          {% for interface in carrier[1].interfaces %}
+            {% if interface[1].implementations.shipcloud.other_attributes.size > 0 %}
+              {% assign all_other_attributes = all_other_attributes | concat: interface[1].implementations.shipcloud.other_attributes | uniq %}
+            {% endif %}
+          {% endfor %}
+          <ul class="list-outside list-disc">
+            {% for other_attribute in all_other_attributes %}
+              <li>
+                {{ other_attribute.display_name }}
+              </li>
+            {% endfor %}
+          </ul>
+        </td>
+      {% endfor %}
+    </tr>
+    <tr>
+      <td class="border p-2 align-top">Label sizes</td>
+      {% for carrier in carriers %}
+        <td class="border p-2 align-top">
+          {% assign all_label_sizes = '' | split: '' %}
+          {% for interface in carrier[1].interfaces %}
+            {% assign all_label_sizes = all_label_sizes | concat: interface[1].implementations.shipcloud.label_sizes | uniq %}
+          {% endfor %}
+          <ul class="list-outside list-disc">
+            {% for label_size in all_label_sizes %}
+              <li>
+                {{ label_size.display_name }}
+              </li>
+            {% endfor %}
+          </ul>
+        </td>
+      {% endfor %}
+    </tr>
+    <tr class="bg-gray-100">
+      <td class="border p-2 align-top">Pickup Requests</td>
+      {% for carrier in carriers %}
+        <td class="border p-2 align-top">
+          {% assign all_pickup_requests = '' | split: '' %}
+          {% for interface in carrier[1].interfaces %}
+            {% if interface[1].implementations.shipcloud.pickup_requests.size > 0 %}
+              {% assign all_pickup_requests = all_pickup_requests | concat: interface[1].implementations.shipcloud.pickup_requests | uniq %}
+            {% endif %}
+          {% endfor %}
+          <ul class="list-outside list-disc">
+            {% for pickup_request in all_pickup_requests %}
+              <li>
+                {{ pickup_request.display_name }}
+              </li>
+            {% endfor %}
+          </ul>
+        </td>
+      {% endfor %}
+    </tr>
+    <tr>
+      <td class="border p-2 align-top">Misc</td>
+      {% for carrier in carriers %}
+        <td class="border p-2 align-top">
+          {% assign all_misc = '' | split: '' %}
+          {% for interface in carrier[1].interfaces %}
+            {% if interface[1].implementations.shipcloud.misc.size > 0 %}
+              {% assign all_misc = all_misc | concat: interface[1].implementations.shipcloud.misc | uniq %}
+            {% endif %}
+          {% endfor %}
+          <ul class="list-outside list-disc">
+            {% for misc in all_misc %}
+              <li>
+                {{ misc.display_name }}
+              </li>
+            {% endfor %}
+          </ul>
+        </td>
+      {% endfor %}
+    </tr>
+  </tbody>
+</table>

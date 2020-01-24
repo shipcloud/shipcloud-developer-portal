@@ -1,0 +1,80 @@
+<h4 id="hsi---parcel-shop-delivery-service" class="text-blue">
+  ParcelShopDeliveryService
+</h4>
+
+<p class="mt-m">
+  <strong>Requirements:</strong>
+</p>
+
+<ul class="list-outside list-disc pl-m">
+  <li>You have to use your own (Hermes HSI) carrier contract</li>
+  <li>
+    <code>drop_off_point.drop_off_point_id</code> is mandatory (can be determined through the
+    <a href="https://www.myhermes.de/paketshop/" target="_blank">Hermes Website</a>)
+  </li>
+  <li><code>drop_off_point.type</code> has to be <code><em>parcel_shop</em></code></li>
+</ul>
+
+<p class="mt-m">
+  <em>Options:</em>
+</p>
+<ul class="list-outside list-disc pl-m">
+  <li>
+    Hermes can notify the receiver via sms or email if you provide the additional service
+    <a href="#hsi---advance-notice">advance notice</a>
+  </li>
+</ul>
+
+<section class="shadow my-m">
+  <article class="border-b">
+    <div class="border-l-2 border-transparent">
+      {% include utils/toggle_element.html target="#hsi_parcel_shop_delivery_service_togglebox" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="hsi_parcel_shop_delivery_service_togglebox">
+        <div class="mt-m">
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "company": "Hermes Paketshop Schmidt",
+    "care_of": "3. Liftstock",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE",
+    "drop_off_point": {
+      "drop_off_point_id": "660328",
+      "type": "parcel_shop"
+    }
+  },
+  "package": {
+    "weight": "2.5",
+    "length": "40",
+    "width": "20",
+    "height": "10",
+    "type": "parcel"
+  },
+  "service": "standard",
+  "carrier": "hermes",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

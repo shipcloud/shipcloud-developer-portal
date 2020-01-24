@@ -1,0 +1,62 @@
+{
+  "css_key": "cargo-international",
+  "display_name": "Cargo International",
+  "key": "cargo_international",
+  "interfaces": {
+    "v1": {
+      "display_name": "Cargo International API V1",
+      "implementations": {
+        "shipcloud": {
+          "services": [{
+              "display_name": "Standard",
+              "key": "standard"
+            },
+            {
+              "display_name": "Express",
+              "key": "cargo_international_express"
+            }
+          ],
+          "package_types": [{
+              "display_name": "Large parcel",
+              "key": "cargo_international_large_parcel"
+            },
+            {
+              "display_name": "Disposable pallet",
+              "key": "disposable_pallet"
+            },
+            {
+              "display_name": "Euro pallet",
+              "key": "euro_pallet"
+            }
+          ],
+          "additional_services": [{
+            "display_name": "Appointment announcement",
+            "key": "advance_notice"
+          }, {
+            "display_name": "Cash on delivery",
+            "key": "cash_on_delivery"
+          }],
+          "other_attributes": [{
+            "display_name": "Additional insurance",
+            "key": "declared_value"
+          }],
+          "label_sizes": [{
+              "display_name": "DIN A5",
+              "key": "A5"
+            },
+            {
+              "display_name": "DIN A6",
+              "key": "A6"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "marketing": {
+    "en": {
+      "help_center": "https://support.shipcloud.io/en/collections/1544045-carriers#cargo-international",
+      "website": "https://www.shipcloud.io/en/partner/carriers/cargo_international"
+    }
+  }
+}

@@ -1,0 +1,81 @@
+<h4 id="web-api---gls-pick-and-ship" class="text-blue">
+  Pick&ShipService
+</h4>
+
+<p>
+  Using the <a href="https://gls-group.eu/DE/de/versand-services/pick-ship-service">
+  Pick&ShipService</a> you can request GLS to pick up a parcel at the address of your choice and
+  deliver it directly to the recipient.
+</p>
+
+<p class="mt-m">
+  <strong>Requirements:</strong>
+</p>
+
+<ul class="list-inside list-disc">
+  <li>the sender has to be located in Germany or Austria</li>
+  <li>you'll have to use your own contract with the carrier</li>
+  <li>only available when using GLS Web API integration</li>
+</ul>
+
+<p class="mt-m">
+  <strong>Additional information:</strong>
+</p>
+
+<ul class="list-outside list-disc pl-m">
+  <li>pickup will take place the next working day at the shipping address</li>
+  <li>
+      the label within our response can't be used for shipping, since the carrier will bring a
+      shipping label when picking up the parcel. It can be used for internal processes or for
+      package assignment.
+  </li>
+</ul>
+
+<section class="shadow my-m">
+  <article class="border-b">
+    <div class="border-l-2 border-transparent">
+      {% include utils/toggle_element.html target="#web_api_pickandship_togglebox" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="web_api_pickandship_togglebox">
+        <div class="mt-m">
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "package": {
+    "weight": "2.5",
+    "length": "40",
+    "width": "20",
+    "height": "10",
+    "type": "parcel"
+  },
+  "service": "gls_pick_and_ship",
+  "carrier": "gls",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

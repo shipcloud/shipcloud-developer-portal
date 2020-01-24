@@ -1,0 +1,82 @@
+{
+  "css_key": "dpd",
+  "display_name": "DPD",
+  "key": "dpd",
+  "interfaces": {
+    "shipment_service_3_2": {
+      "display_name": "Shipment Service V3.2",
+      "implementations": {
+        "shipcloud": {
+          "services": [{
+              "display_name": "Standard",
+              "key": "standard"
+            },
+            {
+              "display_name": "Returns",
+              "key": "returns"
+            },
+            {
+              "display_name": "One day",
+              "key": "one_day"
+            },
+            {
+              "display_name": "One day early",
+              "key": "one_day_early"
+            }
+          ],
+          "package_types": [{
+              "display_name": "Bulk shipments",
+              "key": "bulk"
+            },
+            {
+              "display_name": "Parcel",
+              "key": "parcel"
+            },
+            {
+              "display_name": "Parcel letter",
+              "key": "parcel_letter"
+            }
+          ],
+          "additional_services": [{
+              "display_name": "Predict",
+              "key": "advance_notice"
+            },
+            {
+              "display_name": "Drop authorization",
+              "key": "drop_authorization"
+            },
+            {
+              "display_name": "Saturday delivery",
+              "key": "saturday_delivery"
+            }
+          ],
+          "label_sizes": [{
+              "display_name": "DIN A5",
+              "key": "A5"
+            },
+            {
+              "display_name": "DIN A6",
+              "key": "A6"
+            }
+          ],
+          "field_lengths": {
+            "company": "1 - 35 characters",
+            "last_name": "1 - 35 characters (firstname + last_name <= 35 characters)",
+            "care_of": "0 - 35 characters",
+            "street": "1 - 35 characters",
+            "street_no": "1 - 8 characters",
+            "zip_code": "1 - 9 characters",
+            "city": "1 - 35 characters",
+            "phone": "0 - 30 characters"
+          }
+        }
+      }
+    }
+  },
+  "marketing": {
+    "en": {
+      "help_center": "https://support.shipcloud.io/en/collections/1544045-carriers#dpd",
+      "website": "https://www.shipcloud.io/en/partner/carriers/dpd"
+    }
+  }
+}

@@ -1,0 +1,146 @@
+<h2 id="{{ site.data.carriers[page.carrier].interfaces.[include.carrier_interface].display_name | slugify }}" class="text-blue mb-l">
+  {{ site.data.carriers[page.carrier].interfaces.[include.carrier_interface].display_name }}
+</h2>
+
+{% assign implementations = site.data.carriers[page.carrier].interfaces[include.carrier_interface].implementations.shipcloud %}
+
+{% assign largest_array_size = 0 %}
+{% for implementation in implementations %}
+    {% assign implementation_name=implementation[0] %}
+    {% assign entries=site.data.carriers[page.carrier].interfaces[include.carrier_interface].implementations.shipcloud.[implementation_name] %}
+    {% if implementation_name != "field_lengths" and entries.size > largest_array_size %}
+        {% assign largest_array_size = entries.size %}
+    {% endif %}
+{% endfor %}
+{% assign largest_array_size = largest_array_size | minus: 1 %}
+
+{% assign additional_services_entries = site.data.carriers[page.carrier].interfaces[include.carrier_interface].implementations.shipcloud.additional_services %}
+{% assign other_attributes_entries = site.data.carriers[page.carrier].interfaces[include.carrier_interface].implementations.shipcloud.other_attributes %}
+
+<!-- <table class="table table-striped table-hover table-bordered">
+    <tr>
+        <th>Services</th>
+        <th>Package types</th>
+        {% if additional_services_entries.size > 0 %}<th>Additional services</th>{% endif %}
+        {% if other_attributes_entries.size > 0 %}<th>Other Attributes</th>{% endif %}
+        <th>Label sizes</th>
+    </tr>
+    {% for i in (0..largest_array_size) %}
+    <tr>
+        <td>
+            {% assign services_entry = site.data.carriers[page.carrier].interfaces[include.carrier_interface].implementations.shipcloud.services[i] %}
+            <a href="#{{include.carrier_interface | slugify }}---{{ services_entry.key | slugify }}">
+                {{ services_entry.display_name }}
+            </a>
+        </td>
+        <td>
+            {% assign package_type_entry = site.data.carriers[page.carrier].interfaces[include.carrier_interface].implementations.shipcloud.package_types[i] %}
+            <a href="#{{include.carrier_interface | slugify }}---{{ package_type_entry.key | slugify }}">
+                {{ package_type_entry.display_name }}
+            </a>
+        </td>
+        {% if additional_services_entries.size > 0 %}
+        <td>
+            {% assign additional_services_entry = site.data.carriers[page.carrier].interfaces[include.carrier_interface].implementations.shipcloud.additional_services[i] %}
+            <a href="#{{include.carrier_interface | slugify }}---{{ additional_services_entry.key | slugify }}">
+                {{ additional_services_entry.display_name }}
+            </a>
+        </td>
+        {% endif %}
+        {% if other_attributes_entries.size > 0 %}
+        <td>
+            {% assign other_attributes_entry = site.data.carriers[page.carrier].interfaces[include.carrier_interface].implementations.shipcloud.other_attributes[i] %}
+            <a href="#{{include.carrier_interface | slugify }}---{{ other_attributes_entry.key | slugify }}">
+                {{ other_attributes_entry.display_name }}
+            </a>
+        </td>
+        {% endif %}
+        <td>
+            {% assign label_size_entry = site.data.carriers[page.carrier].interfaces[include.carrier_interface].implementations.shipcloud.label_sizes[i] %}
+            <a href="#{{include.carrier_interface | slugify }}---{{ label_size_entry.key | slugify }}">
+                {{ label_size_entry.display_name }}
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table> -->
+
+{% assign entries=site.data.carriers[page.carrier].interfaces.[include.carrier_interface].implementations.shipcloud.services %}
+{% if entries.size > 0 %}
+  <section class="mb-xl">
+    <h3 id="{{include.carrier_interface | slugify}}-services" class="text-blue mb-m">
+      Services
+    </h3>
+    {% include utils/carrier_interface_entry_iterator.html entries=entries type='services' carrier_interface=include.carrier_interface %}
+  </section>
+{% endif %}
+
+{% assign entries=site.data.carriers[page.carrier].interfaces.[include.carrier_interface].implementations.shipcloud.package_types %}
+{% if entries.size > 0 %}
+  <section class="mb-xl">
+    <h3 id="{{include.carrier_interface | slugify}}-package-types" class="text-blue">
+      Package types
+    </h3>
+    {% include utils/carrier_interface_entry_iterator.html entries=entries type='package_types' carrier_interface=include.carrier_interface %}
+  </section>
+{% endif %}
+
+{% if additional_services_entries.size > 0 %}
+  <section class="mb-xl">
+    <h3 id="{{include.carrier_interface | slugify}}-additional-services" class="text-blue">
+        Additional services
+    </h3>
+    {% include utils/carrier_interface_entry_iterator.html entries=additional_services_entries type='additional_services' carrier_interface=include.carrier_interface %}
+  </section>
+{% endif %}
+
+{% if other_attributes_entries.size > 0 %}
+  <section class="mb-xl">
+    <h3 id="{{include.carrier_interface | slugify}}-other-attributes" class="text-blue">
+        Other attributes
+    </h3>
+    {% include utils/carrier_interface_entry_iterator.html entries=other_attributes_entries type='other_attributes' carrier_interface=include.carrier_interface %}
+  </section>
+{% endif %}
+
+{% assign entries=site.data.carriers[page.carrier].interfaces.[include.carrier_interface].implementations.shipcloud.label_sizes %}
+{% if entries.size > 0 %}
+  <section class="mb-xl">
+    <h3 id="{{include.carrier_interface | slugify}}-label-sizes" class="text-blue">
+        Label sizes
+    </h3>
+    <ul class="list-inside list-disc">
+      {% include utils/carrier_interface_entry_iterator.html entries=entries %}
+    </ul>
+</section>
+{% endif %}
+
+{% assign pickup_requests_entries=site.data.carriers[page.carrier].interfaces.[include.carrier_interface].implementations.shipcloud.pickup_requests %}
+{% if pickup_requests_entries.size > 0 %}
+  <section class="mb-xl">
+    <h3 id="{{include.carrier_interface | slugify}}-pickup-requests" class="text-blue">
+        Pickup Requests
+    </h3>
+    {% include utils/carrier_interface_entry_iterator.html entries=pickup_requests_entries type='pickup_requests' carrier_interface=include.carrier_interface %}
+  </section>
+{% endif %}
+
+{% assign misc_entries=site.data.carriers[page.carrier].interfaces.[include.carrier_interface].implementations.shipcloud.misc %}
+{% if misc_entries.size > 0 %}
+  <section class="mb-xl">
+    <h3 id="{{include.carrier_interface | slugify}}-misc" class="text-blue">
+        Misc
+    </h3>
+    {% include utils/carrier_interface_entry_iterator.html entries=misc_entries type='misc' carrier_interface=include.carrier_interface %}
+  </section>
+{% endif %}
+
+{% assign entries=site.data.carriers[page.carrier].interfaces.[include.carrier_interface].implementations.shipcloud.field_lengths %}
+{% if entries.size > 0 %}
+  <section class="mb-xl">
+    <h3 id="{{include.carrier_interface | slugify}}-field-lengths" class="text-blue">
+        Field lengths
+    </h3>
+    {% include utils/json_level_iterator.html entries=entries %}
+  </section>
+{% endif %}

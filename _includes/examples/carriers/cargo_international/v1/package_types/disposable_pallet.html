@@ -1,0 +1,68 @@
+<h4 id="v1---disposable-pallet" class="text-blue">Disposable pallet</h4>
+
+<p>
+  Use a <a href="https://www.cargointernational.de/einwegpalette" target="_blank">disposable
+  pallet</a> for sending goods via a cheaper pallet transport.
+</p>
+
+<p class="mt-m">
+  <strong>Requirements:</strong>
+</p>
+
+<ul class="list-inside list-disc">
+  <li>max. dimensions 240 cm x 120 cm x 200 cm</li>
+  <li>max. weight 1000 kg per pallet</li>
+  <li>sender and recipient have to be located in Germany</li>
+</ul>
+
+<section class="shadow my-m">
+  <article class="border-b">
+    <div class="border-l-2 border-transparent">
+      {% include utils/toggle_element.html target="#v1_package_type_disposable_pallet_togglebox" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="v1_package_type_disposable_pallet_togglebox">
+        <div class="mt-m">
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE"
+  },
+  "package": {
+    "weight": "200",
+    "length":"100",
+    "width": "100",
+    "height": "50",
+    "type": "disposable_pallet"
+  },
+  "carrier": "cargo_international",
+  "service": "cargo_international_express",
+  "description": "a short description of the shipment content",
+  "reference_number": "order's reference number",
+  "notification_email": "receiver@mail.com",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

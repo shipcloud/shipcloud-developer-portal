@@ -1,0 +1,278 @@
+---
+title: examples for using the shipcloud api
+nav: examples
+---
+
+<p>
+  To give you a better understanding of how the shipcloud api could be used you can find a few
+  examples on this page. Sometimes there's also a certain chain of calls you need to perform to
+  achieve a specific goal.
+</p>
+
+<section class="my-m">
+  <h2 id="advance-notice" class="text-blue">
+    Advance notice
+  </h2>
+  <p>
+    Some carriers provide the option to notify the recipient of a shipment of its arrival date and /
+    or time. We currently support advance notices for Cargo International, DHL and DPD. While DHL
+    supports notifications via email DPD also allows the recipient to be notified via SMS. When
+    using Cargo International you only have the option to be notified via a phone call.
+  </p>
+  <p class="mt-m font-bold">
+    Available for the following carriers:
+  </p>
+  {% include utils/supported_additional_service_list_creator.html additional_service="advance_notice" %}
+</section>
+
+<section class="my-m">
+  <h2 id="cash-on-delivery" class="text-blue">
+    Cash on delivery
+  </h2>
+  <p>
+    When you want your customer to be able to pay the goods directly with the carrier when receiving
+    their shipment you can use the additional service cash on delivery.
+  </p>
+  <p class="mt-m font-bold">
+    Available for the following carriers:
+  </p>
+  {% include utils/supported_additional_service_list_creator.html additional_service="cash_on_delivery" %}
+</section>
+
+<section class="my-m">
+  <h2 id="identity-check" class="text-blue">
+    Identity check
+  </h2>
+  <p>
+    If you want the carrier to only deliver the shipment to a specific person are a person of a
+    specific age you can use a variety of identity checking services with the carriers we provide.
+  </p>
+  <p class="mt-m font-bold">
+    You can use the following identity check services:
+  </p>
+  {% assign carriers = site.data.carriers | sort %}
+  <ul class="list-inside list-disc">
+    <li>
+      <a href="{{site.baseurl}}/carriers/dhl.html#v2---dhl-ident-check">
+        DHL - Ident check
+      </a>
+    </li>
+    <li>
+      <a href="{{site.baseurl}}/carriers/dhl.html#v2---visual-age-check">
+        DHL - Visual age check
+      </a>
+    </li>
+    <li>
+      <a href="{{site.baseurl}}/carriers/hermes.html#hsi---hermes-identservice">
+        Hermes - Ident service
+      </a>
+    </li>
+    <li>
+      <a href="{{site.baseurl}}/carriers/ups.html#ship-webservice---ups-adult-signature">
+        UPS - Adult signature
+      </a>
+    </li>
+  </ul>
+</section>
+
+<section class="my-m">
+  <h2 id="saturday-delivery" class="text-blue">
+    Saturday delivery
+  </h2>
+  <p>
+    For carriers who don't support saturday delivery naturally, you will have to specify that
+    delivery on a saturday has to happen.
+  </p>
+  <p class="mt-m font-bold">
+    Available for the following carriers:
+  </p>
+  {% include utils/supported_additional_service_list_creator.html additional_service="saturday_delivery" %}
+</section>
+
+<section class="my-m">
+  <h2 id="pakadoo" class="text-blue">
+    pakadoo
+  </h2>
+  <p>
+    pakadoo is a service that lets you receive personal packages at work. For this a so called pakadoo
+    point is being installed in your companies office rooms. For more information visit
+    <a href="http://www.pakadoo.de" target="_blank">http://www.pakadoo.de</a>.
+  </p>
+  <p class="mt-m">
+    There are 2 ways you can create a shipment that’s going to be send to a pakadoo point:
+  </p>
+  <ul class="list-outside list-disc ml-m">
+    <li>
+      create an address and use the id that’s returned for the address to create a shipment
+    </li>
+    <li>
+      create a shipment by specifying the pakadoo ID in the to address object of the shipments call.
+    </li>
+  </ul>
+  <p class="mt-m">
+    In both cases you can either specify the pakadoo ID as <code>pakadoo_id</code> or you simply use
+    the <code>care_of</code> attribute with "PAK" as a prefix to the pakadoo ID (e.g
+    <code>PAK 5KQTPH5</code>).
+  </p>
+  <h3 id="create-a-pakadoo-address-and-shipment-using-the-pakadoo_id" class="mt-m text-blue">
+    Create a pakadoo address and shipment using the pakadoo_id
+  </h3>
+  <p>
+    If the pakadoo user has been identified, shipcloud will return an address object, containing the
+    currently selected delivery address for said pakadoo user.
+  </p>
+
+  <h4 id="create-address-request" class="mt-m text-blue">
+    Create Address Request
+  </h4>
+  <p class="my-m">
+    <button class="px-2 py-1 rounded bg-green text-white font bold">POST</button>
+    <strong>/v1/addresses</strong>
+  </p>
+{% highlight json %}
+{
+  "pakadoo_id": "5KQTPH5"
+}
+{% endhighlight %}
+
+  <h4 id="create-address-response" class="mt-m text-blue">
+    Create Address Response
+  </h4>
+{% highlight json %}
+{
+  "id": "71f2522f-be6f-4606-8eda-67997edfe2ac",
+  "pakadoo_id": "5KQTPH5",
+  "company": "LGI GmbH",
+  "street": "Hewlett-Packard-Str.",
+  "street_no": "1/1",
+  "zip_code": "71083",
+  "city": "Herrenberg",
+  "country": "DE"
+}
+{% endhighlight %}
+  <p class="mt-m">
+    Like with every other address you can then use its unique address id to create a new shipment with it.
+  </p>
+
+  <h4 id="create-shipment-request" class="mt-m text-blue">
+    Create Shipment Request
+  </h4>
+  <p class="my-m">
+    <button class="px-2 py-1 rounded bg-green text-white font bold">POST</button>
+    <strong>/v1/shipments</strong>
+  </p>
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  }
+  "to": {
+    "id": "71f2522f-be6f-4606-8eda-67997edfe2ac"
+  },
+  "package": {
+    "height": "23",
+    "length": "30",
+    "width": "20",
+    "weight": "1.5",
+  },
+  "carrier": "dhl",
+  "create_shipping_label": true,
+  "metadata": {
+    "pakadoo": {
+      "shop_name": "The shopname",
+      "order_number": "123456",
+      "order_date": "2015-06-01",
+      "e_mail_shop": "user@example.com",
+      "order_total": {
+        "amount": 42.12,
+        "currency": "EUR"
+      }
+    }
+  }
+}
+{% endhighlight %}
+
+  <h3 id="create-a-shipment-using-the-pakadoo-id-in-the-care_of-attribute" class="mt-m text-blue">
+    Create a shipment using the pakadoo ID in the care_of attribute
+  </h3>
+  <p>
+    You can use this if e.g. you don't want to amend your checkout process. Your customers can use
+    your existing address form to specify the pakadoo point address by entering their pakadoo ID in
+    the <code>care_of</code> field (e.g. <code>PAK 5KQTPH5</code>).
+  </p>
+  <p class="mt-m">
+    We're checking the <code>care_of</code> attribue for the "PAK" prefix. If it's found, we then
+    check if a valid pakadoo userid is present, validate it using the pakadoo system and return the
+    users' selected pakadoo point address, if available.
+  </p>
+  <div class="bg-grey-light border-t-4 border-grey-darker text-grey-darker rounded-b px-4 py-3 shadow-md my-2" role="alert">
+    <div class="flex">
+      <div>
+        <i class="fas fa-info-circle h-6 w-6 mr-4"></i>
+      </div>
+      <div>
+          <strong>Notice</strong>:
+          Any additional "to" address information given in the request will be replaced by what
+          is returned from the pakadoo system.
+      </div>
+    </div>
+  </div>
+
+  <h4 id="create-shipment-request" class="mt-l text-blue">
+    Create Shipment Request
+  </h4>
+  <p class="my-m">
+    <button class="px-2 py-1 rounded bg-green text-white font bold">POST</button>
+    <strong>/v1/shipments</strong>
+  </p>
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  }
+  "to": {
+    "care_of": "PAK 5KQTPH5",
+    "company": "LGI GmbH",
+    "street": "Hewlett-Packard-Str.",
+    "street_no": "1/1",
+    "zip_code": "71083",
+    "city": "Herrenberg",
+    "country": "DE",
+  },
+  "package": {
+    "height": "23",
+    "length": "30",
+    "width": "20",
+    "weight": "1.5",
+  },
+  "carrier": "dhl",
+  "create_shipping_label": true,
+  "metadata": {
+    "pakadoo": {
+      "shop_name": "The shopname",
+      "order_number": "123456",
+      "order_date": "2015-06-01",
+      "e_mail_shop": "user@example.com",
+      "order_total": {
+        "amount": 42.12,
+        "currency": "EUR"
+      }
+    }
+  }
+}
+{% endhighlight %}
+</section>

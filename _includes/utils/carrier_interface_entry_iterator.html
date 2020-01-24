@@ -1,0 +1,12 @@
+{% for entry in include.entries %}
+  {% if page.carrier and include.type and include.carrier_interface %}
+{% capture include_file %}{% include examples/carriers/{{ page.carrier }}/{{ include.carrier_interface }}/{{ include.type }}/{{ entry.key }}.html type=include.type carrier_interface=include.carrier_interface %}{% endcapture %}
+<div class="mb-l">
+{{ include_file }}
+</div>
+  {% else %}
+<li>
+  {{ entry.display_name }} ({{ entry.key }})
+</li>
+  {% endif %}
+{% endfor %}

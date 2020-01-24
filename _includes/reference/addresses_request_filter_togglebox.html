@@ -1,0 +1,12 @@
+<section class="shadow my-m">
+    <article class="border-b">
+        <div class="border-l-2 border-transparent">
+          {% include utils/toggle_element.html target="#address_request_filter_togglebox" link_text="URL parameters"%}
+          <div class="px-4 pb-2 text-grey-darkest hidden" id="address_request_filter_togglebox">
+            <p>
+              {% include reference/addresses_request_filter_parameters.html %}
+            </p>
+          </div>
+        </div>
+    </article>
+</section>

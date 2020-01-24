@@ -1,0 +1,67 @@
+<h4 id="{{ include.carrier_interface | slugify }}---{{ page.carrier | slugify }}-large-parcel" class="text-blue">Large parcel</h4>
+
+<p class="mt-m">
+  <strong>Requirements:</strong>
+</p>
+
+<ul class="list-inside list-disc">
+  <li>max. dimensions 320 cm x 200 cm x 200 cm</li>
+  <li>max. girth 700cm</li>
+  <li>max. weight 100 kg</li>
+  <li>max. dimensional weight: 800kg</li>
+  <li>sender and recipient have to be located in Germany</li>
+  <li><code>service</code> can be <code><em>standard</em></code> or <code><em>cargo_international_express</em></code></li>
+  <li><code>package.type</code> has to be <code><em>cargo_international_large_parcel</em></code></li>
+</ul>
+
+<section class="shadow my-m">
+  <article class="border-b">
+    <div class="border-l-2 border-transparent">
+      {% include utils/toggle_element.html target="#v1_package_type_large_parcel_togglebox" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="v1_package_type_large_parcel_togglebox">
+        <div class="mt-m">
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE"
+  },
+  "package": {
+    "weight": "100",
+    "length":"120",
+    "width": "60",
+    "height": "30",
+    "type": "cargo_international_large_parcel"
+  },
+  "carrier": "cargo_international",
+  "service": "standard",
+  "description": "a short description of the shipment content",
+  "reference_number": "order's reference number",
+  "notification_email": "receiver@mail.com",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

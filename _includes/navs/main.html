@@ -1,0 +1,112 @@
+<div class="block fixed h-full overflow-y-visible pt-16 pb-24 w-56 border-grey-light border-r z-0">
+  <div class="h-full overflow-y-auto scrolling-touch block sticky pb-xl">
+    <nav class="mb-l border-grey-light border-b px-4 py-l">
+      <ul class="list-inside">
+        <li class="ml-0 mb-s DocSearch-lvl0">
+          <a href="{{ site.baseurl }}/concepts" class="block{% if page.url contains "/concepts/" %} text-red{% endif %}">
+            <i class="fas fa-file-alt fa-fw mr-s"></i>
+            Concepts
+          </a>
+        </li>
+        <li class="ml-0 mb-s DocSearch-lvl0">
+          <a href="{{ site.baseurl }}/integrations" class="block{% if page.url contains "/integrations/" %} text-red{% endif %}">
+            <i class="fas fa-cogs fa-fw mr-s"></i>
+            Integrations
+          </a>
+        </li>
+        <li class="ml-0 mb-s DocSearch-lvl0">
+          <a href="{{ site.baseurl }}/carriers" class="block{% if page.url contains "/carriers/" %} text-red{% endif %}">
+            <i class="fas fa-truck fa-flip-horizontal fa-fw mr-s"></i>
+            Carriers
+          </a>
+        </li>
+        <li class="ml-0 mb-s DocSearch-lvl0">
+          <a href="{{ site.baseurl }}/examples" class="block{% if page.url contains "/examples/" %} text-red{% endif %}">
+            <i class="fas fa-eye fa-fw mr-s"></i>
+            Examples
+          </a>
+        </li>
+        <li class="ml-0 DocSearch-lvl0">
+          <a href="{{ site.baseurl }}/reference" class="block{% if page.url contains "/reference/" %} text-red{% endif %}">
+            <i class="shipcloud-icon shipcloud-icon-api-plug mr-s"></i>
+            API Reference
+          </a>
+        </li>
+      </ul>
+    </nav>
+    {% if page.nav == "reference" %}
+      {% include navs/reference_nav.html %}
+    {% elsif page.nav == "concepts" %}
+      {% include navs/concepts_nav.html %}
+    {% elsif page.nav == "examples" %}
+      {% include navs/examples_nav.html %}
+    {% elsif page.carrier != blank %}
+        {% for interface in site.data.carriers[page.carrier].interfaces %}
+          {% assign interface_slug = interface[0] %}
+          {% assign interface_name = site.data.carriers[page.carrier].interfaces[interface_slug].display_name %}
+          <nav class="ml-0 mb-l px-4">
+            <p class="text-blue">
+              {{ interface_name }}
+            </p>
+
+            <ul class="list-inside">
+            {% assign services_entries = site.data.carriers[page.carrier].interfaces[interface_slug].implementations.shipcloud.services %}
+            {% if services_entries.size > 0 %}
+              <li class="mt-m ml-0">
+                <a href="#{{ interface_slug | slugify }}-services">Services</a>
+                {% include utils/carrier_interface_nav_iterator.html entries=services_entries type='services' carrier_interface=interface_slug %}
+              </li>
+            {% endif %}
+
+            {% assign package_types_entries = site.data.carriers[page.carrier].interfaces[interface_slug].implementations.shipcloud.package_types %}
+            {% if package_types_entries.size > 0 %}
+              <li class="mt-m ml-0">
+                <a href="#{{ interface_slug | slugify }}-package-types">Package types</a>
+                {% include utils/carrier_interface_nav_iterator.html entries=package_types_entries type='package_types' carrier_interface=interface_slug %}
+              </li>
+            {% endif %}
+
+            {% assign additional_services_entries = site.data.carriers[page.carrier].interfaces[interface_slug].implementations.shipcloud.additional_services %}
+            {% if additional_services_entries.size > 0 %}
+              <li class="mt-m ml-0">
+                <a href="#{{ interface_slug | slugify }}-additional-services">Additional services</a>
+                {% include utils/carrier_interface_nav_iterator.html entries=additional_services_entries type='additional_services' carrier_interface=interface_slug %}
+              </li>
+            {% endif %}
+
+            {% assign label_sizes_entries = site.data.carriers[page.carrier].interfaces[interface_slug].implementations.shipcloud.label_sizes %}
+            {% if label_sizes_entries.size > 0 %}
+              <li class="mt-m ml-0">
+                <a href="#{{ interface_slug | slugify }}-label-sizes">Label sizes</a>
+                {% include utils/carrier_interface_nav_iterator.html entries=label_sizes_entries type='label_sizes' carrier_interface=interface_slug %}
+              </li>
+            {% endif %}
+
+            {% assign other_attributes_entries = site.data.carriers[page.carrier].interfaces[interface_slug].implementations.shipcloud.other_attributes %}
+            {% if other_attributes_entries.size > 0 %}
+              <li class="mt-m ml-0">
+                <a href="#{{ interface_slug | slugify }}-other-attributes">Other attributes</a>
+                {% include utils/carrier_interface_nav_iterator.html entries=other_attributes_entries type='other_attributes' carrier_interface=interface_slug %}
+              </li>
+            {% endif %}
+
+            {% assign pickup_requests_entries = site.data.carriers[page.carrier].interfaces[interface_slug].implementations.shipcloud.pickup_requests %}
+            {% if pickup_requests_entries.size > 0 %}
+              <li class="mt-m ml-0">
+                <a href="#{{ interface_slug | slugify }}-pickup-requests">Pickup requests</a>
+                {% include utils/carrier_interface_nav_iterator.html entries=pickup_requests_entries type='pickup_requests' carrier_interface=include.carrier_interface %}
+              </li>
+            {% endif %}
+
+            {% assign misc_entries = site.data.carriers[page.carrier].interfaces[interface_slug].implementations.shipcloud.misc %}
+            {% if misc_entries.size > 0 %}
+              <li class="mt-m ml-0">
+                <a href="#{{ interface_slug | slugify }}-misc">Misc</a>
+                {% include utils/carrier_interface_nav_iterator.html entries=misc_entries type='misc' carrier_interface=interface_slug %}
+              </li>
+            {% endif %}
+          </nav>
+        {% endfor %}
+    {% endif %}
+  </div>
+</div>

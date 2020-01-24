@@ -1,23 +1,36 @@
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="{{ site.baseurl }}/"><img alt="shipcloud logo" src="{{ site.baseurl }}/assets/images/logos/shipcloud_logo.png"></a>
+<nav class="fixed flex w-full h-16 top-0 bg-white border-grey-light border-b z-10 items-center self-center">
+  <div class="fixed pl-m w-56">
+    <a class="navbar-brand" href="{{ site.baseurl }}/">
+      <img alt="shipcloud logo" src="{{ site.baseurl }}/assets/images/logos/shipcloud_logo.png" class="w-4/5">
+    </a>
+  </div>
+  <div class="block lg:hidden">
+    <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:border-white" data-controller="toggle-element" data-target="#main-nav">
+      <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <title>Menu</title>
+        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+      </svg>
+    </button>
+  </div>
+  <div class="flex ml-56 w-full">
+    <div class="px-4 w-7/12 text-sm self-center">
+      <!-- <form>
+        <div class="flex">
+          <i class="fas fa-search my-2 mr-m"></i>
+          <input class="shadow appearance-none border rounded w-full py-2 px-3 inline-block text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="search" type="text" placeholder="Search">
+        </div>
+      </form> -->
     </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li{% if page.url contains "/concepts/" %} class="active"{% endif %}><a href="{{ site.baseurl }}/concepts">Concepts</a></li>
-        <li{% if page.url contains "/integrations/" %} class="active"{% endif %}><a href="{{ site.baseurl }}/integrations">Integrations</a></li>
-        <li{% if page.url contains "/examples/" %} class="active"{% endif %}><a href="{{ site.baseurl }}/examples">Examples</a></li>
-        <li{% if page.url contains "/reference/" %} class="active"{% endif %}><a href="{{ site.baseurl }}/reference">API Reference</a></li>
-        <li><a href="https://app.shipcloud.io/de/users/sign_up?plan=developer" class="register btn">Register as a developer</a></li>
-        <li{% if page.url == "/support/index.html" %} class="active"{% endif %}><a href="{{ site.baseurl }}/support">Support</a></li>
-      </ul>
+    <div class="px-4 pr-m w-4/12 flex-grow self-center">
+      <a href="{{ site.baseurl }}/support" class="text-xs mr-l">
+        Developer Support
+      </a>
+      <a href="https://support.shipcloud.io" target="_blank" rel="noopener noreferrer" class="text-xs mr-l">
+        Help Center
+      </a>
+      <a href="https://app.shipcloud.io/users/sign_in/" target="_blank" rel="noopener noreferrer" class="text-xs">
+        Login
+      </a>
     </div>
   </div>
 </nav>

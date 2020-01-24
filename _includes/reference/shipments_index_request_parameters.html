@@ -1,0 +1,84 @@
+<ul class="list-outside list-disc">
+  <li>
+    <strong>carrier</strong>, e.g. 'carrier=dhl'
+  </li>
+  <li>
+    <strong>carrier_tracking_no</strong>, e.g. 'carrier_tracking_no=43128000105'
+  </li>
+  <li>
+    <strong>created_at_gt</strong>, e.g. 'created_at_gt=20180712T1300Z'
+  </li>
+  <li>
+    <strong>created_at_lt</strong>, e.g. 'created_at_lt=20180712T1400Z'
+  </li>
+  <li>
+    <strong>page</strong>, show page number x, e.g. 'page=2'
+  </li>
+  <li>
+    <strong>per_page</strong>, show x number of shipments on a page (default & max: 100), e.g.
+    'per_page=25'
+  </li>
+  <li>
+    <strong>reference_number</strong>, e.g. 'reference_number=ref123456'
+  </li>
+  <li>
+    <strong>service</strong>, e.g. 'service=returns'
+  </li>
+  <li>
+    <strong>shipcloud_tracking_no</strong>, e.g.
+    'shipcloud_tracking_no=86afb143f9c9c0cfd4eb7a7c26a5c616585a6271'
+  </li>
+  <li>
+    <strong>shipment_type</strong>, e.g. 'shipment_type=prepared'
+  </li>
+  <li>
+    <strong>source</strong>, e.g. 'source=api'
+  </li>
+  <li>
+    <strong>tracking_status</strong>, e.g. 'tracking_status=out_for_delivery'
+  </li>
+  <li>
+    <strong>tracking_status_not</strong>, e.g. 'tracking_status_not=delivered'
+  </li>
+</ul>
+
+<p class="mt-l">
+  <strong>shipment_type:</strong> Specifies the type of a shipment. The following types are available:
+  <ul class="list-outside list-disc">
+    <li>
+      <code>prepared</code>: a shipment which was saved in shipcloud but doesn't have a shipping
+      label yet
+    </li>
+    <li>
+      <code>label_created</code>: a shipment containing a shipping label.
+    </li>
+    <li>
+      <code>tracking_only</code>: a shipment that was imported via its carrier tracking number (see
+      <a href="#trackers">
+        trackers
+      </a> for more details)
+    </li>
+  </ul>
+</p>
+
+<p class="mt-l">
+  <strong>created_at_gt / created_at_lt:</strong> You can filter the list by using these parameters
+  to specify a timerange to find the shipments that were created during this time. The timestamp
+  will be evaluated as ISO 8601 using the following format: <code>YYYYMMDDThhmmZ</code>.
+</p>
+
+<p class="mt-l">
+  <strong>source:</strong> Filter shipments by platform they were created through. The following
+  keys can be used:
+  <ul class="list-outside list-disc">
+    <li>
+      <code>api</code>: a shipment created through our api
+    </li>
+    <li>
+      <code>webui</code>: a shipment created using the shipcloud ui
+    </li>
+    <li>
+      <code>return_portal</code>: a shipment created using the shipcloud return portal
+    </li>
+  </ul>
+</p>

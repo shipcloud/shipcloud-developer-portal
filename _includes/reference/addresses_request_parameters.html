@@ -1,0 +1,55 @@
+<ul class="list-outside list-disc">
+  <li>
+    <strong>company</strong> (string), the receivers company name
+  </li>
+  <li>
+    <strong>first_name</strong> (string, optional), the receivers first name
+  </li>
+  <li>
+    <strong>last_name</strong> (string), the receivers last name
+  </li>
+  <li>
+    <strong>care_of</strong> (string, optional), name of the person that should be able to receive
+    the package
+  </li>
+  <li>
+    <strong>street</strong> (string), street name
+  </li>
+  <li>
+    <strong>street_no</strong> (string), house number
+  </li>
+  <li>
+    <strong>zip_code</strong> (string), zip code
+  </li>
+  <li>
+    <strong>city</strong> (string), city
+  </li>
+  <li>
+    <strong>state</strong> (string, optional), state
+  </li>
+  <li>
+    <strong>country</strong> (string), country as uppercase ISO 3166-1 alpha-2 code
+  </li>
+  <li>
+    <strong>phone</strong> (string, optional), telephone number (mandatory when using UPS and the
+    following terms apply: service is one_day or one_day_early or ship to country is different than
+    ship from country)
+  </li>
+  <li>
+    <strong>email</strong> (string, optional), email address of the receiver to get notified by the
+    carrier. Currently only used when sending shipments via
+    <a href="{{ site.baseurl }}/carriers/hermes#hsi---parcel-shop-delivery-service">
+      GLS - ShopDeliveryService
+    </a>
+  </li>
+  <li>
+    <strong>drop_off_point</strong> (object, optional), data that needs to be defined when using the
+    <a href="{{ site.baseurl }}/carriers/hermes#hsi---parcel-shop-delivery-service">
+      GLS - ShopDeliveryService
+    </a>
+    <ul class="list-outside list-disc">
+      <li><strong>drop_off_point_id</strong> (string, optional), ID of the drop off point where the shipment should be send to. The ID can be determined through the [GLS parcelshop search](https://gls-group.eu/DE/en/depot-parcelshop-search)</li>
+      <li><strong>type</strong> (string, optional), drop off point type</li>
+    </ul>
+  </li>
+</ul>

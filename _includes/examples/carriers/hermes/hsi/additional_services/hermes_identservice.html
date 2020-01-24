@@ -1,0 +1,86 @@
+<h4 id="hsi---hermes-identservice" class="text-blue">
+  IdentService
+</h4>
+
+<p>
+  You can have the carrier Hermes check the identity of a recipient by specifying this additional
+  service (more details about the
+  <a href="https://blog.myhermes.de/hermesabc/identservice/" target="_blank">IdentService at the
+  Hermes website</a>). The shipment will be handed over to the recipient only if the data on the
+  shipping label matches 100% to the shown ID.
+</p>
+
+<p class="mt-m">
+  <strong>Requirements:</strong>
+</p>
+
+<ul class="list-outside list-disc pl-m">
+  <li>You have to use your own carrier contract</li>
+  <li>
+    <code>id_type</code> is mandatory and can be one of the following values:
+    <code><em>german_identity_card</em></code>, <code><em>german_passport</em></code>,
+    <code><em>international_passport</em></code>
+  </li>
+  <li><code>id_number</code> is mandatory</li>
+  <li>Applicable only for domestic shipments whithin Germany</li>
+</ul>
+
+<section class="shadow my-m">
+  <article class="border-b">
+    <div class="border-l-2 border-transparent">
+      {% include utils/toggle_element.html target="#hsi_identservice_togglebox" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="hsi_identservice_togglebox">
+        <div class="mt-m">
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "company": "Receiver AG",
+    "care_of": "3. Liftstock",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE"
+  },
+  "package": {
+    "weight": "2.5",
+    "length": "40",
+    "width": "20",
+    "height": "10",
+    "type": "parcel"
+  },
+  "service": "standard",
+  "carrier": "hermes",
+  "additional_services": [
+    {
+      "name": "hermes_ident_check",
+      "properties": {
+        "id_type": "german_identity_card",
+        "id_number": "ID123ABC"
+      }
+    }
+  ],
+  "create_shipping_label": true
+}
+{% endhighlight %}
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

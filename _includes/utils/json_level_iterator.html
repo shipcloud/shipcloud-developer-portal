@@ -1,0 +1,15 @@
+<ul>
+{% for entries_lev1 in include.entries %}
+  <li>
+    {% if entries_lev1[1].first %}
+        {% capture entry_output %}`{{ entries_lev1[0] }}`{% endcapture %}
+        {{ entry_output | markdownify | remove: '<p>' | remove: '</p>' }}
+        {% assign sub_entries=entries_lev1[1] %}
+        {% include utils/json_level_iterator.html entries=sub_entries %}
+    {% else %}
+        {% capture entry_output %}`{{ entries_lev1[0] }}`: {{ entries_lev1[1] }}{% endcapture %}
+        {{ entry_output | markdownify | remove: '<p>' | remove: '</p>' }}
+    {% endif %}
+  </li>
+{% endfor %}
+</ul>

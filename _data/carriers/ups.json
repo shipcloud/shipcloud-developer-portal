@@ -1,0 +1,96 @@
+{
+  "css_key": "ups",
+  "display_name": "UPS",
+  "key": "ups",
+  "interfaces": {
+    "ship_webservice": {
+      "display_name": "Ship Webservice",
+      "implementations": {
+        "shipcloud": {
+          "services": [{
+              "display_name": "Standard",
+              "key": "standard"
+            },
+            {
+              "display_name": "One day",
+              "key": "one_day"
+            },
+            {
+              "display_name": "One day early",
+              "key": "one_day_early"
+            },
+            {
+              "display_name": "Returns",
+              "key": "returns"
+            },
+            {
+              "display_name": "Expedited",
+              "key": "ups_expedited"
+            },
+            {
+              "display_name": "Express 12:00",
+              "key": "ups_express_1200"
+            }
+          ],
+          "package_types": [{
+            "display_name": "Parcel",
+            "key": "parcel"
+          }],
+          "additional_services": [{
+              "display_name": "Cash on delivery",
+              "key": "cash_on_delivery"
+            },
+            {
+              "display_name": "Adult signature",
+              "key": "ups_adult_signature"
+            }
+          ],
+          "other_attributes": [{
+              "display_name": "Declared value",
+              "key": "declared_value"
+            },
+            {
+              "display_name": "Customs declaration",
+              "key": "customs_declaration"
+            }
+          ],
+          "label_sizes": [{
+              "display_name": "DIN A5",
+              "key": "A5"
+            },
+            {
+              "display_name": "DIN A6",
+              "key": "A6"
+            }
+          ],
+          "misc": [{
+              "display_name": "Cutoff times",
+              "key": "cutoff_times"
+            },
+            {
+              "display_name": "Rules",
+              "key": "rules"
+            }
+          ],
+          "field_lengths": {
+            "company": "1 - 35 characters (only 30 characters will be printed on the label)",
+            "last_name": "1 - 35 characters (firstname + last_name <= 35 characters - only 30 characters will be printed on the label)",
+            "care_of": "0 - 35 characters (only 30 characters will be printed on the label)",
+            "street": "1 - 35 characters (street + street_no <= 35 characters - only 30 characters will be printed on the label)",
+            "zip_code": "1 - 9 characters",
+            "city": "1 - 30 characters (only 15 characters will be printed on the label)",
+            "state": "2 characters",
+            "phone": "0 - 15 characters",
+            "reference_number": "0 - 35 characters"
+          }
+        }
+      }
+    }
+  },
+  "marketing": {
+    "en": {
+      "help_center": "https://support.shipcloud.io/en/collections/1544045-carriers#ups",
+      "website": "https://www.shipcloud.io/en/partner/carriers/ups"
+    }
+  }
+}

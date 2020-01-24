@@ -1,0 +1,63 @@
+{
+  "css_key": "deutsche-post",
+  "display_name": "Deutsche Post",
+  "key": "dpag",
+  "interfaces": {
+    "v3": {
+      "display_name": "DPAG one click for app v3",
+      "implementations": {
+        "shipcloud": {
+          "services": [{
+              "display_name": "Standard",
+              "key": "standard"
+            },
+            {
+              "display_name": "Warenpost",
+              "key": "dpag_warenpost"
+            },
+            {
+              "display_name": "Warenpost (Untracked)",
+              "key": "dpag_warenpost_untracked"
+            },
+            {
+              "display_name": "Warenpost (with signature)",
+              "key": "dpag_warenpost_signature"
+            }
+          ],
+          "package_types": [{
+              "display_name": "Letter",
+              "key": "letter"
+            },
+            {
+              "display_name": "Bücher- und Warenversand",
+              "key": "parcel_letter"
+            },
+            {
+              "display_name": "Books",
+              "key": "books"
+            }
+          ],
+          "other_attributes": [{
+            "display_name": "Customs declaration",
+            "key": "customs_declaration"
+          }],
+          "label_sizes": [{
+              "display_name": "DIN A5",
+              "key": "A5"
+            },
+            {
+              "display_name": "DIN A6",
+              "key": "A6"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "marketing": {
+    "en": {
+      "help_center": "https://support.shipcloud.io/en/collections/1544045-carriers#deutsche-post",
+      "website": "https://www.shipcloud.io/en/partner/carriers/deutsche_post"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "css_key": "mydpd-business",
+  "display_name": "MyDPD Business",
+  "key": "iloxx",
+  "interfaces": {
+    "webservice": {
+      "display_name": "Webservice",
+      "implementations": {
+        "shipcloud": {
+          "services": [{
+            "display_name": "Standard",
+            "key": "standard"
+          }],
+          "package_types": [{
+            "display_name": "Parcel",
+            "key": "parcel"
+          }],
+          "label_sizes": [{
+              "display_name": "DIN A5",
+              "key": "A5"
+            },
+            {
+              "display_name": "DIN A6",
+              "key": "A6"
+            }
+          ],
+          "field_lengths": {
+            "company": "1 - 35 characters",
+            "last_name": "1 - 35 characters (firstname + last_name <= 35 characters)",
+            "care_of": "0 - 35 characters",
+            "street": "1 - 35 characters",
+            "street_no": "1 - 8 characters",
+            "zip_code": "1 - 9 characters",
+            "city": "1 - 35 characters",
+            "phone": "0 - 30 characters"
+          }
+        }
+      }
+    }
+  },
+  "marketing": {
+    "en": {
+      "help_center": "https://support.shipcloud.io/en/collections/1544045-carriers#mydpd-business",
+      "website": "https://www.shipcloud.io/en/partner/carriers/mydpd_business"
+    }
+  }
+}

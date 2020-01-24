@@ -1,0 +1,345 @@
+---
+layout: default
+title: shipcloud api changelog
+---
+
+<h1 id="change-log" class="mb-l">Change log</h1>
+
+<p class="mb-m">
+  All notable changes to our api will be documented in this file. This way you can easily find out
+  about all changes we made in the past and see if there's anything new you have to consider since
+  you've last visited the api documentation.
+</p>
+
+<p class="mb-m">
+  This changelog does not follow <a href="https://semver.org/" target="_blank">
+  Semantic Versioning</a>, since we currently do not work with any other release modifiers than
+  major versions.
+</p>
+
+<div class="bg-grey-light border-t-4 border-grey-darker text-grey-darker rounded-b px-4 py-3 shadow-md my-2 mb-xl" role="alert">
+  <div class="flex">
+    <div>
+      <i class="fas fa-info-circle h-6 w-6 mr-4"></i>
+    </div>
+    <div>
+        <strong>Notice</strong>: Not everything we do affects the viewable parts of our api.
+    </div>
+  </div>
+</div>
+
+<section class="mb-l">
+  <h2 id="20191022---2019-10-22" class="mb-s">[20191022] - 2019-10-22</h2>
+  <h3>Added</h3>
+  <ul class="list-outside list-disc ml-m">
+    <li>
+      Additional service
+      <a href="{{ site.baseurl }}/carriers/cargo_international#v1---cash-on-delivery">
+      Cargo International - Cash on delivery</a>
+    </li>
+    <li>
+      Additional service <a href="{{ site.baseurl }}/carriers/dhl#v2---dhl-gogreen">DHL - GoGreen</a>
+    </li>
+    <li>
+      Service <a href="{{ site.baseurl }}/carriers/dpag#v3---dpag-warenpost-signature">
+      Deutsche Post - Warenpost International with signature</a>
+    </li>
+  </ul>
+</section>
+
+<section class="mb-l">
+  <h2 id="20191022---2019-10-22" class="mb-s">[20191010] - 2019-10-10</h2>
+  <h3>Changed</h3>
+  <ul class="list-outside list-disc ml-m">
+    <li>
+      <a href="{{ site.baseurl }}/concepts/#label-format">Label format</a> can now be specified by
+      using the attribute <code>label.format</code>. With this the attribute <code>label.size</code>
+      is deprecated from now on.
+    </li>
+  </ul>
+</section>
+
+<section class="mb-l">
+  <h2 id="20190930---2019-09-30" class="mb-s">[20190930] - 2019-09-30</h2>
+  <h3>Added</h3>
+  <ul class="list-outside list-disc ml-m">
+    <li>
+      You can now specify a <a href="{{ site.baseurl }}/carriers/hermes#hsi---cover-address">cover
+      address</a> that will be printed on the shipping label instead of the actual senders' address.
+    </li>
+  </ul>
+</section>
+
+<section class="mb-l">
+  <h2 id="20190701---2019-07-01" class="mb-s">[20190701] - 2019-07-01</h2>
+  <h3>Added</h3>
+  <ul class="list-outside list-disc ml-m">
+    <li>
+      Service <a href="{{ site.baseurl }}/carriers/gls#web-api---gls-pick-and-ship">GLS -
+      Pick&ShipService</a>
+    </li>
+    <li>
+      Customs declaration documents for UPS can now be created using
+      <a href="{{ site.baseurl }}/carriers/ups#ship-webservice---customs-declaration">UPS Commercial invoice</a>
+    </li>
+  </ul>
+  <h3>Changed</h3>
+  <ul class="list-outside list-disc ml-m">
+    <li>
+      The Deutsche Post discontinues the package types <em>Büchersendung</em> and <em>Warensendung
+      </em>. Instead they introduced the new type
+      <a href="{{ site.baseurl }}/carriers/dpag#v3---parcel-letter">Bücher- und Warenversand</a>
+    </li>
+  </ul>
+</section>
+
+<section class="mb-l">
+  <h2 id="20190424---2019-04-24" class="mb-s">[20190424] - 2019-04-24</h2>
+  <h3>Added</h3>
+  <ul class="list-outside list-disc ml-m">
+    <li>
+      Deutsche Post service
+      <a href="">Warenpost International</a>({{ site.baseurl }}/carriers/dpag#v3---dpag-warenpost-untracked)
+      (tracked & untracked)
+    </li>
+  </ul>
+</section>
+
+<section class="mb-l">
+  <h2 id="20190312---2019-03-12" class="mb-s">[20190312] - 2019-03-12</h2>
+  <h3>Added</h3>
+  <ul class="list-outside list-disc ml-m">
+    <li>
+      Hermes (HSI) <a href="">customer alert</a>({{ site.baseurl }}/carriers/hermes#hsi---advance-notice) via sms and
+      email
+    </li>
+    <li>
+      Hermes (HSI) <a href="">bulk shipments</a>({{ site.baseurl }}/carriers/hermes#hsi---bulk)
+    </li>
+    <li>
+      Hermes (HSI) <a href="">ident check</a>({{ site.baseurl }}/carriers/hermes#hsi---hermes-identservice)
+    </li>
+    <li>
+      You can send Hermes (HSI) shipments directly to a parcel shop with the
+      <a href="">Hermes ParcelShopDeliveryService</a>({{ site.baseurl }}/carriers/hermes#hsi---parcel-shop-delivery-service)
+    </li>
+    <li>
+      Hermes (HSI) <a href="">return shipments</a>({{ site.baseurl }}/carriers/hermes#hsi---returns)
+    </li>
+  </ul>
+</section>
+
+<section class="mb-l">
+  <h2 id="20190109---2019-01-09" class="mb-s">[20190109] - 2019-01-09</h2>
+  <h3>Added</h3>
+  <ul class="list-outside list-disc ml-m">
+    <li>
+      You can now supply an
+      <a href="{{ site.baseurl }}/carriers/gls#web-api---incoterms">incoterm</a> code when sending
+      shipments to dutiable countries (<em>when using GLS</em>).
+    </li>
+  </ul>
+</section>
+
+<section class="mb-l">
+  <h2 id="20180822---2018-08-22" class="mb-s">[20180822] - 2018-08-22</h2>
+  <h3>Added</h3>
+  <ul class="list-outside list-disc ml-m">
+    <li>
+      You can now supply <a href="{{ site.baseurl }}/carriers/dhl#v2---customs-declaration">customs
+      declaration data</a> when creating a shipment and we will return the corresponding customs
+      forms for the selected carrier.
+    </li>
+    <li>
+      Deutsche Post service <a href="{{ site.baseurl }}/carriers/dpag#v3---dpag-warenpost">
+      Warenpost</a>
+    </li>
+  </ul>
+</section>
+
+<section class="mb-l">
+  <h2 id="20180814---2018-08-14" class="mb-s">[20180814] - 2018-08-14</h2>
+  <h3>Added</h3>
+  <ul class="list-outside list-disc ml-m">
+    <li>
+      More parameters to filter a
+      <a href="{{ site.baseurl }}/reference/#getting-a-list-of-shipments">list of shipments</a>
+    </li>
+    <li>
+      API endpoint to query
+      <a href="{{ site.baseurl }}/reference/#getting-a-list-of-pickup-requests">all pickup
+      requests</a>
+    </li>
+    <li>
+      API endpoint to query the
+      <a href="{{ site.baseurl }}/reference/#getting-information-about-a-pickup-request">details of
+      a single pickup request</a>
+    </li>
+  </ul>
+</section>
+
+<section class="mb-l">
+  <h2 id="20180619---2018-06-19" class="mb-s">[20180619] - 2018-06-19</h2>
+  <h3>Added</h3>
+  <ul class="list-outside list-disc ml-m">
+    <li>
+      Service <a href="{{ site.baseurl }}/carriers/ups#ship-webservice---ups-express-1200">UPS
+      Express 12:00</a>
+    </li>
+  </ul>
+</section>
+
+<section class="mb-l">
+  <h2 id="20180201---2018-02-01" class="mb-s">[20180201] - 2018-02-01</h2>
+  <h3>Added</h3>
+  <ul class="list-outside list-disc ml-m">
+    <li>
+      Additional service
+      <a href="{{ site.baseurl }}/carriers/ups#ship-webservice---ups-adult-signature">UPS adult
+      signature</a>
+    </li>
+  </ul>
+</section>
+
+<section class="mb-l">
+  <h2 id="20180126---2018-01-26" class="mb-s">[20180126] - 2018-01-26</h2>
+  <h3>Added</h3>
+  <ul class="list-outside list-disc ml-m">
+    <li>
+      Additional service <a href="{{ site.baseurl }}/carriers/dhl#v2---premium-international">DHL
+      Premium International</a>
+    </li>
+  </ul>
+</section>
+
+<section class="mb-l">
+  <h2 id="20170202---2017-02-02" class="mb-s">[20170202] - 2017-02-02</h2>
+  <h3>Changed</h3>
+  <ul class="list-outside list-disc ml-m">
+    <li>
+      As previously stated, we've replaced the deprecated parameter <code>tracking_code</code> with
+      <code>carrier_tracking_no</code>. Tracker objects are using this parameter from now on.
+    </li>
+  </ul>
+</section>
+
+<section class="mb-l">
+  <h2 id="20170127---2017-01-27" class="mb-s">[20170127] - 2017-01-27</h2>
+  <h3>Added</h3>
+  <ul class="list-outside list-disc ml-m">
+    <li>
+      Introducing the <a href="{{ site.baseurl }}/reference/#trackers">trackers ressource</a> to be
+      able to import shipments by sending us carrier tracking numbers of shipments that were
+      created, using another software.
+    </li>
+  </ul>
+</section>
+
+<section class="mb-l">
+  <h2 id="20170119---2017-01-19" class="mb-s">[20170119] - 2017-01-19</h2>
+  <h3>Added</h3>
+  <ul class="list-outside list-disc ml-m">
+    <li>
+      When <a href="{{ site.baseurl }}/reference/#getting-information-about-a-shipment">reading a
+      shipment</a>, <code>shipper_notification_email</code> will now be returned (<em>if specified
+      during creation</em>)
+    </li>
+  </ul>
+</section>
+
+<section class="mb-l">
+  <h2 id="20161021---2016-10-21" class="mb-s">[20161021] - 2016-10-21</h2>
+  <h3>Added</h3>
+  <ul class="list-outside list-disc ml-m">
+    <li>
+      You can now <a href="{{ site.baseurl }}/carriers/dhl#v2---cash-on-delivery">specify a
+      reference</a> when creating a shipment that gets payed by cash on delivery, in order to see
+      the reference on the bank statement
+    </li>
+  </ul>
+</section>
+
+<section class="mb-l">
+  <h2 id="20161019---2016-10-19" class="mb-s">[20161019] - 2016-10-19</h2>
+  <h3>Removed</h3>
+  <ul class="list-outside list-disc ml-m">
+    <li>
+      We've removed the event type <code>shipcloud_label_created</code> because it was too confusing
+      and users didn't get the difference between this one and <code>label_created</code>.
+    </li>
+  </ul>
+</section>
+
+<section class="mb-l">
+  <h2 id="20160511---2016-05-11" class="mb-s">[20160511] - 2016-05-11</h2>
+  <h3>Added</h3>
+  <ul class="list-outside list-disc ml-m">
+    <li>
+      You can supply the id of an address now when creating a ShipmentQuote
+    </li>
+  </ul>
+
+  <h3>Changed</h3>
+  <ul class="list-outside list-disc ml-m">
+    <li>
+      When creating a ShipmentQuote you won't have to supply a from-address anymore. If it's missing
+      we'll use the standard from address that is associated with your account
+    </li>
+  </ul>
+
+  <h3>Fixed</h3>
+  <ul class="list-outside list-disc ml-m">
+    <li>
+      Returning the right error message when standard ship from address is missing a phone number and
+      making a PickupRequest for carrier UPS
+    </li>
+    <li>
+      Package type will now be returned as parameter <code>type</code> withing the object
+      <code>package</code> when creating a shipment
+    </li>
+    <li>
+      When creating a returns shipment we won't return the misleading tip about having to add a
+      <em>default address at your profile page</em> anymore, since you can supply a different
+      address
+    </li>
+    <li>
+      if <code>pakadoo.id</code> is <code>null</code> we'll return a error message now
+    </li>
+    <li>
+      if <code>pakadoo.id</code> is empty we'll return a error message now
+    </li>
+  </ul>
+</section>
+
+<section class="mb-l">
+  <h2 id="20160422---2016-04-22" class="mb-s">[20160422] - 2016-04-22</h2>
+  <h3>Added</h3>
+  <ul class="list-outside list-disc ml-m">
+    <li>
+      When making a PickupRequest you can now add a
+      <a href="{{ site.baseurl }}/reference/#pickup-requests">pickup_address</a> that tells the
+      carrier where the shipments should be collected
+    </li>
+  </ul>
+</section>
+
+<section class="mb-l">
+  <h2 id="20160304---2016-03-04" class="mb-s">[20160304] - 2016-03-04</h2>
+  <h3>Added</h3>
+  <ul class="list-outside list-disc ml-m">
+    <li>
+      We're now returning additional services when querying information about shipments
+    </li>
+  </ul>
+</section>
+
+<section class="mb-l">
+  <h2 id="20160119---2016-01-19" class="mb-s">[20160119] - 2016-01-19</h2>
+  <h3>Added</h3>
+  <ul class="list-outside list-disc ml-m">
+    <li>
+      When creating a <a href="{{ site.baseurl }}/reference/#pickup-requests">pickup request</a>
+      we're now returning an <code>id</code> that identifies the data
+    </li>
+  </ul>
+</section>

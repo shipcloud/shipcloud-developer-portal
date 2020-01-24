@@ -1,0 +1,63 @@
+{
+  "css_key": "dhl-express",
+  "display_name": "DHL Express",
+  "key": "dhl_express",
+  "interfaces": {
+    "rate_book": {
+      "display_name": "Rate Book",
+      "implementations": {
+        "shipcloud": {
+          "services": [{
+              "display_name": "One day",
+              "key": "one_day"
+            },
+            {
+              "display_name": "One day early",
+              "key": "one_day_early"
+            }
+          ],
+          "package_types": [{
+            "display_name": "Parcel",
+            "key": "parcel"
+          }],
+          "additional_services": [{
+            "display_name": "Saturday delivery",
+            "key": "saturday_delivery"
+          }],
+          "label_sizes": [{
+              "display_name": "DIN A5",
+              "key": "A5"
+            },
+            {
+              "display_name": "DIN A6",
+              "key": "A6"
+            }
+          ],
+          "pickup_requests": [{
+            "display_name": "Shipment with pickup request",
+            "key": "shipment_with_pickup_request"
+          }],
+          "field_lengths": {
+            "company": "2 - 35 characters",
+            "last_name": "1 - 45 characters (firstname + last_name <= 45 characters)",
+            "care_of": "0 - 35 characters",
+            "street": "1 - 35 characters (street + street_no <= 35 characters)",
+            "street_no": "0 - 15 characters",
+            "zip_code": "1 - 12 characters",
+            "city": "1 - 35 characters",
+            "state": "2 characters (for US only)",
+            "country": "2 characters",
+            "phone": "1 - 25 characters",
+            "description": "1 - 35 characters"
+          }
+        }
+      }
+    }
+  },
+  "marketing": {
+    "en": {
+      "help_center": "https://support.shipcloud.io/en/collections/1544045-carriers#dhl-express",
+      "website": "https://www.shipcloud.io/en/partner/carriers/dhl_express"
+    }
+  }
+}

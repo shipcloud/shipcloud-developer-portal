@@ -1,0 +1,11 @@
+<div class="w-56">
+  <div class="mb-m text-6xl text-white text-center">
+    <i class="shipcloud-carrier shipcloud-carrier-{{ site.data.carriers[page.carrier].css_key | slugify }}"></i>
+  </div>
+  <div class="mb-s bg-grey-light px-2 py-2">
+    <a href="{{ site.data.carriers[page.carrier].marketing.en.website }}" class="text-grey-darker hover:text-red">Partner page (en)</a>
+  </div>
+  <div class="mb-s bg-grey-light px-2 py-2">
+    <a href="{{ site.data.carriers[page.carrier].marketing.en.help_center }}" class="text-grey-darker hover:text-red">Help center (en)</a>
+  </div>
+</div>
