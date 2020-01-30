@@ -2,18 +2,5 @@
 <script type="text/javascript" src="/scripts/statuspage_io.js"></script>
 
 <!-- Algolia DocSearch -->
-<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-<script>
-  docsearch({
-    // Your apiKey and indexName will be given to you once
-    // we create your config
-    apiKey: 'acf1cefa33abcc86007b075e83a5ff99',
-    indexName: 'shipcloud',
-    //appId: '<APP_ID>', // Should be only included if you are running DocSearch on your own.
-    // Replace inputSelector with a CSS selector
-    // matching your search input
-    inputSelector: '#search',
-    // Set debug to true if you want to inspect the dropdown
-    debug: false,
-  });
-</script>
+<script src="{{ "/assets/js/docsearch.min.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/assets/js/algolia-docsearch.js" | prepend: site.baseurl }}"></script>
