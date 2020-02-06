@@ -7,6 +7,16 @@
       "display_name": "Express Connect",
       "implementations": {
         "shipcloud": {
+          "additional_services": [
+            {
+              "display_name": "Delivery date",
+              "key": "delivery_date"
+            },
+            {
+              "display_name": "Delivery time",
+              "key": "delivery_time"
+            }
+          ],
           "services": [{
             "display_name": "One day",
             "key": "one_day"
