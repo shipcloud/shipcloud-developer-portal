@@ -40,7 +40,7 @@
             "display_name": "Additional insurance",
             "key": "declared_value"
           }],
-          "label_sizes": [{
+          "label_formats": [{
               "display_name": "DIN A5",
               "key": "A5"
             },

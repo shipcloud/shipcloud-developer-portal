@@ -21,7 +21,7 @@
             "display_name": "MyTime",
             "key": "angel_de_delivery_date_time"
           }],
-          "label_sizes": [{
+          "label_formats": [{
               "display_name": "DIN A5",
               "key": "A5"
             },

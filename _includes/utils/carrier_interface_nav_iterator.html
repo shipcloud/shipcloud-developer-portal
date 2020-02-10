@@ -1,6 +1,6 @@
 <ul class="list-inside">
   {% for entry in include.entries %}
-    {% if include.type != "label_sizes" %}
+    {% if include.type != "label_formats" %}
     <li class="nav--level-2 truncate">
       <a href="#{{ interface_slug | slugify }}---{{ entry.key | slugify }}">
         {{ entry.display_name }}

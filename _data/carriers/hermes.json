@@ -43,7 +43,7 @@
             "display_name": "ParcelShopDeliveryService",
             "key": "parcel_shop_delivery_service"
           }],
-          "label_sizes": [{
+          "label_formats": [{
               "display_name": "DIN A5",
               "key": "A5"
             },

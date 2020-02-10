@@ -103,11 +103,11 @@
   </section>
 {% endif %}
 
-{% assign entries=site.data.carriers[page.carrier].interfaces.[include.carrier_interface].implementations.shipcloud.label_sizes %}
+{% assign entries=site.data.carriers[page.carrier].interfaces.[include.carrier_interface].implementations.shipcloud.label_formats %}
 {% if entries.size > 0 %}
   <section class="mb-xl">
-    <h3 id="{{include.carrier_interface | slugify}}-label-sizes" class="text-blue">
-        Label sizes
+    <h3 id="{{include.carrier_interface | slugify}}-label-formats" class="text-blue">
+        Label formats
     </h3>
     <ul class="list-inside list-disc">
       {% include utils/carrier_interface_entry_iterator.html entries=entries %}

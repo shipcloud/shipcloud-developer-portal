@@ -15,7 +15,7 @@
             "display_name": "Parcel",
             "key": "parcel"
           }],
-          "label_sizes": [{
+          "label_formats": [{
               "display_name": "DIN A5",
               "key": "A5"
             },

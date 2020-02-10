@@ -74,11 +74,11 @@
               </li>
             {% endif %}
 
-            {% assign label_sizes_entries = site.data.carriers[page.carrier].interfaces[interface_slug].implementations.shipcloud.label_sizes %}
-            {% if label_sizes_entries.size > 0 %}
+            {% assign label_formats_entries = site.data.carriers[page.carrier].interfaces[interface_slug].implementations.shipcloud.label_formats %}
+            {% if label_formats_entries.size > 0 %}
               <li class="mt-m ml-0">
-                <a href="#{{ interface_slug | slugify }}-label-sizes">Label sizes</a>
-                {% include utils/carrier_interface_nav_iterator.html entries=label_sizes_entries type='label_sizes' carrier_interface=interface_slug %}
+                <a href="#{{ interface_slug | slugify }}-label-formats">Label formats</a>
+                {% include utils/carrier_interface_nav_iterator.html entries=label_formats_entries type='label_formats' carrier_interface=interface_slug %}
               </li>
             {% endif %}
 

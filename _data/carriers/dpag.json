@@ -41,7 +41,7 @@
             "display_name": "Customs declaration",
             "key": "customs_declaration"
           }],
-          "label_sizes": [{
+          "label_formats": [{
               "display_name": "DIN A5",
               "key": "A5"
             },

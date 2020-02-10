@@ -435,13 +435,13 @@ table.status_codes {
 }
 
 .table {
-  &.label-sizes {
+  &.label-formats {
     th, td {
       width: 16.67%;
     }
   }
 
-  &.label-sizes-cargo-international {
+  &.label-formats-cargo-international {
     th, td {
       width: 350px;
       &:first-child {

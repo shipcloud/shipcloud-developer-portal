@@ -93,15 +93,15 @@ title: Carrier Features Overview
       {% endfor %}
     </tr>
     <tr>
-      <td class="border p-2 align-top">Label sizes</td>
+      <td class="border p-2 align-top">Label formats</td>
       {% for carrier in carriers %}
         <td class="border p-2 align-top">
-          {% assign all_label_sizes = '' | split: '' %}
+          {% assign all_label_formats = '' | split: '' %}
           {% for interface in carrier[1].interfaces %}
-            {% assign all_label_sizes = all_label_sizes | concat: interface[1].implementations.shipcloud.label_sizes | uniq %}
+            {% assign all_label_formats = all_label_formats | concat: interface[1].implementations.shipcloud.label_formats | uniq %}
           {% endfor %}
           <ul class="list-outside list-disc">
-            {% for label_size in all_label_sizes %}
+            {% for label_size in all_label_formats %}
               <li>
                 {{ label_size.display_name }}
               </li>
