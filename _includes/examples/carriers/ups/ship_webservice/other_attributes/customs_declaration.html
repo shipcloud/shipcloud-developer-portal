@@ -13,6 +13,9 @@
 </p>
 <ul class="list-inside list-disc">
   <li>
+    <code>description</code> is mandatory
+  </li>
+  <li>
     <code>customs_declaration.currency</code> has to be <code><em>EUR</em></code>
   </li>
 </ul>
@@ -58,6 +61,7 @@ POST https://api.shipcloud.io/v1/shipments
     "height": 5,
     "type": "parcel"
   },
+  "description": "Alcoholic beverages",
   "customs_declaration": {
     "contents_type": "commercial_goods",
     "contents_explanation": "Alcoholic beverages",
