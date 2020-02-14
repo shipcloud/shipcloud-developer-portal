@@ -64,7 +64,13 @@
   </li>
   <li>
     <strong>service</strong> (string, optional), service that should be used. Available values are
-    {{ site.shipcloud.supported_services.as_keys_array }}.
+    {% assign services = '' %}
+    {% for service in site.shipcloud.supported_services %}
+      {% capture new_service %}<code>{{service}}</code>|{% endcapture %}
+      {% assign services = services | append: new_service %}
+    {% endfor %}
+    {% assign services = services | split: '|' %}
+    {{ services | join: ', '}}
   </li>
   <li>
     <strong>additional_services</strong> (array, optional), array of objects where you can define

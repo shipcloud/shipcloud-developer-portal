@@ -18,7 +18,20 @@ shipcloud:
     as_keys: '"dhl", "dhl_express", "dpag", "ups", "dpd", "hermes", "gls", "iloxx", "tnt", "fedex", "go", "parcel_one", "seven_senders", "cargo_international" and "angel_de"'
     as_keys_array: '"dhl", "dhl_express", "dpag", "ups", "dpd", "hermes", "gls", "iloxx", "tnt", "fedex", "go", "parcel_one", "seven_senders", "cargo_international", "angel_de"'
   supported_services:
-    as_keys_array: '"standard", "one_day" , "one_day_early", "cargo_international_express", "dpag_warenpost", "dpag_warenpost_signature", "dpag_warenpost_untracked", "ups_express_1200", "dhl_europaket", "returns"'
+    - standard
+    - one_day
+    - one_day_early
+    - returns
+    - cargo_international_express
+    - dhl_europaket
+    - dpag_warenpost
+    - dpag_warenpost_signature
+    - dpag_warenpost_untracked
+    - gls_express_0800
+    - gls_express_0900
+    - gls_express_1000
+    - gls_express_1200
+    - ups_express_1200
 
 # Build settings
 markdown: kramdown
