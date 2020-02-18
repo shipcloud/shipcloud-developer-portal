@@ -3,10 +3,6 @@ GEM
   specs:
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
-    coffee-script (2.4.1)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.11.1)
     colorator (1.1.0)
     concurrent-ruby (1.1.5)
     em-websocket (0.5.1)
@@ -15,7 +11,6 @@ GEM
     ethon (0.12.0)
       ffi (>= 1.3.0)
     eventmachine (1.2.7)
-    execjs (2.7.0)
     ffi (1.12.1)
     forwardable-extended (2.6.0)
     html-proofer (3.15.1)
@@ -42,9 +37,6 @@ GEM
       pathutil (~> 0.9)
       rouge (>= 1.7, < 4)
       safe_yaml (~> 1.0)
-    jekyll-coffeescript (1.1.1)
-      coffee-script (~> 2.2)
-      coffee-script-source (~> 1.11.1)
     jekyll-postcss (0.2.2)
     jekyll-purgecss (0.3.0)
     jekyll-sass-converter (1.5.2)
@@ -92,7 +84,6 @@ PLATFORMS
 DEPENDENCIES
   html-proofer (~> 3.10.x)
   jekyll (~> 3.8.x)
-  jekyll-coffeescript (~> 1.1.x)
   jekyll-postcss
   jekyll-purgecss
   jekyll-sitemap
