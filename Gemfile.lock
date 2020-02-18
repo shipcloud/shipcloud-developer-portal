@@ -95,7 +95,6 @@ DEPENDENCIES
   jekyll-coffeescript (~> 1.1.x)
   jekyll-postcss
   jekyll-purgecss
-  jekyll-sass-converter (~> 1.5.x)
   jekyll-sitemap
   kramdown (~> 1.13.x)
   liquid (~> 4.0.x)
