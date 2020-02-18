@@ -16,6 +16,22 @@
               "key": "returns"
             },
             {
+              "display_name": "Express 08:00",
+              "key": "gls_express_0800"
+            },
+            {
+              "display_name": "Express 09:00",
+              "key": "gls_express_0900"
+            },
+            {
+              "display_name": "Express 10:00",
+              "key": "gls_express_1000"
+            },
+            {
+              "display_name": "Express 12:00",
+              "key": "gls_express_1200"
+            },
+            {
               "display_name": "Pick&ShipService",
               "key": "gls_pick_and_ship"
             }

@@ -5,7 +5,13 @@
   </li>
   <li>
     <strong>service</strong> (string), service that should be used. Available values are
-    {{ site.shipcloud.supported_services.as_keys_array }}.
+    {% assign services = '' %}
+    {% for service in site.shipcloud.supported_services %}
+      {% capture new_service %}<code>{{service}}</code>|{% endcapture %}
+      {% assign services = services | append: new_service %}
+    {% endfor %}
+    {% assign services = services | split: '|' %}
+    {{ services | join: ', '}}
   </li>
   <li>
     <strong>to</strong>* (object), describes the receivers address. See

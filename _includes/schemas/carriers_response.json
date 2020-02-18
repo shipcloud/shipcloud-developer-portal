@@ -1,3 +1,10 @@
+{% assign services = '' %}
+{% for service in site.shipcloud.supported_services %}
+  {% capture new_service %}"{{service}}"|{% endcapture %}
+  {% assign services = services | append: new_service %}
+{% endfor %}
+{% assign services = services | split: '|' %}
+
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -16,7 +23,7 @@
         {
           "type": "string",
           "description": "key for referencing the service within shipcloud",
-          "enum": [{{ site.shipcloud.supported_services.as_keys_array }}],
+          "enum": [{{ services | join: ', ' }}],
           "default": "standard"
         }
       ]
