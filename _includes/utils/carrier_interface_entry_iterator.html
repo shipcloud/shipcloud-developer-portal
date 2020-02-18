@@ -4,9 +4,21 @@
 <div class="mb-l">
 {{ include_file }}
 </div>
+  {% elsif include.type and include.type == 'label_formats' %}
+    {% for label_formats in entry %}
+    <!-- label_formats: {{label_formats}} -->
+      <h4 class="text-blue">{{ label_formats[0] | upcase}}</h4>
+      <ul class="list-inside list-disc">
+        {% for label_format in label_formats[1] %}
+          <li>
+            {{ label_format.display_name }}: <code>{{ label_format.key }}</code>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endfor %}
   {% else %}
 <li>
-  {{ entry.display_name }} ({{ entry.key }})
+  {{ entry.display_name }}: <code>{{ entry.key }}</code>
 </li>
   {% endif %}
 {% endfor %}

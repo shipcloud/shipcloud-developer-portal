@@ -42,14 +42,17 @@
             "key": "customs_declaration"
           }],
           "label_formats": [{
-              "display_name": "DIN A5",
-              "key": "A5"
-            },
-            {
-              "display_name": "DIN A6",
-              "key": "A6"
-            }
-          ]
+            "pdf": [
+              {
+                "display_name": "DIN A5",
+                "key": "pdf_a5"
+              },
+              {
+                "display_name": "DIN A6",
+                "key": "pdf_a6"
+              }
+            ]
+          }]
         }
       }
     }

@@ -51,14 +51,17 @@
             }
           ],
           "label_formats": [{
-              "display_name": "DIN A5",
-              "key": "A5"
-            },
-            {
-              "display_name": "DIN A6",
-              "key": "A6"
-            }
-          ],
+            "pdf": [
+              {
+                "display_name": "DIN A5",
+                "key": "pdf_a5"
+              },
+              {
+                "display_name": "DIN A6",
+                "key": "pdf_a6"
+              }
+            ]
+          }],
           "field_lengths": {
             "company": "2 - 40 characters",
             "last_name": "2 - 40 characters (first_name + last_name <= 40 characters)",

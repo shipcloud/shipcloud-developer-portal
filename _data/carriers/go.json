@@ -26,8 +26,12 @@
             "key": "parcel"
           }],
           "label_formats": [{
-            "display_name": "DIN A5",
-            "key": "A5"
+            "pdf": [
+              {
+                "display_name": "DIN A5",
+                "key": "pdf_a5"
+              }
+            ]
           }],
           "pickup_requests": [{
             "display_name": "Shipment with pickup request",
