@@ -167,9 +167,9 @@ layout: request_response
           Response
         </h4>
         {% include headers/200_ok.html %}
-        {% highlight json %}
-        {% include addresses_get_response.json %}
-        {% endhighlight %}
+{% highlight json %}
+{% include addresses_get_response.json %}
+{% endhighlight %}
 
         <p class="mt-s text-white">
           JSON schema: <a href="{{ site.baseurl }}/reference/address_response_schema.html">
@@ -778,9 +778,9 @@ no payload
           <button class="px-2 py-1 rounded bg-green text-white font bold">POST</button> <strong>/v1/pickup_requests</strong>
         </p>
 
-        {% highlight json %}
-        {% include pickup_post_requests_request.json %}
-        {% endhighlight %}
+{% highlight json %}
+{% include pickup_post_requests_request.json %}
+{% endhighlight %}
 
         <p class="mt-s">
           JSON schema: <a href="{{ site.baseurl }}/reference/pickup_requests_request_schema.html">
@@ -808,9 +808,9 @@ no payload
         </div>
 
         {% include headers/200_ok.html %}
-        {% highlight json %}
-        {% include pickup_post_requests_response.json %}
-        {% endhighlight %}
+{% highlight json %}
+{% include pickup_post_requests_response.json %}
+{% endhighlight %}
 
         <p class="mt-s text-white">
           JSON schema: <a href="{{ site.baseurl }}/reference/pickup_requests_response_schema.html">
@@ -891,9 +891,9 @@ no payload
         </h4>
 
         {% include headers/200_ok.html %}
-        {% highlight json %}
-        {% include pickup_requests_get_response.json %}
-        {% endhighlight %}
+{% highlight json %}
+{% include pickup_requests_get_response.json %}
+{% endhighlight %}
 
         <p class="mt-s text-white">
           JSON schema: <a href="{{ site.baseurl }}/reference/pickup_requests_response_schema.html">
