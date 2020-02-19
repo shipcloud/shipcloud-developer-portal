@@ -13,6 +13,10 @@
               "key": "delivery_date"
             },
             {
+              "display_name": "Delivery note",
+              "key": "delivery_note"
+            },
+            {
               "display_name": "Delivery time",
               "key": "delivery_time"
             }
