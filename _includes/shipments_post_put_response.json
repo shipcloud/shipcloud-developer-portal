@@ -2,6 +2,6 @@
   "id": "3a186c51d4281acbecf5ed38805b1db92a9d668b",
   "carrier_tracking_no": "84168117830018",
   "tracking_url": "http://track.shipcloud.io/3a186c51d4",
-  "label_url": "http://api.shipcloud.io/shipping_label_3a186c51d4.pdf",
+  "label_url": "https://shipping-labels.shipcloud.io/shipments/01370b4d/199f803bf8/label/shipping_label_199f803bf8.pdf",
   "price": 3.4
 }
