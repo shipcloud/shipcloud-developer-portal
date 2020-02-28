@@ -39,6 +39,49 @@ layout: request_response
   <div class="flex">
     <div class="block px-4 w-7/12">
       <div class="px-l">
+        <h2 class="mt-l" id="me">
+          me
+        </h2>
+        <p>
+          If you need more details about the current user that is making a request, you can get it
+          by querying the /me endpoint.
+        </p>
+      </div>
+    </div>
+    <div class="bg-blue-dark w-4/12 flex-grow">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h4 class="mt-l">
+          Request
+        </h4>
+        <p class="my-m">
+          <button class="px-2 py-1 rounded bg-green text-white font bold">GET</button> <strong>/v1/me</strong>
+        </p>
+      </div>
+    </div>
+    <div class="bg-blue-dark px-xl w-4/12 flex-grow">
+      <div class="pb-l h-full">
+        <h4 class="mt-l text-white">
+          Response
+        </h4>
+        {% include headers/200_ok.html %}
+{% highlight json %}
+{% include me_response.json %}
+{% endhighlight %}
+
+        <p class="mt-s text-white">
+          JSON schema: <a href="{{ site.baseurl }}/reference/me_response_schema.html">
+          me response</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
         <h2 class="mt-l" id="addresses">
           Addresses
         </h2>
