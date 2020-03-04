@@ -14,9 +14,20 @@ integration_guide_url:
     https://www.dropbox.com/s/dgi9r9w8p40snuu/shipcloud_integration_guide_en.pdf?dl=0
 shipcloud:
   supported_carriers:
-    as_display_names: 'DHL, DHL Express, Deutsche Post, UPS, DPD, Hermes, GLS, MyDPD Business (iloxx), TNT, FedEx, GO!, PARCEL.ONE, Seven Senders, Cargo International und ANGEL'
-    as_keys: '"dhl", "dhl_express", "dpag", "ups", "dpd", "hermes", "gls", "iloxx", "tnt", "fedex", "go", "parcel_one", "seven_senders", "cargo_international" and "angel_de"'
-    as_keys_array: '"dhl", "dhl_express", "dpag", "ups", "dpd", "hermes", "gls", "iloxx", "tnt", "fedex", "go", "parcel_one", "seven_senders", "cargo_international", "angel_de"'
+    - dhl
+    - dhl_express
+    - dpag
+    - ups
+    - dpd
+    - hermes
+    - gls
+    - iloxx
+    - tnt
+    - go
+    - parcel_one
+    - seven_senders
+    - cargo_international
+    - angel_de
   supported_services:
     - standard
     - one_day

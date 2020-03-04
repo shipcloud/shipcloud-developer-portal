@@ -1,7 +1,13 @@
 <ul class="list-outside list-disc">
   <li>
     <strong>carrier</strong>* (string), the carrier you want to use. Possible values are
-    {{ site.shipcloud.supported_carriers.as_keys }}
+    {% assign carriers = "" %}
+    {% for carrier in site.shipcloud.supported_carriers %}
+      {% capture new_carrier %}<code>{{carrier}}</code>|{% endcapture %}
+      {% assign carriers = carriers | append: new_carrier %}
+    {% endfor %}
+    {% assign carriers = carriers | split: '|' %}
+    {{ carriers | sort | join: ', '}}
   </li>
   <li>
     <strong>to</strong>* (object), describes the receivers address. See

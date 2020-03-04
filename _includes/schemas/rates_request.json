@@ -1,10 +1,17 @@
+{% assign carriers = "" %}
+{% for carrier in site.shipcloud.supported_carriers %}
+  {% capture new_carrier %}"{{carrier}}"|{% endcapture %}
+  {% assign carriers = carriers | append: new_carrier %}
+{% endfor %}
+{% assign carriers = carriers | split: '|' %}
+
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "carrier": {
       "type": "string",
-      "enum": [{{ site.shipcloud.supported_carriers.as_keys_array }}],
+      "enum": [{{ carriers | sort | join: ', ' }}],
       "description": "acronym of the carrier you want to use"
     },
     "width":  { "type": "number" },
