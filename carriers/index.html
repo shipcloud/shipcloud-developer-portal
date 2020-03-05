@@ -9,7 +9,6 @@ title: Carrier specific things
 {% for carrier in carriers %}
   <div class="w-1/3 h-32 text-6xl px-2 text-center">
     <a href="{{ carrier[1].key | prepend: site.baseurl }}.html" class="text-grey-darker">
-      <!-- <img class="carrier-logo--overview" src="{{site.baseurl}}/assets/images/logos/carriers/{{ carrier[1].key }}.png" title="{{ carrier[1].display_name }}" alt="{{ carrier[1].display_name }}" /> -->
       <i class="shipcloud-carrier shipcloud-carrier-{{ carrier[1].css_key }}"></i>
     </a>
   </div>
