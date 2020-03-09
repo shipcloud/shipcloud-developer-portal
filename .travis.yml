@@ -1,4 +1,3 @@
-sudo: false
 dist: trusty
 language: ruby
 cache:
@@ -12,12 +11,11 @@ env:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
 deploy:
   provider: firebase
-  token:
-    secure: "$FIREBASE_TOKEN"
+  token: $FIREBASE_TOKEN
   on:
     repo: shipcloud/shipcloud.github.io
     branch: master
-  skip_cleanup: true
+  cleanup: true
   project: "default"
 notifications:
   flowdock:
