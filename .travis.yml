@@ -15,7 +15,7 @@ deploy:
   on:
     repo: shipcloud/shipcloud.github.io
     branch: master
-  cleanup: false
+  skip_cleanup: true
   project: "default"
 notifications:
   flowdock:
