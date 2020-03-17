@@ -224,6 +224,134 @@ layout: request_response
   <div class="flex">
     <div class="block px-4 w-7/12">
       <div class="px-l">
+        <h2 class="mt-l" id="default-returns-address">
+          Default returns address
+        </h2>
+        <p>
+          This is the default address that will be used for returns shipments when no address was
+          specified using the <code>to</code> attribute.
+        </p>
+      </div>
+    </div>
+    <div class="bg-blue-dark w-4/12 flex-grow">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h4 class="mt-l">
+          Request
+        </h4>
+        <p class="my-m">
+          <button class="px-2 py-1 rounded bg-green text-white font bold">GET</button> <strong>/v1/default_returns_address</strong>
+        </p>
+      </div>
+    </div>
+    <div class="bg-blue-dark px-xl w-4/12 flex-grow">
+      <div class="pb-l h-full">
+        <h4 class="mt-l text-white">
+          Response
+        </h4>
+        {% include headers/200_ok.html %}
+{% highlight json %}
+{% include addresses_get_response.json %}
+{% endhighlight %}
+
+        <p class="mt-s text-white">
+          JSON schema: <a href="{{ site.baseurl }}/reference/address_response_schema.html">
+          address response</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h2 class="mt-l" id="default-shipping-address">
+          Default shipping address
+        </h2>
+        <p>
+          This is the default address that will be used for shipments when no address was specified
+          using the <code>to</code> attribute.
+        </p>
+      </div>
+    </div>
+    <div class="bg-blue-dark w-4/12 flex-grow">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h4 class="mt-l">
+          Request
+        </h4>
+        <p class="my-m">
+          <button class="px-2 py-1 rounded bg-green text-white font bold">GET</button> <strong>/v1/default_shipping_address</strong>
+        </p>
+      </div>
+    </div>
+    <div class="bg-blue-dark px-xl w-4/12 flex-grow">
+      <div class="pb-l h-full">
+        <h4 class="mt-l text-white">
+          Response
+        </h4>
+        {% include headers/200_ok.html %}
+{% highlight json %}
+{% include addresses_get_response.json %}
+{% endhighlight %}
+
+        <p class="mt-s text-white">
+          JSON schema: <a href="{{ site.baseurl }}/reference/address_response_schema.html">
+          address response</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h2 class="mt-l" id="invoice-address">
+          Invoice address
+        </h2>
+        <p>
+          This is the address that a user has specified as being their invoice address.
+        </p>
+      </div>
+    </div>
+    <div class="bg-blue-dark w-4/12 flex-grow">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h4 class="mt-l">
+          Request
+        </h4>
+        <p class="my-m">
+          <button class="px-2 py-1 rounded bg-green text-white font bold">GET</button> <strong>/v1/invoice_address</strong>
+        </p>
+      </div>
+    </div>
+    <div class="bg-blue-dark px-xl w-4/12 flex-grow">
+      <div class="pb-l h-full">
+        <h4 class="mt-l text-white">
+          Response
+        </h4>
+        {% include headers/200_ok.html %}
+{% highlight json %}
+{% include invoice_address_get_response.json %}
+{% endhighlight %}
+
+        <p class="mt-s text-white">
+          JSON schema: <a href="{{ site.baseurl }}/reference/invoice_address_response_schema.html">
+          invoice address response</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
         <h2 class="mt-l" id="shipments">
           Shipments
         </h2>
