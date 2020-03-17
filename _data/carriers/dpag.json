@@ -40,6 +40,10 @@
           "other_attributes": [{
             "display_name": "Customs declaration",
             "key": "customs_declaration"
+          },
+          {
+            "display_name": "Packstation",
+            "key": "packstation"
           }],
           "label_formats": [{
             "pdf": [
