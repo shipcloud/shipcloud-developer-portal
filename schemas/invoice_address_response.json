@@ -1,0 +1,4 @@
+---
+layout: none
+---
+{% include schemas/invoice_address_response.json %}
