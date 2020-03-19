@@ -721,6 +721,20 @@ no payload
         <h3 class="mt-l" id="get-all-carriers-available-for-your-account">
           Get all carriers available for your account
         </h3>
+        <div class="bg-grey-light border-t-4 border-grey-darker text-grey-darker rounded-b px-4 py-3 shadow-md my-2" role="alert">
+          <div class="flex">
+            <div>
+              <i class="fas fa-info-circle h-6 w-6 mr-4"></i>
+            </div>
+            <div>
+                We only return <code>services</code>, <code>package_types</code> and <code>
+                additional services</code> that should be available for the current user. For a list
+                of all supported entries, see our
+                <a href="{{ site.baseurl }}/reference/carriers_response_schema.html">
+                JSON schema</a>.
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="bg-blue-dark w-4/12 flex-grow">
