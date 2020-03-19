@@ -33,13 +33,29 @@ title: shipcloud api changelog
   <h3>Added</h3>
   <ul class="list-outside list-disc ml-m">
     <li>
-      Endpoint <a href="{{ site.baseurl }}/reference/#default-returns-address">/default_returns_address</a>
+      Endpoint
+      <a href="{{ site.baseurl }}/reference/#default-returns-address">/default_returns_address</a>
     </li>
     <li>
-      Endpoint <a href="{{ site.baseurl }}/reference/#default-shipping-address">/default_shipping_address</a>
+      Endpoint
+      <a href="{{ site.baseurl }}/reference/#default-shipping-address">/default_shipping_address</a>
     </li>
     <li>
       Endpoint <a href="{{ site.baseurl }}/reference/#invoice-address">/invoice_address</a>
+    </li>
+    <li>
+      The <a href="{{ site.baseurl }}/reference/#carriers">carriers endpoint</a> now also returns
+      the additional services that are available for the user.
+    </li>
+  </ul>
+  <h3>Changed</h3>
+  <ul class="list-outside list-disc ml-m">
+    <li>
+      When you are
+      <a href="{{ site.baseurl }}/reference/#get-all-carriers-available-for-your-account">getting
+      all carriers available for your account</a>, the attributes <code>services</code>,
+      <code>package_types</code> and <code>additional_services</code> will only return the entries
+      that are available for this account.
     </li>
   </ul>
 </section>
