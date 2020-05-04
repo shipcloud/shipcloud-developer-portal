@@ -2,6 +2,7 @@
   "id": "usr-adaa123f",
   "email": "user@shipcloud.io",
   "customer_no": "123af01f",
+  "environment":"production",
   "subscription": {
     "plan_name": "developer",
     "plan_display_name": "Developer",
