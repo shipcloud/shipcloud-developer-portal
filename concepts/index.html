@@ -75,6 +75,15 @@ curl -i -u {{ site.apikey }}: -H "Content-Type: application/json" -d '{"service"
 </section>
 
 <section class="mb-m">
+  <h2 id="sanitization" class="text-blue">Sanitization</h2>
+  <p>
+    To be able to send a clean request to the carriers, we are doing a little sanitization of the
+    data that gets transmitted to the api. Currently whitespace will be trimmed from the edges and
+    control characters will be removed.
+  </p>
+</section>
+
+<section class="mb-m">
   <h2 id="versioning" class="text-blue">Versioning</h2>
   <p>
     As with every API we will be releasing new versions from time to time. We do promise to adhere
