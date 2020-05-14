@@ -474,9 +474,14 @@ POST /shipments
     Automatic deactivation
   </h3>
   <p>
-    If the URL you provided when configuring the webhook can't be reached, we'll try to contact it a
-    few minutes later. <strong>After 15 failed attempts</strong> to send you the data, we're giving
-    up and the webhook will be deactivated automatically. You can reactivate it in shipcloud once
-    your system is up and reachable again.
+    If the URL you provided when configuring the webhook can't be reached (a http status code of 4xx
+    or 5xx is returned), we'll try to contact it a few minutes later. <strong>After 15 failed
+    attempts</strong> to send you the data, we're giving up and the webhook will be deactivated
+    automatically.
+  </p>
+  <p class="mt-m">
+    At the same time we will send an email to the address that was provided for the account,
+    notifying you of this fact. You should reactivate the webhook in the shipcloud WebUI once your
+    system is up and reachable again.
   </p>
 </section>
