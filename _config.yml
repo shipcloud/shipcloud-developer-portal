@@ -25,7 +25,6 @@ shipcloud:
     - tnt
     - go
     - parcel_one
-    - seven_senders
     - cargo_international
     - angel_de
   supported_services:

@@ -33,7 +33,6 @@ module.exports = {
           gls: "#009fe2",
           go: "#a8073a",
           parcelone: "#3e4c69",
-          sevensenders: "#009fe2",
           tnt: "#f60",
           ups: "#82604b",
         }
