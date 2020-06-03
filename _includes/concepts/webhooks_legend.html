@@ -7,6 +7,10 @@
   </thead>
   <tbody>
     <tr>
+      <td class="px-4 py-2 border-b border-l">shipment.status.deleted</td>
+      <td class="px-4 py-2 border-b border-r">A label has been deleted</td>
+    </tr>
+    <tr>
       <td class="px-4 py-2 border-b border-l">shipment.tracking.label_created</td>
       <td class="px-4 py-2 border-b border-r">A label has been created</td>
     </tr>
@@ -65,3 +69,34 @@
     </tr>
   </tbody>
 </table>
+
+<h3 id="event-type-shipment-delete" class="text-blue mt-m">
+  Event type shipment delete
+</h3>
+
+<p class="mt-m">
+  When subscribing to this event type, you will get notified when a shipment has been deleted at
+  shipcloud.
+</p>
+
+<p class="mt-m">
+  <strong>Notice:</strong>
+  For the <code>shipment.status.deleted</code> event type, the payload differs a little bit to the
+  example mentioned above. Since the shipment doesn't exist anymore, we do not return a URL to the
+  ressource.
+</p>
+
+<div class="mt-m">
+{% highlight json %}
+{
+  "id":"b826b716-9da9-4960-992b-7999574886a4",
+  "occured_at":"2020-05-28T06:44:26+02:00",
+  "type":"shipment.status.deleted",
+  "data":{
+    "id":"0ba10fb9af418e9c159a5449219f722e99fba788",
+    "object_type":"shipment"
+  },
+  "webhook_id":"27f54ad2-f166-42b2-9de5-76acb3cf107b"
+}
+{% endhighlight %}
+</div>
