@@ -43,6 +43,10 @@
             {
               "display_name": "Adult signature",
               "key": "ups_adult_signature"
+            },
+            {
+              "display_name": "Saturday delivery",
+              "key": "saturday_delivery"
             }
           ],
           "other_attributes": [{
