@@ -4,14 +4,14 @@ nav: concepts
 footnote_path: concepts
 ---
 
-<h1 id="api" class="text-blue">
+<h2 id="api" class="text-blue">
   API
-</h1>
+</h2>
 
 <section class="mb-m">
-  <h2 id="introduction" class="text-blue">
+  <h3 id="introduction" class="text-blue">
     Introduction
-  </h2>
+  </h3>
   <p>
     shipcloud is a shipping service provider that makes it easy for developers to integrate shipping
     using one of the major carriers on the German market into their own software, onlineshop or ERP
@@ -27,7 +27,7 @@ footnote_path: concepts
 </section>
 
 <section class="mb-m">
-  <h2 id="authentication" class="text-blue">Authentication</h2>
+  <h3 id="authentication" class="text-blue">Authentication</h3>
   <p>
     For developers to test their code before shipping it, we're supplying every account with test
     and live API keys. Every call to our API is secured by an API key. This key is tied specificly
@@ -49,6 +49,12 @@ footnote_path: concepts
   <p class="mt-m">
     Aside from sending your API key all API requests must be made using HTTPS. Don't bother trying
     to use HTTP. It will fail!
+  </p>
+
+  <h4 id="ssl-certificate" class="mt-m text-blue">SSL certificate</h4>
+  <p>
+    For clients having to install our SSL certificate to make secure connections, you can
+    <a href="{{ site.baseurl }}/downloads/STAR_shipcloud_io.crt" target="_blank">download</a> it.
   </p>
 </section>
 
