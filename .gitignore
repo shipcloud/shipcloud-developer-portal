@@ -14,6 +14,9 @@ vendor/bundle
 # Ignore twitter cache
 /.tweet-cache
 
+# Ignore jekyll cache
+/.jekyll-cache
+
 .tags
 .tags1
 

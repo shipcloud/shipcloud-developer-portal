@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
 # Jekyll
-gem 'jekyll', '~> 3.8.x'
+gem 'jekyll', '~> 4.0.x'
 
 # Converters
-gem 'kramdown', '~> 1.13.x'
+gem 'kramdown', '~> 2.1.x'
 
 # Liquid
 gem 'liquid', '~> 4.0.x'
