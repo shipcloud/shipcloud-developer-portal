@@ -34,6 +34,10 @@
               {
                 "display_name": "DIN A5",
                 "key": "pdf_a5"
+              },
+              {
+                "display_name": "DIN A6",
+                "key": "pdf_a6"
               }
             ]
           }],
