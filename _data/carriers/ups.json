@@ -47,6 +47,10 @@
             {
               "display_name": "Saturday delivery",
               "key": "saturday_delivery"
+            },
+            {
+              "display_name": "Direct delivery only",
+              "key": "ups_direct_delivery_only"
             }
           ],
           "other_attributes": [{
