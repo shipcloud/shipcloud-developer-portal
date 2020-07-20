@@ -33,6 +33,8 @@ shipcloud:
     - returns
     - cargo_international_express
     - dhl_europaket
+    - dhl_prio
+    - dhl_warenpost
     - dpag_warenpost
     - dpag_warenpost_signature
     - dpag_warenpost_untracked

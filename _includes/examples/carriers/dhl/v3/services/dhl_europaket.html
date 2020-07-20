@@ -1,26 +1,29 @@
-<h4 id="{{ include.carrier_interface | slugify }}---standard" class="text-blue">
-  Standard
+<h4 id="v3---dhl-europaket" class="text-blue">
+  Europaket
 </h4>
 
 <p>
-  The most basic service. Normal ground shipping without any modifier to speed up the shipping
-  time.
+  The service
+  <a href="https://www.dhl.de/en/geschaeftskunden/paket/leistungen-und-services/internationaler-versand/europaket.html"
+  target="_blank">DHL Europaket</a> is a great solution for business-to-business parcel shipments,
+  because shipments within the 32 supported countries will generally be delivered within 48 hours.
 </p>
 
-{% if include.requirements %}
-  <p class="mt-m">
-    <strong>Requirements:</strong>
-  </p>
-  {{ include.requirements }}
-{% endif %}
+<p class="mt-m">
+  <strong>Requirements:</strong>
+</p>
+<ul class="list-inside list-disc">
+  <li>minimum dimensions (l/w/h): 15 x 11 x 3.5 cm</li>
+  <li>maximum dimensions (l/w/h): 120 x 60 x 60 cm</li>
+  <li>maximum weight: 31.5 kg</li>
+</ul>
 
 <section class="shadow my-m">
   <article class="border-b">
     <div class="border-l-2 border-transparent">
-      {% capture target %}#{{include.carrier_interface}}_service_standard_togglebox{% endcapture %}
-      {% include utils/toggle_element.html target=target link_text="Show example"%}
-      <div class="px-4 pb-2 text-grey-darkest hidden" id="{{include.carrier_interface}}_service_standard_togglebox">
-          <div class="mt-m">
+      {% include utils/toggle_element.html target="#v3_dhl_europaket_togglebox" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="v3_dhl_europaket_togglebox">
+        <div class="mt-m">
 {% highlight http %}
 POST https://api.shipcloud.io/v1/shipments
 {% endhighlight %}
@@ -54,7 +57,7 @@ POST https://api.shipcloud.io/v1/shipments
     "type": "parcel"
   },
   "carrier": "{{page.carrier}}",
-  "service": "standard",
+  "service": "dhl_europaket",
   "create_shipping_label": true
 }
 {% endhighlight %}

@@ -1,13 +1,13 @@
-{% assign services = '' %}
-{% for service in site.shipcloud.supported_services %}
-  {% capture new_service %}"{{service}}"|{% endcapture %}
-  {% assign services = services | append: new_service %}
-{% endfor %}
-{% assign services = services | split: '|' %}
-
 {% assign all_additional_services = '' %}
+{% assign all_carriers = '' %}
+{% assign all_services = '' %}
+{% assign all_label_formats = '' %}
 {% assign carriers = site.data.carriers %}
+
 {% for carrier in carriers %}
+  {% capture new_carrier %}"{{carrier[1].key}}"|{% endcapture %}
+  {% assign all_carriers = all_carriers | append: new_carrier %}
+
   {% for interface in carrier[1].interfaces %}
     {% if interface[1].implementations.shipcloud.additional_services.size > 0 %}
       {% for additional_service in interface[1].implementations.shipcloud.additional_services %}
@@ -15,16 +15,32 @@
         {% assign all_additional_services = all_additional_services | append: new_additional_service %}
       {% endfor %}
     {% endif %}
+
+    {% if interface[1].implementations.shipcloud.services.size > 0 %}
+      {% for service in interface[1].implementations.shipcloud.services %}
+        {% capture new_service %}"{{service['key']}}"|{% endcapture %}
+        {% assign all_services = all_services | append: new_service %}
+      {% endfor %}
+    {% endif %}
+
+    {% if interface[1].implementations.shipcloud.label_formats.size > 0 %}
+      {% for label_format_category in interface[1].implementations.shipcloud.label_formats %}
+        {% for label_format_entries in label_format_category %}
+
+          {% for label_format in label_format_entries[1] %}
+            {% capture new_label_format %}"{{label_format.key}}"|{% endcapture %}
+            {% assign all_label_formats = all_label_formats | append: new_label_format %}
+          {% endfor %}
+        {% endfor %}
+      {% endfor %}
+    {% endif %}
   {% endfor %}
 {% endfor %}
-{% assign all_additional_services = all_additional_services | split: '|' %}
 
-{% assign carriers = "" %}
-{% for carrier in site.shipcloud.supported_carriers %}
-  {% capture new_carrier %}"{{carrier}}"|{% endcapture %}
-  {% assign carriers = carriers | append: new_carrier %}
-{% endfor %}
-{% assign carriers = carriers | split: '|' %}
+{% assign all_additional_services = all_additional_services | split: '|' %}
+{% assign all_services = services | split: '|' %}
+{% assign all_carriers = all_carriers | split: '|' %}
+{% assign all_label_formats = all_label_formats | split: '|' %}
 
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
@@ -32,7 +48,7 @@
   "properties": {
     "carrier": {
       "type": "string",
-      "enum": [{{ carriers | sort | join: ', ' }}],
+      "enum": [{{ all_carriers | sort | join: ', ' }}],
       "description": "acronym of the carrier you want to use"
     },
     "to": {
@@ -52,7 +68,7 @@
     },
     "service": {
       "type": "string",
-      "enum": [{{ services | join: ', ' }}],
+      "enum": [{{ all_services | sort | uniq | join: ', ' }}],
       "default": "standard",
       "description": "The service that should be used for the shipment."
     },
@@ -83,7 +99,7 @@
         "properties": {
           "name": {
             "type": "string",
-            "enum": {{ all_additional_services | uniq | join: ', ' }},
+            "enum": [{{ all_additional_services | uniq | sort | join: ', ' }}],
             "description": "key to identify the additional service"
           },
           "properties": {
@@ -288,13 +304,13 @@
       "properties": {
         "format": {
           "type": "string",
-          "enum": ["pdf_a5", "pdf_a6"],
+          "enum": [{{ all_label_formats | sort | uniq | join: ', ' }}],
           "description": "defines the format that the returned label should have"
         },
         "size":  {
           "type": "string",
-          "enum": ["A5", "A6"],
-          "description": "defines the DIN size that the returned label should have",
+          "enum": ["A5", "A6", "A7", "100x70mm"],
+          "description": "defines the size that the returned label should have",
           "deprecated": true
         }
       },

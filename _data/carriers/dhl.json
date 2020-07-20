@@ -110,6 +110,153 @@
           }
         }
       }
+    },
+    "v3": {
+      "display_name": "DHL Api V3.1",
+      "in_beta": true,
+      "implementations": {
+        "shipcloud": {
+          "services": [{
+              "display_name": "Standard",
+              "key": "standard"
+            },
+            {
+              "display_name": "Returns",
+              "key": "returns"
+            },
+            {
+              "display_name": "Europaket",
+              "key": "dhl_europaket"
+            },
+            {
+              "display_name": "Prio",
+              "key": "dhl_prio"
+            },
+            {
+              "display_name": "Warenpost",
+              "key": "dhl_warenpost"
+            }
+          ],
+          "package_types": [{
+              "display_name": "Bulk shipments",
+              "key": "bulk"
+            },
+            {
+              "display_name": "Parcel",
+              "key": "parcel"
+            }
+          ],
+          "additional_services": [{
+              "display_name": "Advance notice",
+              "key": "advance_notice"
+            },
+            {
+              "display_name": "Cash on delivery",
+              "key": "cash_on_delivery"
+            },
+            {
+              "display_name": "Endorsement",
+              "key": "dhl_endorsement"
+            },
+            {
+              "display_name": "Go Green",
+              "key": "dhl_gogreen"
+            },
+            {
+              "display_name": "Ident Check",
+              "key": "dhl_ident_check"
+            },
+            {
+              "display_name": "Named person only",
+              "key": "dhl_named_person_only"
+            },
+            {
+              "display_name": "Parcel outlet routing",
+              "key": "dhl_parcel_outlet_routing"
+            },
+            {
+              "display_name": "Preferred day",
+              "key": "delivery_date"
+            },
+            {
+              "display_name": "Premium international",
+              "key": "premium_international"
+            },
+            {
+              "display_name": "Visual age check",
+              "key": "visual_age_check"
+            }
+          ],
+          "other_attributes": [{
+              "display_name": "Additional insurance",
+              "key": "declared_value"
+            },
+            {
+              "display_name": "Customs declaration",
+              "key": "customs_declaration"
+            },
+            {
+              "display_name": "Packstation",
+              "key": "packstation"
+            },
+            {
+              "display_name": "Postfiliale",
+              "key": "postfiliale"
+            }
+          ],
+          "label_formats": [{
+            "pdf": [
+              {
+                "display_name": "DIN A5",
+                "key": "pdf_a5"
+              },
+              {
+                "display_name": "DIN A6",
+                "key": "pdf_a6"
+              },
+              {
+                "display_name": "DIN A7",
+                "key": "pdf_a7"
+              },
+              {
+                "display_name": "100x70mm",
+                "key": "pdf_100x70mm"
+              }
+            ],
+            "zpl": [
+              {
+                "display_name": "ZPL2 100x70mm 203dpi",
+                "key": "zpl2_100x70mm_203dpi"
+              },
+              {
+                "display_name": "ZPL2 103x199mm 203dpi",
+                "key": "zpl2_103x199mm_203dpi"
+              }
+            ]
+          }],
+          "field_lengths": {
+            "company": "2 - 50 characters",
+            "last_name": "1 - 35 characters (firstname + last_name <= 35 characters)",
+            "care_of": "0 - 35 characters",
+            "street": "1 - 35 characters",
+            "street_no": "1 - 10 characters",
+            "zip_code": "1 - 10 characters",
+            "city": "1 - 35 characters",
+            "state": "0 - 30 characters",
+            "phone": "0 - 20 characters",
+            "notification_email": "0 - 70 characters",
+            "customs_declaration": {
+              "contents_explanation": "0 - 256 characters",
+              "invoice_number": "0 - 35 characters",
+              "drop_off_location": "0 - 35 characters",
+              "items": {
+                "description": "0 - 256 characters",
+                "hs_tariff_number": "1 - 10 characters"
+              }
+            }
+          }
+        }
+      }
     }
   },
   "marketing": {

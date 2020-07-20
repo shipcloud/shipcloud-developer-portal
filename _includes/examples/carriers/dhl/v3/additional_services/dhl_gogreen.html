@@ -1,0 +1,72 @@
+<h4 id="v3---dhl-gogreen" class="text-blue">
+  GoGreen
+</h4>
+
+<p>
+  Using the additional service DHL GoGreen you benefit from climate-neutral dispatch within Germany
+  and internationally.
+</p>
+
+<p class="mt-m">
+  <strong>Requirements:</strong>
+</p>
+
+<ul class="list-inside list-disc">
+  <li>You'll have to use your own DHL contract</li>
+</ul>
+
+<section class="shadow my-m">
+  <article class="border-b">
+    <div class="border-l-2 border-transparent">
+      {% include utils/toggle_element.html target="#v3_gogreen_togglebox" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="v3_gogreen_togglebox">
+        <div class="mt-m">
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    "company": "Sender Company",
+    "first_name": "Sally",
+    "last_name": "Sender",
+    "street": "Senderweg",
+    "street_no": "173",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "company": "Receiver AG",
+    "care_of": "3. Liftstock",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE"
+  },
+  "package": {
+    "length": "40",
+    "width": "20",
+    "height": "10",
+    "weight": "3",
+    "type": "parcel"
+  },
+  "service": "standard",
+  "carrier": "dhl",
+  "additional_services": [
+    {
+      "name": "dhl_gogreen"
+    }
+  ],
+  "create_shipping_label": true
+}
+{% endhighlight %}
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

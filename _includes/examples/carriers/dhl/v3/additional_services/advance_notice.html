@@ -1,30 +1,30 @@
-<h4 id="{{ include.carrier_interface | slugify }}---standard" class="text-blue">
-  Standard
+<h4 id="v3---advance-notice" class="text-blue">
+  Advance notice
 </h4>
 
 <p>
-  The most basic service. Normal ground shipping without any modifier to speed up the shipping
-  time.
+  DHL currently only supports advance notice via email.
 </p>
 
-{% if include.requirements %}
-  <p class="mt-m">
-    <strong>Requirements:</strong>
-  </p>
-  {{ include.requirements }}
-{% endif %}
+<p class="mt-m">
+  <strong>Requirements:</strong>
+</p>
+
+<ul class="list-inside list-disc">
+  <li>
+      <code>service</code> has to be <code><em>standard</em></code>
+  </li>
+</ul>
 
 <section class="shadow my-m">
   <article class="border-b">
     <div class="border-l-2 border-transparent">
-      {% capture target %}#{{include.carrier_interface}}_service_standard_togglebox{% endcapture %}
-      {% include utils/toggle_element.html target=target link_text="Show example"%}
-      <div class="px-4 pb-2 text-grey-darkest hidden" id="{{include.carrier_interface}}_service_standard_togglebox">
-          <div class="mt-m">
+      {% include utils/toggle_element.html target="#v3_advance_notice_togglebox" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="v3_advance_notice_togglebox">
+        <div class="mt-m">
 {% highlight http %}
 POST https://api.shipcloud.io/v1/shipments
 {% endhighlight %}
-
 {% highlight json %}
 {
   "from": {
@@ -53,8 +53,16 @@ POST https://api.shipcloud.io/v1/shipments
     "height": 5,
     "type": "parcel"
   },
-  "carrier": "{{page.carrier}}",
-  "service": "standard",
+  "additional_services": [
+    {
+      "name": "advance_notice",
+      "properties": {
+        "email": "test@example.com",
+        "language": "en"
+      }
+    }
+  ],
+  "carrier": "dhl",
   "create_shipping_label": true
 }
 {% endhighlight %}

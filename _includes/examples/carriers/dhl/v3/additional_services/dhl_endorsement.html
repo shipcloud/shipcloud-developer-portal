@@ -1,0 +1,94 @@
+<h4 id="v3---dhl-endorsement" class="text-blue">
+  Endorsement
+</h4>
+
+<p>
+  Prior to sending your parcel you can specify what should happen to the shipment in case it cannot
+  be delivered in the destination country. By choosing the handling option `abandon`, your parcel
+  will not be returned to you, but rather auctioned off or destroyed by the recipient countrys'
+  postal company. You will not be charged with a return fee for this option.
+</p>
+
+<p class="mt-m">
+  <strong>Requirements:</strong>
+</p>
+
+<ul class="list-inside list-disc">
+  <li>You'll have to use your own DHL contract</li>
+  <li>Available for international shipments from Germany</li>
+  <li>
+    The additional service attribute <code><em>properties.handling</em></code> has to be
+    <code><em>abandon</em></code>
+  </li>
+  <li>
+    <code>label.format</code> can be <code><em>pdf_a5</em></code>, <code><em>pdf_a6</em></code> or
+    <code><em>zpl2_103x199mm_203dpi</em></code>
+  </li>
+</ul>
+
+<section class="shadow my-m">
+  <article class="border-b">
+    <div class="border-l-2 border-transparent">
+      {% include utils/toggle_element.html target="#v3_endorsement_togglebox" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="v3_endorsement_togglebox">
+        <div class="mt-m">
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+    "email": "from@example.com",
+    "phone": "+4912345678",
+  },
+  "to": {
+    "first_name": "Roger"
+    "last_name": "Receiver",
+    "street": "Otto-Bauer-Gasse",
+    "street_no": "7",
+    "zip_code": "1060",
+    "city": "Vienna",
+    "country": "AT",
+    "email": "to@example.com",
+    "phone": "+435551234",
+  },
+  "label": {
+    "format": "pdf_a6"
+  },
+  "carrier": "dhl",
+  "package": {
+    "type": "parcel",
+    "width": "20",
+    "height": "10",
+    "length": "40",
+    "weight": "1.5",
+    "description": "PackageDescription"
+  },
+  "service": "standard",
+  "description": "ShipmentDescription",
+  "reference_number": "ReferenceNumber",
+  "additional_services": [
+    {
+      "name": "dhl_endorsement",
+      "properties": {
+        "handling": "abandon"
+      }
+    }
+  ],
+  "create_shipping_label": true
+}
+{% endhighlight %}
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

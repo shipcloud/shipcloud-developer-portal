@@ -1,0 +1,90 @@
+<h4 id="v3---dhl-named-person-only" class="text-blue">
+  Named Person Only
+</h4>
+
+<p>
+  To ensure that a package is only delivered to the recipient you can book the
+  DHL additional service named
+  <a href="https://www.dhl.de/content/dam/images/pdf/GK/Services/dhl-persoenliche-uebergabe-infoblatt-en-05-2020.pdf">
+  person only</a>.
+</p>
+
+<p class="mt-m">
+  "The named person only service ensures in an uncomplicated and cost-effective
+  way that your parcels are only delivered to the recipient in person or to an
+  authorized person."
+</p>
+
+<p class="mt-m">
+  <strong>Requirements:</strong>
+</p>
+<ul class="list-inside list-disc">
+  <li>
+    <code>service</code> has to be <code><em>standard</em></code> or
+    <code><em>dhl_prio</em></code>
+  </li>
+  <li>
+    <code>label.format</code> can be <code><em>pdf_a5</em></code> or
+    <code><em>zpl2_103x199mm_203dpi</em></code>
+  </li>
+  <li>The sender has to be located in Germany</li>
+  <li>The recipient has to be located in Germany</li>
+  <li>You'll have to use your own contract with the carrier</li>
+</ul>
+
+<section class="shadow my-m">
+  <article class="border-b">
+    <div class="border-l-2 border-transparent">
+      {% include utils/toggle_element.html target="#v3_dhl_named_person_only_togglebox" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="v3_dhl_named_person_only_togglebox">
+        <div class="mt-m">
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE"
+  },
+  "package": {
+    "weight": 0.5,
+    "length": 20,
+    "width": 15,
+    "height": 5,
+    "type": "parcel"
+  },
+  "additional_services": [
+    {
+      "name": "dhl_named_person_only"
+    }
+  ],
+  "label": {
+    "format": "zpl2_103x199mm_203dpi"
+  },
+  "carrier": "{{page.carrier}}",
+  "service": "standard",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
