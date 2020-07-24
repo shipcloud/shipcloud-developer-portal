@@ -85,29 +85,31 @@
   <li>
     <strong>pickup</strong> (object, optional), describes the pickup request. Mandatory for creating
     shipments with TNT as carrier - see
-    <a href="{{ site.baseurl }}/carriers/tnt#express-connect---shipment-with-pickup-request">
+    <a href="{{ site.baseurl }}/carriers/tnt.html#express-connect---shipment-with-pickup-request">
       TNT specifics
     </a>
     <ul class="list-outside list-disc">
       <li>
         <strong>pickup_time</strong> (object), contains the earliest and latest pickup time in
         iso8601
-      </li>
-      <li>
-        <strong>earliest</strong> (datetime), timestamp describing the earliest time the carrier
-        should pickup the shipment
-      </li>
-      <li>
-        <strong>latest</strong> (datetime), timestamp describing the latest time the carrier should
-        pickup the shipment
-      </li>
-      <li>
-        <strong>pickup_address</strong> (object, optional), describes the pickup address. See
-        <a href="{{ site.baseurl }}/reference/#addresses">
-          address request
-        </a> for a detailed definition.
-      </li>
-    </ul>
+        <ul class="list-outside list-disc">
+          <li>
+            <strong>earliest</strong> (datetime), timestamp describing the earliest time the carrier
+            should pickup the shipment
+          </li>
+          <li>
+            <strong>latest</strong> (datetime), timestamp describing the latest time the carrier should
+            pickup the shipment
+          </li>
+        </ul>
+        <li>
+          <strong>pickup_address</strong> (object, optional), describes the pickup address. See
+          <a href="{{ site.baseurl }}/reference/#addresses">
+            address request
+          </a> for a detailed definition.
+        </li>
+      </ul>
+        </li>
   </li>
   <li>
     <strong>customs_declaration</strong> (object, optional), customs declaration information
