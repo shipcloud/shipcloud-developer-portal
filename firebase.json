@@ -17,6 +17,7 @@
         "destination": "/examples",
         "type": 301
       }
-    ]
+    ],
+    "cleanUrls": true
   }
 }
