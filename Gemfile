@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Jekyll
-gem 'jekyll', '~> 4.0.x'
+gem 'jekyll', '~> 4.1.x'
 
 # Converters
 gem 'kramdown', '~> 2.1.x'
