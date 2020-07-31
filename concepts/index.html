@@ -8,7 +8,7 @@ footnote_path: concepts
   API
 </h2>
 
-<section class="mb-m">
+<section>
   <h3 id="introduction" class="text-blue">
     Introduction
   </h3>
@@ -26,7 +26,7 @@ footnote_path: concepts
   </p>
 </section>
 
-<section class="mb-m">
+<section class="mt-m">
   <h3 id="authentication" class="text-blue">Authentication</h3>
   <p>
     For developers to test their code before shipping it, we're supplying every account with test
@@ -70,8 +70,35 @@ footnote_path: concepts
   </p>
 </section>
 
-<section class="mb-m">
-  <h2 id="parameters" class="text-blue">Parameters</h2>
+<section class="mt-m">
+  <h3 id="rate-limiting" class="text-blue">Rate Limiting</h3>
+  <p>
+    We are limiting the number of requests a user can send to our API in a given set of time. When
+    the interval ends, the user gets another set of requests. To know the current limits of a user
+    we are returning the following four header fields with every response of our API.
+  </p>
+  <ul class="list-disc list-inside ml-m">
+    <li>
+      <code>RateLimit-Limit</code>, number the shows the overall limit of requests this user
+      can send (e.g. 120)
+    </li>
+    <li>
+      <code>RateLimit-Interval</code>, number of seconds the interval for this user is long (e.g.
+      60)
+    </li>
+    <li>
+      <code>RateLimit-Remaining</code>, remaining number of request in the current interval (e.g.
+      111)
+    </li>
+    <li>
+      <code>RateLimit-Reset</code>, number of seconds that shows when the request rate limit resets
+      (e.g. 42)
+    </li>
+  </ul>
+</section>
+
+<section class="mt-m">
+  <h3 id="parameters" class="text-blue">Parameters</h3>
   <p>
     Many API methods take optional parameters. For GET requests, any parameters not specified as a
     segment in the path can be passed as an HTTP query string parameter:
@@ -92,8 +119,8 @@ curl -i -u {{ site.apikey }}: -H "Content-Type: application/json" -d '{"service"
   </p>
 </section>
 
-<section class="mb-m">
-  <h2 id="sanitization" class="text-blue">Sanitization</h2>
+<section class="mt-m">
+  <h3 id="sanitization" class="text-blue">Sanitization</h3>
   <p>
     To be able to send a clean request to the carriers, we are doing a little sanitization of the
     data that gets transmitted to the api. Currently whitespace will be trimmed from the edges and
@@ -101,8 +128,8 @@ curl -i -u {{ site.apikey }}: -H "Content-Type: application/json" -d '{"service"
   </p>
 </section>
 
-<section class="mb-m">
-  <h2 id="versioning" class="text-blue">Versioning</h2>
+<section class="mt-m">
+  <h3 id="versioning" class="text-blue">Versioning</h3>
   <p>
     As with every API we will be releasing new versions from time to time. We do promise to adhere
     to the following API contract:
@@ -126,8 +153,8 @@ curl -i -u {{ site.apikey }}: -H "Content-Type: application/json" -d '{"service"
   </p>
 </section>
 
-<section class="mb-m">
-  <h2 id="address-handling" class="text-blue">Address handling</h2>
+<section class="mt-m">
+  <h3 id="address-handling" class="text-blue">Address handling</h3>
   <p>
     When sending <code>to</code> or <code>from</code> parameters you have to specify a contact for
     the shipment. This can either be a company or a person identified by <code>first_name</code> and
@@ -136,8 +163,8 @@ curl -i -u {{ site.apikey }}: -H "Content-Type: application/json" -d '{"service"
   </p>
 </section>
 
-<section class="mb-m">
-  <h2 id="label-format" class="text-blue">Label Format</h2>
+<section class="mt-m">
+  <h3 id="label-format" class="text-blue">Label Format</h3>
   <p>
     You can specify the format of the shipping label that you want to get returned by adding
     <code>label.format</code> to the request. Using this entry you can specify the format / size
@@ -168,8 +195,8 @@ curl -i -u {{ site.apikey }}: -H "Content-Type: application/json" -d '{"service"
   </ul>
 </section>
 
-<section class="mb-m">
-  <h2 id="multi-package-shipments" class="text-blue">Multi package shipments</h2>
+<section class="mt-m">
+  <h3 id="multi-package-shipments" class="text-blue">Multi package shipments</h3>
   <p>
     At the moment we're only supporting sending a single package with one shipment. Our api
     responses however return an array to be able to switch to sending  multiple packages with a
@@ -177,8 +204,8 @@ curl -i -u {{ site.apikey }}: -H "Content-Type: application/json" -d '{"service"
   </p>
 </section>
 
-<section class="mb-m">
-  <h2 id="metadata" class="text-blue">Metadata</h2>
+<section class="mt-m">
+  <h3 id="metadata" class="text-blue">Metadata</h3>
   <p>
     We've been giving you the possibility to specifiy a reference number when creating a shipment to
     make it easier for you to find out, which shipcloud shipment belongs to which order in your shop or
@@ -219,8 +246,8 @@ POST /shipments
   </p>
 </section>
 
-<section class="mb-m">
-  <h2 id="timeouts" class="text-blue">Timeouts</h2>
+<section class="mt-m">
+  <h3 id="timeouts" class="text-blue">Timeouts</h3>
   <p>
     The services of the carriers we're supporting can be very slow at times. Since we're not queing
     requests to create shipping labels at a later point in time, please account for slow response
@@ -229,7 +256,7 @@ POST /shipments
   </p>
 </section>
 
-<section class="mb-m">
+<section class="mt-l">
   <h2 id="sandbox-vs-production" class="text-blue">
     Sandbox vs. Production
   </h2>
@@ -272,7 +299,7 @@ POST /shipments
   </p>
 </section>
 
-<section class="mb-m">
+<section class="mt-l">
   <h2 id="plan-up-downgrades" class="text-blue">
     Plan up-/downgrades
   </h2>
@@ -286,7 +313,7 @@ POST /shipments
   </p>
 </section>
 
-<section class="mb-m">
+<section class="mt-l">
   <h2 id="prices--vat" class="text-blue">
     Prices & Vat
   </h2>
@@ -297,7 +324,7 @@ POST /shipments
   </p>
 </section>
 
-<section class="mb-m">
+<section class="mt-l">
   <h2 id="pickup-requests" class="text-blue">
     Pickup Requests
   </h2>
@@ -360,7 +387,7 @@ POST /shipments
   </p>
 </section>
 
-<section class="mb-m">
+<section class="mt-l">
   <h2 id="webhooks" class="text-blue">
     Webhooks
   </h2>
