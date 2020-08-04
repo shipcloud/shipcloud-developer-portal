@@ -12,10 +12,10 @@ you a handy reference for using our api.
 If you want to run our developer portal locally you can do it by following these simple steps:
 
 ```console
-~ $ git clone git@github.com:shipcloud/shipcloud.github.io.git
-~ $ cd shipcloud.github.io
+~ $ git clone git@github.com:shipcloud/shipcloud-developer-portal.git
+~ $ cd shipcloud-developer-portal
 ~ $ bundle install
-~/shipcloud.github.io $ jekyll serve --baseurl ''
+~/shipcloud-developer-portal $ jekyll serve --baseurl ''
 ```
 
 ## Contributing

@@ -13,7 +13,7 @@ deploy:
   provider: firebase
   token: $FIREBASE_TOKEN
   on:
-    repo: shipcloud/shipcloud.github.io
+    repo: shipcloud/shipcloud-developer-portal
     branch: master
   skip_cleanup: true
   project: "default"
