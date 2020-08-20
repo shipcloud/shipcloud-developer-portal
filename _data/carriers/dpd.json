@@ -25,10 +25,6 @@
             }
           ],
           "package_types": [{
-              "display_name": "Bulk shipments",
-              "key": "bulk"
-            },
-            {
               "display_name": "Parcel",
               "key": "parcel"
             },
@@ -97,10 +93,6 @@
             }
           ],
           "package_types": [{
-              "display_name": "Bulk shipments",
-              "key": "bulk"
-            },
-            {
               "display_name": "Parcel",
               "key": "parcel"
             },
