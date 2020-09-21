@@ -42,7 +42,7 @@
         },
         "carrier": {
           "type": "string",
-          "enum": ["dhl", "dpag", "dpd", "gls", "go", "hermes", "iloxx", "tnt", "ups"],
+          "enum": ["dhl", "dpag", "dpd", "gls", "go", "hermes", "iloxx", "ups"],
           "description": "acronym of the carrier you want to use"
         },
         "create_shipping_label": {

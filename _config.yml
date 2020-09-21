@@ -22,7 +22,6 @@ shipcloud:
     - hermes
     - gls
     - iloxx
-    - tnt
     - go
     - parcel_one
     - cargo_international

@@ -304,7 +304,7 @@
         },
         "description": {
           "type": "string",
-          "description": "text that describes the contents of the package. This parameter is mandatory if you're using UPS with service 'returns' or TNT with service 'one_day' or 'one_day_early'"
+          "description": "text that describes the contents of the package. This parameter is mandatory if you're using UPS with service 'returns'"
         },
         "type": {
           "type": "string",

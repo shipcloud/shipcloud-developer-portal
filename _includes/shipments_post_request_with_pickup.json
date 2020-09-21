@@ -32,7 +32,7 @@
       "country": "DE"
      }
   },
-  "carrier": "tnt",
+  "carrier": "go",
   "service": "one_day",
   "create_shipping_label": true
 }
