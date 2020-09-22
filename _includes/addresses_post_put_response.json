@@ -10,5 +10,6 @@
   "city": "Musterstadt",
   "state": null,
   "country": "DE",
-  "phone": "555-555"
+  "email": "max@mustermann.baz",
+  "phone": "+491234567890"
 }

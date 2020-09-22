@@ -12,6 +12,7 @@
       "city": "Musterstadt",
       "state": null,
       "country": "DE",
+      "email": "max@mustermann.baz",
       "phone": null
     },
     {
@@ -26,6 +27,7 @@
       "city": "Cupertino",
       "state": "CA",
       "country": "US",
+      "email": "tim.cook@apple.com",
       "phone": "408-996-1010"
     },
     {
@@ -40,6 +42,7 @@
       "city": "Musterstadt",
       "state": null,
       "country": "DE",
+      "email": "max@mustermann.baz",
       "phone": null
     }
   ]

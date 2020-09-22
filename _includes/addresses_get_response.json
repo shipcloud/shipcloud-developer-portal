@@ -6,5 +6,7 @@
   "street_no": "42",
   "zip_code": "12345",
   "city": "Musterstadt",
-  "country": "DE"
+  "country": "DE",
+  "email": "max@mustermann.baz",
+  "phone": "+491234567890"
 }
