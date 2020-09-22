@@ -1,26 +1,30 @@
-<h4 id="{{ include.carrier_interface | slugify }}---standard" class="text-blue">
-  Standard
+<h4 id="v3---dhl-prio" class="text-blue">
+  Prio
 </h4>
 
 <p>
-  The most basic service. Normal ground shipping without any modifier to speed up the shipping
-  time.
+  To receive priority handling by DHL you can book the service DHL Prio and your parcel will be
+  delivered on the next business day.
 </p>
 
-{% if include.requirements %}
-  <p class="mt-m">
-    <strong>Requirements:</strong>
-  </p>
-  {{ include.requirements }}
-{% endif %}
+<p class="mt-m">
+  <strong>Requirements:</strong>
+</p>
+<ul class="list-inside list-disc">
+  <li>
+    <code>service</code> has to be <code><em>dhl_prio</em></code>
+  </li>
+  <li>The sender has to be located in Germany</li>
+  <li>The recipient has to be located in Germany</li>
+  <li>You'll have to use your own contract with the carrier</li>
+</ul>
 
 <section class="shadow my-m">
   <article class="border-b">
     <div class="border-l-2 border-transparent">
-      {% capture target %}#{{include.carrier_interface}}_service_standard_togglebox{% endcapture %}
-      {% include utils/toggle_element.html target=target link_text="Show example"%}
-      <div class="px-4 pb-2 text-grey-darkest hidden" id="{{include.carrier_interface}}_service_standard_togglebox">
-          <div class="mt-m">
+      {% include utils/toggle_element.html target="#v3_dhl_prio_togglebox" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="v3_dhl_prio_togglebox">
+        <div class="mt-m">
 {% highlight http %}
 POST https://api.shipcloud.io/v1/shipments
 {% endhighlight %}
@@ -54,7 +58,7 @@ POST https://api.shipcloud.io/v1/shipments
     "type": "parcel"
   },
   "carrier": "{{page.carrier}}",
-  "service": "standard",
+  "service": "dhl_prio",
   "create_shipping_label": true
 }
 {% endhighlight %}

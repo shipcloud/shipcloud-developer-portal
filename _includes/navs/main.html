@@ -46,7 +46,7 @@
           {% assign interface_name = site.data.carriers[page.carrier].interfaces[interface_slug].display_name %}
           <nav class="ml-0 mb-l px-4">
             <p class="text-blue">
-              {{ interface_name }}
+              <a href="#{{ interface_name | slugify }}">{{ interface_name }}</a>
             </p>
 
             <ul class="list-inside">

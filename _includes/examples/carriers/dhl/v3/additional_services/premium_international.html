@@ -1,26 +1,27 @@
-<h4 id="{{ include.carrier_interface | slugify }}---standard" class="text-blue">
-  Standard
+<h4 id="v3---premium-international" class="text-blue">
+    Premium International
 </h4>
 
 <p>
-  The most basic service. Normal ground shipping without any modifier to speed up the shipping
-  time.
+  Using the additional service
+  <a href="https://www.dhl.de/en/paket/information/geschaeftskunden/premium.html" target="_blank" data-proofer-ignore>DHL premium international</a>
+  you can reduce international shipping transit times.
 </p>
 
-{% if include.requirements %}
-  <p class="mt-m">
-    <strong>Requirements:</strong>
-  </p>
-  {{ include.requirements }}
-{% endif %}
+<p class="mt-m">
+  <strong>Requirements:</strong>
+</p>
+<ul class="list-inside list-disc">
+  <li>You'll have to use your own DHL contract</li>
+  <li>Your DHL contract must be setup for DHL "Ship" (DHL "Versenden")</li>
+</ul>
 
 <section class="shadow my-m">
   <article class="border-b">
     <div class="border-l-2 border-transparent">
-      {% capture target %}#{{include.carrier_interface}}_service_standard_togglebox{% endcapture %}
-      {% include utils/toggle_element.html target=target link_text="Show example"%}
-      <div class="px-4 pb-2 text-grey-darkest hidden" id="{{include.carrier_interface}}_service_standard_togglebox">
-          <div class="mt-m">
+      {% include utils/toggle_element.html target="#v3_premium_international_togglebox" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="v3_premium_international_togglebox">
+        <div class="mt-m">
 {% highlight http %}
 POST https://api.shipcloud.io/v1/shipments
 {% endhighlight %}
@@ -53,6 +54,11 @@ POST https://api.shipcloud.io/v1/shipments
     "height": 5,
     "type": "parcel"
   },
+  "additional_services": [
+    {
+      "name": "premium_international"
+    }
+  ],
   "carrier": "{{page.carrier}}",
   "service": "standard",
   "create_shipping_label": true

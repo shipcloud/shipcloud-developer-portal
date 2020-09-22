@@ -1,0 +1,23 @@
+{% capture requirements %}
+<ul class="list-inside list-disc">
+  <li>
+    Domestic shipments within Germany:
+    <ul class="list-inside list-disc">
+      <li>Minimum dimensions (l/w/h): 15 x 11 x 1 cm</li>
+      <li>Maximum dimensions (l/w/h): 120 x 60 x 60 cm</li>
+      <li>Maximum weight: 31.5 kg</li>
+    </ul>
+  </li>
+  <li>
+    International shipments:
+    <ul class="list-inside list-disc">
+      <li>Minimum dimensions (l/w/h): 15 x 11 x 1 cm</li>
+      <li>Maximum dimensions (l/w/h): 120 x 60 x 60 cm</li>
+      <li>Maximum weight: depends on local carrier</li>
+    </ul>
+  </li>
+</ul>
+{% endcapture %}
+
+{% include examples/carriers/services/standard.html carrier_interface=include.carrier_interface requirements=requirements %}
+

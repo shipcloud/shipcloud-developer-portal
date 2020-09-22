@@ -107,7 +107,7 @@
             },
             {
               "display_name": "Food",
-              "key": "food"
+              "key": "dpd_food"
             },
             {
               "display_name": "Drop authorization",

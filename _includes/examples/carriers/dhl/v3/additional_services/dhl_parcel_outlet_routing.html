@@ -1,0 +1,90 @@
+<h4 id="v3---dhl-parcel-outlet-routing" class="text-blue">
+  Parcel outlet routing
+</h4>
+
+<p>
+  With the DHL additional service
+  <a href="https://www.dhl.de/content/dam/images/pdf/GK/Services/dhl-filial-routing-infoblatt-en-05-2020.pdf">
+  retail outlet routing</a> you can tell the carrier to reroute a parcel to the nearest outlet when
+  the recipient can't be reached. Otherwise the parcel will be returned immediately.
+</p>
+
+<p class="mt-m">
+  <strong>Requirements:</strong>
+</p>
+<ul class="list-inside list-disc">
+  <li>
+    <code>service</code> has to be <code><em>standard</em></code> or
+    <code><em>dhl_warenpost</em></code>
+  </li>
+  <li>
+    <code>label.format</code> can be <code><em>pdf_a5</em></code>,
+    <code><em>pdf_a7</em></code>, <code><em>pdf_100x70mm</em></code>,
+    <code><em>zpl2_100x70mm_203dpi</em></code> or <code><em>zpl2_103x199mm_203dpi</em></code>
+  </li>
+  <li>
+    Let the carrier inform the recipient about the redirection by providing their email address
+  </li>
+  <li>Either the sender or the recipient has to be located in Germany</li>
+  <li>You'll have to use your own contract with the carrier</li>
+</ul>
+
+<section class="shadow my-m">
+  <article class="border-b">
+    <div class="border-l-2 border-transparent">
+      {% include utils/toggle_element.html target="#v3_dhl_parcel_outlet_routing_togglebox" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="v3_dhl_parcel_outlet_routing_togglebox">
+        <div class="mt-m">
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE"
+  },
+  "package": {
+    "weight": 0.5,
+    "length": 20,
+    "width": 15,
+    "height": 5,
+    "type": "parcel"
+  },
+  "additional_services": [
+    {
+      "name": "dhl_parcel_outlet_routing",
+      "properties": {
+        "email": "roger.receiver@shipcloud.io"
+      }
+    }
+  ],
+  "label": {
+    "format": "zpl2_103x199mm_203dpi"
+  },
+  "carrier": "{{page.carrier}}",
+  "service": "standard",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
