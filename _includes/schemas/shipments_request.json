@@ -5,6 +5,20 @@
 {% endfor %}
 {% assign services = services | split: '|' %}
 
+{% assign all_additional_services = '' %}
+{% assign carriers = site.data.carriers %}
+{% for carrier in carriers %}
+  {% for interface in carrier[1].interfaces %}
+    {% if interface[1].implementations.shipcloud.additional_services.size > 0 %}
+      {% for additional_service in interface[1].implementations.shipcloud.additional_services %}
+        {% capture new_additional_service %}"{{additional_service['key']}}"|{% endcapture %}
+        {% assign all_additional_services = all_additional_services | append: new_additional_service %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+{% assign all_additional_services = all_additional_services | split: '|' %}
+
 {% assign carriers = "" %}
 {% for carrier in site.shipcloud.supported_carriers %}
   {% capture new_carrier %}"{{carrier}}"|{% endcapture %}
@@ -69,7 +83,7 @@
         "properties": {
           "name": {
             "type": "string",
-            "enum": ["advance_notice", "angel_de_delivery_date_time", "cash_on_delivery", "delivery_date", "delivery_time", "dhl_gogreen", "dhl_ident_check", "dpd_food", "drop_authorization", "gls_guaranteed24service", "hermes_ident_check", "premium_international", "saturday_delivery", "ups_adult_signature"],
+            "enum": {{ all_additional_services | uniq | join: ', ' }},
             "description": "key to identify the additional service"
           },
           "properties": {

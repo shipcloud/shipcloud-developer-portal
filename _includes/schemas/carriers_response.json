@@ -58,8 +58,8 @@
       "items": [
         {
           "type": "string",
-          "description": "key for referencing the package type within shipcloud",
-          "enum": {{ all_additional_services | uniq | join: ', ' }}
+          "enum": {{ all_additional_services | uniq | join: ', ' }},
+          "description": "key to identify the additional service"
         }
       ]
     }
