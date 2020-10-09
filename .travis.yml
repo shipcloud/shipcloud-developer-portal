@@ -25,5 +25,5 @@ addons:
     packages:
     - libcurl4-openssl-dev
 before_install:
-  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.19.1
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.22.5
   - export PATH="$HOME/.yarn/bin:$PATH"
