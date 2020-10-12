@@ -4,7 +4,7 @@
   "key": "dhl",
   "interfaces": {
     "v2": {
-      "display_name": "DHL Api V2.1",
+      "display_name": "DHL Api v2.1",
       "implementations": {
         "shipcloud": {
           "services": [{
@@ -112,7 +112,7 @@
       }
     },
     "v3": {
-      "display_name": "DHL Api V3.1",
+      "display_name": "DHL Api v3.1",
       "in_beta": true,
       "implementations": {
         "shipcloud": {
