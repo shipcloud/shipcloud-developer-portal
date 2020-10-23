@@ -23,6 +23,16 @@ layout: request_response
         </p>
 
         <h2 class="mt-l" id="http-status-codes">
+          OpenAPI specification
+        </h2>
+        <p class="my-m">
+          To make it easier to start a project based on or just talk to our API you can use our
+          <a href="{{ site.baseurl }}/downloads/api/oai/shipcloud_v1_oai3.json">OpenAPI spec as JSON</a> or simply
+          view the
+          <a href="{{ site.baseurl }}/swagger-ui">OpenAPI specification</a> in the browser.
+        </p>
+
+        <h2 class="mt-l" id="http-status-codes">
           http status codes
         </h2>
         <p class="my-m">
@@ -45,6 +55,11 @@ layout: request_response
         <p>
           If you need more details about the current user that is making a request, you can get it
           by querying the /me endpoint.
+        </p>
+        <p class="mt-m">
+          <a href="{{ site.baseurl }}/swagger-ui/#/default/get_me" data-proofer-ignore>
+            <img src="{{site.baseurl}}/assets/images/logos/oai.png" alt="OpenAPI" width="20" height="20" style="display: inline-block; vertical-align: top;" class="mr-s" />View the OpenAPI spec
+          </a>
         </p>
       </div>
     </div>
@@ -71,11 +86,6 @@ layout: request_response
 {% highlight json %}
 {% include me_response.json %}
 {% endhighlight %}
-
-        <p class="mt-s text-white">
-          JSON schema: <a href="{{ site.baseurl }}/reference/me_response_schema.html">
-          me response</a>
-        </p>
       </div>
     </div>
   </div>
@@ -97,6 +107,11 @@ layout: request_response
         <p>
           If you want to create an Address, this is the way to go!
         </p>
+        <p class="mt-m">
+          <a href="{{ site.baseurl }}/swagger-ui/#/default/post_addresses" data-proofer-ignore>
+            <img src="{{site.baseurl}}/assets/images/logos/oai.png" alt="OpenAPI" width="20" height="20" style="display: inline-block; vertical-align: top;" class="mr-s" />View the OpenAPI spec
+          </a>
+        </p>
       </div>
     </div>
     <div class="bg-blue-dark w-4/12 flex-grow">
@@ -111,15 +126,9 @@ layout: request_response
         <p class="my-m">
           <button class="px-2 py-1 rounded bg-green text-white font bold">POST</button> <strong>/v1/addresses</strong>
         </p>
-
 {% highlight json %}
 {% include addresses_post_put_request.json %}
 {% endhighlight %}
-
-        <p class="mt-s">
-          JSON schema: <a href="{{ site.baseurl }}/reference/post_addresses_request_schema.html">
-          Create addresses request</a>
-        </p>
       </div>
     </div>
     <div class="bg-blue-dark px-xl w-4/12 flex-grow">
@@ -131,11 +140,6 @@ layout: request_response
 {% highlight json %}
 {% include addresses_post_put_response.json %}
 {% endhighlight %}
-
-        <p class="mt-s text-white">
-          JSON schema: <a href="{{ site.baseurl }}/reference/address_response_schema.html">
-          Create addresses response</a>
-        </p>
       </div>
     </div>
   </div>
@@ -145,6 +149,11 @@ layout: request_response
         <h3 class="mt-l" id="getting-a-list-of-addresses">
           Getting a list of addresses
         </h3>
+        <p class="mt-m">
+          <a href="{{ site.baseurl }}/swagger-ui/#/default/get_addresses" data-proofer-ignore>
+            <img src="{{site.baseurl}}/assets/images/logos/oai.png" alt="OpenAPI" width="20" height="20" style="display: inline-block; vertical-align: top;" class="mr-s" />View the OpenAPI spec
+          </a>
+        </p>
       </div>
     </div>
     <div class="bg-blue-dark w-4/12 flex-grow">
@@ -183,6 +192,11 @@ layout: request_response
         <h3 class="mt-l" id="show-an-address">
           Show an Address
         </h3>
+        <p class="mt-m">
+          <a href="{{ site.baseurl }}/swagger-ui/#/default/get_addresses__id_" data-proofer-ignore>
+            <img src="{{site.baseurl}}/assets/images/logos/oai.png" alt="OpenAPI" width="20" height="20" style="display: inline-block; vertical-align: top;" class="mr-s" />View the OpenAPI spec
+          </a>
+        </p>
       </div>
     </div>
     <div class="bg-blue-dark w-4/12 flex-grow">
@@ -213,11 +227,6 @@ layout: request_response
 {% highlight json %}
 {% include addresses_get_response.json %}
 {% endhighlight %}
-
-        <p class="mt-s text-white">
-          JSON schema: <a href="{{ site.baseurl }}/reference/address_response_schema.html">
-          Address response</a>
-        </p>
       </div>
     </div>
   </div>
@@ -230,6 +239,11 @@ layout: request_response
         <p>
           This is the default address that will be used for returns shipments when no address was
           specified using the <code>to</code> attribute.
+        </p>
+        <p class="mt-m">
+          <a href="{{ site.baseurl }}/swagger-ui/#/default/get_default_returns_address" data-proofer-ignore>
+            <img src="{{site.baseurl}}/assets/images/logos/oai.png" alt="OpenAPI" width="20" height="20" style="display: inline-block; vertical-align: top;" class="mr-s" />View the OpenAPI spec
+          </a>
         </p>
       </div>
     </div>
@@ -256,11 +270,6 @@ layout: request_response
 {% highlight json %}
 {% include addresses_get_response.json %}
 {% endhighlight %}
-
-        <p class="mt-s text-white">
-          JSON schema: <a href="{{ site.baseurl }}/reference/address_response_schema.html">
-          address response</a>
-        </p>
       </div>
     </div>
   </div>
@@ -273,6 +282,11 @@ layout: request_response
         <p>
           This is the default address that will be used for shipments when no address was specified
           using the <code>to</code> attribute.
+        </p>
+        <p class="mt-m">
+          <a href="{{ site.baseurl }}/swagger-ui/#/default/get_default_shipping_address" data-proofer-ignore>
+            <img src="{{site.baseurl}}/assets/images/logos/oai.png" alt="OpenAPI" width="20" height="20" style="display: inline-block; vertical-align: top;" class="mr-s" />View the OpenAPI spec
+          </a>
         </p>
       </div>
     </div>
@@ -299,11 +313,6 @@ layout: request_response
 {% highlight json %}
 {% include addresses_get_response.json %}
 {% endhighlight %}
-
-        <p class="mt-s text-white">
-          JSON schema: <a href="{{ site.baseurl }}/reference/address_response_schema.html">
-          address response</a>
-        </p>
       </div>
     </div>
   </div>
@@ -315,6 +324,11 @@ layout: request_response
         </h2>
         <p>
           This is the address that a user has specified as being their invoice address.
+        </p>
+        <p class="mt-m">
+          <a href="{{ site.baseurl }}/swagger-ui/#/default/get_invoice_address" data-proofer-ignore>
+            <img src="{{site.baseurl}}/assets/images/logos/oai.png" alt="OpenAPI" width="20" height="20" style="display: inline-block; vertical-align: top;" class="mr-s" />View the OpenAPI spec
+          </a>
         </p>
       </div>
     </div>
@@ -341,11 +355,6 @@ layout: request_response
 {% highlight json %}
 {% include invoice_address_get_response.json %}
 {% endhighlight %}
-
-        <p class="mt-s text-white">
-          JSON schema: <a href="{{ site.baseurl }}/reference/invoice_address_response_schema.html">
-          invoice address response</a>
-        </p>
       </div>
     </div>
   </div>
@@ -380,6 +389,11 @@ layout: request_response
         <p>
           If you want to create a shipment, this is the way to go!
         </p>
+        <p class="mt-m">
+          <a href="{{ site.baseurl }}/swagger-ui/#/default/post_shipments" data-proofer-ignore>
+            <img src="{{site.baseurl}}/assets/images/logos/oai.png" alt="OpenAPI" width="20" height="20" style="display: inline-block; vertical-align: top;" class="mr-s" />View the OpenAPI spec
+          </a>
+        </p>
       </div>
     </div>
     <div class="bg-blue-dark w-4/12 flex-grow">
@@ -394,16 +408,9 @@ layout: request_response
         <p class="my-m">
           <button class="px-2 py-1 rounded bg-green text-white font bold">POST</button> <strong>/v1/shipments</strong>
         </p>
-
 {% highlight json %}
 {% include shipments_post_put_request.json %}
 {% endhighlight %}
-
-        <p class="mt-s">
-          JSON schema: <a href="{{ site.baseurl }}/reference/shipments_request_schema.html">
-          Shipments request</a>
-        </p>
-
       </div>
     </div>
     <div class="bg-blue-dark px-xl w-4/12 flex-grow">
@@ -415,11 +422,6 @@ layout: request_response
 {% highlight json %}
 {% include shipments_post_put_response.json %}
 {% endhighlight %}
-
-        <p class="mt-s text-white">
-          JSON schema: <a href="{{ site.baseurl }}/reference/shipments_response_reduced_schema.html">
-          Shipments response</a>
-        </p>
       </div>
     </div>
   </div>
@@ -429,6 +431,11 @@ layout: request_response
         <h3 class="mt-l" id="getting-a-list-of-shipments">
           Getting a list of shipments
         </h3>
+        <p class="mt-m">
+          <a href="{{ site.baseurl }}/swagger-ui/#/default/get_shipments" data-proofer-ignore>
+            <img src="{{site.baseurl}}/assets/images/logos/oai.png" alt="OpenAPI" width="20" height="20" style="display: inline-block; vertical-align: top;" class="mr-s" />View the OpenAPI spec
+          </a>
+        </p>
       </div>
     </div>
     <div class="bg-blue-dark w-4/12 flex-grow">
@@ -493,6 +500,11 @@ no payload
             </div>
           </div>
         </div>
+        <p class="mt-m">
+          <a href="{{ site.baseurl }}/swagger-ui/#/default/get_shipments__id_" data-proofer-ignore>
+            <img src="{{site.baseurl}}/assets/images/logos/oai.png" alt="OpenAPI" width="20" height="20" style="display: inline-block; vertical-align: top;" class="mr-s" />View the OpenAPI spec
+          </a>
+        </p>
       </div>
     </div>
     <div class="bg-blue-dark w-4/12 flex-grow">
@@ -530,11 +542,6 @@ no payload
 {% highlight json %}
 {% include shipments_get_response.json %}
 {% endhighlight %}
-
-        <p class="mt-s text-white">
-          JSON schema: <a href="{{ site.baseurl }}/reference/shipments_query_response_schema.html">
-          Shipments response</a>
-        </p>
       </div>
     </div>
   </div>
@@ -544,6 +551,11 @@ no payload
         <h3 class="mt-l" id="updating-a-shipment">
           Updating a shipment
         </h3>
+        <p class="mt-m">
+          <a href="{{ site.baseurl }}/swagger-ui/#/default/put_shipments__id_" data-proofer-ignore>
+            <img src="{{site.baseurl}}/assets/images/logos/oai.png" alt="OpenAPI" width="20" height="20" style="display: inline-block; vertical-align: top;" class="mr-s" />View the OpenAPI spec
+          </a>
+        </p>
       </div>
     </div>
     <div class="bg-blue-dark w-4/12 flex-grow">
@@ -597,6 +609,11 @@ no payload
             </div>
           </div>
         </div>
+        <p class="mt-m">
+          <a href="{{ site.baseurl }}/swagger-ui/#/default/delete_shipments" data-proofer-ignore>
+            <img src="{{site.baseurl}}/assets/images/logos/oai.png" alt="OpenAPI" width="20" height="20" style="display: inline-block; vertical-align: top;" class="mr-s" />View the OpenAPI spec
+          </a>
+        </p>
       </div>
     </div>
     <div class="bg-blue-dark w-4/12 flex-grow">
@@ -666,6 +683,11 @@ no payload
         <h3 class="mt-l" id="creating-a-shipment-quote">
           Creating a shipment quote
         </h3>
+        <p class="mt-m">
+          <a href="{{ site.baseurl }}/swagger-ui/#/default/post_shipment_quotes" data-proofer-ignore>
+            <img src="{{site.baseurl}}/assets/images/logos/oai.png" alt="OpenAPI" width="20" height="20" style="display: inline-block; vertical-align: top;" class="mr-s" />View the OpenAPI spec
+          </a>
+        </p>
       </div>
     </div>
     <div class="bg-blue-dark w-4/12 flex-grow">
@@ -698,11 +720,6 @@ no payload
           You can also omit the <code>from</code> parameter if the users has configured a standard ship from address
           in her/his shipcloud profile.
         </p>
-
-        <p class="mt-s">
-          JSON schema: <a href="{{ site.baseurl }}/reference/shipment_quotes_request_schema.html">
-          Shipment Quotes request</a>
-        </p>
       </div>
     </div>
     <div class="bg-blue-dark px-xl w-4/12 flex-grow">
@@ -714,11 +731,6 @@ no payload
 {% highlight json %}
 {% include shipment_quotes_post_response.json %}
 {% endhighlight %}
-
-        <p class="mt-s text-white">
-          JSON schema: <a href="{{ site.baseurl }}/reference/shipment_quotes_response_schema.html">
-          Shipment Quotes response</a>
-        </p>
       </div>
     </div>
   </div>
@@ -746,6 +758,11 @@ no payload
             </div>
           </div>
         </div>
+        <p class="mt-m">
+          <a href="{{ site.baseurl }}/swagger-ui/#/default/get_carriers" data-proofer-ignore>
+            <img src="{{site.baseurl}}/assets/images/logos/oai.png" alt="OpenAPI" width="20" height="20" style="display: inline-block; vertical-align: top;" class="mr-s" />View the OpenAPI spec
+          </a>
+        </p>
       </div>
     </div>
     <div class="bg-blue-dark w-4/12 flex-grow">
@@ -844,10 +861,6 @@ no payload
   }
 ]
 {% endhighlight %}
-        <p class="mt-s text-white">
-          JSON schema: <a href="{{ site.baseurl }}/reference/carriers_response_schema.html">
-          Carriers response</a>
-        </p>
       </div>
     </div>
   </div>
@@ -953,6 +966,11 @@ no payload
             </div>
           </div>
         </div>
+        <p class="mt-m">
+          <a href="{{ site.baseurl }}/swagger-ui/#/default/post_pickup_requests" data-proofer-ignore>
+            <img src="{{site.baseurl}}/assets/images/logos/oai.png" alt="OpenAPI" width="20" height="20" style="display: inline-block; vertical-align: top;" class="mr-s" />View the OpenAPI spec
+          </a>
+        </p>
       </div>
     </div>
     <div class="bg-blue-dark w-4/12 flex-grow">
@@ -964,11 +982,12 @@ no payload
         <h4 class="mt-l">
           Request
         </h4>
+
+        {% include reference/pickup_requests_request_togglebox.html %}
+
         <p>
           Here's an example for having all shipments being picked up by a specific carrier:
         </p>
-
-        {% include reference/pickup_requests_request_togglebox.html %}
 
         <p class="my-m">
           <button class="px-2 py-1 rounded bg-green text-white font bold">POST</button> <strong>/v1/pickup_requests</strong>
@@ -1006,11 +1025,6 @@ no payload
 {% highlight json %}
 {% include pickup_post_requests_request.json %}
 {% endhighlight %}
-
-        <p class="mt-s">
-          JSON schema: <a href="{{ site.baseurl }}/reference/pickup_requests_request_schema.html">
-          Pickup Requests request</a>
-        </p>
       </div>
     </div>
     <div class="bg-blue-dark px-xl w-4/12 flex-grow">
@@ -1036,11 +1050,6 @@ no payload
 {% highlight json %}
 {% include pickup_post_requests_response.json %}
 {% endhighlight %}
-
-        <p class="mt-s text-white">
-          JSON schema: <a href="{{ site.baseurl }}/reference/pickup_requests_response_schema.html">
-          Pickup Requests response</a>
-        </p>
       </div>
     </div>
   </div>
@@ -1050,6 +1059,11 @@ no payload
         <h3 class="mt-l" id="getting-a-list-of-pickup-requests">
           Getting a list of pickup requests
         </h3>
+        <p class="mt-m">
+          <a href="{{ site.baseurl }}/swagger-ui/#/default/get_pickup_requests" data-proofer-ignore>
+            <img src="{{site.baseurl}}/assets/images/logos/oai.png" alt="OpenAPI" width="20" height="20" style="display: inline-block; vertical-align: top;" class="mr-s" />View the OpenAPI spec
+          </a>
+        </p>
       </div>
     </div>
     <div class="bg-blue-dark w-4/12 flex-grow">
@@ -1090,6 +1104,11 @@ no payload
         <h3 class="mt-l" id="getting-information-about-a-pickup-request">
           Getting information about a pickup request
         </h3>
+        <p class="mt-m">
+          <a href="{{ site.baseurl }}/swagger-ui/#/default/get_pickup_requests__id_" data-proofer-ignore>
+            <img src="{{site.baseurl}}/assets/images/logos/oai.png" alt="OpenAPI" width="20" height="20" style="display: inline-block; vertical-align: top;" class="mr-s" />View the OpenAPI spec
+          </a>
+        </p>
       </div>
     </div>
     <div class="bg-blue-dark w-4/12 flex-grow">
@@ -1119,11 +1138,6 @@ no payload
 {% highlight json %}
 {% include pickup_requests_get_response.json %}
 {% endhighlight %}
-
-        <p class="mt-s text-white">
-          JSON schema: <a href="{{ site.baseurl }}/reference/pickup_requests_response_schema.html">
-          Pickup Requests response</a>
-        </p>
       </div>
     </div>
   </div>
@@ -1145,6 +1159,11 @@ no payload
         <p>
           If you want to create a webhook, this is the way to go!
         </p>
+        <p class="mt-m">
+          <a href="{{ site.baseurl }}/swagger-ui/#/default/post_webhooks" data-proofer-ignore>
+            <img src="{{site.baseurl}}/assets/images/logos/oai.png" alt="OpenAPI" width="20" height="20" style="display: inline-block; vertical-align: top;" class="mr-s" />View the OpenAPI spec
+          </a>
+        </p>
       </div>
     </div>
     <div class="bg-blue-dark w-4/12 flex-grow">
@@ -1159,15 +1178,9 @@ no payload
         <p class="my-m">
           <button class="px-2 py-1 rounded bg-green text-white font bold">POST</button> <strong>/v1/webhooks</strong>
         </p>
-
 {% highlight json %}
 {% include webhooks_post_put_request.json %}
 {% endhighlight %}
-
-        <p class="mt-s">
-          JSON schema: <a href="{{ site.baseurl }}/reference/webhooks_request_schema.html">
-          Create webhook request</a>
-        </p>
       </div>
     </div>
     <div class="bg-blue-dark px-xl w-4/12 flex-grow">
@@ -1179,11 +1192,6 @@ no payload
 {% highlight json %}
 {% include webhooks_post_put_response.json %}
 {% endhighlight %}
-
-        <p class="mt-s text-white">
-          JSON schema: <a href="{{ site.baseurl }}/reference/webhooks_response_schema.html">
-          Create webhook response</a>
-        </p>
       </div>
     </div>
   </div>
@@ -1193,6 +1201,11 @@ no payload
         <h3 class="mt-l" id="getting-a-list-of-webhooks">
           Getting a list of webhooks
         </h3>
+        <p class="mt-m">
+          <a href="{{ site.baseurl }}/swagger-ui/#/default/get_webhooks" data-proofer-ignore>
+            <img src="{{site.baseurl}}/assets/images/logos/oai.png" alt="OpenAPI" width="20" height="20" style="display: inline-block; vertical-align: top;" class="mr-s" />View the OpenAPI spec
+          </a>
+        </p>
       </div>
     </div>
     <div class="bg-blue-dark w-4/12 flex-grow">
@@ -1230,6 +1243,11 @@ no payload
         <h3 class="mt-l" id="show-a-webhook">
           Show a webhook
         </h3>
+        <p class="mt-m">
+          <a href="{{ site.baseurl }}/swagger-ui/#/default/get_webhooks__id_" data-proofer-ignore>
+            <img src="{{site.baseurl}}/assets/images/logos/oai.png" alt="OpenAPI" width="20" height="20" style="display: inline-block; vertical-align: top;" class="mr-s" />View the OpenAPI spec
+          </a>
+        </p>
       </div>
     </div>
     <div class="bg-blue-dark w-4/12 flex-grow">
@@ -1260,11 +1278,6 @@ no payload
 {% highlight json %}
 {% include webhooks_get_response.json %}
 {% endhighlight %}
-
-        <p class="mt-s text-white">
-          JSON schema: <a href="{{ site.baseurl }}/reference/webhooks_response_schema.html">
-          Create webhook response</a>
-        </p>
       </div>
     </div>
   </div>
@@ -1274,6 +1287,11 @@ no payload
         <h3 class="mt-l" id="deleting-a-webhook">
           Deleting a webhook
         </h3>
+        <p class="mt-m">
+          <a href="{{ site.baseurl }}/swagger-ui/#/default/delete_webhooks__id_" data-proofer-ignore>
+            <img src="{{site.baseurl}}/assets/images/logos/oai.png" alt="OpenAPI" width="20" height="20" style="display: inline-block; vertical-align: top;" class="mr-s" />View the OpenAPI spec
+          </a>
+        </p>
       </div>
     </div>
     <div class="bg-blue-dark w-4/12 flex-grow">
@@ -1338,9 +1356,15 @@ no payload
         <h3 class="mt-l" id="creating-a-tracker">
           Creating a tracker
         </h3>
-
-        This is the way to create a tracker based on a tracking number provided by one of our
-        <a href="{{ site.baseurl }}/carriers/">supported carriers</a>.
+        <p>
+          This is the way to create a tracker based on a tracking number provided by one of our
+          <a href="{{ site.baseurl }}/carriers/">supported carriers</a>.
+        </p>
+        <p class="mt-m">
+          <a href="{{ site.baseurl }}/swagger-ui/#/default/post_trackers" data-proofer-ignore>
+            <img src="{{site.baseurl}}/assets/images/logos/oai.png" alt="OpenAPI" width="20" height="20" style="display: inline-block; vertical-align: top;" class="mr-s" />View the OpenAPI spec
+          </a>
+        </p>
       </div>
     </div>
     <div class="bg-blue-dark w-4/12 flex-grow">
@@ -1355,16 +1379,9 @@ no payload
         <p class="my-m">
           <button class="px-2 py-1 rounded bg-green text-white font bold">POST</button> <strong>/v1/trackers</strong>
         </p>
-
 {% highlight json %}
 {% include trackers_post_put_request.json %}
 {% endhighlight %}
-
-        <p class="mt-s">
-          JSON schema: <a href="{{ site.baseurl }}/reference/trackers_request_schema.html">
-          Create tracker request</a>
-        </p>
-
       </div>
     </div>
     <div class="bg-blue-dark px-xl w-4/12 flex-grow">
@@ -1376,11 +1393,6 @@ no payload
 {% highlight json %}
 {% include trackers_post_put_response.json %}
 {% endhighlight %}
-
-        <p class="mt-s text-white">
-          JSON schema: <a href="{{ site.baseurl }}/reference/trackers_response_schema.html">
-          Create tracker response</a>
-        </p>
       </div>
     </div>
   </div>
@@ -1390,6 +1402,11 @@ no payload
         <h3 class="mt-l" id="getting-a-list-of-trackers">
           Getting a list of trackers
         </h3>
+        <p class="mt-m">
+          <a href="{{ site.baseurl }}/swagger-ui/#/default/get_trackers" data-proofer-ignore>
+            <img src="{{site.baseurl}}/assets/images/logos/oai.png" alt="OpenAPI" width="20" height="20" style="display: inline-block; vertical-align: top;" class="mr-s" />View the OpenAPI spec
+          </a>
+        </p>
       </div>
     </div>
     <div class="bg-blue-dark w-4/12 flex-grow">
@@ -1427,6 +1444,11 @@ no payload
         <h3 class="mt-l" id="show-a-tracker">
           Show a tracker
         </h3>
+        <p class="mt-m">
+          <a href="{{ site.baseurl }}/swagger-ui/#/default/get_trackers__id_" data-proofer-ignore>
+            <img src="{{site.baseurl}}/assets/images/logos/oai.png" alt="OpenAPI" width="20" height="20" style="display: inline-block; vertical-align: top;" class="mr-s" />View the OpenAPI spec
+          </a>
+        </p>
       </div>
     </div>
     <div class="bg-blue-dark w-4/12 flex-grow">
@@ -1457,11 +1479,6 @@ no payload
 {% highlight json %}
 {% include trackers_get_response.json %}
 {% endhighlight %}
-
-        <p class="mt-s text-white">
-          JSON schema: <a href="{{ site.baseurl }}/reference/trackers_response_schema.html">
-          Tracker response</a>
-        </p>
       </div>
     </div>
   </div>

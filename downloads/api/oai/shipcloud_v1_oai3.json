@@ -1,0 +1,4393 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "shipcloud.io API",
+    "description": "Everything about the shipcloud api",
+    "termsOfService": "https://www.shipcloud.io/en/terms_and_conditions",
+    "contact": {
+      "name": "Developer Support",
+      "email": "developers@shipcloud.io"
+    },
+    "version": "1.0"
+  },
+  "servers": [{
+    "url": "https://api.shipcloud.io/v1"
+  }],
+  "paths": {
+    "/addresses": {
+      "get": {
+        "description": "Getting a list of addresses",
+        "parameters": [
+          {
+            "name": "care_of",
+            "in": "query",
+            "description": "Filter addresses by care_of",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "city",
+            "in": "query",
+            "description": "Filter addresses by city",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "company",
+            "in": "query",
+            "description": "Filter addresses by company name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "description": "Filter addresses by country code",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "first_name",
+            "in": "query",
+            "description": "Filter addresses by first name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "last_name",
+            "in": "query",
+            "description": "Filter addresses by last name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Number of page that should be returned",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Number of items that should be shown on a page (default value is 100)",
+            "schema": {
+              "type": "integer",
+              "default": 100
+            }
+          },
+          {
+            "name": "phone",
+            "in": "query",
+            "description": "Filter addresses by phone number",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "street",
+            "in": "query",
+            "description": "Filter addresses by street name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "street_no",
+            "in": "query",
+            "description": "Filter addresses by house number",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "zip_code",
+            "in": "query",
+            "description": "Filter addresses by zip code",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of addresses",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/address_with_id"
+                  }
+                },
+                "examples": {
+                  "List of addresses": {
+                    "$ref": "#/components/examples/list_of_addresses_with_id_example"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      },
+      "post": {
+        "description": "Creating an address",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/address"
+              },
+              "examples": {
+                "A basic address creation request": {
+                  "$ref": "#/components/examples/address_request_example"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "An address was created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/address_with_id"
+                    },
+                    {
+                      "description": "An address that was created. It is referenced by its id."
+                    }
+                  ]
+                },
+                "examples": {
+                  "Address with ID": {
+                    "$ref": "#/components/examples/address_with_id_example"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "422": {
+            "$ref": "#/components/responses/422"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/addresses/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "The identifier of a previously created address",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "description": "Returns a single address based on its identifier",
+        "responses": {
+          "200": {
+            "description": "Detailed information about a single address",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/address_with_id"
+                },
+                "examples": {
+                  "Address with ID": {
+                    "$ref": "#/components/examples/address_with_id_example"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/carriers": {
+      "get": {
+        "description": "Returns all carriers for the user associated with the api key",
+        "responses": {
+          "200": {
+            "description": "A list of carriers.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "description": "key for referencing the carrier within shipcloud"
+                      },
+                      "display_name": {
+                        "type": "string",
+                        "description": "name of the carrier you can use to display it in your application"
+                      },
+                      "services": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "description": "key for referencing the service within shipcloud",
+                          "enum": [
+                            "standard",
+                            "one_day",
+                            "one_day_early",
+                            "returns",
+                            "cargo_international_express",
+                            "dhl_europaket",
+                            "dhl_prio",
+                            "dhl_warenpost",
+                            "dpag_warenpost",
+                            "dpag_warenpost_signature",
+                            "dpag_warenpost_untracked",
+                            "gls_express_0800",
+                            "gls_express_0900",
+                            "gls_express_1000",
+                            "gls_express_1200",
+                            "ups_express_1200"
+                          ],
+                          "default": "standard"
+                        }
+                      },
+                      "package_types": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "description": "key for referencing the package type within shipcloud",
+                          "enum": ["parcel", "bulk", "letter", "books", "parcel_letter"],
+                          "default": "parcel"
+                        }
+                      },
+                      "additional_services": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "saturday_delivery",
+                            "angel_de_delivery_date_time",
+                            "advance_notice",
+                            "hermes_identservice",
+                            "drop_authorization",
+                            "dpd_food",
+                            "delivery_date",
+                            "delivery_note",
+                            "delivery_time",
+                            "cash_on_delivery",
+                            "gls_guaranteed24service",
+                            "dhl_gogreen",
+                            "dhl_ident_check",
+                            "premium_international",
+                            "visual_age_check",
+                            "dhl_endorsement",
+                            "dhl_named_person_only",
+                            "dhl_parcel_outlet_routing",
+                            "ups_adult_signature",
+                            "ups_direct_delivery_only"
+                          ],
+                          "description": "key to identify the additional service"
+                        }
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "display_name",
+                      "services",
+                      "package_types",
+                      "additional_services"
+                    ]
+                  }
+                },
+                "examples": {
+                  "List of carriers": {
+                    "value": [
+                      {
+                        "name": "dhl",
+                        "display_name": "Deutsche Post DHL",
+                        "services": [
+                          "standard",
+                          "returns"
+                        ],
+                        "package_types": [
+                          "parcel",
+                          "bulk"
+                        ],
+                        "additional_services": [
+                          "advance_notice"
+                        ]
+                      },
+                      {
+                        "name": "dpag",
+                        "display_name": "Deutsche Post",
+                        "services": [
+                          "standard"
+                        ],
+                        "package_types": [
+                          "letter",
+                          "parcel_letter",
+                          "books"
+                        ],
+                        "additional_services": []
+                      },
+                      {
+                        "name": "dpd",
+                        "display_name": "DPD - Dynamic Parcel Distribution",
+                        "services": [
+                          "standard",
+                          "returns",
+                          "one_day",
+                          "one_day_early"
+                        ],
+                        "package_types": [
+                          "parcel",
+                          "parcel_letter"
+                        ],
+                        "additional_services": [
+                          "advance_notice",
+                          "drop_authorization",
+                          "saturday_delivery"
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/default_returns_address": {
+      "get": {
+        "description": "Getting the default returns address",
+        "responses": {
+          "200": {
+            "description": "Detailed information the default returns address",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/address_with_id"
+                },
+                "examples": {
+                  "Address with ID": {
+                    "$ref": "#/components/examples/address_with_id_example"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/default_shipping_address": {
+      "get": {
+        "description": "Getting the default shipping address",
+        "responses": {
+          "200": {
+            "description": "Detailed information the default shipping address",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/address_with_id"
+                },
+                "examples": {
+                  "Address with ID": {
+                    "$ref": "#/components/examples/address_with_id_example"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/invoice_address": {
+      "get": {
+        "description": "Getting the invoice address",
+        "responses": {
+          "200": {
+            "description": "Detailed information the invoice address",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/address_with_id"
+                },
+                "examples": {
+                  "Address with ID": {
+                    "$ref": "#/components/examples/address_with_id_example"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/me": {
+      "get": {
+        "description": "Getting information about the current user",
+        "responses": {
+          "200": {
+            "description": "Detailed information about the current user that is making the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/current_user"
+                },
+                "examples": {
+                  "Production user": {
+                    "$ref": "#/components/examples/production_user"
+                  },
+                  "Sandbox user": {
+                    "$ref": "#/components/examples/sandbox_user"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/pickup_requests": {
+      "get": {
+        "description": "Get all pickup requests for this user",
+        "responses": {
+          "200": {
+            "description": "A list of pickup requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/pickup_request_object"
+                  }
+                },
+                "examples": {
+                  "Pickup requests response": {
+                    "$ref": "#/components/examples/pickup_requests_response_example_multiple"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      },
+      "post": {
+        "description": "Create a pickup request with a carrier, so they come and get the parcels",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/pickup"
+                  },
+                  {
+                    "type": "object",
+                    "description": "Pickup request for a one time pickup",
+                    "properties": {
+                      "carrier": {
+                        "type": "string",
+                        "enum": ["ups", "dpd", "hermes", "gls"],
+                        "description": "acronym of the carrier you want to use"
+                      },
+                      "shipments": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "description": "The identifier of the shipment that should be picked up"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ],
+                "required": [
+                  "carrier",
+                  "pickup_time",
+                  "pickup_address"
+                ]
+              },
+              "examples": {
+                "Pickup request for collecting all shipments from a carrier": {
+                  "$ref": "#/components/examples/pickup_requests_example"
+                },
+                "Pickup request using specific shipment IDs": {
+                  "$ref": "#/components/examples/pickup_requests_example_with_shipment_ids"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Pickup request response": {
+                    "$ref": "#/components/examples/pickup_requests_response_example_single"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "422": {
+            "$ref": "#/components/responses/422"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/pickup_requests/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "Identifier of a pickup",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "description": "Returns a single pickup request based on the id",
+        "responses": {
+          "200": {
+            "description": "Detailed information about a single pickup request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/pickup_request_object"
+                },
+                "examples": {
+                  "Pickup requests response": {
+                    "$ref": "#/components/examples/pickup_requests_response_example_single"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/rates": {
+      "post": {
+        "deprecated": true,
+        "description": "The old way to find out how much we will charge you for a specific shipment. Please use ShipmentQuotes instead.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "carrier": {
+                    "$ref": "#/components/schemas/carrier_shipping"
+                  },
+                  "height": {
+                    "type": "number",
+                    "description": "Height of the parcel in cm"
+                  },
+                  "length": {
+                    "type": "number",
+                    "description": "Length of the parcel in cm"
+                  },
+                  "weight": {
+                    "type": "number",
+                    "description": "Weight of the parcel in kg"
+                  },
+                  "width": {
+                    "type": "number",
+                    "description": "Width of the parcel in cm"
+                  }
+                },
+                "required": [
+                  "carrier",
+                  "height",
+                  "length",
+                  "weight",
+                  "width"
+                ]
+              },
+              "example": {
+                "carrier": "dhl",
+                "weight": 1.5,
+                "length": 20,
+                "width": 20,
+                "height": 20
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Shipment quote for a single shipment",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "rate": {
+                      "type": "number",
+                      "description": "Price that shipcloud is going to charge you (exl. VAT)"
+                    }
+                  },
+                  "required": ["rate"]
+                },
+                "example": {
+                  "rate": 3.80
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "422": {
+            "$ref": "#/components/responses/422"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/shipment_quotes": {
+      "post": {
+        "description": "Find out how much we will charge you for a specific shipment when using shipcloud carrier contracts.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "carrier": {
+                    "$ref": "#/components/schemas/carrier_shipping"
+                  },
+                  "service": {
+                    "$ref": "#/components/schemas/service"
+                  },
+                  "to": {
+                    "oneOf": [
+                      {
+                        "allOf": [
+                          {
+                            "$ref": "#/components/schemas/address"
+                          },
+                          {
+                            "description": "the receivers address"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "id of a receivers address"
+                          }
+                        },
+                        "required": ["id"]
+                      }
+                    ]
+                  },
+                  "from": {
+                    "oneOf": [
+                      {
+                        "allOf": [
+                          {
+                            "$ref": "#/components/schemas/address"
+                          },
+                          {
+                            "description": "the senders address"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "id of a senders address"
+                          }
+                        },
+                        "required": ["id"]
+                      }
+                    ]
+                  },
+                  "package": {
+                    "$ref": "#/components/schemas/package"
+                  }
+                },
+                "required": [
+                  "carrier",
+                  "service",
+                  "to",
+                  "package"
+                ]
+              },
+              "examples": {
+                "Shipment quote request": {
+                  "$ref": "#/components/examples/shipment_quote_request_example"
+                },
+                "Shipment quote request using address IDs": {
+                  "$ref": "#/components/examples/shipment_quote_with_address_id_request_example"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Shipment quote for a single shipment",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "shipment_quote": {
+                      "type": "object",
+                      "properties": {
+                        "price": {
+                          "type": "number",
+                          "description": "Price that shipcloud is going to charge you (exl. VAT)"
+                        }
+                      },
+                      "required": ["price"]
+                    }
+                  },
+                  "required": ["shipment_quote"]
+                },
+                "examples": {
+                  "Shipment quote response": {
+                    "$ref": "#/components/examples/shipment_quote_response_example"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "422": {
+            "$ref": "#/components/responses/422"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/shipments": {
+      "get": {
+        "description": "Returns a list of shipments",
+        "responses": {
+          "200": {
+            "description": "A list of shipments.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/shipment_response_object"
+                  }
+                },
+                "examples": {
+                  "Shipments list": {
+                    "value": [
+                      {
+                        "carrier": "dhl",
+                        "carrier_tracking_no": "84168117830018",
+                        "created_at": "2013-04-16T10:43:04Z",
+                        "from": {
+                          "id": "522a7cb1-d6c8-418c-ac26-011127ab5bbe",
+                          "company": "Musterfirma",
+                          "first_name": "Hans",
+                          "last_name": "Meier",
+                          "care_of": null,
+                          "street": "Musterstraße",
+                          "street_no": "22",
+                          "city": "Musterstadt",
+                          "state": null,
+                          "zip_code": "12345",
+                          "country": "DE"
+                        },
+                        "id": "3a186c51d4281acbecf5ed38805b1db92a9d668b",
+                        "label_url": "https://shipping-labels.shipcloud.io/shipments/01370b4d/199f803bf8/label/shipping_label_199f803bf8.pdf",
+                        "notification_email": "receiver@notification.com",
+                        "packages": [{
+                          "id": "3af8f7e5af196e1950deebd389a87406e1e5bb80",
+                          "weight": 1.5,
+                          "length": 10.0,
+                          "width": 6.0,
+                          "height": 8.0,
+                          "tracking_events": [{
+                              "timestamp": "2013-05-26T16:55:24+02:00",
+                              "location": "Hamburg, Deutschland",
+                              "status": "delivered",
+                              "details": "Die Sendung wurde erfolgreich zugestellt."
+                            },
+                            {
+                              "timestamp": "2013-05-26T08:12:12+02:00",
+                              "location": "Hamburg, Deutschland",
+                              "status": "out_for_delivery",
+                              "details": "Die Sendung wurde in das Zustellfahrzeug geladen."
+                            },
+                            {
+                              "timestamp": "2013-05-25T11:46:34+02:00",
+                              "location": "Hamburg, Deutschland",
+                              "status": "transit",
+                              "details": "Die Sendung wurde im Start-Paketzentrum bearbeitet."
+                            }
+                          ]
+                        }],
+                        "price": 3.4,
+                        "reference_number": "ref123456",
+                        "service": "standard",
+                        "shipper_notification_email": "shipper@notification.com",
+                        "to": {
+                          "id": "522a7cb1-d6c8-418c-ac26-011127ab5bbe",
+                          "company": "Receiver Inc.",
+                          "first_name": "Max",
+                          "last_name": "Mustermann",
+                          "care_of": null,
+                          "street": "Beispielstrasse",
+                          "street_no": "42",
+                          "city": "Hamburg",
+                          "state": null,
+                          "zip_code": "22100",
+                          "country": "DE"
+                        },
+                        "tracking_url": "https://track.shipcloud.io/3a186c51d4"
+                      },
+                      {
+                        "carrier": "ups",
+                        "carrier_tracking_no": "1ZV306W06896102223",
+                        "created_at": "2021-09-01T11:37:07Z",
+                        "from": {
+                          "id": "f999ac2b-435c-4de2-8809-6c0e86a77756",
+                          "first_name": "Serge",
+                          "last_name": "Sender",
+                          "company": "Sender Corp.",
+                          "care_of": null,
+                          "street": "Sender Str.",
+                          "street_no": "99",
+                          "zip_code": "20148",
+                          "city": "Hamburg",
+                          "state": null,
+                          "country": "DE"
+                        },
+                        "id": "c0f9611533339109f35d852en21dk70435e1838b",
+                        "label_url": "https://shipping-labels.shipcloud.io/shipments/c0f96115/33339109f3/label/shipping_label_c0f9611533.pdf",
+                        "notification_email": "receiver@notification.com",
+                        "packages": [{
+                          "id": "46ec98d23617c0cd4d11a6305e98748aac2e20fd",
+                          "weight": 0.45,
+                          "length": 30.0,
+                          "width": 30.0,
+                          "height": 30.0
+                        }],
+                        "price": 5.9,
+                        "reference_number": "ref123456",
+                        "service": "standard",
+                        "shipper_notification_email": "shipper@notification.com",
+                        "to": {
+                          "id": "ffdbcfc7-a900-4285-8855-6417xaca37f3",
+                          "first_name": "Roger",
+                          "last_name": "Receiver",
+                          "company": null,
+                          "care_of": null,
+                          "street": "Receiver Str.",
+                          "street_no": "1",
+                          "city": "Hamburg",
+                          "state": null,
+                          "zip_code": "20535",
+                          "country": "DE"
+                        },
+                        "tracking_url": "https://track.shipcloud.io/c0f9611533"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      },
+      "post": {
+        "description": "Create a shipment",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/shipment"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "package": {
+                        "$ref": "#/components/schemas/package"
+                      }
+                    }
+                  }
+                ]
+              },
+              "examples": {
+                "Simple shipment creation request": {
+                  "$ref": "#/components/examples/shipment_create_request_example_simple"
+                },
+                "Creation request with customs declaration data": {
+                  "$ref": "#/components/examples/shipment_create_request_with_customs_declaration_example"
+                },
+                "Shipment to a DHL Packstation": {
+                  "$ref": "#/components/examples/shipment_create_request_example_packstation"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "A shipment was created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/shipment_create_response_object"
+                },
+                "examples": {
+                  "Shipment creation response": {
+                    "$ref": "#/components/examples/shipment_create_response_example"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "422": {
+            "$ref": "#/components/responses/422"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/shipments/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "a shipment identifier",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "description": "Returns a single shipment based on the id",
+        "responses": {
+          "200": {
+            "description": "Detailed information about a single shipment",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/shipment_response_object"
+                },
+                "examples": {
+                  "Shipment response": {
+                    "$ref": "#/components/examples/shipment_response_example"
+                  },
+                  "Shipment reponse with customs declaration data": {
+                    "$ref": "#/components/examples/shipment_create_reponse_with_customs_declaration_example"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      },
+      "put": {
+        "description": "Updates a single shipment based on the id. Unfortunately you can't update the `customs_declaration` attribute at the moment.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/shipment_put"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "package": {
+                        "$ref": "#/components/schemas/package"
+                      }
+                    }
+                  }
+                ]
+              },
+              "examples": {
+                "Simple shipment update request": {
+                  "$ref": "#/components/examples/shipment_create_request_example_simple"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Updated information about a single shipment",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/shipment_create_response_object"
+                },
+                "examples": {
+                  "Shipment response": {
+                    "$ref": "#/components/examples/shipment_create_response_example"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "422": {
+            "$ref": "#/components/responses/422"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes a single shipment. **Notice:**  Prepared shipments (where `create_shipping_label` is `false`) can be deleted at any time, because no transaction with the carrier has happened until this point and no actual shipping label has been created. In case you've created a shipping label you can delete it before the cutoff time of the carrier. Cutoff times differ from carrier to carrier and are some time between 5pm and 8pm.",
+        "responses": {
+          "204": {
+            "description": "Shipment was deleted successfully",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Empty response": {
+                    "value": {}
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/trackers": {
+      "get": {
+        "description": "Get a list of previously created trackers",
+        "responses": {
+          "200": {
+            "description": "A list of trackers.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "trackers": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/tracker_object_with_id"
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "Getting all trackers": {
+                    "$ref": "#/components/examples/trackers_requests_response_example_multiple"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      },
+      "post": {
+        "description": "Creating a tracker",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Trackers allow you to monitor a shipment even though it wasn't created using shipcloud",
+                "properties": {
+                  "carrier_tracking_no": {
+                    "type": "string",
+                    "description": "Tracking number (provided by the carrier) of the shipment which should be monitored"
+                  },
+                  "carrier": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/carrier_tracking_only"
+                      },
+                      {
+                        "description": "acronym of the carrier the shipment was created with"
+                      }
+                    ]
+                  },
+                  "to": {
+                    "oneOf": [
+                      {
+                        "allOf": [
+                          {
+                            "$ref": "#/components/schemas/address"
+                          },
+                          {
+                            "description": "the receivers address"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "id of a receivers address"
+                          }
+                        },
+                        "required": ["id"]
+                      }
+                    ]
+                  },
+                  "from": {
+                    "oneOf": [
+                      {
+                        "allOf": [
+                          {
+                            "$ref": "#/components/schemas/address"
+                          },
+                          {
+                            "description": "the senders address"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "id of a senders address"
+                          }
+                        },
+                        "required": ["id"]
+                      }
+                    ]
+                  },
+                  "notification_email": {
+                    "type": "string",
+                    "description": "email address that we should notify once there's an update for this shipment. Usually the recipients'"
+                  }
+                },
+                "required": ["carrier_tracking_no", "carrier"]
+              },
+              "examples": {
+                "Tracker creation request": {
+                  "$ref": "#/components/examples/trackers_requests_example"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A tracker has been created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/tracker_object_with_id"
+                },
+                "examples": {
+                  "Tracker with ID response": {
+                    "$ref": "#/components/examples/tracker_with_id_example"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "422": {
+            "$ref": "#/components/responses/422"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/trackers/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "a tracker identifier",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "description": "Get a single tracker",
+        "responses": {
+          "200": {
+            "description": "Returns information about a single tracker based on its identifier.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/tracker_object_with_id"
+                },
+                "examples": {
+                  "Tracker with ID response": {
+                    "$ref": "#/components/examples/tracker_with_id_example"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/webhooks": {
+      "get": {
+        "description": "Get a list of previously created webhooks",
+        "responses": {
+          "200": {
+            "description": "A list of webhooks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "webhooks": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/webhook_object_with_id"
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "Getting all webhooks": {
+                    "$ref": "#/components/examples/webhooks_list_example"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      },
+      "post": {
+        "description": "Creating a webhook on the shipcloud platform",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Trackers allow you to monitor a shipment even though it wasn't created using shipcloud",
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "description": "The URL the webhook should call"
+                  },
+                  "event_types": {
+                    "description": "The event types the webhook wants to subscribe to",
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/webhook_event_types"
+                    }
+                  }
+                }
+              },
+              "examples": {
+                "Creating a basic webhook": {
+                  "$ref": "#/components/examples/webhook_create_request_object"
+                },
+                "Creating a tracking catch-all webhook": {
+                  "value": {
+                    "url": "https://example.com/webhook",
+                    "event_types": ["shipment.tracking.*"]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A webhooks has been created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/webhook_object_with_id"
+                },
+                "examples": {
+                  "Webhook with ID response": {
+                    "$ref": "#/components/examples/webhook_with_id_example"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "422": {
+            "$ref": "#/components/responses/422"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/webhooks/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "a webhook identifier",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "description": "Returns a single webhook based on the provided id",
+        "responses": {
+          "200": {
+            "description": "Detailed information about a single webhook",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/webhook_object_with_id"
+                },
+                "examples": {
+                  "Webhook response": {
+                    "$ref": "#/components/examples/webhook_with_id_example"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes a single webhook identified by its id",
+        "responses": {
+          "204": {
+            "description": "Webhook was deleted successfully",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Empty response": {
+                    "value": {}
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "examples": {
+      "address_request_example": {
+        "value": {
+          "first_name": "Serge",
+          "last_name": "Sender",
+          "company": "Sender Corp.",
+          "street": "Sender Str.",
+          "street_no": "99",
+          "zip_code": "20148",
+          "city": "Hamburg",
+          "country": "DE"
+        }
+      },
+      "address_with_id_example": {
+        "value": {
+          "id": "1c81efb7-9b95-4dd8-92e3-cac1bca3df6f",
+          "first_name": "Max",
+          "last_name": "Mustermann",
+          "company": null,
+          "care_of": null,
+          "street": "Musterstraße",
+          "street_no": "42",
+          "zip_code": "12345",
+          "city": "Musterstadt",
+          "state": null,
+          "country": "DE",
+          "email": "max@mustermann.baz",
+          "phone": "+491234567890"
+        }
+      },
+      "list_of_addresses_with_id_example": {
+        "value": [
+          {
+            "id": "1c81efb7-9b95-4dd8-92e3-cac1bca3df6f",
+            "first_name": "Max",
+            "last_name": "Mustermann",
+            "company": null,
+            "care_of": null,
+            "street": "Musterstraße",
+            "street_no": "42",
+            "zip_code": "12345",
+            "city": "Musterstadt",
+            "state": null,
+            "country": "DE",
+            "email": "max@mustermann.baz",
+            "phone": "+491234567890"
+          }
+        ]
+      },
+      "pickup_requests_example": {
+        "value": {
+          "carrier": "dpd",
+          "pickup_time": {
+              "earliest": "2018-07-30T09:00:00+02:00",
+              "latest": "2018-07-30T18:00:00+02:00"
+          },
+          "pickup_address": {
+              "company": "Muster-Company",
+              "first_name": "Max",
+              "last_name": "Mustermann",
+              "care_of": null,
+              "street": "Musterstraße",
+              "street_no": "42",
+              "zip_code": "22457",
+              "city": "Hamburg",
+              "state": null,
+              "country": "DE",
+              "phone": "555-555",
+              "id": "286daf26-c845-4dba-ae49-75582fbced00"
+          }
+        }
+      },
+      "pickup_requests_example_with_shipment_ids": {
+        "value": {
+          "carrier": "dpd",
+          "pickup_time": {
+              "earliest": "2018-07-30T09:00:00+02:00",
+              "latest": "2018-07-30T18:00:00+02:00"
+          },
+          "pickup_address": {
+              "id": "286daf26-c845-4dba-ae49-75582fbced00",
+              "company": "Muster-Company",
+              "first_name": "Max",
+              "last_name": "Mustermann",
+              "care_of": null,
+              "street": "Musterstraße",
+              "street_no": "42",
+              "zip_code": "22457",
+              "city": "Hamburg",
+              "state": null,
+              "country": "DE",
+              "phone": "555-555"
+          },
+          "shipments": [
+            {
+                "id": "604681675415e96052cf8fbaba78153a2e6d6bee"
+            },
+            {
+                "id": "11acaa0c4f251aaac4889d5f10329eb1aed80ff2"
+            },
+            {
+                "id": "9a5b91d766a523447c16897f8e20f4d7d06c25ca"
+            }
+          ]
+        }
+      },
+      "pickup_requests_response_example_single": {
+        "value": {
+          "id": "c28a4ec0-e1ae-47a6-acae-1349ff0da52a",
+          "carrier": "dpd",
+          "carrier_pickup_number": "9380",
+          "shipments": [
+              {
+                  "id": "604681675415e96052cf8fbaba78153a2e6d6bee"
+              },
+              {
+                  "id": "11acaa0c4f251aaac4889d5f10329eb1aed80ff2"
+              },
+              {
+                  "id": "9a5b91d766a523447c16897f8e20f4d7d06c25ca"
+              }
+          ],
+          "pickup_time": {
+              "earliest": "2018-07-30T09:00:00+02:00",
+              "latest": "2018-07-30T18:00:00+02:00"
+          },
+          "pickup_address": {
+            "id": "286daf26-c845-4dba-ae49-75582fbced00",
+            "company": "Muster-Company",
+            "first_name": "Max",
+            "last_name": "Mustermann",
+            "care_of": null,
+            "street": "Musterstraße",
+            "street_no": "42",
+            "zip_code": "22457",
+            "city": "Hamburg",
+            "state": null,
+            "country": "DE",
+            "phone": "555-555"
+          }
+        }
+      },
+      "pickup_requests_response_example_multiple": {
+        "value": [
+          {
+            "id": "123467a6-8e15-4a59-e145-0953f31c1196",
+            "carrier": "ups",
+            "carrier_pickup_number": "299A80MA91P",
+            "shipments": [
+              {
+                "id": "199f803bf82fab79e17654213b61993fa78b0524"
+              }, {
+                "id": "3a186c51d4281acbecf5ed38805b1db92a9d668b"
+              }
+            ],
+            "pickup_time": {
+                "earliest": "2018-07-30T09:00:00+02:00",
+                "latest": "2018-07-30T18:00:00+02:00"
+            },
+            "pickup_date": "2018/10/26",
+            "pickup_address": {
+              "id": "7ea2a290-b456-4ecf-9010-e82b3da298f0",
+              "company": "Apple Inc.",
+              "first_name": "Tim",
+              "last_name": "Cook",
+              "care_of": null,
+              "street": "Infinite Loop",
+              "street_no": "1",
+              "zip_code": "95014",
+              "city": "Cupertino",
+              "state": "CA",
+              "country": "US",
+              "phone": "408-996-1010"
+            }
+          },
+          {
+            "id": "c28a4ec0-e1ae-47a6-acae-1349ff0da52a",
+            "carrier": "dpd",
+            "carrier_pickup_number": "9380",
+            "shipments": [
+                {
+                    "id": "604681675415e96052cf8fbaba78153a2e6d6bee"
+                },
+                {
+                    "id": "11acaa0c4f251aaac4889d5f10329eb1aed80ff2"
+                },
+                {
+                    "id": "9a5b91d766a523447c16897f8e20f4d7d06c25ca"
+                }
+            ],
+            "pickup_time": {
+                "earliest": "2018-07-30T09:00:00+02:00",
+                "latest": "2018-07-30T18:00:00+02:00"
+            },
+            "pickup_address": {
+              "id": "286daf26-c845-4dba-ae49-75582fbced00",
+              "company": "Muster-Company",
+              "first_name": "Max",
+              "last_name": "Mustermann",
+              "care_of": null,
+              "street": "Musterstraße",
+              "street_no": "42",
+              "zip_code": "22457",
+              "city": "Hamburg",
+              "state": null,
+              "country": "DE",
+              "phone": "555-555"
+            }
+          }
+        ]
+      },
+      "production_user": {
+        "value": {
+          "id": "usr-adaa123f",
+          "email": "user@shipcloud.io",
+          "customer_no": "123af01f",
+          "environment":"production",
+          "subscription": {
+            "plan_name": "professional",
+            "plan_display_name": "Professional",
+            "chargeable": true
+          }
+        }
+      },
+      "sandbox_user": {
+        "value": {
+          "id": "usr-adaa123f",
+          "email": "user@shipcloud.io",
+          "customer_no": "123af01f",
+          "environment":"sandbox",
+          "subscription": {
+            "plan_name": "developer",
+            "plan_display_name": "Developer",
+            "chargeable": false
+          }
+        }
+      },
+      "shipment_quote_request_example": {
+        "value": {
+          "carrier": "dhl",
+          "service": "standard",
+          "to": {
+            "street": "Beispielstrasse",
+            "street_no": "42",
+            "zip_code": "22100",
+            "city": "Hamburg",
+            "country": "DE"
+          },
+          "from": {
+            "street": "Musterstrasse",
+            "street_no": "23",
+            "zip_code": "20148",
+            "city": "Hamburg",
+            "country": "DE"
+          },
+          "package": {
+            "weight": 1.5,
+            "length": 20,
+            "width": 20,
+            "height": 20
+          }
+        }
+      },
+      "shipment_quote_response_example": {
+        "value": {
+          "shipment_quote": {
+            "price": 42.12
+          }
+        }
+      },
+      "shipment_quote_with_address_id_request_example": {
+        "value": {
+          "carrier": "dhl",
+          "service": "standard",
+          "to": {
+            "id": "522a7cb1-d6c8-418c-ac26-011127ab5bbe"
+          },
+          "from": {
+            "street": "Musterstrasse",
+            "street_no": "23",
+            "zip_code": "20148",
+            "city": "Hamburg",
+            "country": "DE"
+          },
+          "package": {
+            "weight": 1.5,
+            "length": 20,
+            "width": 20,
+            "height": 20
+          }
+        }
+      },
+      "shipment_create_request_example_packstation": {
+        "value": {
+          "to": {
+            "first_name": "Roger",
+            "last_name": "Receiver",
+            "street": "Packstation",
+            "street_no": "109",
+            "city": "Hamburg",
+            "zip_code": "22419",
+            "country": "DE"
+          },
+          "package": {
+            "weight": 1.5,
+            "length": 20,
+            "width": 20,
+            "height": 20,
+            "type": "parcel"
+          },
+          "carrier": "dhl",
+          "service": "standard",
+          "reference_number": "ref123456",
+          "notification_email": "person@example.com",
+          "create_shipping_label": true
+        }
+      },
+      "shipment_create_request_example_simple": {
+        "value": {
+          "to": {
+              "company": "Receiver Inc.",
+              "last_name": "Mustermann",
+              "street": "Beispielstrasse",
+              "street_no": "42",
+              "city": "Hamburg",
+              "zip_code": "22100",
+              "country": "DE"
+          },
+          "package": {
+              "weight": 1.5,
+              "length": 20,
+              "width": 20,
+              "height": 20,
+              "type": "parcel"
+          },
+          "carrier": "dhl",
+          "service": "standard",
+          "reference_number": "ref123456",
+          "notification_email": "person@example.com",
+          "create_shipping_label": true
+        }
+      },
+      "shipment_create_request_with_customs_declaration_example": {
+        "value": {
+          "from": {
+            "first_name": "Serge",
+            "last_name": "Sender",
+            "street": "Sender Str. 99",
+            "zip_code": "20148",
+            "city": "Hamburg",
+            "country": "DE"
+          },
+          "to": {
+            "company": "Receiver Inc.",
+            "last_name": "Mustermann",
+            "street": "Beispielstrasse 42",
+            "city": "Hamburg",
+            "zip_code": "22100",
+            "country": "DE"
+          },
+          "package": {
+            "weight": 1.5,
+            "length": 20,
+            "width": 20,
+            "height": 20,
+            "type": "parcel"
+          },
+          "customs_declaration": {
+            "contents_type": "commercial_goods",
+            "contents_explanation": "Alcoholic beverages",
+            "invoice_number": "123ABC",
+            "drop_off_location": "DE",
+            "posting_date": "2017-10-07",
+            "additional_fees": 0.0,
+            "total_value_amount": 247.0,
+            "currency": "EUR",
+            "items": [{
+                "description": "Linkwood 25 years",
+                "hs_tariff_number": "501293884",
+                "net_weight": 0.8,
+                "origin_country": "DE",
+                "quantity": 1,
+                "value_amount": "138.5"
+              },
+              {
+                "description": "Caol Ila 18 years",
+                "hs_tariff_number": "123384890",
+                "net_weight": 0.8,
+                "origin_country": "DE",
+                "quantity": 1,
+                "value_amount": "108.5"
+              }
+            ]
+          },
+          "carrier": "dhl",
+          "service": "standard",
+          "create_shipping_label": true
+        }
+      },
+      "shipment_create_response_example": {
+        "value": {
+          "id": "3a186c51d4281acbecf5ed38805b1db92a9d668b",
+          "carrier_tracking_no": "84168117830018",
+          "tracking_url": "https://track.shipcloud.io/3a186c51d4",
+          "label_url": "https://shipping-labels.shipcloud.io/shipments/01370b4d/199f803bf8/label/shipping_label_199f803bf8.pdf",
+          "price": 3.4
+        }
+      },
+      "shipment_create_reponse_with_customs_declaration_example": {
+        "value": {
+          "id": "199f803bf82fab79e17654213b61993fa78b0524",
+          "created_at": "2015-07-20T09:35:23+02:00",
+          "carrier": "dhl",
+          "service": "standard",
+          "carrier_tracking_no": "84168117830018",
+          "tracking_url": "https://track.shipcloud.io/199f803bf8",
+          "label_url": "https://shipping-labels.shipcloud.io/shipments/01370b4d/199f803bf8/label/shipping_label_199f803bf8.pdf",
+          "packages": [{
+            "id": "3af8f7e5af196e1950deebd389a87406e1e5bb80",
+            "weight": 1.5,
+            "length": 10.0,
+            "width": 6.0,
+            "height": 8.0,
+            "tracking_events": [{
+                "timestamp": "2013-05-26T16:55:24+02:00",
+                "location": "Hamburg, Deutschland",
+                "status": "delivered",
+                "details": "Die Sendung wurde erfolgreich zugestellt."
+              },
+              {
+                "timestamp": "2013-05-26T08:12:12+02:00",
+                "location": "Hamburg, Deutschland",
+                "status": "out_for_delivery",
+                "details": "Die Sendung wurde in das Zustellfahrzeug geladen."
+              },
+              {
+                "timestamp": "2013-05-25T11:46:34+02:00",
+                "location": "Hamburg, Deutschland",
+                "status": "transit",
+                "details": "Die Sendung wurde im Start-Paketzentrum bearbeitet."
+              }
+            ]
+          }],
+          "price": 10.7,
+          "from": {
+            "id": "7ea2a290-b456-4ecf-9010-e82b3da298f0",
+            "company": "Musterfirma",
+            "first_name": "Hans",
+            "last_name": "Meier",
+            "care_of": null,
+            "street": "Musterstraße",
+            "street_no": "22",
+            "city": "Musterstadt",
+            "state": null,
+            "zip_code": "12345",
+            "country": "DE"
+          },
+          "to": {
+            "id": "7ea2a290-b456-4ecf-9010-e82b3da298f0",
+            "company": "Receiver Inc.",
+            "first_name": "Max",
+            "last_name": "Mustermann",
+            "care_of": null,
+            "street": "Beispielstrasse",
+            "street_no": "42",
+            "city": "Hamburg",
+            "state": null,
+            "zip_code": "22100",
+            "country": "DE"
+          },
+          "customs_declaration": {
+            "id": "cd-f466905c",
+            "contents_type": "commercial_goods",
+            "contents_explanation": "Alcoholic beverages",
+            "invoice_number": "123ABC",
+            "drop_off_location": "DE",
+            "posting_date": "2017-10-07",
+            "additional_fees": 0.0,
+            "total_value_amount": 247.0,
+            "currency": "EUR",
+            "created_at": "2017-10-04T15:49:44+02:00",
+            "updated_at": "2017-10-04T15:49:44+02:00",
+            "carrier_declaration_document_url": "https://documents.shipcloud.io/shipments/519895c7165cdc032356d42c6d9babe8e3151473/customs_declaration_document.pdf",
+            "items": [{
+                "id": "cdi-50a46bf8",
+                "description": "Linkwood 25 years",
+                "hs_tariff_number": "501293884",
+                "net_weight": 0.8,
+                "origin_country": "DE",
+                "quantity": 1,
+                "value_amount": "138.5",
+                "created_at": "2017-10-04T15:49:44+02:00",
+                "updated_at": "2017-10-04T15:49:44+02:00"
+              },
+              {
+                "id": "cdi-081a523d",
+                "description": "Caol Ila 18 years",
+                "hs_tariff_number": "123384890",
+                "net_weight": 0.8,
+                "origin_country": "DE",
+                "quantity": 1,
+                "value_amount": "108.5",
+                "created_at": "2017-10-04T15:49:44+02:00",
+                "updated_at": "2017-10-04T15:49:44+02:00"
+              }
+            ]
+          }
+        }
+      },
+      "shipment_response_example": {
+        "value": {
+          "carrier": "dhl",
+          "carrier_tracking_no": "84168117830018",
+          "created_at": "2013-04-16T10:43:04Z",
+          "from": {
+            "id": "7ea2a290-b456-4ecf-9010-e82b3da298f0",
+            "company": "Musterfirma",
+            "first_name": "Hans",
+            "last_name": "Meier",
+            "care_of": null,
+            "street": "Musterstraße",
+            "street_no": "22",
+            "city": "Musterstadt",
+            "state": null,
+            "zip_code": "12345",
+            "country": "DE"
+          },
+          "id": "3a186c51d4281acbecf5ed38805b1db92a9d668b",
+          "label_url": "https://shipping-labels.shipcloud.io/shipments/01370b4d/199f803bf8/label/shipping_label_199f803bf8.pdf",
+          "notification_email": "receiver@notification.com",
+          "packages": [{
+            "id": "3af8f7e5af196e1950deebd389a87406e1e5bb80",
+            "weight": 1.5,
+            "length": 10.0,
+            "width": 6.0,
+            "height": 8.0,
+            "tracking_events": [{
+                "timestamp": "2013-05-26T16:55:24+02:00",
+                "location": "Hamburg, Deutschland",
+                "status": "delivered",
+                "details": "Die Sendung wurde erfolgreich zugestellt."
+              },
+              {
+                "timestamp": "2013-05-26T08:12:12+02:00",
+                "location": "Hamburg, Deutschland",
+                "status": "out_for_delivery",
+                "details": "Die Sendung wurde in das Zustellfahrzeug geladen."
+              },
+              {
+                "timestamp": "2013-05-25T11:46:34+02:00",
+                "location": "Hamburg, Deutschland",
+                "status": "transit",
+                "details": "Die Sendung wurde im Start-Paketzentrum bearbeitet."
+              }
+            ]
+          }],
+          "price": 3.4,
+          "reference_number": "ref123456",
+          "service": "standard",
+          "shipper_notification_email": "shipper@notification.com",
+          "to": {
+            "id": "7ea2a290-b456-4ecf-9010-e82b3da298f0",
+            "company": "Receiver Inc.",
+            "first_name": "Max",
+            "last_name": "Mustermann",
+            "care_of": null,
+            "street": "Beispielstrasse",
+            "street_no": "42",
+            "city": "Hamburg",
+            "state": null,
+            "zip_code": "22100",
+            "country": "DE"
+          },
+          "tracking_url": "https://track.shipcloud.io/3a186c51d4"
+        }
+      },
+      "tracker_example": {
+        "value": {
+          "carrier_tracking_no": "723558934169",
+          "status": "registered",
+          "created_at": "2015-07-20T09:35:23+02:00",
+          "to": {
+            "id": "7ea2a290-b456-4ecf-9010-e82b3da298f0",
+            "first_name": "Hans",
+            "last_name": "Meier",
+            "street": "Semmelweg",
+            "street_no": "1",
+            "zip_code": "12345",
+            "city": "Hamburg",
+            "country": "DE"
+          },
+          "tracking_status_updated_at": null,
+          "last_polling_at": null,
+          "next_polling_at": "2015-07-20T09:35:23+02:00",
+          "shipment_id": "12345abcdef",
+          "carrier": "ups",
+          "tracking_events": []
+        }
+      },
+      "tracker_with_id_example": {
+        "value": {
+          "id": "4a6922e2-09ad-4724-807c-7b4e572d3c6b",
+          "carrier_tracking_no": "723558934169",
+          "status": "registered",
+          "created_at": "2015-07-20T09:35:23+02:00",
+          "to": {
+            "id": "7ea2a290-b456-4ecf-9010-e82b3da298f0",
+            "first_name": "Hans",
+            "last_name": "Meier",
+            "street": "Semmelweg",
+            "street_no": "1",
+            "zip_code": "12345",
+            "city": "Hamburg",
+            "country": "DE"
+          },
+          "tracking_status_updated_at": null,
+          "last_polling_at": null,
+          "next_polling_at": "2015-07-20T09:35:23+02:00",
+          "shipment_id": "12345abcdef",
+          "carrier": "ups",
+          "tracking_events": []
+        }
+      },
+      "trackers_requests_example": {
+        "value": {
+          "carrier_tracking_no": "723558934169",
+          "carrier": "ups"
+        }
+      },
+      "trackers_requests_response_example_multiple": {
+        "value": {
+          "trackers" : [
+            {
+              "id": "4a6922e2-09ad-4724-807c-7b4e572d3c6b",
+              "carrier_tracking_no": "723558934169",
+              "to": {
+                "id": "1c81efb7-9b95-4dd8-92e3-cac1bca3df6f",
+                "first_name": "Hans",
+                "last_name": "Meier",
+                "street": "Semmelweg",
+                "street_no": "1",
+                "zip_code": "12345",
+                "city": "Hamburg",
+                "country": "DE"
+              },
+              "status": "delivered",
+              "created_at": "2015-07-20T09:35:23+02:00",
+              "tracking_status_updated_at": "2015-08-01T11:35:23+02:00",
+              "last_polling_at": "2015-08-03T10:23:45+02:00",
+              "next_polling_at": "2015-08-03T12:23:45+02:00",
+              "shipment_id": "6306d78506af51913c89b0af45b1ba7d430e4208",
+              "carrier": "ups",
+              "tracking_events": [
+                {
+                  "id": "0aa3479-8695-4a6a-8326-ed55df65b9a6",
+                  "timestamp": "2015-07-21T08:57:44+02:00",
+                  "location": "Hamburg",
+                  "status": "out_for_delivery",
+                  "details": "Some details"
+                },
+                {
+                  "id": "0aa3479-8695-4a6a-8326-ed55df65b9a6",
+                  "timestamp": "2015-07-21T10:57:44+02:00",
+                  "location": "Hamburg",
+                  "status": "delivered",
+                  "details": "Some more details"
+                }
+              ]
+            },
+            {
+              "id": "5452ec46-560e-42ba-adf7-8a1b46d60ece",
+              "carrier_tracking_no": "JJD000390006125214950",
+              "to": {
+                "id": "1c81efb7-9b95-4dd8-92e3-cac1bca3df6f",
+                "first_name": "Hans",
+                "last_name": "Meier",
+                "street": "Semmelweg",
+                "street_no": "1",
+                "zip_code": "12345",
+                "city": "Hamburg",
+                "country": "DE"
+              },
+              "from": {
+                "id": "1c81efb7-9b95-4dd8-92e3-cac1bca3df6f",
+                "company": "webionate GmbH",
+                "last_name": "Fahlbusch",
+                "street": "Lüdmoor",
+                "street_no": "35a",
+                "zip_code": "22175",
+                "city": "Hamburg",
+                "country": "DE"
+              },
+              "status": "delivered",
+              "created_at": "2016-12-26T08:48:21+02:00",
+              "tracking_status_updated_at": "2016-12-28T12:16:44+02:00",
+              "last_polling_at": "2016-12-28T22:10:45+02:00",
+              "next_polling_at": "2016-12-28T22:12:45+02:00",
+              "shipment_id": "cbceeb51314c88e8047b8b5dfd92313528238b88",
+              "carrier": "dhl",
+              "tracking_events": [
+                {
+                  "id": "0aa3479-8695-4a6a-8326-ed55df65b9a6",
+                  "timestamp": "2016-12-26T08:48:21+02:00",
+                  "location": "Radefeld",
+                  "status": "transit",
+                  "details": "Lieferung hat das Logistikzentrum verlassen und ist unterwegs."
+                },
+                {
+                  "id": "0aa3479-8695-4a6a-8326-ed55df65b9a6",
+                  "timestamp": "2016-12-28T09:34:11+02:00",
+                  "location": "Hamburg",
+                  "status": "out_for_delivery",
+                  "details": "Sendung wird zugestellt."
+                },
+                {
+                  "id": "0aa3479-8695-4a6a-8326-ed55df65b9a6",
+                  "timestamp": "2016-12-28T12:16:44+02:00",
+                  "location": "Hamburg",
+                  "status": "delivered",
+                  "details": "Ihre Sendung wurde zugestellt. Die Sendung wurde zugestellt an Simon Fröhler shipcloud GmbH. "
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "webhook_with_id_example":{
+        "value": {
+          "id": "e0ff4250-6c8e-494d-a069-afd9d566e372",
+          "url": "https://example.com/webhook",
+          "event_types": ["shipment.tracking.delayed", "shipment.tracking.delivered"],
+          "deactivated": false
+        }
+      },
+      "webhooks_list_example": {
+        "value": {
+          "webhooks": [
+            {
+              "id": "583cfd8b-77c7-4447-a3a0-1568bb9cc553",
+              "url": "https://example.com/webhook",
+              "event_types": ["shipment.tracking.*"],
+              "deactivated": false
+            },
+            {
+              "id": "e0ff4250-6c8e-494d-a069-afd9d566e372",
+              "url": "https://example.com/webhook",
+              "event_types": ["shipment.tracking.delayed", "shipment.tracking.delivered"],
+              "deactivated": false
+            }
+          ]
+        }
+      },
+      "webhook_create_request_object": {
+        "value" : {
+          "url": "https://example.com/webhook",
+          "event_types": ["shipment.tracking.delayed", "shipment.tracking.delivered"]
+        }
+      }
+    },
+    "schemas": {
+      "address": {
+        "type": "object",
+        "properties": {
+          "care_of": {
+            "type": "string",
+            "nullable": true,
+            "description": "Additional care of field"
+          },
+          "city": {
+            "type": "string",
+            "description": "Name of the city"
+          },
+          "country": {
+            "type": "string",
+            "description": "Country as uppercase ISO 3166-1 alpha-2 code"
+          },
+          "first_name": {
+            "type": "string",
+            "nullable": true,
+            "description": "A persons first name"
+          },
+          "state": {
+            "type": "string",
+            "nullable": true,
+            "description": "The state the address is in"
+          },
+          "street": {
+            "type": "string",
+            "description": "Name of the street. Can hold the house number"
+          },
+          "street_no": {
+            "type": "string",
+            "nullable": true,
+            "description": "House number of the address (when a carrier requires it separately)"
+          },
+          "zip_code": {
+            "type": "string",
+            "description": "Zipcode of the address"
+          },
+          "phone": {
+            "type": "string",
+            "description": "Telephone number (mandatory when using UPS and the following terms apply: service is one_day or one_day_early or ship to country is different than ship from country)"
+          },
+          "email": {
+            "type": "string",
+            "description": "Email address for this person. Some carrier are using the email address to send notifications"
+          }
+        },
+        "required": ["street", "city", "zip_code", "country"]
+      },
+      "address_with_id": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/address"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "identifier of a previously created address"
+              }
+            },
+            "required": ["id", "first_name", "last_name", "company", "care_of", "state", "street_no"]
+          }
+        ]
+      },
+      "carrier_pickup": {
+        "type": "string",
+        "enum": [
+          "dpd",
+          "hermes",
+          "ups"
+        ],
+        "description": "acronym of the carrier"
+      },
+      "carrier_shipping": {
+        "type": "string",
+        "enum": [
+          "angel_de",
+          "cargo_international",
+          "dhl",
+          "dhl_express",
+          "dpag",
+          "dpd",
+          "gls",
+          "go",
+          "hermes",
+          "iloxx",
+          "parcel_one",
+          "ups"
+        ],
+        "description": "acronym of the carrier"
+      },
+      "carrier_tracking_only": {
+        "type": "string",
+        "enum": [
+          "dhl",
+          "dpd",
+          "gls",
+          "ups"
+        ],
+        "description": "acronym of the carrier"
+      },
+      "current_user": {
+        "description": "Getting information about the user that is making the request",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique identifier for this user (generated by shipcloud)."
+          },
+          "email": {
+            "type": "string",
+            "description": "The email address associated with this user"
+          },
+          "first_name": {
+            "type": "string",
+            "description": "First name of the user."
+          },
+          "last_name": {
+            "type": "string",
+            "description": "Last name of the user."
+          },
+          "customer_no": {
+            "type": "string",
+            "description": "The unique identifier for this customer (generated by shipcloud). Used e.g. in support cases."
+          },
+          "environment": {
+            "type": "string",
+            "description": "Shows the corresponding environment for the currently used api key.",
+            "enum": ["production", "sandbox"]
+          },
+          "subscription": {
+            "type": "object",
+            "properties": {
+              "plan_name": {
+                "type": "string",
+                "description": "A key to identify the plan the user currently has"
+              },
+              "plan_display_name": {
+                "type": "string",
+                "description": "Name of the plan the user currently has. Can be used for displaying it at the frontend."
+              },
+              "chargeable": {
+                "type": "boolean",
+                "description": "true if the user has provided a chargeable payment method."
+              }
+            },
+            "required": ["plan_name", "plan_display_name", "chargeable"]
+          }
+        },
+        "required": ["id", "email", "customer_no", "environment", "subscription"]
+      },
+      "customs_declaration": {
+        "type": "object",
+        "description": "declaration of customs related information",
+        "properties": {
+          "contents_type": {
+            "type": "string",
+            "enum": [
+              "commercial_goods",
+              "commercial_sample",
+              "documents",
+              "gift",
+              "returned_goods"
+            ],
+            "description": "Type of contents"
+          },
+          "contents_explanation": {
+            "type": "string",
+            "description": "description of contents. Mandatory if contents_type is 'commercial_goods. Max 256 characters, when using DHL as your carrier'"
+          },
+          "currency": {
+            "type": "string",
+            "description": "a valid ISO 4217 curreny code"
+          },
+          "additional_fees": {
+            "type": "number",
+            "description": "additional custom fees to be payed"
+          },
+          "drop_off_location": {
+            "type": "string",
+            "description": "location where the package will be dropped of with the carrier"
+          },
+          "exporter_reference": {
+            "type": "string",
+            "description": "a note for the exporter"
+          },
+          "importer_reference": {
+            "type": "string",
+            "description": "a note for the importer"
+          },
+          "posting_date": {
+            "type": "string",
+            "format": "date",
+            "description": "date of commital at carrier"
+          },
+          "invoice_number": {
+            "type": "string",
+            "description": "invoice number for the order"
+          },
+          "total_value_amount": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1000,
+            "description": "the overall value of the shipments' contents"
+          },
+          "items": {
+            "type": "array",
+            "description": "array of item objects",
+            "items": {
+              "$ref": "#/components/schemas/customs_declaration_items"
+            }
+          }
+        },
+        "required": [
+          "contents_type",
+          "currency",
+          "total_value_amount",
+          "items"
+        ]
+      },
+      "customs_declaration_items": {
+        "type": "object",
+        "properties": {
+          "origin_country": {
+            "type": "string",
+            "description": "Country as uppercase ISO 3166-1 alpha-2 code"
+          },
+          "description": {
+            "type": "string",
+            "description": "a description of the item"
+          },
+          "hs_tariff_number": {
+            "type": "string",
+            "description": "customs tariff number. See https://en.wikipedia.org/wiki/Harmonized_System#Tariffs_by_region for detailed information on region specific tariff numbers",
+            "maxLength": 10
+          },
+          "quantity": {
+            "type": "integer",
+            "description": "Number that defines how many items of this kind are in the shipment"
+          },
+          "value_amount": {
+            "type": "string",
+            "description": "The total value for items of this kind"
+          },
+          "net_weight": {
+            "type": "number",
+            "description": "Total net weight for a single item of this kind"
+          },
+          "gross_weight": {
+            "type": "number",
+            "description": "Total gross weight for a single item of this kind"
+          }
+        },
+        "required": [
+          "origin_country",
+          "description",
+          "quantity",
+          "value_amount",
+          "net_weight"
+        ]
+      },
+      "customs_declaration_response": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/customs_declaration"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "created_at": {
+                "type": "string",
+                "format": "date-time",
+                "description": "timestamp of when the customs declaration was created"
+              },
+              "updated_at": {
+                "type": "string",
+                "format": "date-time",
+                "description": "timestamp of when the customs declaration was last updated"
+              },
+              "carrier_declaration_document_url": {
+                "type": "string",
+                "format": "uri",
+                "description": "A URL that points to the customs declaration document"
+              },
+              "items": {
+                "type": "array",
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/customs_declaration_items"
+                    }, {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "A unique identifier for this item"
+                        },
+                        "created_at": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "timestamp of when the item was created"
+                        },
+                        "updated_at": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "timestamp of when the item was last updated"
+                        }
+                      },
+                      "required": ["id", "created_at", "updated_at"]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      },
+      "label": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "pdf_100x70mm",
+              "pdf_103x199mm",
+              "pdf_a5",
+              "pdf_a6",
+              "pdf_a7",
+              "zpl2_4x6in_203dpi",
+              "zpl2_4x6in_300dpi",
+              "zpl2_100x70mm_203dpi",
+              "zpl2_103x199mm_203dpi"
+            ],
+            "description": "defines the format that the returned label should have"
+          },
+          "size": {
+            "type": "string",
+            "enum": [
+              "A5",
+              "A6",
+              "A7",
+              "100x70mm"
+            ],
+            "description": "defines the size that the returned label should have",
+            "deprecated": true
+          }
+        },
+        "description": "label specific definitions"
+      },
+      "package": {
+        "type": "object",
+        "properties": {
+          "height": {
+            "type": "number",
+            "description": "Height of the parcel in cm"
+          },
+          "length": {
+            "type": "number",
+            "description": "Length of the parcel in cm"
+          },
+          "weight": {
+            "type": "number",
+            "description": "Weight of the parcel in kg"
+          },
+          "width": {
+            "type": "number",
+            "description": "Width of the parcel in cm"
+          },
+          "declared_value": {
+            "type": "object",
+            "description": "Object that is used for booking an additional insurance at the carrier (if applicable)",
+            "properties": {
+              "amount": {
+                "type": "number",
+                "description": "The total amount of the goods value that an additional insurance should be booked for"
+              },
+              "currency": {
+                "type": "string",
+                "description": "The currency used. Currently only EUR is applicable"
+              }
+            }
+          }
+        },
+        "required": ["width", "height", "length", "weight"],
+        "description": "defines package dimensions"
+      },
+      "package_with_id": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/package"
+          },
+          {
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "A unique identifier for this package"
+              },
+              "tracking_events": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "timestamp": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "timestamp of when this event occured"
+                    },
+                    "location": {
+                      "type": "string",
+                      "description": "location of the package at this moment"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "awaits_pickup_by_receiver",
+                        "canceled",
+                        "delayed",
+                        "delivered",
+                        "destroyed",
+                        "exception",
+                        "label_created",
+                        "not_delivered",
+                        "notification",
+                        "out_for_delivery",
+                        "picked_up",
+                        "transit",
+                        "unknown"
+                      ],
+                      "description": "A key that is describing the status"
+                    },
+                    "details": {
+                      "type": "string",
+                      "description": "Message the carrier sent to describe the package status"
+                    }
+                  },
+                  "required": ["timestamp", "location", "status", "details"]
+                }
+              }
+            },
+            "required": ["id"]
+          }
+        ]
+      },
+      "pickup": {
+        "type": "object",
+        "description": "for some carriers a pickup has to be requested when creating a shipment",
+        "properties": {
+          "pickup_time": {
+            "$ref": "#/components/schemas/pickup_time_object"
+          },
+          "pickup_address": {
+            "$ref": "#/components/schemas/address_with_id"
+          }
+        }
+      },
+      "pickup_time_object": {
+        "type": "object",
+        "properties": {
+          "earliest": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Earliest pickup date and time"
+          },
+          "latest": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Latest pickup date and time"
+          }
+        },
+        "description": "defines a time window in which the carrier should pickup shipments",
+        "required": ["earliest", "latest"]
+      },
+      "pickup_request_object": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "shipcloud identifier for this pickup request"
+          },
+          "carrier": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/carrier_pickup"
+              },
+              {
+                "description": "carrier used for this pickup request"
+              }
+            ]
+          },
+          "carrier_pickup_number": {
+            "type": "string",
+            "description": "Identifier that the carrier uses for this pickup request"
+          },
+          "pickup_time": {
+            "$ref": "#/components/schemas/pickup_time_object"
+          },
+          "pickup_address": {
+            "$ref": "#/components/schemas/address_with_id"
+          },
+          "shipments": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "id of the shipment included in this pickup request"
+                }
+              }
+            },
+            "required": ["id"]
+          }
+        },
+        "required": ["id", "carrier", "pickup_time"]
+      },
+      "service": {
+        "type": "string",
+        "enum": [
+          "standard",
+          "one_day",
+          "one_day_early",
+          "returns",
+          "cargo_international_express",
+          "dhl_europaket",
+          "dhl_prio",
+          "dhl_warenpost",
+          "dpag_warenpost",
+          "dpag_warenpost_signature",
+          "dpag_warenpost_untracked",
+          "gls_express_0800",
+          "gls_express_0900",
+          "gls_express_1000",
+          "gls_express_1200",
+          "ups_express_1200"
+        ],
+        "default": "standard",
+        "description": "The service that should be used for the shipment."
+      },
+      "shipment": {
+        "type": "object",
+        "properties": {
+          "carrier": {
+            "$ref": "#/components/schemas/carrier_shipping"
+          },
+          "to": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/address"
+              },
+              {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "company": {
+                        "type": "string",
+                        "description": "name of the company"
+                      }
+                    },
+                    "required": ["company"]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "last_name": {
+                        "type": "string",
+                        "description": "last_name of the person"
+                      }
+                    },
+                    "required": ["last_name"]
+                  }
+                ]
+              },
+              {
+                "description": "the receivers address"
+              }
+            ]
+          },
+          "from": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/address"
+              },
+              {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "company": {
+                        "type": "string",
+                        "description": "name of the company"
+                      }
+                    },
+                    "required": ["company"]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "last_name": {
+                        "type": "string",
+                        "description": "last_name of the person"
+                      }
+                    },
+                    "required": ["last_name"]
+                  }
+                ]
+              },
+              {
+                "description": "If missing, the default sender address (if defined in your shipcloud account) will be used"
+              }
+            ]
+          },
+          "cover_address": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/address"
+              },
+              {
+                "description": "Overwrites the sender address on the shipping label",
+                "required": ["street", "street_no", "zip_code", "city"]
+              }
+            ]
+          },
+          "service": {
+            "$ref": "#/components/schemas/service"
+          },
+          "reference_number": {
+            "type": "string",
+            "description": "a reference number (max. 30 characters) that you want this shipment to be identified with. You can use this afterwards to easier find the shipment in the shipcloud.io backoffice"
+          },
+          "description": {
+            "type": "string",
+            "description": "text that describes the contents of the shipment. This parameter is mandatory if you're using UPS and the following conditions are true: from and to countries are not the same; from and/or to countries are not in the EU; from and to countries are in the EU and the shipments service is not 'standard'. The parameter is also mandatory when using DHL Express as carrier."
+          },
+          "label": {
+            "$ref": "#/components/schemas/label"
+          },
+          "notification_email": {
+            "type": "string",
+            "description": "email address that we should notify once there's an update for this shipment (usually the recipients')"
+          },
+          "incoterm": {
+            "type": "string",
+            "enum": [
+              "ddp",
+              "ddp_untaxed",
+              "dap",
+              "dap_cleared",
+              "ddu",
+              "ddu_cleared"
+            ]
+          },
+          "additional_services": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "enum": [
+                    "advance_notice",
+                    "angel_de_delivery_date_time",
+                    "cash_on_delivery",
+                    "delivery_date",
+                    "delivery_note",
+                    "delivery_time",
+                    "dhl_endorsement",
+                    "dhl_gogreen",
+                    "dhl_ident_check",
+                    "dhl_named_person_only",
+                    "dhl_no_neighbor_delivery",
+                    "dhl_parcel_outlet_routing",
+                    "dhl_preferred_neighbor",
+                    "dpd_food",
+                    "drop_authorization",
+                    "gls_guaranteed24service",
+                    "hazardous_goods",
+                    "hermes_identservice",
+                    "premium_international",
+                    "saturday_delivery",
+                    "ups_access_point_notification",
+                    "ups_adult_signature",
+                    "ups_carbon_neutral",
+                    "ups_direct_delivery_only",
+                    "ups_signature_required",
+                    "visual_age_check"
+                  ],
+                  "description": "key to identify the additional service"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "type": "number",
+                      "description": "Amount that should be payed (cash_on_delivery)"
+                    },
+                    "bank_account_holder": {
+                      "type": "string",
+                      "description": "Name of the person the bank account belongs to (cash_on_delivery)"
+                    },
+                    "bank_account_number": {
+                      "type": "string",
+                      "description": "IBAN (cash_on_delivery)"
+                    },
+                    "bank_code": {
+                      "type": "string",
+                      "description": "BIC/SWIFT (cash_on_delivery)"
+                    },
+                    "bank_name": {
+                      "type": "string",
+                      "description": "Name of the bank (cash_on_delivery)"
+                    },
+                    "currency": {
+                      "type": "string",
+                      "description": "Currency as uppercase ISO 4217 code (cash_on_delivery)"
+                    },
+                    "date": {
+                      "type": "string",
+                      "format": "date",
+                      "description": "Date (angel_de_delivery_date_time, delivery_date"
+                    },
+                    "date_of_birth": {
+                      "type": "string",
+                      "format": "date",
+                      "description": "A recipients date of birth (dhl_ident_check)"
+                    },
+                    "email": {
+                      "type": "string",
+                      "format": "email",
+                      "description": "eMail address (advanced_notice)"
+                    },
+                    "first_name": {
+                      "type": "string",
+                      "description": "The persons first name (dhl_ident_check)"
+                    },
+                    "id_type": {
+                      "type": "string",
+                      "enum": [
+                        "german_identity_card",
+                        "german_passport",
+                        "international_passport"
+                      ],
+                      "description": "Type of ID document that should be used for verifying (hermes_ident_check)"
+                    },
+                    "id_number": {
+                      "type": "string",
+                      "description": "Number of the ID document (hermes_ident_check)"
+                    },
+                    "language": {
+                      "type": "string",
+                      "description": "Language (in ISO-639-1 format) the customer should be notified in (advanced_notice)"
+                    },
+                    "last_name": {
+                      "type": "string",
+                      "description": "The persons last name (dhl_ident_check)"
+                    },
+                    "minimum_age": {
+                      "type": "string",
+                      "description": "Minimum age that should be checked (dhl_ident_check, visual_age_check)"
+                    },
+                    "phone": {
+                      "type": "string",
+                      "description": "Phone number that can be called for making the delivery (advanced_notice)"
+                    },
+                    "reference1": {
+                      "type": "string",
+                      "description": "Text that should be displayed as the reason for transfer (cash_on_delivery)"
+                    },
+                    "sms": {
+                      "type": "string",
+                      "description": "Phone number that can be texted for making the delivery (advanced_notice)"
+                    },
+                    "time_of_day_earliest": {
+                      "type": "string",
+                      "description": "Earliest pickup date and time (angel_de_delivery_date_time)"
+                    },
+                    "time_of_day_latest": {
+                      "type": "string",
+                      "description": "Latest pickup date and time(angel_de_delivery_date_time)"
+                    }
+                  }
+                }
+              }
+            },
+            "required": [
+              "name"
+            ]
+          },
+          "pickup": {
+            "$ref": "#/components/schemas/pickup"
+          },
+          "customs_declaration": {
+            "$ref": "#/components/schemas/customs_declaration"
+          },
+          "create_shipping_label": {
+            "type": "boolean",
+            "description": "determines if a shipping label should be created at the carrier (this means you will be charged when using the production api key)"
+          },
+          "metadata": {
+            "type": "object",
+            "description": "here you can save additional data that you want to be associated with the shipment. Any combination of key-value pairs is possible"
+          }
+        },
+        "required": [
+          "carrier",
+          "to"
+        ]
+      },
+      "shipment_put": {
+        "type": "object",
+        "properties": {
+          "carrier": {
+            "$ref": "#/components/schemas/carrier_shipping"
+          },
+          "to": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/address"
+              },
+              {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "company": {
+                        "type": "string",
+                        "description": "name of the company"
+                      }
+                    },
+                    "required": ["company"]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "last_name": {
+                        "type": "string",
+                        "description": "last_name of the person"
+                      }
+                    },
+                    "required": ["last_name"]
+                  }
+                ]
+              },
+              {
+                "description": "the receivers address"
+              }
+            ]
+          },
+          "from": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/address"
+              },
+              {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "company": {
+                        "type": "string",
+                        "description": "name of the company"
+                      }
+                    },
+                    "required": ["company"]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "last_name": {
+                        "type": "string",
+                        "description": "last_name of the person"
+                      }
+                    },
+                    "required": ["last_name"]
+                  }
+                ]
+              },
+              {
+                "description": "If missing, the default sender address (if defined in your shipcloud account) will be used"
+              }
+            ]
+          },
+          "cover_address": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/address"
+              },
+              {
+                "description": "Overwrites the sender address on the shipping label",
+                "required": ["street", "street_no", "zip_code", "city"]
+              }
+            ]
+          },
+          "service": {
+            "$ref": "#/components/schemas/service"
+          },
+          "reference_number": {
+            "type": "string",
+            "description": "a reference number (max. 30 characters) that you want this shipment to be identified with. You can use this afterwards to easier find the shipment in the shipcloud.io backoffice"
+          },
+          "description": {
+            "type": "string",
+            "description": "text that describes the contents of the shipment. This parameter is mandatory if you're using UPS and the following conditions are true: from and to countries are not the same; from and/or to countries are not in the EU; from and to countries are in the EU and the shipments service is not 'standard'. The parameter is also mandatory when using DHL Express as carrier."
+          },
+          "label": {
+            "$ref": "#/components/schemas/label"
+          },
+          "notification_email": {
+            "type": "string",
+            "description": "email address that we should notify once there's an update for this shipment (usually the recipients')"
+          },
+          "incoterm": {
+            "type": "string",
+            "enum": [
+              "ddp",
+              "ddp_untaxed",
+              "dap",
+              "dap_cleared",
+              "ddu",
+              "ddu_cleared"
+            ]
+          },
+          "pickup": {
+            "$ref": "#/components/schemas/pickup"
+          },
+          "create_shipping_label": {
+            "type": "boolean",
+            "description": "determines if a shipping label should be created at the carrier (this means you will be charged when using the production api key)"
+          },
+          "metadata": {
+            "type": "object",
+            "description": "here you can save additional data that you want to be associated with the shipment. Any combination of key-value pairs is possible"
+          }
+        },
+        "required": [
+          "carrier",
+          "to"
+        ]
+      },
+      "shipment_create_response_object": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "the shipment id that can be used for requesting info about a shipment or tracking it"
+          },
+          "carrier_tracking_no": {
+            "type": "string",
+            "description": "the original tracking number that can be used on the carriers website"
+          },
+          "tracking_url": {
+            "type": "string",
+            "description": "URL you can send your customers so they can track this shipment"
+          },
+          "label_url": {
+            "type": "string",
+            "description": "URL where you can download the label in pdf format"
+          },
+          "price": {
+            "type": "number",
+            "description": "Price that you're going to be charged with (exl. VAT). You will get a price of 0.0 when using the sandbox or your own carrier contracts."
+          }
+        },
+        "required": ["id", "tracking_url", "label_url", "price"]
+      },
+      "shipment_response_object": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/shipment"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "to": {
+                "$ref": "#/components/schemas/address_with_id"
+              },
+              "from": {
+                "$ref": "#/components/schemas/address_with_id"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "identifier of the shipment"
+              },
+              "carrier_tracking_no": {
+                "type": "string",
+                "description": "the original tracking number that can be used on the carriers website"
+              },
+              "created_at": {
+                "type": "string",
+                "format": "date-time",
+                "description": "timestamp the shipment was created"
+              },
+              "label_url": {
+                "type": "string",
+                "description": "URL where you can download the label in pdf format"
+              },
+              "packages": {
+                "type": "array",
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/package_with_id"
+                    }
+                  ]
+                }
+              },
+              "price": {
+                "type": "number",
+                "description": "price that we're going to charge you (exl. VAT)"
+              },
+              "shipper_notification_email": {
+                "type": "string",
+                "description": "email address of the shipper who should be notified of a change of shipment status by shipcloud"
+              },
+              "tracking_url": {
+                "type": "string",
+                "description": "URL you can send your customers so they can track this shipment"
+              },
+              "customs_declaration": {
+                "$ref": "#/components/schemas/customs_declaration_response"
+              }
+            },
+            "required": [
+              "id",
+              "carrier",
+              "created_at",
+              "tracking_url",
+              "from",
+              "to",
+              "packages",
+              "price",
+              "service"
+            ]
+          }
+        ]
+      },
+      "tracker_object": {
+        "type": "object",
+        "properties": {
+          "carrier_tracking_no": {
+            "type": "string",
+            "description": "tracking number (provided by the carrier) for this shipment"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["registered", "label_created", "picked_up", "delivered", "not_delivered", "transit", "exception", "out_for_delivery", "destroyed", "unknown", "canceled"],
+            "description": "key describing the current status"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "timestamp the tracker was created"
+          },
+          "from": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/address_with_id"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "id of a senders address"
+                  }
+                },
+                "required": ["id"]
+              }
+            ]
+          },
+          "tracking_status_updated_at": {
+            "type": "string",
+            "nullable": true,
+            "format": "date-time",
+            "description": "timestamp the tracking status was last updated"
+          },
+          "last_polling_at": {
+            "type": "string",
+            "nullable": true,
+            "format": "date-time",
+            "description": "timestamp the shipment status was last polled at the carrier"
+          },
+          "next_polling_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "timestamp the shipment status will be polled the next time"
+          },
+          "shipment_id": {
+            "type": "string",
+            "description": "id of the corresponding shipment within shipcloud"
+          },
+          "carrier": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/carrier_tracking_only"
+              },
+              {
+                "description": "acronym of the carrier the shipment was sent with"
+              }
+            ]
+          },
+          "to": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/address_with_id"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "id of a receivers address"
+                  }
+                },
+                "required": ["id"]
+              }
+            ]
+          },
+          "tracking_events": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "timestamp": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "timestamp of when this event occured"
+                },
+                "location": {
+                  "type": "string",
+                  "description": "location of the package at this moment"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "registered",
+                    "label_created",
+                    "picked_up",
+                    "delivered",
+                    "not_delivered",
+                    "transit",
+                    "exception",
+                    "out_for_delivery",
+                    "destroyed",
+                    "unknown",
+                    "canceled"
+                  ],
+                  "description": "key describing the status"
+                },
+                "details": {
+                  "type": "string",
+                  "description": "message the carrier sends to describe the shipments status"
+                }
+              },
+              "required": ["timestamp", "location", "status"]
+            }
+          }
+        },
+        "required": [
+          "id",
+          "carrier_tracking_no",
+          "status",
+          "created_at",
+          "tracking_status_updated_at",
+          "last_polling_at",
+          "next_polling_at",
+          "shipment_id",
+          "carrier"
+        ]
+      },
+      "tracker_object_with_id": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/tracker_object"
+          },
+          {
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "the tracker id that can be used for requesting info about a tracker"
+              }
+            },
+            "required": ["id"]
+          }
+        ]
+      },
+      "webhook_event_types": {
+        "description": "the event types that a webhook can have",
+        "type": "string",
+        "enum": [
+          "*",
+          "shipment.*",
+          "shipment.status.*",
+          "shipment.status.deleted",
+          "shipment.tracking.*",
+          "shipment.tracking.awaits_pickup_by_receiver",
+          "shipment.tracking.canceled",
+          "shipment.tracking.delayed",
+          "shipment.tracking.delivered",
+          "shipment.tracking.destroyed",
+          "shipment.tracking.exception",
+          "shipment.tracking.label_created",
+          "shipment.tracking.not_delivered",
+          "shipment.tracking.notification",
+          "shipment.tracking.out_for_delivery",
+          "shipment.tracking.picked_up",
+          "shipment.tracking.transit",
+          "shipment.tracking.unknown"
+        ]
+      },
+      "webhook_object": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "the URL of the webhook"
+          },
+          "event_types": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/webhook_event_types"
+            }
+          },
+          "deactivated": {
+            "type": "boolean",
+            "description": "set to true, if the call of the webhook URL fails ten times."
+          }
+        },
+        "required": ["id", "url", "event_types"]
+      },
+      "webhook_object_with_id": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/webhook_object"
+          },
+          {
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "the webhook id that can be used for requesting info about a webhook"
+              }
+            },
+            "required": ["id"]
+          }
+        ]
+      }
+    },
+    "headers": {
+      "RateLimit-Limit": {
+        "description": "A number that shows the overall limit of requests this user can send (e.g. 120)",
+        "schema": {
+          "type": "integer"
+        }
+      },
+      "RateLimit-Interval": {
+        "description": "The number of seconds the interval for this user is long (e.g. 60)",
+        "schema": {
+          "type": "integer"
+        }
+      },
+      "RateLimit-Remaining": {
+        "description": "Remaining number of request in the current interval (e.g. 111)",
+        "schema": {
+          "type": "integer"
+        }
+      },
+      "RateLimit-Reset": {
+        "description": "The number of seconds that shows when the request rate limit resets (e.g. 42)",
+        "schema": {
+          "type": "integer"
+        }
+      },
+      "shicloud-Request-ID": {
+        "description": "An internal identifier that we generate for every request. If you encounter a problem with your request, please send us this id when opening a support case.",
+        "schema": {
+          "type": "string"
+        }
+      }
+    },
+    "responses": {
+      "400": {
+        "description": "Your request was not correct. Please see the response body for more detailed information.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Strings that describe, what has gone wrong. We're tunnelling error responses from the carriers. When this is the case, we try to prefix an error with 'The carrier {xyz} returned the following error:'"
+              }
+            },
+            "examples": {
+              "Single error": {
+                "value": [
+                  "simple error message"
+                ]
+              },
+              "Multiple errors": {
+                "value": [
+                  "simple error message",
+                  "another error message"
+                ]
+              }
+            }
+          }
+        },
+        "headers": {
+          "RateLimit-Limit": {
+            "$ref": "#/components/headers/RateLimit-Limit"
+          },
+          "RateLimit-Interval": {
+            "$ref": "#/components/headers/RateLimit-Interval"
+          },
+          "RateLimit-Remaining": {
+            "$ref": "#/components/headers/RateLimit-Remaining"
+          },
+          "RateLimit-Reset": {
+            "$ref": "#/components/headers/RateLimit-Reset"
+          },
+          "X-Request-ID": {
+            "$ref": "#/components/headers/shicloud-Request-ID"
+          }
+        }
+      },
+      "401": {
+        "description": "Something has gone wrong when authorizing with our API. Please check e.g. if you're trying to use your sandbox api key with an operation that can only be used with a live API key.",
+        "headers": {
+          "RateLimit-Limit": {
+            "$ref": "#/components/headers/RateLimit-Limit"
+          },
+          "RateLimit-Interval": {
+            "$ref": "#/components/headers/RateLimit-Interval"
+          },
+          "RateLimit-Remaining": {
+            "$ref": "#/components/headers/RateLimit-Remaining"
+          },
+          "RateLimit-Reset": {
+            "$ref": "#/components/headers/RateLimit-Reset"
+          },
+          "X-Request-ID": {
+            "$ref": "#/components/headers/shicloud-Request-ID"
+          }
+        }
+      },
+      "402": {
+        "description": "You've reached a maximum that is defined in your current plan. Please upgrade to a higher plan.",
+        "headers": {
+          "RateLimit-Limit": {
+            "$ref": "#/components/headers/RateLimit-Limit"
+          },
+          "RateLimit-Interval": {
+            "$ref": "#/components/headers/RateLimit-Interval"
+          },
+          "RateLimit-Remaining": {
+            "$ref": "#/components/headers/RateLimit-Remaining"
+          },
+          "RateLimit-Reset": {
+            "$ref": "#/components/headers/RateLimit-Reset"
+          },
+          "X-Request-ID": {
+            "$ref": "#/components/headers/shicloud-Request-ID"
+          }
+        }
+      },
+      "403": {
+        "description": "You are not allowed to talk to this endpoint. This can either be due to a wrong authentication or when you're trying to reach an endpoint that your account isn't allowed to access.",
+        "headers": {
+          "RateLimit-Limit": {
+            "$ref": "#/components/headers/RateLimit-Limit"
+          },
+          "RateLimit-Interval": {
+            "$ref": "#/components/headers/RateLimit-Interval"
+          },
+          "RateLimit-Remaining": {
+            "$ref": "#/components/headers/RateLimit-Remaining"
+          },
+          "RateLimit-Reset": {
+            "$ref": "#/components/headers/RateLimit-Reset"
+          },
+          "X-Request-ID": {
+            "$ref": "#/components/headers/shicloud-Request-ID"
+          }
+        }
+      },
+      "404": {
+        "description": "The api endpoint or ressource you were trying to reach can't be found.",
+        "headers": {
+          "RateLimit-Limit": {
+            "$ref": "#/components/headers/RateLimit-Limit"
+          },
+          "RateLimit-Interval": {
+            "$ref": "#/components/headers/RateLimit-Interval"
+          },
+          "RateLimit-Remaining": {
+            "$ref": "#/components/headers/RateLimit-Remaining"
+          },
+          "RateLimit-Reset": {
+            "$ref": "#/components/headers/RateLimit-Reset"
+          },
+          "X-Request-ID": {
+            "$ref": "#/components/headers/shicloud-Request-ID"
+          }
+        }
+      },
+      "422": {
+        "description": "Your request was well-formed but couldn't be followed due to semantic errors. Please see the response body for more detailed information. A possible problem could be that you are not sending all the data that is required or data that is not necessary for this call.",
+        "headers": {
+          "RateLimit-Limit": {
+            "$ref": "#/components/headers/RateLimit-Limit"
+          },
+          "RateLimit-Interval": {
+            "$ref": "#/components/headers/RateLimit-Interval"
+          },
+          "RateLimit-Remaining": {
+            "$ref": "#/components/headers/RateLimit-Remaining"
+          },
+          "RateLimit-Reset": {
+            "$ref": "#/components/headers/RateLimit-Reset"
+          },
+          "X-Request-ID": {
+            "$ref": "#/components/headers/shicloud-Request-ID"
+          }
+        }
+      },
+      "500": {
+        "description": "Something has seriously gone wrong. Don't worry, we'll have a look at it. If the error persists, please don't hesitate to contact us by sending us an email containing the `X-Request-ID` header we've returned.",
+        "headers": {
+          "RateLimit-Limit": {
+            "$ref": "#/components/headers/RateLimit-Limit"
+          },
+          "RateLimit-Interval": {
+            "$ref": "#/components/headers/RateLimit-Interval"
+          },
+          "RateLimit-Remaining": {
+            "$ref": "#/components/headers/RateLimit-Remaining"
+          },
+          "RateLimit-Reset": {
+            "$ref": "#/components/headers/RateLimit-Reset"
+          },
+          "X-Request-ID": {
+            "$ref": "#/components/headers/shicloud-Request-ID"
+          }
+        }
+      },
+      "502": {
+        "description": "Something has gone wrong while talking to an external backend (e.g. a carriers' webservice). Please see the response body for more detailed information.",
+        "headers": {
+          "RateLimit-Limit": {
+            "$ref": "#/components/headers/RateLimit-Limit"
+          },
+          "RateLimit-Interval": {
+            "$ref": "#/components/headers/RateLimit-Interval"
+          },
+          "RateLimit-Remaining": {
+            "$ref": "#/components/headers/RateLimit-Remaining"
+          },
+          "RateLimit-Reset": {
+            "$ref": "#/components/headers/RateLimit-Reset"
+          },
+          "X-Request-ID": {
+            "$ref": "#/components/headers/shicloud-Request-ID"
+          }
+        }
+      },
+      "504": {
+        "description": "Unfortunately we couldn't connect to the carrier backend. It is either very slow or not reachable at all. If you want to stay informed about the carrier status, have a look at [our statuspage](https://status.shipcloud.io)",
+        "headers": {
+          "RateLimit-Limit": {
+            "$ref": "#/components/headers/RateLimit-Limit"
+          },
+          "RateLimit-Interval": {
+            "$ref": "#/components/headers/RateLimit-Interval"
+          },
+          "RateLimit-Remaining": {
+            "$ref": "#/components/headers/RateLimit-Remaining"
+          },
+          "RateLimit-Reset": {
+            "$ref": "#/components/headers/RateLimit-Reset"
+          },
+          "X-Request-ID": {
+            "$ref": "#/components/headers/shicloud-Request-ID"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "basic_auth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "security": [
+    {
+      "basic_auth": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Find more info at the shipcloud developer portal",
+    "url": "https://developers.shipcloud.io"
+  }
+}
