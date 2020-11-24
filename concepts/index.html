@@ -4,6 +4,8 @@ nav: concepts
 footnote_path: concepts
 ---
 
+{% assign carriers = site.data.carriers | sort %}
+
 <h2 id="api" class="text-blue">
   API
 </h2>
@@ -180,16 +182,24 @@ curl -i -u {{ site.apikey }}: -H "Content-Type: application/json" -d '{"service"
     <strong>Requirements:</strong>
   </p>
 
+  {% for carrier in carriers %}
+    {% for interface in carrier[1].interfaces %}
+      {% assign new_formats_pdf = interface[1].implementations.shipcloud.label_formats | map: "pdf" %}
+      {% assign all_label_formats_pdf = all_label_formats_pdf | concat: new_formats_pdf | uniq %}
+      {% assign new_formats_zpl = interface[1].implementations.shipcloud.label_formats | map: "zpl" %}
+      {% assign all_label_formats_zpl = all_label_formats_zpl | concat: new_formats_zpl | uniq %}
+    {% endfor %}
+  {% endfor %}
+
+  {% assign all_label_formats = all_label_formats_pdf | concat: all_label_formats_zpl | compact %}
+
   <ul class="list-inside list-disc">
     <li>
       <code>label.format</code> can be one of the following
       <ul class="list-inside list-disc">
-        <li>
-          <code><em>pdf_a5</em></code>
-        </li>
-        <li>
-          <code><em>pdf_a6</em></code>
-        </li>
+          <li>
+            <code><em>{{label_format.key}}</em></code>
+          </li>
       </ul>
     </li>
   </ul>
