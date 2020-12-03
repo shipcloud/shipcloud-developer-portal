@@ -11,10 +11,16 @@
             "display_name": "Standard",
             "key": "standard"
           }],
-          "package_types": [{
+          "package_types": [
+            {
             "display_name": "Parcel",
             "key": "parcel"
-          }],
+            },
+            {
+              "display_name": "Parcel letter",
+              "key": "parcel_letter"
+              }
+            ],
           "other_attributes": [{
             "display_name": "Customs declaration",
             "key": "customs_declaration"
