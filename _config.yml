@@ -43,6 +43,19 @@ shipcloud:
     - gls_express_1000
     - gls_express_1200
     - ups_express_1200
+  tracking_events:
+    - awaits_pickup_by_receiver
+    - canceled
+    - delayed
+    - delivered
+    - destroyed
+    - exception
+    - not_delivered
+    - notification
+    - out_for_delivery
+    - picked_up
+    - transit
+    - unknown
 
 # Build settings
 markdown: kramdown
