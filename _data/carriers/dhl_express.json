@@ -4,7 +4,7 @@
   "key": "dhl_express",
   "interfaces": {
     "rate_book": {
-      "display_name": "Rate Book",
+      "display_name": "DHL Express Rate Book",
       "implementations": {
         "shipcloud": {
           "services": [{
@@ -35,10 +35,6 @@
                 "key": "pdf_a6"
               }
             ]
-          }],
-          "pickup_requests": [{
-            "display_name": "Shipment with pickup request",
-            "key": "shipment_with_pickup_request"
           }],
           "field_lengths": {
             "company": "2 - 35 characters",
