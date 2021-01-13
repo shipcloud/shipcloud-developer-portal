@@ -12,7 +12,10 @@ task :test do
       "developers.shipcloud.io"
     ],
     typhoeus: {
-      ssl_verifypeer: false
+      ssl_verifypeer: false,
+      headers: {
+        "User-Agent" => "Mozilla/5.0 (compatible; developers.shipcloud.io htmlproofer) Chrome/87.0.4280.88"
+      }
     },
     url_ignore: [
       "https://requestbin.com",
