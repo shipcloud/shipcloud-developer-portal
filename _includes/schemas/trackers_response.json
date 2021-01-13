@@ -1,9 +1,17 @@
 {% assign carriers = "" %}
 {% for carrier in site.shipcloud.supported_carriers %}
   {% capture new_carrier %}"{{carrier}}"|{% endcapture %}
-  {% assign carriers = carriers | append: new_carrier %}
+  {% assign carriers = carriers | append: new_carrier %}
 {% endfor %}
 {% assign carriers = carriers | split: '|' %}
+
+{% assign tracking_events = "" | split: ',' %}
+{% for event in site.shipcloud.tracking_events %}
+  {% capture new_event %}"{{event}}"{% endcapture %}
+  {% assign tracking_events = tracking_events | push: new_event %}
+{% endfor %}
+{% capture initial_status %}"registered"{% endcapture %}
+{% assign tracker_statuses = tracking_events | push: initial_status %}
 
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
@@ -19,7 +27,7 @@
     },
     "status": {
       "type": "string",
-      "enum": ["registered", "label_created", "picked_up", "delivered", "not_delivered", "transit", "exception", "out_for_delivery", "destroyed", "unknown", "canceled"],
+      "enum": [{{ tracker_statuses | sort | join: ', ' }}],
       "description": "key describing the current status"
     },
     "created_at": {
@@ -52,7 +60,7 @@
     },
     "carrier": {
       "type": "string",
-      "enum": [{{ carriers | sort | join: ', ' }}],
+      "enum": [{{ carriers | sort | join: ', ' }}],
       "description": "acronym of the carrier the shipment was sent with"
     },
     "to": {
@@ -75,8 +83,9 @@
           },
           "status": {
             "type": "string",
-            "enum": ["registered", "label_created", "picked_up", "delivered", "not_delivered", "transit", "exception", "out_for_delivery", "destroyed", "unknown", "canceled"],
-            "description": "key describing the status"
+            "enum": [{{ tracking_events | sort | join: ', ' }}],
+            "description": "key describing the status",
+            "default": {{ initial_status }}
           },
           "details": {
             "type": "string",
