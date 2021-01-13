@@ -79,7 +79,8 @@
                 "status": {
                   "type": "string",
                   "enum": [{{ tracking_events | sort | join: ', ' }}],
-                  "description": "key describing the status"
+                  "description": "key describing the status",
+                  "default": {{ initial_status }}
                 },
                 "details": {
                   "type": "string",
