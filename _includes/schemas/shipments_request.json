@@ -230,7 +230,11 @@
               },
               "net_weight": {
                 "type": "number",
-                "description": "Total weight for items of this kind"
+                "description": "Net weight of a single item of this kind"
+              },
+              "gross_weight": {
+                "type": "number",
+                "description": "Gross weight of a single item of this kind"
               }
             },
             "required": ["origin_country", "description", "quantity", "value_amount", "net_weight"],
