@@ -79,8 +79,7 @@
                 "status": {
                   "type": "string",
                   "enum": [{{ tracking_events | sort | join: ', ' }}],
-                  "description": "key describing the status",
-                  "default": {{ initial_status }}
+                  "description": "Key describing the status. The initial status is 'label_created'"
                 },
                 "details": {
                   "type": "string",
