@@ -115,6 +115,14 @@
               "date_of_birth": { "type": "string" },
               "email": { "type": "string" },
               "first_name": { "type": "string" },
+              "handling": {
+                "type": "string",
+                "enum": [
+                  "abandon",
+                  "return_immediately"
+                ],
+                "description": "Used for dhl_endorsement. By choosing the handling option abandon, your parcel will not be returned to you, but rather auctioned off or destroyed by the recipient countrys' postal company. You will not be charged with a return fee for this option. When using the option return_immediately, the shipment will be returned to you and you will be charged for returning it."
+              },
               "id_type": {
                 "type": "string",
                 "enum": [

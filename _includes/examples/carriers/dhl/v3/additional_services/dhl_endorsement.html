@@ -4,9 +4,11 @@
 
 <p>
   Prior to sending your parcel you can specify what should happen to the shipment in case it cannot
-  be delivered in the destination country. By choosing the handling option `abandon`, your parcel
-  will not be returned to you, but rather auctioned off or destroyed by the recipient countrys'
-  postal company. You will not be charged with a return fee for this option.
+  be delivered in the destination country. By choosing the handling option
+  <code><em>abandon</em></code>, your parcel will not be returned to you, but rather auctioned off
+  or destroyed by the recipient countrys' postal company. You will not be charged with a return fee
+  for this option. When using the option <code><em>return_immediately</em></code>, the shipment will
+  be returned to you and you will be charged for returning it.
 </p>
 
 <p class="mt-m">
@@ -17,8 +19,8 @@
   <li>You'll have to use your own DHL contract</li>
   <li>Available for international shipments from Germany</li>
   <li>
-    The additional service attribute <code><em>properties.handling</em></code> has to be
-    <code><em>abandon</em></code>
+    The additional service attribute <code><em>properties.handling</em></code> can be
+    <code><em>abandon</em></code> or <code><em>return_immediately</em></code>
   </li>
   <li>
     <code>label.format</code> can be <code><em>pdf_a5</em></code>, <code><em>pdf_a6</em></code> or
