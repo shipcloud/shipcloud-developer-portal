@@ -31,6 +31,16 @@
                 "display_name": "DIN A6",
                 "key": "pdf_a6"
               }
+            ],
+            "zpl": [
+              {
+                "display_name": "ZPL2 4x6in 203dpi",
+                "key": "zpl2_4x6in_203dpi"
+              },
+              {
+                "display_name": "ZPL2 4x6in 300dpi",
+                "key": "zpl2_4x6in_300dpi"
+              }
             ]
           }]
         }
