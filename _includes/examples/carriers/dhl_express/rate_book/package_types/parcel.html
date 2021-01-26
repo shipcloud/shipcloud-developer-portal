@@ -1,1 +1,5 @@
-{% include examples/carriers/package_types/parcel.html carrier_interface=include.carrier_interface %}
+<!-- {% include examples/carriers/package_types/parcel.html carrier_interface=include.carrier_interface %} -->
+<h4 id="{{ include.carrier_interface | slugify }}---parcel" class="text-blue">
+  Parcel
+</h4>
+The only <code>package_type</code> available for DHL Express is <code>parcel</code>
