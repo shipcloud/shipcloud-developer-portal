@@ -220,6 +220,10 @@
               {
                 "display_name": "100x70mm",
                 "key": "pdf_100x70mm"
+              },
+              {
+                "display_name": "103x199mm",
+                "key": "pdf_103x199mm"
               }
             ],
             "zpl": [
