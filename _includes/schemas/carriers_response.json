@@ -64,7 +64,7 @@
       "items": [
         {
           "type": "string",
-          "enum": {{ all_additional_services | uniq | join: ', ' }},
+          "enum": [{{ all_additional_services | uniq | join: ', ' }}],
           "description": "key to identify the additional service"
         }
       ]
@@ -77,7 +77,7 @@
           "items": [
             {
               "type": "string",
-              "enum": "{{ all_label_formats | map: 'key' | join: '", "' }}",
+              "enum": "[{{ all_label_formats | map: 'key' | join: '", "' }}]",
               "description": "key to identify the label format"
             }
           ]
