@@ -4,5 +4,4 @@ nav: carriers
 carrier: dhl
 ---
 
-{% include utils/carrier_implementation_details.html carrier_interface="v2" %}
-{% include utils/carrier_implementation_details.html carrier_interface="v3" %}
+{% include utils/carrier_interfaces_iterator.html carrier=page.carrier %}
