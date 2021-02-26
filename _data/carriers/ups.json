@@ -54,12 +54,20 @@
             }
           ],
           "other_attributes": [{
+              "display_name": "Customs declaration",
+              "key": "customs_declaration"
+            },
+            {
               "display_name": "Declared value",
               "key": "declared_value"
             },
             {
-              "display_name": "Customs declaration",
-              "key": "customs_declaration"
+              "display_name": "Recipient email handling",
+              "key": "recipient_email_handling"
+            },
+            {
+              "display_name": "Recipient phone handling",
+              "key": "recipient_phone_handling"
             }
           ],
           "label_formats": [{

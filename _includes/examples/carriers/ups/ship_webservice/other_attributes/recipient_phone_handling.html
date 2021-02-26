@@ -1,0 +1,59 @@
+<h4 id="ship-webservice---recipient-phone-handling" class="text-blue">
+  Recipient phone handling
+</h4>
+
+<p>
+  You can provide a recipients phone address using the <code>to.phone</code> attribute. When this is
+  done and the recipients address is a residential address, UPS will contact them via SMS a day
+  before the attempted delivery.
+</p>
+
+<section class="shadow my-m">
+  <article class="border-b">
+    <div class="border-l-2 border-transparent">
+      {% include utils/toggle_element.html target="#ship_webservice_recipient_phone_handling_togglebox" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="ship_webservice_recipient_phone_handling_togglebox">
+        <div class="mt-m">
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "phone": "+491234567890"
+    "country": "DE"
+  },
+  "package": {
+    "weight": 0.5,
+    "length": 20,
+    "width": 15,
+    "height": 5,
+    "type": "parcel"
+  },
+  "carrier": "{{page.carrier}}",
+  "service": "standard",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
