@@ -24,6 +24,16 @@
             "display_name": "Saturday delivery",
             "key": "saturday_delivery"
           }],
+          "other_attributes": [
+            {
+              "display_name": "Recipient email handling",
+              "key": "recipient_email_handling"
+            },
+            {
+              "display_name": "Recipient phone handling",
+              "key": "recipient_phone_handling"
+            }
+          ],
           "label_formats": [{
             "pdf": [
               {
