@@ -51,6 +51,10 @@
             {
               "display_name": "Direct delivery only",
               "key": "ups_direct_delivery_only"
+            },
+            {
+              "display_name": "Signature required",
+              "key": "ups_signature_required"
             }
           ],
           "other_attributes": [{
