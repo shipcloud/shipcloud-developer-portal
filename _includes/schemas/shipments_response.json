@@ -272,7 +272,11 @@
     },
     "label_url": {
       "type": "string",
-      "description": "URL where you can download the label in pdf format"
+      "description": "URL where you can download the shipping label in the requested format"
+    },
+    "label_voucher_url": {
+      "type": "string",
+      "description": "URL where you can download the label voucher"
     },
     "notification_email": {
       "type": "string",
