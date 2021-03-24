@@ -1,9 +1,46 @@
-{% assign carriers = "" %}
-{% for carrier in site.shipcloud.supported_carriers %}
-  {% capture new_carrier %}"{{carrier}}"|{% endcapture %}
-  {% assign carriers = carriers | append: new_carrier %}
+{% assign all_additional_services = '' %}
+{% assign all_carriers = '' %}
+{% assign all_services = '' %}
+{% assign all_label_formats = '' %}
+{% assign carriers = site.data.carriers %}
+
+{% for carrier in carriers %}
+  {% capture new_carrier %}"{{carrier[1].key}}"|{% endcapture %}
+  {% assign all_carriers = all_carriers | append: new_carrier %}
+
+  {% for interface in carrier[1].interfaces %}
+    {% if interface[1].implementations.shipcloud.additional_services.size > 0 %}
+      {% for additional_service in interface[1].implementations.shipcloud.additional_services %}
+        {% capture new_additional_service %}"{{additional_service['key']}}"|{% endcapture %}
+        {% assign all_additional_services = all_additional_services | append: new_additional_service %}
+      {% endfor %}
+    {% endif %}
+
+    {% if interface[1].implementations.shipcloud.services.size > 0 %}
+      {% for service in interface[1].implementations.shipcloud.services %}
+        {% capture new_service %}"{{service['key']}}"|{% endcapture %}
+        {% assign all_services = all_services | append: new_service %}
+      {% endfor %}
+    {% endif %}
+
+    {% if interface[1].implementations.shipcloud.label_formats.size > 0 %}
+      {% for label_format_category in interface[1].implementations.shipcloud.label_formats %}
+        {% for label_format_entries in label_format_category %}
+
+          {% for label_format in label_format_entries[1] %}
+            {% capture new_label_format %}"{{label_format.key}}"|{% endcapture %}
+            {% assign all_label_formats = all_label_formats | append: new_label_format %}
+          {% endfor %}
+        {% endfor %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
 {% endfor %}
-{% assign carriers = carriers | split: '|' %}
+
+{% assign all_additional_services = all_additional_services | split: '|' %}
+{% assign all_services = services | split: '|' %}
+{% assign all_carriers = all_carriers | split: '|' %}
+{% assign all_label_formats = all_label_formats | split: '|' %}
 
 {% assign tracking_events = "" | split: ',' %}
 {% for event in site.shipcloud.tracking_events %}
@@ -13,22 +50,213 @@
 {% capture initial_status %}"label_created"{% endcapture %}
 {% assign tracking_events = tracking_events | push: initial_status %}
 
+
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
+    "additional_services": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "enum": [{{ all_additional_services | uniq | sort | join: ', ' }}],
+            "description": "key to identify the additional service"
+          },
+          "properties": {
+            "type": "object",
+            "properties": {
+              "amount": { "type": "number" },
+              "bank_account_holder": { "type": "string" },
+              "bank_account_number": { "type": "string" },
+              "bank_code": { "type": "string" },
+              "bank_name": { "type": "string" },
+              "currency": { "type": "string" },
+              "date": { "type": "string" },
+              "date_of_birth": { "type": "string" },
+              "email": { "type": "string" },
+              "first_name": { "type": "string" },
+              "handling": {
+                "type": "string",
+                "enum": [
+                  "abandon",
+                  "return_immediately"
+                ],
+                "description": "Used for dhl_endorsement. By choosing the handling option abandon, your parcel will not be returned to you, but rather auctioned off or destroyed by the recipient countrys' postal company. You will not be charged with a return fee for this option. When using the option return_immediately, the shipment will be returned to you and you will be charged for returning it."
+              },
+              "id_type": {
+                "type": "string",
+                "enum": [
+                  "german_identity_card",
+                  "german_passport",
+                  "international_passport"
+                ],
+                "description": "Type of ID document that should be used for verifying a Hermes recipient"
+              },
+              "id_number": {
+                "type": "string",
+                "description": "ID number from the document"
+              },
+              "language": {
+                "type": "string",
+                "description": "language the customer should be notified in (ISO-639-1 format)"
+              },
+              "last_name": { "type": "string" },
+              "minimum_age": { "type": "string" },
+              "phone": { "type": "string" },
+              "reference1": {
+                "type": "string",
+                "description": "Text that should be displayed as the reason for transfer"
+              },
+              "sms": { "type": "string" },
+              "time_of_day_earliest": { "type": "string" },
+              "time_of_day_latest": { "type": "string" }
+            }
+          }
+        }
+      },
+      "required": ["name"],
+      "additionalProperties": false
+    },
     "carrier": {
       "type": "string",
-      "enum": [{{ carriers | sort | join: ', ' }}],
+      "enum": [{{ all_carriers | sort | join: ', ' }}],
       "description": "acronym of the carrier"
     },
     "carrier_tracking_no": {
       "type": "string",
       "description": "the original tracking number that can be used on the carriers website"
     },
+    "cover_address": {
+      "$ref": "#/definitions/address",
+      "description": "Overwrites the sender address on the shipping label"
+    },
     "created_at": {
       "type": "date-time",
       "description": "timestamp the shipment was created"
+    },
+    "customs_declaration": {
+      "type": "object",
+      "description": "declaration of customs related information",
+      "properties": {
+        "additional_fees": {
+          "type": "number",
+          "description": "additional custom fees to be payed"
+        },
+        "carrier_declaration_document_url": {
+          "type": "string",
+          "description": "URL where you can download the customs declaration in pdf format"
+        },
+        "contents_explanation": {
+          "type": "string",
+          "description": "description of contents. Mandatory if contents_type is 'commercial_goods. Max 256 characters, when using DHL as your carrier'"
+        },
+        "contents_type": {
+          "type": "string",
+          "enum": ["commercial_goods", "commercial_sample", "documents", "gift", "returned_goods"],
+          "description": "Type of contents"
+        },
+        "created_at": {
+          "type": "date-time",
+          "description": "timestamp the customs declaration has been created"
+        },
+        "currency": {
+          "type": "string",
+          "description": "a valid ISO 4217 curreny code"
+        },
+        "document_type": {
+          "type": "string",
+          "enum": ["cn_22", "cn_23"],
+          "description": "Type of customs declaration document"
+        },
+        "drop_off_location": {
+          "type": "string",
+          "description": "location where the package will be dropped of with the carrier"
+        },
+        "exporter_reference": {
+          "type": "string",
+          "description": "a note for the exporter"
+        },
+        "id": {
+          "type": "string",
+          "description": "identifier of the customs declaration"
+        },
+        "importer_reference": {
+          "type": "string",
+          "description": "a note for the importer"
+        },
+        "invoice_number": {
+          "type": "string",
+          "description": "invoice number for the order"
+        },
+        "items": {
+          "type": "array",
+          "description": "array of item objects",
+          "items": {
+            "type": "object",
+            "properties": {
+              "created_at": {
+                "type": "date-time",
+                "description": "timestamp the item has been created"
+              },
+              "description": {
+                "type": "string",
+                "description": "a description of the item"
+              },
+              "gross_weight": {
+                "type": "number",
+                "description": "Gross weight of a single item of this kind"
+              },
+              "hs_tariff_number": {
+                "type": "string",
+                "description": "customs tariff number. See https://en.wikipedia.org/wiki/Harmonized_System#Tariffs_by_region for detailed information on region specific tariff numbers",
+                "maxLength": 10
+              },
+              "net_weight": {
+                "type": "number",
+                "description": "Net weight of a single item of this kind"
+              },
+              "origin_country": {
+                "type": "string",
+                "description": "Country as uppercase ISO 3166-1 alpha-2 code"
+              },
+              "quantity": {
+                "type": "integer",
+                "description": "Number that defines how many items of this kind are in the shipment"
+              },
+              "updated_at": {
+                "type": "date-time",
+                "description": "timestamp the item has been updated last"
+              },
+              "value_amount": {
+                "type": "string",
+                "description": "The total value for items of this kind"
+              }
+            },
+            "required": ["origin_country", "description", "quantity", "value_amount", "net_weight"],
+            "additionalProperties": false
+          }
+        },
+        "posting_date": {
+          "type": "string",
+          "format": "date",
+          "description": "date of commital at carrier"
+        },
+        "total_value_amount": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000,
+          "description": "the overall value of the shipments' contents"
+        },
+        "updated_at": {
+          "type": "date-time",
+          "description": "timestamp the customs declaration has been updated last"
+        }
+      },
+      "required": ["contents_type", "currency", "total_value_amount", "items"],
+      "additionalProperties": false
     },
     "from": {
       "$ref": "#/definitions/address",
@@ -153,6 +381,7 @@
     },
     "service": {
       "type": "string",
+      "enum": [{{ all_services | sort | uniq | join: ', ' }}],
       "description": "the service that was used for creating this shipment"
     },
     "shipper_notification_email": {
@@ -166,10 +395,6 @@
     "tracking_url": {
       "type": "string",
       "description": "URL you can send your customers so they can track this shipment"
-    },
-    "cover_address": {
-      "$ref": "#/definitions/address",
-      "description": "Overwrites the sender address on the shipping label"
     }
   },
   "required": ["id", "carrier_tracking_no", "carrier", "created_at", "tracking_url", "label_url", "from", "to", "packages", "price", "reference_number", "service"],
