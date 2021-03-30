@@ -20,7 +20,9 @@ vendor/bundle
 .tags
 .tags1
 
+# Ignore npm specific stuff
 node_modules
+package-lock.json
 
 # ignore firebase stuff
 .firebase
