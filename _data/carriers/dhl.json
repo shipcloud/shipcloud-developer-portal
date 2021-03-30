@@ -93,6 +93,10 @@
             {
               "display_name": "Postfiliale",
               "key": "postfiliale"
+            },
+            {
+              "display_name": "QR code returns",
+              "key": "qr_code_returns"
             }
           ],
           "label_formats": [{

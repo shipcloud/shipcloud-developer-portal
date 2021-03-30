@@ -84,6 +84,10 @@
       "$ref": "#/definitions/label",
       "description": "label characteristics"
     },
+    "label_voucher": {
+      "$ref": "#/definitions/label_voucher",
+      "description": "label voucher characteristics"
+    },
     "notification_email": {
       "type": "string",
       "description": "email address that we should notify once there's an update for this shipment"
@@ -328,6 +332,24 @@
       },
       "additionalProperties": false,
       "description": "label specific definitions"
+    },
+    "label_voucher": {
+      "type": "object",
+      "properties": {
+        "format": {
+          "type": "string",
+          "enum": ["png"],
+          "description": "File format the label voucher should be in"
+        },
+        "type":  {
+          "type": "string",
+          "enum": ["qr_code"],
+          "description": "The type of label voucher that should be returned"
+        }
+      },
+      "required": ["format", "type"],
+      "additionalProperties": false,
+      "description": "label voucher specific definitions"
     },
     "package": {
       "type": "object",

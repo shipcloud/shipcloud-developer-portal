@@ -193,10 +193,21 @@
     <strong>label</strong> (object, optional), specify label specific things
     <ul class="list-outside list-disc">
       <li>
-        <strong>format</strong> (string, optional), the format you want the label to have. See
+        <strong>format</strong> (string), the format you want the label to have. See
         <a href="{{ site.baseurl }}/concepts/#label-format">
           label format
         </a> for detailed information
+      </li>
+    </ul>
+  </li>
+  <li>
+    <strong>label_voucher</strong> (object, optional), label voucher specific definitions
+    <ul class="list-outside list-disc">
+      <li>
+        <strong>format</strong> (string), file format the label voucher should be in
+      </li>
+      <li>
+        <strong>type</strong> (string), the type of label voucher that should be returned
       </li>
     </ul>
   </li>

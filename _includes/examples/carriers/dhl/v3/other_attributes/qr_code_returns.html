@@ -1,9 +1,11 @@
-<h4 id="{{ include.carrier_interface | slugify }}---returns" class="text-blue">
-  Returns
+<h4 id="v3---qr-code-returns" class="text-blue">
+  QR code returns
 </h4>
 
 <p>
-  A shipment that the customer sends back to the store / sender
+  If you want to enable your customers to reduce their carbon footprint or they do not own a
+  printer, you can provide them with a QR code they can then show at their DHL station to get a
+  returns label.
 </p>
 
 <p class="mt-m">
@@ -11,18 +13,16 @@
 </p>
 <ul class="list-outside list-disc pl-m">
   <li>
-    We're also providing the option to create a QR code returns voucher. See
-    <a href="#v3---qr-code-returns">QR code returns</a> for all the details.
+    When creating a QR code you will also always receive a normal returns label.
   </li>
 </ul>
 
 <section class="shadow my-m">
   <article class="border-b">
     <div class="border-l-2 border-transparent">
-      {% capture target %}#{{include.carrier_interface}}_service_returns_togglebox{% endcapture %}
-      {% include utils/toggle_element.html target=target link_text="Show example"%}
-      <div class="px-4 pb-2 text-grey-darkest hidden" id="{{include.carrier_interface}}_service_returns_togglebox">
-          <div class="mt-m">
+      {% include utils/toggle_element.html target="#v3_qr_code_returns_togglebox" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="v3_qr_code_returns_togglebox">
+        <div class="mt-m">
 {% highlight http %}
 POST https://api.shipcloud.io/v1/shipments
 {% endhighlight %}
@@ -55,7 +55,11 @@ POST https://api.shipcloud.io/v1/shipments
     "height": 5,
     "type": "parcel"
   },
-  "carrier": "{{page.carrier}}",
+  "label_voucher": {
+    "type": "qr_code",
+    "format": "png",
+  },
+  "carrier": "dhl",
   "service": "returns",
   "create_shipping_label": true
 }
