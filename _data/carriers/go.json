@@ -7,6 +7,12 @@
       "display_name": "Express Connect",
       "implementations": {
         "shipcloud": {
+          "carrier_specifics": [
+            {
+              "display_name": "Requirements",
+              "key": "requirements"
+            }
+          ],
           "additional_services": [
             {
               "display_name": "Delivery date",
@@ -40,10 +46,6 @@
                 "key": "pdf_a6"
               }
             ]
-          }],
-          "pickup_requests": [{
-            "display_name": "Shipment with pickup request",
-            "key": "shipment_with_pickup_request"
           }],
           "field_lengths": {
             "last_name": "0 - 60 characters (firstname + last_name <= 60 characters)",

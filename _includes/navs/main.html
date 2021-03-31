@@ -50,6 +50,14 @@
             </p>
 
             <ul class="list-inside">
+            {% assign carrier_specifics_entries = site.data.carriers[page.carrier].interfaces[interface_slug].implementations.shipcloud.carrier_specifics %}
+            {% if carrier_specifics_entries.size > 0 %}
+              <li class="mt-m ml-0">
+                <a href="#{{ interface_slug | slugify }}-carrier-specifics">Carrier specifics</a>
+                {% include utils/carrier_interface_nav_iterator.html entries=carrier_specifics_entries type='carrier_specifics' carrier_interface=interface_slug %}
+              </li>
+            {% endif %}
+
             {% assign services_entries = site.data.carriers[page.carrier].interfaces[interface_slug].implementations.shipcloud.services %}
             {% if services_entries.size > 0 %}
               <li class="mt-m ml-0">

@@ -3,15 +3,11 @@
 </h4>
 
 <p class="mt-m">
-  <strong>Requirements:</strong>
+  <strong>Additional requirements </strong>
+  <span class="text-sm">
+    (<a href="#webservice---requirements">see global requirements</a>)</span><strong>:</strong>
 </p>
 <ul class="list-inside list-disc">
-  <li>
-    you’ll have to use your own contract with the carrier
-  </li>
-  <li>
-    the sender has to be located in Germany
-  </li>
   <li>
     <code>message</code> can contain up to 128 characters, but it is possible that not all
     characters will be printed on the shipping label
@@ -64,6 +60,12 @@ POST https://api.shipcloud.io/v1/shipments
       }
     }
   ],
+  "pickup": {
+    "pickup_time": {
+      "earliest": "2015-09-15T09:00:00+02:00",
+      "latest": "2015-09-15T18:00:00+02:00"
+     }
+  },
   "carrier": "{{page.carrier}}",
   "service": "one_day",
   "create_shipping_label": true
