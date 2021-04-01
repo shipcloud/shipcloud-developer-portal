@@ -32,7 +32,7 @@
 {% assign entries=site.data.carriers[page.carrier].interfaces.[include.carrier_interface].implementations.shipcloud.carrier_specifics %}
 {% if entries.size > 0 %}
   <section class="mb-xl">
-    <h3 id="{{include.carrier_interface | slugify}}-services" class="text-blue mb-m">
+    <h3 id="{{include.carrier_interface | slugify}}-carrier-specifics" class="text-blue mb-m">
       Carrier specifics
     </h3>
     {% include utils/carrier_interface_entry_iterator.html entries=entries type='carrier_specifics' carrier_interface=include.carrier_interface %}
