@@ -356,34 +356,22 @@ POST /shipments
 
   {% assign carriers = site.data.carriers | sort %}
   <ul class="list-inside list-disc">
-    {% for carrier in carriers %}
-      {% for interface in carrier[1].interfaces %}
-        {% assign pickup_requests = interface[1].implementations.shipcloud.pickup_requests %}
-        {% for pickup_request in pickup_requests %}
-          {% if pickup_request.key == "shipment_with_pickup_request" %}
-            <li>
-              <a href="{{site.baseurl}}/carriers/{{ carrier[1].key }}.html#{{ interface[0] | slugify }}---shipment-with-pickup-request">
-                {{ carrier[1].display_name }}
-              </a>
-            </li>
-          {% endif %}
-        {% endfor %}
-      {% endfor %}
-    {% endfor %}
+    <li>
+      <a href="{{site.baseurl}}/carriers/angel_de.html">
+        Angel
+      </a>
+    </li>
+    <li>
+      <a href="{{site.baseurl}}/carriers/dhl_express.html">
+        DHL Express
+      </a>
+    </li>
+    <li>
+      <a href="{{site.baseurl}}/carriers/go.html">
+        GO!
+      </a>
+    </li>
   </ul>
-
-  <div class="mt-m bg-grey-light border-t-4 border-grey-darker text-grey-darker rounded-b px-4 py-3 shadow-md my-2" role="alert">
-    <div class="flex">
-      <div>
-        <i class="fas fa-info-circle h-6 w-6 mr-4"></i>
-      </div>
-      <div>
-          <strong>Notice</strong>:
-          The carrier GO! does not provide regular pickups, you will always have to provide a
-          pickup object, when creating a shipment.
-      </div>
-    </div>
-  </div>
 
   <h3 id="for-existing-shipments" class="text-blue mt-m">
     For existing shipments
