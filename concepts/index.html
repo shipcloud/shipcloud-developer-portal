@@ -179,7 +179,7 @@ curl -i -u {{ site.apikey }}: -H "Content-Type: application/json" -d '{"service"
   </p>
 
   <p class="mt-m">
-    <strong>Requirements:</strong>
+    We currently support the following label formats:
   </p>
 
   {% for carrier in carriers %}
@@ -194,14 +194,11 @@ curl -i -u {{ site.apikey }}: -H "Content-Type: application/json" -d '{"service"
   {% assign all_label_formats = all_label_formats_pdf | concat: all_label_formats_zpl | compact %}
 
   <ul class="list-inside list-disc">
-    <li>
-      <code>label.format</code> can be one of the following
-      <ul class="list-inside list-disc">
-          <li>
-            <code><em>{{label_format.key}}</em></code>
-          </li>
-      </ul>
-    </li>
+    {% for label_format in all_label_formats %}
+      <li>
+        <code><em>{{label_format.key}}</em></code>
+      </li>
+    {% endfor %}
   </ul>
 </section>
 
