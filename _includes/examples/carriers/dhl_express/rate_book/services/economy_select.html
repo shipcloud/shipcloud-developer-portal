@@ -1,9 +1,10 @@
-<h4 id="{{ include.carrier_interface | slugify }}---one-day" class="text-blue">
-  One day
+<h4 id="{{ include.carrier_interface | slugify }}---economy-select" class="text-blue">
+  Economy select
 </h4>
 
 <p>
-  Express shipment that will be delivered the next working day
+  The DHL Express service economy select provides you with a "door-to-door delivery within Europe via
+  the DHL Express Road Network on a specific day".
 </p>
 
 <p class="mt-m">
@@ -12,15 +13,17 @@
     (<a href="#{{ include.carrier_interface | slugify }}---requirements">see global requirements</a>)</span><strong>:</strong>
 </p>
 <ul class="list-inside list-disc">
-  <li><code>service</code> has to be <code>one_day</code></li>
+  <li>Only available for international shipments within Europe</li>
+  <li>Maximum dimensions (l/w/h): 120 x 80 x 80cm</li>
+  <li><code>service</code> has to be <code>dhl_express_economy_select</code></li>
 </ul>
 
 <section class="shadow my-m">
   <article class="border-b">
     <div class="border-l-2 border-transparent">
-      {% capture target %}#{{include.carrier_interface}}_service_one_day_togglebox{% endcapture %}
+      {% capture target %}#{{include.carrier_interface}}_service_economy_select_togglebox{% endcapture %}
       {% include utils/toggle_element.html target=target link_text="Show example"%}
-      <div class="px-4 pb-2 text-grey-darkest hidden" id="{{include.carrier_interface}}_service_one_day_togglebox">
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="{{include.carrier_interface}}_service_economy_select_togglebox">
           <div class="mt-m">
 {% highlight http %}
 POST https://api.shipcloud.io/v1/shipments
@@ -73,9 +76,9 @@ POST https://api.shipcloud.io/v1/shipments
       "country": "DE"
      }
   },
-  "description": "Important goods that need to be delivered fast!",
+  "description": "Not so important goods. Take your time.",
   "carrier": "{{ page.carrier }}",
-  "service": "one_day",
+  "service": "dhl_express_economy_select",
   "create_shipping_label": true
 }
 {% endhighlight %}
