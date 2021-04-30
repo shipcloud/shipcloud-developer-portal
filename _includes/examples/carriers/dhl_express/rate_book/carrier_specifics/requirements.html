@@ -1,0 +1,28 @@
+<h4 id="{{ include.carrier_interface | slugify }}---requirements" class="text-blue">
+  Requirements
+</h4>
+<p>
+  These global requirements apply to every call when using the carrier DHL Express:
+</p>
+<ul class="list-inside list-disc">
+  <li>
+    supplying a pickup request at creation time of the shipment is mandatory, if you don't have
+    regular pickups
+  </li>
+  <li>
+    the date for <code>pickup_time.earliest</code> and <code>pickup_time.latest</code> has to be the
+    same
+  </li>
+  <li>
+    supplying a <code>pickup_address</code> is optional
+  </li>
+  <li>
+    supplying a <code>description</code> for the shipment (not as part of the package) is mandatory
+  </li>
+  <li>
+    supplying <code>phone</code> is mandatory for sender and recipient addresses
+  </li>
+  <li>
+    <code>state</code> has to be 2 characters long
+  </li>
+</ul>

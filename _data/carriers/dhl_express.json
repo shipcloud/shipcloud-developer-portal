@@ -7,7 +7,18 @@
       "display_name": "DHL Express Rate Book",
       "implementations": {
         "shipcloud": {
-          "services": [{
+          "carrier_specifics": [
+            {
+              "display_name": "Requirements",
+              "key": "requirements"
+            }
+          ],
+          "services": [
+            {
+              "display_name": "Economy select",
+              "key": "economy_select"
+            },
+            {
               "display_name": "One day",
               "key": "one_day"
             },

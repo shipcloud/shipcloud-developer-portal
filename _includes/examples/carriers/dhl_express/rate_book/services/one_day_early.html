@@ -7,15 +7,12 @@
 </p>
 
 <p class="mt-m">
-  <strong>Requirements:</strong>
+  <strong>Additional requirements </strong>
+  <span class="text-sm">
+    (<a href="#{{ include.carrier_interface | slugify }}---requirements">see global requirements</a>)</span><strong>:</strong>
 </p>
 <ul class="list-inside list-disc">
-  <li>supplying a pickup request at creation time of the shipment is mandatory, if you don't have regular pickups</li>
-  <li>the date for <code>pickup_time.earliest</code> and <code>pickup_time.latest</code> has to be the same</li>
-  <li>supplying a <code>pickup_address</code> is optional</li>
-  <li>supplying a <code>description</code> for the shipment (not as part of the package) is mandatory</li>
-  <li>supplying <code>phone</code> is mandatory for sender and recipient addresses</li>
-  <li><code>state</code> has to be 2 characters long</li>
+  <li><code>service</code> has to be <code>one_day_early</code></li>
 </ul>
 
 <section class="shadow my-m">
