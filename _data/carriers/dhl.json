@@ -62,12 +62,24 @@
               "key": "dhl_named_person_only"
             },
             {
+              "display_name": "No neighbor delivery",
+              "key": "dhl_no_neighbor_delivery"
+            },
+            {
               "display_name": "Parcel outlet routing",
               "key": "dhl_parcel_outlet_routing"
             },
             {
               "display_name": "Preferred day",
               "key": "delivery_date"
+            },
+            {
+              "display_name": "Preferred location",
+              "key": "drop_authorization"
+            },
+            {
+              "display_name": "Preferred neighbor",
+              "key": "dhl_preferred_neighbor"
             },
             {
               "display_name": "Premium international",

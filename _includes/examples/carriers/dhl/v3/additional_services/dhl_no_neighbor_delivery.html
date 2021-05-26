@@ -1,0 +1,89 @@
+<h4 id="v3---dhl-no-neighbor-delivery" class="text-blue">
+  No neighbor delivery
+</h4>
+
+<p>
+  "<em>By using the
+  <a href="https://www.dhl.de/content/dam/images/pdf/GK/Services/dhl-keine-nachbarschaftszustellung-infoblatt-en-04-2021.pdf" target="_blank">
+  no neighbor delivery</a> service, you can exclude an alternative delivery to the neighbor if your
+  customer is not available when the delivery is made</em>"
+</p>
+
+<p class="mt-m">
+  <strong>Requirements:</strong>
+</p>
+<ul class="list-inside list-disc">
+  <li>
+    <code>service</code> has to be <code><em>standard</em></code> or <code><em>dhl_prio</em></code>
+  </li>
+  <li>
+    The sender has to be located in Germany
+  </li>
+  <li>
+    The recipient has to be located in Germany
+  </li>
+  <li>
+    <code>label.format</code> can be <code><em>pdf_a5</em></code>,
+    <code><em>pdf_103x199mm</em></code> or <code><em>zpl2_103x199mm_203dpi</em></code>
+  </li>
+  <li>
+    You'll have to use your own contract with the carrier
+  </li>
+</ul>
+
+<section class="shadow my-m">
+  <article class="border-b">
+    <div class="border-l-2 border-transparent">
+      {% include utils/toggle_element.html target="#v3_dhl_no_neighbor_delivery_togglebox" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="v3_dhl_no_neighbor_delivery_togglebox">
+        <div class="mt-m">
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE"
+  },
+  "package": {
+    "weight": 0.5,
+    "length": 20,
+    "width": 15,
+    "height": 5,
+    "type": "parcel"
+  },
+  "additional_services": [
+    {
+      "name": "dhl_no_neighbor_delivery"
+    }
+  ],
+  "label": {
+    "format": "pdf_a5"
+  },
+  "carrier": "{{page.carrier}}",
+  "service": "standard",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

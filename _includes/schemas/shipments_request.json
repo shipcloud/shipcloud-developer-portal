@@ -145,6 +145,7 @@
                 "description": "language the customer should be notified in (ISO-639-1 format)"
               },
               "last_name": { "type": "string" },
+              "message": { "type": "string" },
               "minimum_age": { "type": "string" },
               "phone": { "type": "string" },
               "reference1": {
