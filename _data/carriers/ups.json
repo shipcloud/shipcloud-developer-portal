@@ -37,6 +37,10 @@
             "key": "parcel"
           }],
           "additional_services": [{
+              "display_name": "Carbon neutral",
+              "key": "ups_carbon_neutral"
+            },
+            {
               "display_name": "Cash on delivery",
               "key": "cash_on_delivery"
             },

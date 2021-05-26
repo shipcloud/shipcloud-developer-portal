@@ -45,6 +45,10 @@
               "key": "cash_on_delivery"
             },
             {
+              "display_name": "DepositService",
+              "key": "drop_authorization"
+            },
+            {
               "display_name": "FlexDeliveryService",
               "key": "advance_notice"
             },
