@@ -239,7 +239,7 @@
               },
               "value_amount": {
                 "type": "string",
-                "description": "The total value for items of this kind"
+                "description": "Value of a single item of this kind"
               },
               "net_weight": {
                 "type": "number",

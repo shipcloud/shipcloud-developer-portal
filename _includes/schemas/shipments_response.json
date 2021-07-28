@@ -233,7 +233,7 @@
               },
               "value_amount": {
                 "type": "string",
-                "description": "The total value for items of this kind"
+                "description": "Value of a single item of this kind"
               }
             },
             "required": ["origin_country", "description", "quantity", "value_amount", "net_weight"],
