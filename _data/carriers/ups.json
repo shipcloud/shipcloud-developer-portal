@@ -89,6 +89,10 @@
             {
               "display_name": "Rules",
               "key": "rules"
+            },
+            {
+              "display_name": "Trackers",
+              "key": "trackers"
             }
           ],
           "field_lengths": {

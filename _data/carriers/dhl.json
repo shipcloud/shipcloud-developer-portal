@@ -90,6 +90,12 @@
               "key": "visual_age_check"
             }
           ],
+          "misc": [
+            {
+              "display_name": "Trackers",
+              "key": "trackers"
+            }
+          ],
           "other_attributes": [{
               "display_name": "Additional insurance",
               "key": "declared_value"

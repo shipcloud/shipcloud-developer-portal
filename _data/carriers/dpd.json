@@ -118,6 +118,12 @@
               "key": "saturday_delivery"
             }
           ],
+          "misc": [
+            {
+              "display_name": "Trackers",
+              "key": "trackers"
+            }
+          ],
           "label_formats": [{
             "pdf": [
               {

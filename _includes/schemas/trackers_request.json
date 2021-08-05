@@ -5,6 +5,8 @@
 {% endfor %}
 {% assign carriers = carriers | split: '|' %}
 
+{% include utils/carriers_with_tracking_only_support.html wrapped="true" %}
+
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Tracker",
@@ -17,7 +19,7 @@
     },
     "carrier": {
       "type": "string",
-      "enum": [{{ carriers | sort | join: ', ' }}],
+      "enum": [{{ carriers_with_tracking_only_support | join: ', '}}],
       "description": "acronym of the carrier the shipment was created with"
     },
     "to": {

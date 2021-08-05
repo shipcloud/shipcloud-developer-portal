@@ -1,0 +1,19 @@
+{% assign carriers = site.data.carriers | sort %}
+{% assign carriers_with_tracking_only_support = '' %}
+
+{% for carrier in carriers %}
+  {% for interface in carrier[1].interfaces %}
+    {% assign miscs = interface[1].implementations.shipcloud.misc %}
+    {% for misc in miscs %}
+      {% if misc.key == "trackers" %}
+        {% if include.wrapped == "true" %}
+          {% capture new_carrier %}"{{carrier[1].display_name}}"|{% endcapture %}
+        {% else %}
+          {% capture new_carrier %}{{carrier[1].display_name}}|{% endcapture %}
+        {% endif %}
+        {% assign carriers_with_tracking_only_support = carriers_with_tracking_only_support | append: new_carrier %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+{% endfor %}
+{% assign carriers_with_tracking_only_support = carriers_with_tracking_only_support | split: '|' | sort %}

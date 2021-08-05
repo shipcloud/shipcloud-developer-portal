@@ -4,13 +4,8 @@
   </li>
   <li>
     <strong>carrier</strong> (array), name of the carrier you want to use. Possible values are
-    {% assign carriers = "" %}
-    {% for carrier in site.shipcloud.supported_carriers %}
-      {% capture new_carrier %}<code>{{carrier}}</code>|{% endcapture %}
-      {% assign carriers = carriers | append: new_carrier %}
-    {% endfor %}
-    {% assign carriers = carriers | split: '|' %}
-    {{ carriers | sort | join: ', '}}
+    {% include utils/carriers_with_tracking_only_support.html wrapped="false" %}
+    {{ carriers_with_tracking_only_support | join: ', '}}
   </li>
   <li>
     <strong>to</strong>* (object, optional), describes the receivers address. See
