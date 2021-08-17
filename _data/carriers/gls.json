@@ -62,12 +62,16 @@
             }
           ],
           "other_attributes": [{
+              "display_name": "Incoterms",
+              "key": "incoterms"
+            },
+            {
               "display_name": "ShopDeliveryService",
               "key": "drop_off_point"
             },
             {
-              "display_name": "Incoterms",
-              "key": "incoterms"
+              "display_name": "QR code returns",
+              "key": "qr_code_returns"
             }
           ],
           "misc": [
