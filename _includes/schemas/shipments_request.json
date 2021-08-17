@@ -152,6 +152,13 @@
                 "type": "string",
                 "description": "Text that should be displayed as the reason for transfer"
               },
+              "regulation_class": {
+                "type": "string",
+                "enum": [
+                  "limited_quantities"
+                ],
+                "description": "Key that identifies the hazardous goods regulation class"
+              },
               "sms": { "type": "string" },
               "time_of_day_earliest": { "type": "string" },
               "time_of_day_latest": { "type": "string" }

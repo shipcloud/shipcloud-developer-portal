@@ -102,16 +102,20 @@
             }
           ],
           "additional_services": [{
-              "display_name": "Predict",
-              "key": "advance_notice"
+              "display_name": "Drop authorization",
+              "key": "drop_authorization"
             },
             {
               "display_name": "Food",
               "key": "dpd_food"
             },
             {
-              "display_name": "Drop authorization",
-              "key": "drop_authorization"
+              "display_name": "Hazardous goods",
+              "key": "hazardous_goods"
+            },
+            {
+              "display_name": "Predict",
+              "key": "advance_notice"
             },
             {
               "display_name": "Saturday delivery",
