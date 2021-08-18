@@ -72,6 +72,10 @@
           ],
           "misc": [
             {
+              "display_name": "LetterboxService",
+              "key": "letterboxservice"
+            },
+            {
               "display_name": "Trackers",
               "key": "trackers"
             }
