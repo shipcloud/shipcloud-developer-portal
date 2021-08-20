@@ -1,0 +1,105 @@
+<h4 id="web-api---letterboxservice" class="text-blue">
+  LetterboxService
+</h4>
+
+<p>
+  <em>
+    "With the LetterboxService, we deliver small consignments directly to the consignee`s letterbox.
+    This service is ideal for sending small items, mailshots or catalogues, where the consignee's
+    signature is not required."
+  </em>
+</p>
+
+<div class="mt-m bg-grey-light border-t-4 border-grey-darker text-grey-darker rounded-b px-4 py-3 shadow-md my-2" role="alert">
+  <div class="flex">
+    <div>
+      <i class="fas fa-info-circle h-6 w-6 mr-4"></i>
+    </div>
+    <div>
+      Shipments created using the
+      <a href="https://www.gls-pakete.de/en/glossary/letterboxservice" target="_blank">LetterboxService</a> can be
+      eligible for a monetary kickback by GLS upon successful delivery. Talk to your GLS account manager for more
+      details.
+    </div>
+  </div>
+</div>
+
+<p class="mt-m">
+  <strong>Requirements:</strong>
+</p>
+<ul class="list-outside list-disc pl-m">
+  <li>
+    you have to use the additional service
+    <a href="#web-api---drop-authorization">DepositService</a>
+  </li>
+  <li>
+    the attribute <code>message</code> has to be <code>Briefkasten</code>
+  </li>
+  <li>
+    max. dimensions 40 cm x 28 cm x 5 cm
+  </li>
+  <li>
+    min. dimension: DIN C5
+  </li>
+  <li>
+    max. weight 1 kg
+  </li>
+</ul>
+
+<section class="shadow my-m">
+  <article class="border-b">
+    <div class="border-l-2 border-transparent">
+      {% include utils/toggle_element.html target="#web_api_letterboxservice_togglebox" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="web_api_letterboxservice_togglebox">
+        <div class="mt-m">
+
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE"
+  },
+  "package": {
+    "weight": 1,
+    "length": 28,
+    "width": 40,
+    "height": 5,
+    "type": "parcel"
+  },
+  "additional_services": [
+    {
+      "name": "drop_authorization",
+      "properties": {
+        "message": "Briefkasten"
+      }
+    }
+  ],
+  "carrier": "{{page.carrier}}",
+  "service": "standard",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
