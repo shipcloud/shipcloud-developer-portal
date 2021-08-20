@@ -53,6 +53,10 @@
               "key": "saturday_delivery"
             },
             {
+              "display_name": "Access point notification",
+              "key": "ups_access_point_notification"
+            },
+            {
               "display_name": "Direct delivery only",
               "key": "ups_direct_delivery_only"
             },
@@ -83,6 +87,9 @@
             ]
           }],
           "misc": [{
+              "display_name": "Access point delivery",
+              "key": "access_point_delivery"
+            },{
               "display_name": "Cutoff times",
               "key": "cutoff_times"
             },
