@@ -1,0 +1,115 @@
+<h4 id="shipment-service-4-3---hazardous-goods" class="text-blue">
+  Hazardous goods
+</h4>
+
+<p>
+  There are a couple of ways one can send hazardous goods. For shipments containing only small
+  amounts of an item (based on the
+  <a href="https://unece.org/fileadmin/DAM/trans/danger/publi/unrec/rev21/ST-SG-AC10-1r21e_Vol1_WEB.pdf" target="_blank">
+  "Dangerous goods list" by the UNECE</a>) you can use the
+  <a href="https://www.dpd.com/de/en/support/versandbestimmungen/gefahrgutversand/" target="_blank">
+  limited quantities</a> as the regulation class.
+</p>
+
+<div class="bg-orange border-t-4 border-red text-white rounded-b px-4 py-3 shadow-md my-2" role="alert">
+  <div class="flex">
+    <p>
+      <i class="fas fa-exclamation-triangle h-6 w-6 mr-4"></i>
+    </p>
+    <p>
+      The additional service can't be combined with the additional service <code><em>drop_authorization</em></code>
+    </p>
+  </div>
+</div>
+<div class="bg-teal border-t-4 border-blue-dark text-white rounded-b px-4 py-3 shadow-md my-2 mb-l" role="alert">
+  <div class="flex">
+    <p>
+      <i class="fas fa-info-circle h-6 w-6 mr-4"></i>
+    </p>
+    <div>
+      The additional service is curently in beta. Please contact our customer support if you want to use it.
+    </div>
+  </div>
+</div>
+
+<p class="mt-m">
+  <strong>Requirements:</strong>
+</p>
+<ul class="list-inside list-disc">
+  <li>Senders have to use their own contracts with the carrier</li>
+  <li>Senders still have to attach an LQ label (LQ mark) to the shipments</li>
+  <li>Senders have to contact their DPD depot in order for them to activate this option</li>
+  <li>Senders have to be located in Germany</li>
+  <li>
+    Recipients have to be located in one of the following countries:
+    <ul class="list-inside list-disc">
+      <li>
+        When using <code><em>standard</em></code> as service: AT, BE, CH, DK, DE, ES, FR, HR, LV,
+        LI, LU, MC, NL, PL, PT, SI
+      </li>
+      <li>
+        When using <code><em>one_day</em></code> as service:  AT, BE, CH, DK, DE, FR, LV, LI, LU,
+        MC, NL, PL
+      </li>
+      <li>
+        When using <code><em>one_day_early</em></code> as service:  BE, CH, DE, LU, NL
+      </li>
+    </ul>
+  </li>
+</ul>
+
+
+<section class="shadow my-m">
+  <article class="border-b">
+    <div class="border-l-2 border-transparent">
+      {% include utils/toggle_element.html target="#shipment_service_4_3_limited_quantities_togglebox" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="shipment_service_4_3_limited_quantities_togglebox">
+        <div class="mt-m">
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE"
+  },
+  "package": {
+    "weight": 0.5,
+    "length": 20,
+    "width": 15,
+    "height": 5,
+    "type": "parcel"
+  },
+  "additional_services": [
+    {
+      "name": "hazardous_goods",
+      "regulation_class": "limited_quantities"
+    }
+  ],
+  "carrier": "{{page.carrier}}",
+  "service": "one_day",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
