@@ -7,6 +7,12 @@
       "display_name": "DHL Api v3.1",
       "implementations": {
         "shipcloud": {
+          "carrier_specifics": [
+            {
+              "display_name": "General information",
+              "key": "general_information"
+            }
+          ],
           "services": [{
               "display_name": "Standard",
               "key": "standard"
