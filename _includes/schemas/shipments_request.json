@@ -38,7 +38,7 @@
 {% endfor %}
 
 {% assign all_additional_services = all_additional_services | split: '|' %}
-{% assign all_services = services | split: '|' %}
+{% assign all_services = all_services | split: '|' %}
 {% assign all_carriers = all_carriers | split: '|' %}
 {% assign all_label_formats = all_label_formats | split: '|' %}
 
