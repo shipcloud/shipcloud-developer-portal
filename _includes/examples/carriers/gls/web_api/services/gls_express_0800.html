@@ -14,6 +14,7 @@
 <ul class="list-inside list-disc">
   <li>The sender and recipient both have to be located in Germany</li>
   <li><code>service</code> has to be <code>gls_express_0800</code></li>
+  <li>The recipients' phone number (<code>to.phone</code>) has to be provided</li>
 </ul>
 
 <section class="shadow my-m">
@@ -45,7 +46,8 @@ POST https://api.shipcloud.io/v1/shipments
     "street_no": "99",
     "zip_code": "20148",
     "city": "Hamburg",
-    "country": "DE"
+    "country": "DE",
+    "phone": "+491234567890"
   },
   "package": {
     "weight": "2.5",
