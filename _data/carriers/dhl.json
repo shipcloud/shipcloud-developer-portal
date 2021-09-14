@@ -7,6 +7,12 @@
       "display_name": "DHL Api v3.1",
       "implementations": {
         "shipcloud": {
+          "carrier_specifics": [
+            {
+              "display_name": "Street and house number",
+              "key": "street_and_house_number"
+            }
+          ],
           "services": [{
               "display_name": "Standard",
               "key": "standard"
