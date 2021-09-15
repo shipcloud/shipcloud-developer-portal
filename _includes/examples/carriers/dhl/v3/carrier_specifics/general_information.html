@@ -1,0 +1,20 @@
+<h4 id="v3---general-information" class="text-blue">
+  General information
+</h4>
+
+<h5 id="v3---streetname-and-housenumber" class="text-blue">
+  Streetname &amp; housenumber
+</h5>
+
+<p>
+  Although the DHL webservice required a housenumber to be provided as a separate attribute
+  (<code>street_no</code>) in the past, they are now making it possible to provide streetname and
+  housenumber in one attribute. So you can specify an address by only transmitting the
+  <code>street</code> attribute, containing both values.
+</p>
+
+<p class="mt-m">
+  <strong>Notice:</strong> Since DHL has a separate returns webservice, this is only applicable for
+  outbound shipments and not for returns. There you still have to provide both entries when creating
+  a shipping label.
+</p>
