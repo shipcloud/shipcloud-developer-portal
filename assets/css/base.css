@@ -164,3 +164,25 @@ nav a:hover {
 .example figure:first-of-type {
   margin-bottom: theme('spacing.s');
 }
+
+.swagger-ui .info {
+  margin: theme('spacing.m') 0 !important;
+}
+
+.swagger-ui .info .title small pre.version,
+.swagger-ui .info .title small pre.version-stamp {
+  background-color: transparent;
+  border: none;
+}
+
+.swagger-ui [id]:before {
+  margin-top: 0;
+  height: auto;
+}
+
+.swagger-ui .description,
+.swagger-ui .info__tos,
+.swagger-ui .info__contact,
+.swagger-ui .info__extdocs {
+  display: none;
+}

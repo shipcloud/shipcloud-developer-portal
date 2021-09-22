@@ -1,0 +1,53 @@
+---
+title: SwaggerUI
+nav: openapi
+---
+
+<!-- HTML for static distribution bundle build -->
+<div id="swagger-ui"></div>
+
+<script src="./swagger-ui-bundle.js" charset="UTF-8"> </script>
+<script src="./swagger-ui-standalone-preset.js" charset="UTF-8"> </script>
+<script>
+  const DisableTryItOutPlugin = function() {
+    return {
+      statePlugins: {
+        spec: {
+          wrapSelectors: {
+            allowTryItOutFor: () => () => false
+          }
+        }
+      }
+    }
+  };
+
+  const DisableAuthorizePlugin = function() {
+    return {
+      wrapComponents: {
+        authorizeBtn: () => () => null
+      }
+    };
+  };
+
+  window.onload = function() {
+    // Begin Swagger UI call region
+    const ui = SwaggerUIBundle({
+      url: "{{site.baseurl}}/downloads/api/oai/shipcloud_v1_oai3.json",
+      dom_id: '#swagger-ui',
+      deepLinking: true,
+      defaultModelsExpandDepth: 0,
+      presets: [
+        SwaggerUIBundle.presets.apis
+      ],
+      plugins: [
+        SwaggerUIBundle.plugins.DownloadUrl,
+        DisableTryItOutPlugin,
+        DisableAuthorizePlugin
+      ],
+      layout: "BaseLayout"
+    });
+    // End Swagger UI call region
+
+    window.ui = ui;
+  };
+</script>
