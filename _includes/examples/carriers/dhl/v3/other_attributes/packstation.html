@@ -7,9 +7,36 @@
 </p>
 
 <ul class="list-inside list-disc">
-  <li><code>care_of</code> = customer id number (<em>postnummer</em>)</li>
-  <li><code>street</code> has to be <code><em>PACKSTATION</em></code></li>
-  <li><code>street_no</code> = number of packstation</li>
+  <li>
+    <code>care_of</code> = customer id number (<em>postnummer</em>)
+  </li>
+  <li>
+    It is possible to provide the keyword and number the following ways:
+    <ul class="list-inside list-disc">
+      <li>
+        Separate attributes:
+        <ul class="list-inside list-disc">
+          <li>
+            <code>street</code> = <code><em>PACKSTATION</em></code>
+          </li>
+          <li>
+            <code>street_no</code> = number of packstation
+          </li>
+        </ul>
+      </li>
+      <li>
+        Within the <code>street</code> attribute:
+        <ul class="list-inside list-disc">
+          <li>
+            <code>street</code> = <code><em>PACKSTATION</em></code> + number of packstation
+          </li>
+          <li>
+            <code>street_no</code> doesn't have to be provided
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
 
 <section class="shadow my-m">

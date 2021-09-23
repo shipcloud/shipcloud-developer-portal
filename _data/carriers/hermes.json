@@ -26,7 +26,11 @@
             }
           ],
           "additional_services": [{
-              "display_name": "Customer Alert",
+              "display_name": "Cash on delivery",
+              "key": "cash_on_delivery"
+            },
+            {
+            "display_name": "Customer Alert",
               "key": "advance_notice"
             },
             {
