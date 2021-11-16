@@ -113,6 +113,6 @@
     <h3 id="{{include.carrier_interface | slugify}}-field-lengths" class="text-blue">
         Field lengths
     </h3>
-    {% include utils/json_level_iterator.html entries=entries %}
+    {% include utils/json_level_iterator.html entries=entries type="field_lengths" %}
   </section>
 {% endif %}

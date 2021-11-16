@@ -64,14 +64,16 @@
             "key": "cutoff_times"
           }],
           "field_lengths": {
-            "first_name": "0 - 20 characters",
-            "last_name": "1 - 30 characters",
-            "company": "0 - 20 characters",
-            "care_of": "0 - 20 characters",
-            "street": "1 - 27 characters",
-            "street_no": "1 - 5 characters",
-            "zip_code": "1 - 8 characters",
-            "city": "1 - 30 characters"
+            "shipments": {
+              "first_name": "0 - 20 characters",
+              "last_name": "1 - 30 characters",
+              "company": "0 - 20 characters",
+              "care_of": "0 - 20 characters",
+              "street": "1 - 27 characters",
+              "street_no": "1 - 5 characters",
+              "zip_code": "1 - 8 characters",
+              "city": "1 - 30 characters"
+            }
           }
         }
       }

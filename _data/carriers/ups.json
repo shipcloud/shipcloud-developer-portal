@@ -103,15 +103,25 @@
             }
           ],
           "field_lengths": {
-            "company": "1 - 35 characters (only 30 characters will be printed on the label)",
-            "last_name": "1 - 35 characters (firstname + last_name <= 35 characters - only 30 characters will be printed on the label)",
-            "care_of": "0 - 35 characters (only 30 characters will be printed on the label)",
-            "street": "1 - 35 characters (street + street_no <= 35 characters - only 30 characters will be printed on the label)",
-            "zip_code": "1 - 9 characters",
-            "city": "1 - 30 characters (only 15 characters will be printed on the label)",
-            "state": "2 characters",
-            "phone": "0 - 15 characters",
-            "reference_number": "0 - 35 characters"
+            "shipments": {
+              "company": "1 - 35 characters (only 30 characters will be printed on the label)",
+              "last_name": "1 - 35 characters (firstname + last_name <= 35 characters - only 30 characters will be printed on the label)",
+              "care_of": "0 - 35 characters (only 30 characters will be printed on the label)",
+              "street": "1 - 35 characters (street + street_no <= 35 characters - only 30 characters will be printed on the label)",
+              "zip_code": "1 - 9 characters",
+              "city": "1 - 30 characters (only 15 characters will be printed on the label)",
+              "state": "2 characters",
+              "phone": "0 - 15 characters",
+              "reference_number": "0 - 35 characters"
+            },
+            "pickup_requests": {
+              "company": "27 characters",
+              "last_name": "22 characters (firstname + last_name <= 22 characters)",
+              "street": "1 - 73 characters (street + street_no <= 73 characters)",
+              "zip_code": "1 - 8 characters",
+              "city": "1 - 50 characters",
+              "state": "0 - 50 characters"
+            }
           }
         }
       }

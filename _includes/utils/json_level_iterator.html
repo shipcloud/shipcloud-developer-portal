@@ -2,10 +2,18 @@
 {% for entries_lev1 in include.entries %}
   <li>
     {% if entries_lev1[1].first %}
-        {% capture entry_output %}`{{ entries_lev1[0] }}`{% endcapture %}
+      {% capture entry_output %}`{{ entries_lev1[0] }}`{% endcapture %}
+      {% if include.type == "field_lengths" %}
+        <h4 id="{{entries_lev1[0]}}-field-lengths" class="text-blue">
+          {% assign field_length_type = entries_lev1[0] | split: '_' %}
+          {{ field_length_type | join: ' '}}
+        </h4>
+      {% else %}
         {{ entry_output | markdownify | remove: '<p>' | remove: '</p>' }}
-        {% assign sub_entries=entries_lev1[1] %}
-        {% include utils/json_level_iterator.html entries=sub_entries %}
+      {% endif %}
+
+      {% assign sub_entries=entries_lev1[1] %}
+      {% include utils/json_level_iterator.html entries=sub_entries %}
     {% else %}
         {% capture entry_output %}`{{ entries_lev1[0] }}`: {{ entries_lev1[1] }}{% endcapture %}
         {{ entry_output | markdownify | remove: '<p>' | remove: '</p>' }}
