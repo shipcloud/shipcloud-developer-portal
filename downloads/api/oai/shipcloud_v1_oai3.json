@@ -3563,6 +3563,7 @@
                     "gls_guaranteed24service",
                     "hazardous_goods",
                     "hermes_identservice",
+                    "hermes_next_day",
                     "premium_international",
                     "saturday_delivery",
                     "ups_access_point_notification",

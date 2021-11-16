@@ -1,0 +1,74 @@
+<h4 id="hsi---hermes-eilservice" class="text-blue">
+  EilService
+</h4>
+
+<p>
+  To make sure that a shipment will be transported in the priority lane of the carrier, Hermes is
+  providing its customers the additional service
+  <a href="https://blog.myhermes.de/hermesabc/eilservice/" target="_blank">EilService</a>.
+  The carrier will try to make the delivery on the next business day (except Saturdays).
+</p>
+
+<p class="mt-m">
+  <strong>Requirements:</strong>
+</p>
+
+<ul class="list-outside list-disc pl-m">
+  <li>You have to use your own carrier contract</li>
+  <li>Applicable only for domestic shipments whithin Germany</li>
+</ul>
+
+<section class="shadow my-m">
+  <article class="border-b">
+    <div class="border-l-2 border-transparent">
+      {% include utils/toggle_element.html target="#hsi_eilservice_togglebox" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="hsi_eilservice_togglebox">
+        <div class="mt-m">
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "company": "Receiver AG",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE"
+  },
+  "package": {
+    "weight": "2.5",
+    "length": "40",
+    "width": "20",
+    "height": "10",
+    "type": "parcel"
+  },
+  "service": "standard",
+  "carrier": "hermes",
+  "additional_services": [
+    {
+      "name": "hermes_next_day"
+    }
+  ],
+  "create_shipping_label": true
+}
+{% endhighlight %}
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

@@ -34,6 +34,10 @@
               "key": "advance_notice"
             },
             {
+              "display_name": "EilService",
+              "key": "hermes_eilservice"
+            },
+            {
               "display_name": "IdentService",
               "key": "hermes_identservice"
             }
