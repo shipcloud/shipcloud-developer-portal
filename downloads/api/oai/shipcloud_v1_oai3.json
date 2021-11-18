@@ -3266,10 +3266,14 @@
                 "description": "The currency used. Currently only EUR is applicable"
               }
             }
+          },
+          "description": {
+            "type": "string",
+            "description": "if you're using UPS with service `returns` this is mandatory otherwise it's optional"
           }
         },
         "required": ["width", "height", "length", "weight"],
-        "description": "defines package dimensions"
+        "description": "defines package attributes"
       },
       "package_with_id": {
         "allOf": [
