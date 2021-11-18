@@ -2923,7 +2923,7 @@
           },
           "phone": {
             "type": "string",
-            "description": "Telephone number (mandatory when using UPS and the following terms apply: service is one_day or one_day_early or ship to country is different than ship from country)"
+            "description": "Telephone number (mandatory when using UPS and the following terms apply: service is `one_day` or `one_day_early` or ship to country is different than ship from country)"
           },
           "email": {
             "type": "string",
@@ -3053,7 +3053,7 @@
           },
           "contents_explanation": {
             "type": "string",
-            "description": "description of contents. Mandatory if contents_type is 'commercial_goods. Max 256 characters, when using DHL as your carrier'"
+            "description": "description of contents. Mandatory if contents_type is `commercial_goods`. Max 256 characters, when using DHL as your carrier"
           },
           "currency": {
             "type": "string",
@@ -3521,7 +3521,7 @@
           },
           "description": {
             "type": "string",
-            "description": "text that describes the contents of the shipment. This parameter is mandatory if you're using UPS and the following conditions are true: from and to countries are not the same; from and/or to countries are not in the EU; from and to countries are in the EU and the shipments service is not 'standard'. The parameter is also mandatory when using DHL Express as carrier."
+            "description": "text that describes the contents of the shipment. This parameter is mandatory if you're using UPS and the following conditions are true: from and to countries are not the same; from and/or to countries are not in the EU; from and to countries are in the EU and the shipments service is not `standard`. The parameter is also mandatory when using DHL Express as carrier."
           },
           "label": {
             "$ref": "#/components/schemas/label"
@@ -3792,7 +3792,7 @@
           },
           "description": {
             "type": "string",
-            "description": "text that describes the contents of the shipment. This parameter is mandatory if you're using UPS and the following conditions are true: from and to countries are not the same; from and/or to countries are not in the EU; from and to countries are in the EU and the shipments service is not 'standard'. The parameter is also mandatory when using DHL Express as carrier."
+            "description": "text that describes the contents of the shipment. This parameter is mandatory if you're using UPS and the following conditions are true: from and to countries are not the same; from and/or to countries are not in the EU; from and to countries are in the EU and the shipments service is not `standard`. The parameter is also mandatory when using DHL Express as carrier."
           },
           "label": {
             "$ref": "#/components/schemas/label"
