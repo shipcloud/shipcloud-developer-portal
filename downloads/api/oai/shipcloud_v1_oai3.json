@@ -3270,6 +3270,18 @@
           "description": {
             "type": "string",
             "description": "if you're using UPS with service `returns` this is mandatory otherwise it's optional"
+          },
+          "type": {
+            "type": "string",
+            "description": "type of shipment you would like to book",
+            "enum": [
+              "books",
+              "bulk",
+              "letter",
+              "parcel",
+              "parcel_letter"
+            ],
+            "default": "parcel"
           }
         },
         "required": ["width", "height", "length", "weight"],
