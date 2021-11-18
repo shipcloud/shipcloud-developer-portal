@@ -1088,7 +1088,7 @@
                     ]
                   },
                   "package": {
-                    "$ref": "#/components/schemas/package"
+                    "$ref": "#/components/schemas/package_minimal"
                   }
                 },
                 "required": [
@@ -3235,6 +3235,47 @@
         "description": "label specific definitions"
       },
       "package": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/package_minimal"
+          },
+          {
+            "properties": {
+              "declared_value": {
+                "type": "object",
+                "description": "Object that is used for booking an additional insurance at the carrier (if applicable)",
+                "properties": {
+                  "amount": {
+                    "type": "number",
+                    "description": "The total amount of the goods value that an additional insurance should be booked for"
+                  },
+                  "currency": {
+                    "type": "string",
+                    "description": "The currency used. Currently only EUR is applicable"
+                  }
+                }
+              },
+              "description": {
+                "type": "string",
+                "description": "if you're using UPS with service `returns` this is mandatory otherwise it's optional"
+              },
+              "type": {
+                "type": "string",
+                "description": "type of shipment you would like to book",
+                "enum": [
+                  "books",
+                  "bulk",
+                  "letter",
+                  "parcel",
+                  "parcel_letter"
+                ],
+                "default": "parcel"
+              }
+            }
+          }
+        ]
+      },
+      "package_minimal": {
         "type": "object",
         "properties": {
           "height": {
@@ -3252,36 +3293,6 @@
           "width": {
             "type": "number",
             "description": "Width of the parcel in cm"
-          },
-          "declared_value": {
-            "type": "object",
-            "description": "Object that is used for booking an additional insurance at the carrier (if applicable)",
-            "properties": {
-              "amount": {
-                "type": "number",
-                "description": "The total amount of the goods value that an additional insurance should be booked for"
-              },
-              "currency": {
-                "type": "string",
-                "description": "The currency used. Currently only EUR is applicable"
-              }
-            }
-          },
-          "description": {
-            "type": "string",
-            "description": "if you're using UPS with service `returns` this is mandatory otherwise it's optional"
-          },
-          "type": {
-            "type": "string",
-            "description": "type of shipment you would like to book",
-            "enum": [
-              "books",
-              "bulk",
-              "letter",
-              "parcel",
-              "parcel_letter"
-            ],
-            "default": "parcel"
           }
         },
         "required": ["width", "height", "length", "weight"],
