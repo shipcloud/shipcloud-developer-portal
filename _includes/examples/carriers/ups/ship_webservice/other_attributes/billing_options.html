@@ -1,0 +1,205 @@
+<h4 id="ship-webservice---billing-options" class="text-blue">
+  Billing options
+</h4>
+
+<p>
+  Using the <code>billing_options</code> attribut, you can determine who is responsible for
+  paying for transportation and/or duties and taxes for a given shipment.
+</p>
+<p class="mt-m">
+  The following options are available:
+  <ul class="list-inside list-disc">
+    <li>
+      <code>sender</code>, the sender of the shipment will pay
+    </li>
+    <li>
+      <code>receiver</code>, the receiver of the shipment will pay
+    </li>
+    <li>
+      <code>third_party</code>, a third party will pay
+    </li>
+  </ul>
+</p>
+<div class="mt-m bg-grey-light border-t-4 border-grey-darker text-grey-darker rounded-b px-4 py-3 shadow-md my-2" role="alert">
+  <div class="flex">
+    <div>
+      <i class="fas fa-info-circle h-6 w-6 mr-4"></i>
+    </div>
+    <div>
+      <p>
+        If you don't provide billing options, transportation will be billed to the sender. In UPS
+        terms, this is called pre payed. <code>P/P</code> will beprinted on the shipping label.
+      </p>
+      <p class="mt-m">
+        Another common use case, especially in a B2B setting, is called bill receiver, where the
+        receiver of a shipment pays for the tansportation of a shipment. You will receive a shipment
+        where the following is printed on the shipping label <code>F/C BILL RECEIVER + Acc# +
+        ISO-Code</code>.
+      </p>
+    </div>
+  </div>
+</div>
+
+<p class="mt-m">
+  <strong>Requirements:</strong>
+</p>
+<ul class="list-inside list-disc">
+  <li>
+    You'll have to use your own UPS contract
+  </li>
+  <li>
+    When <code>receiver</code> or <code>third_party</code> has to pay, you will have to provide the
+    attributes <code>account_number</code>, <code>zip_code</code> and <code>country</code>
+  </li>
+  <li>
+    Determining who will pay for <code>transportation</code> is applicable for domestic and
+    international shipments
+  </li>
+  <li>
+    Determining who will pay for <code>duties_and_taxes</code> is only applicable for international
+    shipments
+  </li>
+</ul>
+
+<section class="shadow my-m">
+  <article class="border-b">
+    <div class="border-l-2 border-transparent">
+      {% include utils/toggle_element.html target="#ship_webservice_customs_declaration_togglebox" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="ship_webservice_customs_declaration_togglebox">
+        <div class="mt-m">
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "company": "Apple Inc.",
+    "first_name": "Tim",
+    "last_name": "Cook",
+    "street": "Infinite Loop",
+    "street_no": "1",
+    "zip_code": "95014",
+    "city": "Cupertino",
+    "state": "CA",
+    "country": "US",
+    "phone": "408-996-1010"
+  },
+  "package": {
+    "weight": 0.5,
+    "length": 20,
+    "width": 15,
+    "height": 5,
+    "type": "parcel"
+  },
+  "description": "Alcoholic beverages",
+  "billing": {
+    "transportation": "sender",
+    "duties_and_taxes": "sender"
+  },
+  "customs_declaration": {
+    "contents_type": "commercial_goods",
+    "contents_explanation": "Alcoholic beverages",
+    "currency": "EUR",
+    "additional_fees": 0.0,
+    "drop_off_location": "DE",
+    "posting_date": "2017-10-07",
+    "invoice_number": "123ABC",
+    "total_value_amount": 247,
+    "items": [{
+        "origin_country": "DE",
+        "description": "Linkwood 25 years",
+        "hs_tariff_number": "501293884",
+        "quantity": "1",
+        "value_amount": "138.50",
+        "net_weight": "0.8"
+      },
+      {
+        "origin_country": "DE",
+        "description": "Caol Ila 18 years",
+        "hs_tariff_number": "123384890",
+        "quantity": "1",
+        "value_amount": "108.50",
+        "net_weight": "0.8"
+      }
+    ]
+  },
+  "carrier": "{{page.carrier}}",
+  "service": "standard",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
+
+<p class="mt-m">
+  <strong>Common use cases:</strong>
+</p>
+<table class="table-auto">
+  <thead>
+    <tr>
+      <th class="border px-4 py-2">Transportation charges</th>
+      <th class="border px-4 py-2">Duties and taxes</th>
+      <th class="border px-4 py-2 text-left">String on label</th>
+      <th class="border px-4 py-2 text-left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="border px-4 py-2">Sender</td>
+      <td class="border px-4 py-2">-</td>
+      <td class="border px-4 py-2">P/P</td>
+      <td class="border px-4 py-2">Shipper pays transportation charges (also referred to as "Prepaid")</td>
+    </tr>
+    <tr class="bg-gray-100">
+      <td class="border px-4 py-2">Sender</td>
+      <td class="border px-4 py-2">Sender</td>
+      <td class="border px-4 py-2">F/D</td>
+      <td class="border px-4 py-2">Shipper pays all charges (also referred to as "Free Domicile")</td>
+    </tr>
+    <tr>
+      <td class="border px-4 py-2">Sender</td>
+      <td class="border px-4 py-2">Third party</td>
+      <td class="border px-4 py-2">P/P TPR + Acc# + ISO-Code</td>
+      <td class="border px-4 py-2">Shipper pays transportation charges; a third party (could be in another country) pays the duties and taxes</td>
+    </tr>
+    <tr class="bg-gray-100">
+      <td class="border px-4 py-2">Receiver</td>
+      <td class="border px-4 py-2">-</td>
+      <td class="border px-4 py-2">F/C BILL RECEIVER + Acc# + ISO-Code</td>
+      <td class="border px-4 py-2">Receiver pays transportation charges</td>
+    </tr>
+    <tr>
+      <td class="border px-4 py-2">Receiver</td>
+      <td class="border px-4 py-2">Receiver</td>
+      <td class="border px-4 py-2">F/C RECEIVER + Acc#</td>
+      <td class="border px-4 py-2">Receiver pays all charges (also referred to as "Freight Collect")</td>
+    </tr>
+    <tr class="bg-gray-100">
+      <td class="border px-4 py-2">Third Party</td>
+      <td class="border px-4 py-2">-</td>
+      <td class="border px-4 py-2">P/P TPS + Acc# + ISO-Code</td>
+      <td class="border px-4 py-2">A third party pays transportation charges</td>
+    </tr>
+    <tr>
+      <td class="border px-4 py-2">Third Party</td>
+      <td class="border px-4 py-2">Third Party</td>
+      <td class="border px-4 py-2">F/D TPS + Acc# + ISO-Code</td>
+      <td class="border px-4 py-2">A third party pays all charges</td>
+    </tr>
+  </tbody>
+</table>
+
