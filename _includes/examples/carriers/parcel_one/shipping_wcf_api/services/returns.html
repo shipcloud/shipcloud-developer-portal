@@ -1,0 +1,99 @@
+<h4 id="{{ include.carrier_interface | slugify }}---returns" class="text-blue">
+  Returns
+</h4>
+
+<p>
+  A shipment that the customer sends back to the store / sender
+</p>
+
+<div class="mt-m bg-grey-light border-t-4 border-grey-darker text-grey-darker rounded-b px-4 py-3 shadow-md my-2" role="alert">
+  <div class="flex">
+    <div>
+      <i class="fas fa-info-circle h-6 w-6 mr-4"></i>
+    </div>
+    <div>
+      <strong>Notice</strong>:
+      The carrier is working in partnership with (their) "local heroes". This means that you can't
+      specify the carrier that will transport the return shipment. The carrier is chosen by
+      PARCEL.ONE and the shipment will then have to be brought to one of the outlets of the
+      corresponding carrier from the shipping label.
+    </div>
+  </div>
+</div>
+
+<p class="mt-m">
+  <strong>Requirements:</strong>
+</p>
+<ul class="list-inside list-disc">
+  <li>
+    Returns can be send from the following countries:
+    <ul class="list-inside list-disc">
+      <li>Austria (AT)</li>
+      <li>Belgium (BE)</li>
+      <li>Germany (DE)</li>
+      <li>Denmark (DK)</li>
+      <li>Spain (ES)</li>
+      <li>Finland (FI)</li>
+      <li>France (FR)</li>
+      <li>Italy (IT)</li>
+      <li>The Netherlands (NL)</li>
+      <li>Sweden (SE)</li>
+    </ul>
+  </li>
+  <li>
+    <code>label.format</code> has to be <code><em>pdf_a5</em></code>
+  </li>
+  <li>
+    <code>package.type</code> has to be <code><em>parcel</em></code>
+  </li>
+</ul>
+
+<section class="shadow my-m">
+  <article class="border-b">
+    <div class="border-l-2 border-transparent">
+      {% capture target %}#{{include.carrier_interface}}_service_returns_togglebox{% endcapture %}
+      {% include utils/toggle_element.html target=target link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="{{include.carrier_interface}}_service_returns_togglebox">
+          <div class="mt-m">
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "package": {
+    "weight": 0.5,
+    "length": 20,
+    "width": 15,
+    "height": 5,
+    "type": "parcel"
+  },
+  "carrier": "{{page.carrier}}",
+  "service": "returns",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

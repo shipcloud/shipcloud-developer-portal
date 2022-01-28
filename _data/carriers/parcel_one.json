@@ -7,10 +7,16 @@
       "display_name": "ShippingWCF API",
       "implementations": {
         "shipcloud": {
-          "services": [{
-            "display_name": "Standard",
-            "key": "standard"
-          }],
+          "services": [
+            {
+              "display_name": "Standard",
+              "key": "standard"
+            },
+            {
+              "display_name": "Returns",
+              "key": "returns"
+            }
+          ],
           "package_types": [
             {
             "display_name": "Parcel",
