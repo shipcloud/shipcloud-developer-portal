@@ -66,12 +66,16 @@
             }
           ],
           "other_attributes": [{
-              "display_name": "Declared value",
-              "key": "declared_value"
+              "display_name": "Billing options",
+              "key": "billing_options"
             },
             {
               "display_name": "Customs declaration",
               "key": "customs_declaration"
+            },
+            {
+              "display_name": "Declared value",
+              "key": "declared_value"
             }
           ],
           "label_formats": [{
