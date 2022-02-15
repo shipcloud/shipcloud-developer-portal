@@ -104,8 +104,15 @@ POST https://api.shipcloud.io/v1/shipments
   },
   "description": "Alcoholic beverages",
   "billing": {
-    "transportation": "sender",
-    "duties_and_taxes": "sender"
+    "transportation": {
+      "type": "sender"
+    },
+    "duties_and_taxes": {
+      "type": "receiver",
+      "account_number": "12345678",
+      "zip_code": "10001",
+      "country": "US"
+    }
   },
   "customs_declaration": {
     "contents_type": "commercial_goods",

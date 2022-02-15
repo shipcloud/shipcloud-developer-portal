@@ -3564,6 +3564,71 @@
               "ddu_cleared"
             ]
           },
+          "billing": {
+            "type": "object",
+            "properties": {
+              "transportation": {
+                "type": "object",
+                "description": "Determines, who will pay for transportation. This is applicable for domestic and international shipments",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "description": "Providing the key that will determine, who will pay for transportation",
+                    "enum": [
+                      "receiver",
+                      "sender",
+                      "third_party"
+                    ]
+                  },
+                  "account_number": {
+                    "type": "string",
+                    "description": "The account number that will be billed"
+                  },
+                  "zip_code": {
+                    "type": "string",
+                    "description": "The zip code / postalcode associated with the provided account number"
+                  },
+                  "country": {
+                    "type": "string",
+                    "description": "The country code associated with the provided account number"
+                  }
+                },
+                "required": [
+                  "type"
+                ]
+              },
+              "duties_and_taxes": {
+                "type": "object",
+                "description": "Determines, who will pay for duties and taxes. This is only applicable for international shipments",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "description": "Providing the key that will determine, who will pay for duties and taxes",
+                    "enum": [
+                      "receiver",
+                      "sender",
+                      "third_party"
+                    ]
+                  },
+                  "account_number": {
+                    "type": "string",
+                    "description": "The account number that will be billed"
+                  },
+                  "zip_code": {
+                    "type": "string",
+                    "description": "The zip code / postalcode associated with the provided account number"
+                  },
+                  "country": {
+                    "type": "string",
+                    "description": "The country code associated with the provided account number"
+                  }
+                },
+                "required": [
+                  "type"
+                ]
+              }
+            }
+          },
           "additional_services": {
             "type": "array",
             "items": {
