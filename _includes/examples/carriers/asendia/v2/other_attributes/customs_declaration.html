@@ -1,0 +1,97 @@
+<h4 id="v2---customs-declaration" class="text-blue">
+  Customs declaration
+</h4>
+
+<p>
+  If you want to send a shipment to a country where a customs declaration is necessary you can specify
+  this the following way. Detailed information about the parameters can be found in our
+  <a href="{{ site.baseurl }}/reference/#shipments">documentation of creating a shipment</a>.
+</p>
+
+<p class="mt-m">
+  <strong>Requirements:</strong>
+</p>
+<ul class="list-inside list-disc">
+  <li>
+    <code>customs_declaration.currency</code> can be one of the following: DKK, EUR, GBP, HKD, NOK, SEK, SGD, USD
+  </li>
+</ul>
+
+<section class="shadow my-m">
+  <article class="border-b">
+    <div class="border-l-2 border-transparent">
+      {% include utils/toggle_element.html target="#v2_customs_declaration_togglebox" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="v2_customs_declaration_togglebox">
+        <div class="mt-m">
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "company": "Apple Inc.",
+    "first_name": "Tim",
+    "last_name": "Cook",
+    "street": "Infinite Loop",
+    "street_no": "1",
+    "zip_code": "95014",
+    "city": "Cupertino",
+    "state": "CA",
+    "country": "US",
+    "phone": "408-996-1010"
+  },
+  "package": {
+    "weight": 1.9,
+    "length": 20,
+    "width": 15,
+    "height": 5,
+    "type": "parcel"
+  },
+  "customs_declaration": {
+    "contents_type": "commercial_goods",
+    "contents_explanation": "Alcoholic beverages",
+    "currency": "EUR",
+    "additional_fees": 0.0,
+    "drop_off_location": "DE",
+    "posting_date": "2017-10-07",
+    "invoice_number": "123ABC",
+    "total_value_amount": 247,
+    "items": [{
+        "origin_country": "DE",
+        "description": "Linkwood 25 years",
+        "hs_tariff_number": "501293884",
+        "quantity": "1",
+        "value_amount": "138.50",
+        "net_weight": "0.8"
+      },
+      {
+        "origin_country": "DE",
+        "description": "Caol Ila 18 years",
+        "hs_tariff_number": "123384890",
+        "quantity": "1",
+        "value_amount": "108.50",
+        "net_weight": "0.8"
+      }
+    ]
+  },
+  "carrier": "{{page.carrier}}",
+  "service": "asendia_epaq_standard_economy",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

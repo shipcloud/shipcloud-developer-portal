@@ -1,0 +1,72 @@
+{
+  "css_key": "asendia",
+  "display_name": "Asendia",
+  "key": "asendia",
+  "interfaces": {
+    "v2": {
+      "display_name": "Asendia Shipping API V2",
+      "implementations": {
+        "shipcloud": {
+          "carrier_specifics": [
+            {
+              "display_name": "Manifests",
+              "key": "manifests"
+            },
+            {
+              "display_name": "Requirements",
+              "key": "requirements"
+            }
+          ],
+          "services": [
+            {
+              "display_name": "e-Paq Standard Economy",
+              "key": "asendia_epaq_standard_economy"
+            },
+            {
+              "display_name": "e-Paq Standard Priority",
+              "key": "asendia_epaq_standard_priority"
+            }
+          ],
+          "package_types": [
+            {
+              "display_name": "Parcel",
+              "key": "parcel"
+            }
+          ],
+          "additional_services": [
+            {
+              "display_name": "Bonus Tracking",
+              "key": "asendia_bonus_tracking"
+            }
+          ],
+          "label_formats": [
+            {
+              "pdf": [
+                {
+                  "display_name": "DIN A6",
+                  "key": "pdf_a6"
+                }
+              ]
+            }
+          ],
+          "other_attributes": [
+            {
+              "display_name": "Customs declaration",
+              "key": "customs_declaration"
+            },
+            {
+              "display_name": "Incoterms",
+              "key": "incoterms"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "marketing": {
+    "en": {
+      "help_center": "https://support.shipcloud.io/en/collections/1544045-carriers#asendia",
+      "website": "https://www.shipcloud.io/en/partner/carriers/asendia"
+    }
+  }
+}

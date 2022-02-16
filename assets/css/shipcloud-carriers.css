@@ -22,6 +22,10 @@
   content: "\e900";
 }
 
+.shipcloud-carrier-asendia:before {
+  content: "\e908";
+}
+
 .shipcloud-carrier-cargo-international:before {
   content: "\e901";
 }
@@ -39,7 +43,7 @@
 }
 
 .shipcloud-carrier-mydpd-business:before {
-  content: "\e905";
+  content: "\e909";
 }
 
 .shipcloud-carrier-dpd:before {
@@ -51,11 +55,11 @@
 }
 
 .shipcloud-carrier-go:before {
-  content: "\e908";
+  content: "\e905";
 }
 
 .shipcloud-carrier-hermes:before {
-  content: "\e909";
+  content: "\e90b";
 }
 
 .shipcloud-carrier-parcel-one:before {
@@ -67,5 +71,5 @@
 }
 
 .shipcloud-carrier-ups:before {
-  content: "\e90d";
+  content: "\e910";
 }
