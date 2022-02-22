@@ -1,0 +1,86 @@
+<h4 id="hsi---qr-code-returns" class="text-blue">
+  QR code returns
+</h4>
+
+<p>
+  If you want to enable your customers to reduce their carbon footprint or they do not own a
+  printer, you can provide them with a QR code they can then show at their DHL station to get a
+  returns label.
+</p>
+
+<p class="mt-m">
+  <strong>Notice:</strong>
+</p>
+<ul class="list-outside list-disc pl-m">
+  <li>
+    In contrast to QR code returns from <a href="/carriers/dhl.html#v3---qr-code-returns">DHL</a>
+    and <a href="/carriers/gls.html#web-api---qr-code-returns">GLS</a> where you always receive a
+    QR code and a PDF returns label, the carrier Hermes only returns one or the other.
+  </li>
+</ul>
+
+<p class="mt-m">
+  <strong>Requirements:</strong>
+</p>
+
+<ul class="list-outside list-disc pl-m">
+  <li>
+    You'll have to use your own contract with the carrier
+  </li>
+  <li>
+    Only applicable for domestic returns within Germany
+  </li>
+</ul>
+
+<section class="shadow my-m">
+  <article class="border-b">
+    <div class="border-l-2 border-transparent">
+      {% include utils/toggle_element.html target="#hsi_qr_code_returns_togglebox" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="hsi_qr_code_returns_togglebox">
+        <div class="mt-m">
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "package": {
+    "weight": 0.5,
+    "length": 20,
+    "width": 15,
+    "height": 5,
+    "type": "parcel"
+  },
+  "label_voucher": {
+    "type": "qr_code",
+    "format": "png",
+  },
+  "carrier": "hermes",
+  "service": "returns",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

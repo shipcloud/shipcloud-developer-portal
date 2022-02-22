@@ -42,15 +42,20 @@
               "key": "hermes_identservice"
             }
           ],
-          "other_attributes": [{
-
-            "display_name": "Cover address",
-            "key": "cover_address"
-          },
-          {
-            "display_name": "ParcelShopDeliveryService",
-            "key": "parcel_shop_delivery_service"
-          }],
+          "other_attributes": [
+            {
+              "display_name": "Cover address",
+              "key": "cover_address"
+            },
+            {
+              "display_name": "ParcelShopDeliveryService",
+              "key": "parcel_shop_delivery_service"
+            },
+            {
+              "display_name": "QR code returns",
+              "key": "qr_code_returns"
+            }
+          ],
           "label_formats": [{
             "pdf": [
               {
