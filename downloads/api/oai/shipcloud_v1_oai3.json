@@ -322,8 +322,14 @@
                     "type": "object",
                     "properties": {
                       "name": {
-                        "type": "string",
-                        "description": "key for referencing the carrier within shipcloud"
+                        "allOf": [
+                          {
+                            "$ref": "#/components/schemas/carrier_shipping"
+                          },
+                          {
+                            "description": "key for referencing the carrier within shipcloud"
+                          }
+                        ]
                       },
                       "display_name": {
                         "type": "string",
