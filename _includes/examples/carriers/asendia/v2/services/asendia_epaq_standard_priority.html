@@ -1,0 +1,68 @@
+<h4 id="v2---asendia-epaq-standard-priority" class="text-blue">
+  e-Paq Standard Priority
+</h4>
+
+<p>
+  The service "<a href="https://www.asendia.com/e-paq#e-PAQStandard" target="_blank">e-Paq Standard</a> Priority" is a
+  standard service without tracking and with the modifier "Priority" to speed up the shipping time for more urgent
+  cross-border shipments.
+</p>
+
+<p class="mt-m">
+  <strong>Additional requirements </strong>
+  <span class="text-sm">
+    (<a href="#{{ include.carrier_interface | slugify }}---requirements">see global requirements</a>)</span><strong>:</strong>
+</p>
+<ul class="list-inside list-disc">
+  <li>Only applicable for shipments up to 2,000g</li>
+  <li>Maximum dimensions: longest side 600mm, length + width + thickness combined 900mm</li>
+</ul>
+
+<section class="shadow my-m">
+  <article class="border-b">
+    <div class="border-l-2 border-transparent">
+      {% include utils/toggle_element.html target="#v2_asendia_epaq_standard_priority" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="v2_asendia_epaq_standard_priority">
+        <div class="mt-m">
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Wien",
+    "zip_code": "1000",
+    "country": "AT"
+  },
+  "package": {
+    "weight": 0.5,
+    "length": 20,
+    "width": 15,
+    "height": 5,
+    "type": "parcel"
+  },
+  "carrier": "{{page.carrier}}",
+  "service": "asendia_epaq_standard_priority",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

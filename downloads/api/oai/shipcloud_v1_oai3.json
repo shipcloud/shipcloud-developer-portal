@@ -644,6 +644,128 @@
         }
       }
     },
+    "/manifest": {
+      "post": {
+        "description": "Create a manifest",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/manifest"
+              },
+              "examples": {
+                "Asendia manifest": {
+                  "value": {
+                    "carrier": "asendia",
+                    "posting_hub_address": {
+                      "company": "Muster-Company",
+                      "first_name": "Max",
+                      "last_name": "Mustermann",
+                      "street": "Musterstraße",
+                      "street_no": "42",
+                      "zip_code": "54321",
+                      "city": "Musterstadt",
+                      "country": "DE",
+                      "email": "max@mustermann.baz",
+                      "phone": "+491234567890"
+                    },
+                    "shipments": [
+                      "c3c25a8786c89341601b131d6ed7f5d80af8aaef",
+                      "4dfcc1b3a5e764d139b1c9e6492e018928071b4f"
+                    ],
+                    "reference_number": "12345ABCDE"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A manifest has been successfully created!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/manifest_response"
+                },
+                "examples": {
+                  "Manifest response example": {
+                    "$ref": "#/components/examples/manifest_response_example"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/manifests/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "The identifier of a previously created manifest",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "description": "Getting information about a manifest",
+        "responses": {
+          "200": {
+            "description": "Detailed information about a single manifest",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/manifest_response"
+                },
+                "examples": {
+                  "Manifest response example": {
+                    "$ref": "#/components/examples/manifest_response_example"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          }
+        }
+      }
+    },
     "/me": {
       "get": {
         "description": "Getting information about the current user",
@@ -2171,6 +2293,40 @@
           }
         ]
       },
+      "manifest_response_example": {
+        "value": {
+          "id": "3a186c51d4281acbecf5ed38805b1db92a9d668b",
+          "carrier": "asendia",
+          "carrier_reference_number": "1313252761",
+          "posting_hub_address": {
+            "id": "ce76939d-1a32-4185-8467-a5dafbdf99f2",
+            "company": "Muster-Company",
+            "first_name": "Max",
+            "last_name": "Mustermann",
+            "care_of": null,
+            "street": "Musterstraße",
+            "street_no": "42",
+            "zip_code": "54321",
+            "city": "Musterstadt",
+            "state": null,
+            "country": "DE",
+            "email": "max@mustermann.baz",
+            "phone": "+491234567890"
+          },
+          "shipments": [
+            "c3c25a8786c89341601b131d6ed7f5d80af8aaef",
+            "4dfcc1b3a5e764d139b1c9e6492e018928071b4f"
+          ],
+          "reference_number": "12345ABCDE",
+          "documents": [
+            {
+              "identifier": "manifest_document",
+              "document_url": "https://documents.shipcloud.io/manifests/1234567e-3f98-9876-907f-50de20200c2e/manifest_documents/manifest_document"
+            }
+          ],
+          "created_at": "2021-05-06T10:43:04Z"
+        }
+      },
       "pickup_requests_example": {
         "value": {
           "carrier": "dpd",
@@ -2962,6 +3118,7 @@
         "type": "string",
         "enum": [
           "angel_de",
+          "asendia",
           "cargo_international",
           "dhl",
           "dhl_express",
@@ -3234,6 +3391,91 @@
         },
         "description": "label specific definitions"
       },
+      "manifest": {
+        "type": "object",
+        "properties": {
+          "carrier": {
+            "type": "string",
+            "description": "Carrier for whom the maifest should be created"
+          },
+          "posting_hub_address": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/address"
+              },
+              {
+                "description": "Address of the hub where the shipments will be overturned to the carrier"
+              }
+            ]
+          },
+          "shipments": {
+            "type": "array",
+            "description": "Array of shipment IDs that are send using this manifest"
+          },
+          "reference_number": {
+            "type": "string",
+            "description": "For referencing the manifest at the carrier"
+          }
+        },
+        "required": [
+          "carrier",
+          "posting_hub_address",
+          "shipments"
+        ]
+      },
+      "manifest_response": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/manifest"
+          },
+          {
+            "properties": {
+              "carrier_reference_number": {
+                "type": "string",
+                "description": "Reference used by the carrier to identify the manifest"
+              },
+              "created_at": {
+                "type": "string",
+                "format": "date-time",
+                "description": "timestamp of when the manifest was created"
+              },
+              "documents": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "description": "Array of document objects",
+                  "properties": {
+                    "document_url": {
+                      "type": "string",
+                      "description": "URL where you can download the manifest in pdf format"
+                    },
+                    "identifier": {
+                      "type": "string",
+                      "description": "An identifier that specifies the type of the document being returned",
+                      "enum": [
+                        "manifest_document"
+                      ]
+                    }
+                  }
+                }
+              },
+              "id": {
+                "type": "string",
+                "description": "identifier of a previously created manifest"
+              }
+            },
+            "required": [
+              "carrier",
+              "carrier_reference_number",
+              "created_at",
+              "documents",
+              "id",
+              "posting_hub_address",
+              "shipments"
+            ]
+          }
+        ]
+      },
       "package": {
         "allOf": [
           {
@@ -3434,6 +3676,8 @@
           "one_day",
           "one_day_early",
           "returns",
+          "asendia_epaq_standard_economy",
+          "asendia_epaq_standard_priority",
           "cargo_international_express",
           "dhl_europaket",
           "dhl_prio",
@@ -3639,6 +3883,7 @@
                   "enum": [
                     "advance_notice",
                     "angel_de_delivery_date_time",
+                    "asendia_bonus_tracking",
                     "cash_on_delivery",
                     "delivery_date",
                     "delivery_note",
