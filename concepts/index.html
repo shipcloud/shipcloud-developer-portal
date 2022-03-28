@@ -495,6 +495,27 @@ POST /shipments
     sending a message to your URL.
   </p>
 
+  <h3 id="webhook-security" class="text-blue mt-m">
+    Security
+  </h3>
+  <p>
+    You can secure the endpoint(s) on your system(s) by using basic authorization. When creating a
+    webhook you provide us a username and (optionally a) password.
+  </p>
+  <div class="mt-m">
+{% highlight json %}
+{
+  "url": "https://example.com/webhook",
+  "event_types": ["shipment.*"],
+  "security": {
+    "type": "basic_auth",
+    "username": "shipcloud_webhook_username",
+    "password": "Very$ecurePassw0rd"
+  }
+}
+{% endhighlight %}
+  </div>
+
   <h3 id="testing" class="text-blue mt-m">
     Testing
   </h3>
