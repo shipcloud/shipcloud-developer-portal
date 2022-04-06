@@ -1,5 +1,5 @@
 <h4 id="v3---dhl-warenpost" class="text-blue">
-  Warenpost (domestic)
+  Warenpost
 </h4>
 
 <p>
@@ -12,19 +12,57 @@
   </em>
 </p>
 
-<p class="mt-m">
+<p id="v3---dhl-warenpost-requirements" class="mt-m">
   <strong>Requirements:</strong>
 </p>
+
 <ul class="list-inside list-disc">
-  <li><code>carrier</code> has to be <code><em>dhl</em></code></li>
-  <li><code>package.type</code> has to be <code><em>parcel</em></code></li>
-  <li><code>service</code> has to be <code><em>dhl_warenpost</em></code></li>
-  <li>The sender and recipient have to be located in Germany</li>
+  <li>
+    <code>carrier</code> has to be <code><em>dhl</em></code>
+  </li>
+  <li>
+    <code>package.type</code> has to be <code><em>parcel</em></code>
+  </li>
+  <li>
+    <code>service</code> has to be <code><em>dhl_warenpost</em></code>
+  </li>
   <li>For shipments up to 1,000g</li>
   <li>Minimum dimensions (l/w/h): 10 x 7 x 0.1cm</li>
   <li>Maximum dimensions (l/w/h): 35.3 x 25 x 5cm</li>
   <li>Minimum volume: 200 items per year</li>
-  <li>you'll have to use your own contract with the carrier</li>
+</ul>
+
+<h5 id="v3---dhl-warenpost-domestic" class="text-blue mt-m">
+  Warenpost (domestic)
+</h5>
+
+<p class="mt-m">
+  <strong>Additional requirements </strong>
+  <span class="text-sm">
+    (<a href="#v3---dhl-warenpost-requirements">see Warenpost requirements</a>)</span><strong>:</strong>
+</p>
+<ul class="list-inside list-disc">
+  <li>The sender and recipient have to be located in Germany</li>
+  <li>
+    Can be used in combination with the following additional services:
+    <ul class="list-inside list-disc">
+      <li>
+        <a href="#v3---advance-notice">Advance Notice</a>
+      </li>
+      <li>
+        <a href="#v3---dhl-gogreen">GoGreen</a>
+      </li>
+      <li>
+        <a href="#v3---dhl-parcel-outlet-routing">Parcel outlet routing</a>
+      </li>
+      <li>
+        <a href="#v3---drop-authorization">Preferred location</a>
+      </li>
+      <li>
+        <a href="#v3---dhl-preferred-neighbor">Preferred neighbor</a>
+      </li>
+    </ul>
+  </li>
 </ul>
 
 <section class="shadow my-m">
@@ -57,6 +95,97 @@ POST https://api.shipcloud.io/v1/shipments
     "city": "Hamburg",
     "zip_code": "20535",
     "country": "DE"
+  },
+  "package": {
+    "weight": 0.5,
+    "length": 20,
+    "width": 15,
+    "height": 5,
+    "type": "parcel"
+  },
+  "carrier": "dhl",
+  "service": "dhl_warenpost",
+  "create_shipping_label": true
+}
+{% endhighlight %}
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
+
+<h5 id="v3---dhl-warenpost-international" class="text-blue mt-l">
+  Warenpost (international)
+</h5>
+
+<p class="mt-m">
+  <strong>Additional requirements </strong>
+  <span class="text-sm">
+    (<a href="#v3---dhl-warenpost-requirements">see Warenpost requirements</a>)</span><strong>:</strong>
+</p>
+<ul class="list-inside list-disc">
+  <li>
+    The recipient has to be located outside of Germany.
+  </li>
+  <li>
+    If you're sending to non EU countries, a
+    <a href="#v3---customs-declaration">customs declaration</a> needs to be added.
+  </li>
+  <li>You'll have to use your own contract with the carrier</li>
+  <li>
+    Can be used in combination with the following additional services:
+    <ul class="list-inside list-disc">
+      <li>
+        <a href="#v3---advance-notice">Advance Notice</a>
+      </li>
+      <li>
+        <a href="#v3---dhl-gogreen">GoGreen</a>
+      </li>
+      <li>
+        <a href="#v3---premium-international">Premium International</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    You can use one of the following label formats:
+    <ul class="list-inside list-disc">
+      <li><code>pdf_a5</code></li>
+      <li><code>pdf_103x199mm</code></li>
+      <li><code>zpl2_103x199mm_203dpi</code></li>
+    </ul>
+  </li>
+</ul>
+
+<section class="shadow my-m">
+  <article class="border-b">
+    <div class="border-l-2 border-transparent">
+      {% include utils/toggle_element.html target="#v3_warenpost_international_togglebox" link_text="Show example"%}
+      <div class="px-4 pb-2 text-grey-darkest hidden" id="v3_warenpost_international_togglebox">
+        <div class="mt-m">
+{% highlight http %}
+POST https://api.shipcloud.io/v1/shipments
+{% endhighlight %}
+
+{% highlight json %}
+{
+  "from": {
+    "first_name": "Serge",
+    "last_name": "Sender",
+    "company": "Sender Corp.",
+    "street": "Sender Str.",
+    "street_no": "99",
+    "zip_code": "20148",
+    "city": "Hamburg",
+    "country": "DE"
+  },
+  "to": {
+    "first_name": "Roger",
+    "last_name": "Receiver",
+    "street": "Receiver Str.",
+    "street_no": "1",
+    "city": "Wien",
+    "zip_code": "1000",
+    "country": "AT"
   },
   "package": {
     "weight": 0.5,
