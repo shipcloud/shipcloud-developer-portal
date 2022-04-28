@@ -2070,21 +2070,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "description": "Trackers allow you to monitor a shipment even though it wasn't created using shipcloud",
-                "properties": {
-                  "url": {
-                    "type": "string",
-                    "description": "The URL the webhook should call"
-                  },
-                  "event_types": {
-                    "description": "The event types the webhook wants to subscribe to",
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/webhook_event_types"
-                    }
-                  }
-                }
+                "$ref": "#/components/schemas/webhook_create_with_basic_auth"
               },
               "examples": {
                 "Creating a basic webhook": {
@@ -2095,6 +2081,9 @@
                     "url": "https://example.com/webhook",
                     "event_types": ["shipment.tracking.*"]
                   }
+                },
+                "Creating a webhook with basic auth": {
+                  "$ref": "#/components/examples/webhook_create_request_object_basic_auth"
                 }
               }
             }
@@ -2111,6 +2100,9 @@
                 "examples": {
                   "Webhook with ID response": {
                     "$ref": "#/components/examples/webhook_with_id_example"
+                  },
+                  "Webhook with basic auth response": {
+                    "$ref": "#/components/examples/webhook_with_basic_auth_example"
                   }
                 }
               }
@@ -2177,8 +2169,11 @@
                   "$ref": "#/components/schemas/webhook_object_with_id"
                 },
                 "examples": {
-                  "Webhook response": {
+                  "Webhook with ID response": {
                     "$ref": "#/components/examples/webhook_with_id_example"
+                  },
+                  "Webhook with basic auth response": {
+                    "$ref": "#/components/examples/webhook_with_basic_auth_example"
                   }
                 }
               }
@@ -3010,6 +3005,17 @@
           ]
         }
       },
+      "webhook_with_basic_auth_example": {
+        "value": {
+          "id": "e0ff4250-6c8e-494d-a069-afd9d566e372",
+          "url": "https://example.com/webhook",
+          "event_types": ["shipment.tracking.delayed", "shipment.tracking.delivered"],
+          "deactivated": false,
+          "security": {
+            "type": "basic_auth"
+          }
+        }
+      },
       "webhook_with_id_example":{
         "value": {
           "id": "e0ff4250-6c8e-494d-a069-afd9d566e372",
@@ -3031,7 +3037,10 @@
               "id": "e0ff4250-6c8e-494d-a069-afd9d566e372",
               "url": "https://example.com/webhook",
               "event_types": ["shipment.tracking.delayed", "shipment.tracking.delivered"],
-              "deactivated": false
+              "deactivated": false,
+              "security": {
+                "type": "basic_auth"
+              }
             }
           ]
         }
@@ -3040,6 +3049,17 @@
         "value" : {
           "url": "https://example.com/webhook",
           "event_types": ["shipment.tracking.delayed", "shipment.tracking.delivered"]
+        }
+      },
+      "webhook_create_request_object_basic_auth": {
+        "value" : {
+          "url": "https://example.com/webhook",
+          "event_types": ["shipment.*"],
+          "security": {
+            "type": "basic_auth",
+            "username": "shipcloud_webhook_username",
+            "password": "Very$ecurePassw0rd"
+          }
         }
       }
     },
@@ -4445,23 +4465,59 @@
         ]
       },
       "webhook_object": {
+        "type": "object",
+        "description": "Webhooks inform your system of events that have happened within the shipcloud platform",
         "properties": {
           "url": {
             "type": "string",
-            "description": "the URL of the webhook"
+            "description": "The URL that the webhook should call"
           },
           "event_types": {
             "type": "array",
+            "description": "Events this webhook should subscribe to",
             "items": {
               "$ref": "#/components/schemas/webhook_event_types"
             }
           },
-          "deactivated": {
-            "type": "boolean",
-            "description": "set to true, if the call of the webhook URL fails ten times."
+          "security": {
+            "type": "object",
+            "description": "Security object to hold data for securing the webhook",
+            "properties": {
+              "type": {
+                "type": "string",
+                "description": "Type of authorization",
+                "enum": [
+                  "basic_auth"
+                ]
+              }
+            }
           }
         },
-        "required": ["id", "url", "event_types"]
+        "required": ["url", "event_types"]
+      },
+      "webhook_create_with_basic_auth": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/webhook_object"
+          },
+          {
+            "properties": {
+              "security": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "description": "The username that should be used (for basic auth)"
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "The password that should be used (for basic auth)"
+                  }
+                }
+              }
+            }
+          }
+        ]
       },
       "webhook_object_with_id": {
         "allOf": [
@@ -4473,6 +4529,10 @@
               "id": {
                 "type": "string",
                 "description": "the webhook id that can be used for requesting info about a webhook"
+              },
+              "deactivated": {
+                "type": "boolean",
+                "description": "set to true, if the call of the webhook URL fails ten times."
               }
             },
             "required": ["id"]
