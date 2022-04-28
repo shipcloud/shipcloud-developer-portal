@@ -42,11 +42,5 @@
         }
       }
     }
-  },
-  "marketing": {
-    "en": {
-      "help_center": "https://support.shipcloud.io/en/collections/1544045-carriers#mydpd-business",
-      "website": "https://www.shipcloud.io/en/partner/carriers/mydpd_business"
-    }
   }
 }
