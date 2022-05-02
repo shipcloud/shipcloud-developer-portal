@@ -826,6 +826,135 @@
         }
       }
     },
+    "/orders": {
+      "post": {
+        "description": "Create a new order.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/order"
+              },
+              "examples": {
+                "Order request example": {
+                  "$ref": "#/components/examples/order_example"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "An order",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/order_with_id"
+                },
+                "examples": {
+                  "Order response example": {
+                    "$ref": "#/components/examples/order_with_id_example"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/orders/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "description": "Getting a previously created order.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/order_with_id"
+                },
+                "examples": {
+                  "Get order example": {
+                    "$ref": "#/components/examples/order_with_id_example"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
     "/pickup_requests": {
       "get": {
         "description": "Get all pickup requests for this user",
@@ -2331,6 +2460,212 @@
           "created_at": "2021-05-06T10:43:04Z"
         }
       },
+      "order_example": {
+        "value": {
+          "placed_at": "2022-01-12T13:39:03+01:00",
+          "external_order_id": "8709500.00.01",
+          "external_customer_id": "27597435",
+          "total_price": 186.85,
+          "total_vat": 0,
+          "currency": "EUR",
+          "total_weight": 0.9,
+          "weight_unit": "kg",
+          "delivery_address": {
+            "company": "Company",
+            "first_name": "Firstname",
+            "last_name": "Lastname",
+            "street": "Street",
+            "street_no": "Streetno",
+            "zip_code": "54321",
+            "city": "City",
+            "country": "DE"
+          },
+          "order_line_items": [
+            {
+              "sku": "656006",
+              "title": {
+                "de": "Item Name",
+                "en": "Item Name",
+                "fallback": "Item Name"
+              },
+              "quantity": 1,
+              "price": 89.95,
+              "vat": 14.36,
+              "currency": "EUR",
+              "weight": 0.45,
+              "weight_unit": "kg",
+              "item_info": [
+                {
+                  "name": {
+                    "de": "Farbe",
+                    "en": "Color",
+                    "fallback": "Farbe"
+                  },
+                  "value": {
+                    "de": "blue-used",
+                    "en": "blue-used",
+                    "fallback": "blue-used"
+                  }
+                },
+                {
+                  "name": {
+                    "de": "Größe",
+                    "en": "Size",
+                    "fallback": "Größe"
+                  },
+                  "value": {
+                    "fallback": "40"
+                  }
+                }
+              ]
+            },
+            {
+              "sku": "655999",
+              "title": {
+                "de": "Item Name",
+                "en": "Item Name",
+                "fallback": "Item Name"
+              },
+              "quantity": 1,
+              "price": 89.95,
+              "vat": 14.36,
+              "currency": "EUR",
+              "weight": 0.45,
+              "weight_unit": "kg",
+              "item_info": [
+                {
+                  "name": {
+                    "de": "Farbe",
+                    "en": "Color",
+                    "fallback": "Farbe"
+                  },
+                  "value": {
+                    "de": "dark-denim",
+                    "en": "dark-denim",
+                    "fallback": "dark-denim"
+                  }
+                },
+                {
+                  "name": {
+                    "de": "Größe",
+                    "en": "Size",
+                    "fallback": "Größe"
+                  },
+                  "value": {
+                    "fallback": "40"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "order_with_id_example": {
+        "value": {
+          "id": "feeb6d6a-dd57-4ade-9ef1-8123bed333f8",
+          "placed_at": "2022-01-12T13:39:03+01:00",
+          "external_order_id": "8709500.00.01",
+          "external_customer_id": "27597435",
+          "total_price": 186.85,
+          "total_vat": 0,
+          "currency": "EUR",
+          "total_weight": 0.9,
+          "weight_unit": "kg",
+          "delivery_address": {
+            "id": "868b5b0b-a236-4a67-a531-b1b1d10e3361",
+            "company": "Company",
+            "first_name": "Firstname",
+            "last_name": "Lastname",
+            "care_of": null,
+            "street": "Street",
+            "street_no": "Streetno",
+            "state": null,
+            "zip_code": "54321",
+            "city": "City",
+            "country": "DE"
+          },
+          "order_line_items": [
+            {
+              "id": "ceec056e-5320-485f-8786-fb2ad3ed6005",
+              "sku": "656006",
+              "title": {
+                "de": "Item Name",
+                "en": "Item Name",
+                "fallback": "Item Name"
+              },
+              "quantity": 1,
+              "price": 89.95,
+              "vat": 14.36,
+              "currency": "EUR",
+              "weight": 0.45,
+              "weight_unit": "kg",
+              "item_info": [
+                {
+                  "name": {
+                    "de": "Farbe",
+                    "en": "Color",
+                    "fallback": "Farbe"
+                  },
+                  "value": {
+                    "de": "blue-used",
+                    "en": "blue-used",
+                    "fallback": "blue-used"
+                  }
+                },
+                {
+                  "name": {
+                    "de": "Größe",
+                    "en": "Size",
+                    "fallback": "Größe"
+                  },
+                  "value": {
+                    "fallback": "40"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "8123c919-f294-4253-ae26-e2ac812a82e4",
+              "sku": "655999",
+              "title": {
+                "de": "Item Name",
+                "en": "Item Name",
+                "fallback": "Item Name"
+              },
+              "quantity": 1,
+              "price": 89.95,
+              "vat": 14.36,
+              "currency": "EUR",
+              "weight": 0.45,
+              "weight_unit": "kg",
+              "item_info": [
+                {
+                  "name": {
+                    "de": "Farbe",
+                    "en": "Color",
+                    "fallback": "Farbe"
+                  },
+                  "value": {
+                    "de": "dark-denim",
+                    "en": "dark-denim",
+                    "fallback": "dark-denim"
+                  }
+                },
+                {
+                  "name": {
+                    "de": "Größe",
+                    "en": "Size",
+                    "fallback": "Größe"
+                  },
+                  "value": {
+                    "fallback": "40"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
       "pickup_requests_example": {
         "value": {
           "carrier": "dpd",
@@ -3578,6 +3913,283 @@
           }
         ]
       },
+      "order": {
+        "type": "object",
+        "description": "An order",
+        "x-examples": {
+          "example-1": {
+            "id": "feeb6d6a-dd57-4ade-9ef1-8123bed333f8",
+            "placed_at": "2022-01-12T13:39:03+01:00",
+            "external_order_id": "8709500.00.01",
+            "external_customer_id": "27597435",
+            "total_price": 186.85,
+            "total_vat": 0,
+            "currency": "EUR",
+            "total_weight": 0.9,
+            "weight_unit": "kg",
+            "delivery_address": null,
+            "order_line_items": []
+          }
+        },
+        "title": "Order",
+        "properties": {
+          "placed_at": {
+            "type": "string",
+            "minLength": 1,
+            "format": "date-time",
+            "description": "Date that shows When the order has been placed"
+          },
+          "external_order_id": {
+            "type": "string",
+            "description": "An external identifier for this order"
+          },
+          "external_customer_id": {
+            "type": "string",
+            "description": "An external identifier for the customer who has placed the order"
+          },
+          "total_price": {
+            "type": "number",
+            "description": "The total amount of the order"
+          },
+          "total_vat": {
+            "type": "number",
+            "description": "The total VAT of the order"
+          },
+          "currency": {
+            "type": "string",
+            "minLength": 1,
+            "enum": [
+              "EUR",
+              "USD",
+              "GBP"
+            ],
+            "description": "Currency that the customer uses for paying the order"
+          },
+          "total_weight": {
+            "type": "number",
+            "description": "Total weight of all items"
+          },
+          "weight_unit": {
+            "enum": [
+              "kg"
+            ],
+            "type": "string",
+            "description": "The unit associated with the weight. Mandatory when `total_weight` is given"
+          },
+          "delivery_address": {
+            "$ref": "#/components/schemas/address"
+          },
+          "order_line_items": {
+            "type": "array",
+            "description": "Array of objects containing the items that have been bought with this order",
+            "items": {
+              "$ref": "#/components/schemas/order_line_item"
+            }
+          }
+        },
+        "required": [
+          "currency",
+          "order_line_items",
+          "total_price",
+          "total_vat"
+        ]
+      },
+      "order_line_item": {
+        "type": "object",
+        "description": "",
+        "x-examples": {
+          "example-1": {
+            "id": "c9a754b8-2ed4-4429-8c98-d15a78e2cc84",
+            "sku": "MET-666",
+            "title": {
+              "de": "CD Metallica - Master of Puppets",
+              "fallback": "CD Metallica - Master of Puppets"
+            },
+            "quantity": 1,
+            "price": 21,
+            "vat": 0.62,
+            "currency": "EUR",
+            "item_info": [
+              {
+                "name": {
+                  "de": "Format",
+                  "fallback": "Format"
+                },
+                "value": {
+                  "de": "Audio CD",
+                  "fallback": "Audio CD"
+                }
+              },
+              {
+                "name": {
+                  "de": "Genre",
+                  "fallback": "Genre"
+                },
+                "value": {
+                  "de": "Metal",
+                  "fallback": "Metal"
+                }
+              }
+            ]
+          }
+        },
+        "title": "Order Line Item",
+        "properties": {
+          "sku": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Stock keeping unit"
+          },
+          "title": {
+            "type": "object",
+            "description": "Display names used for the product",
+            "properties": {
+              "de": {
+                "type": "string",
+                "description": "German title"
+              },
+              "fallback": {
+                "type": "string",
+                "description": "Fallback title"
+              }
+            }
+          },
+          "quantity": {
+            "type": "number",
+            "description": "Quantity of this item in the order"
+          },
+          "price": {
+            "type": "number",
+            "description": "Price the customer has to pay for a single item"
+          },
+          "vat": {
+            "type": "number",
+            "description": "VAT one has to pay for a single item"
+          },
+          "currency": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Currency the item has to be payed in"
+          },
+          "gtin": {
+            "type": "string",
+            "maxLength": 14,
+            "description": "Global trade item number (https://www.gs1.org/standards/id-keys/gtin)"
+          },
+          "weight": {
+            "type": "number",
+            "description": "How much a single item is weighing"
+          },
+          "weight_unit": {
+            "type": "string",
+            "description": "Unit used for the weight measurement",
+            "enum": [
+              "kg"
+            ]
+          },
+          "external_order_line_item_id": {
+            "type": "string",
+            "description": "An external identifier for this order line item"
+          },
+          "item_info": {
+            "type": "array",
+            "description": "Information about this variant version of the product",
+            "uniqueItems": false,
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "object",
+                  "description": "Name of the product variant",
+                  "properties": {
+                    "de": {
+                      "type": "string",
+                      "description": "German name of the product variant property"
+                    },
+                    "fallback": {
+                      "type": "string",
+                      "description": "Fallback name of the product variant property"
+                    }
+                  }
+                },
+                "value": {
+                  "type": "object",
+                  "description": "Value of the product variant property",
+                  "properties": {
+                    "de": {
+                      "type": "string",
+                      "description": "Value of the product variant property in German"
+                    },
+                    "fallback": {
+                      "type": "string",
+                      "description": "Fallback value of the product variant property"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "sku",
+          "title",
+          "quantity",
+          "price",
+          "vat",
+          "currency"
+        ]
+      },
+      "order_line_item_with_id": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/order_line_item"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid",
+                "readOnly": true,
+                "description": "identifier of a previously created order line item"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          }
+        ]
+      },
+      "order_with_id": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/order"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "identifier of a previously created order",
+                "format": "uuid",
+                "readOnly": true
+              },
+              "delivery_address": {
+                "$ref": "#/components/schemas/address_with_id"
+              },
+              "order_line_items": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/order_line_item_with_id"
+                }
+              }
+            },
+            "required": [
+              "id"
+            ]
+          }
+        ]
+      },
       "package": {
         "allOf": [
           {
@@ -4140,6 +4752,47 @@
           },
           "customs_declaration": {
             "$ref": "#/components/schemas/customs_declaration"
+          },
+          "order_id": {
+            "type": "string",
+            "description": "Identifier of a previously created order."
+          },
+          "returned_items": {
+            "type": "array",
+            "description": "List of items that get returned with this shipment",
+            "items": {
+              "type": "object",
+              "properties": {
+                "order_line_item_id": {
+                  "type": "string",
+                  "description": "UUID of the corresponding order line item within an order"
+                },
+                "quantity": {
+                  "type": "number",
+                  "description": "Number that defines how many items of this kind are in the shipment"
+                },
+                "reason_for_return": {
+                  "type": "string",
+                  "description": "A key that represents the reason why the item(s) will be returned",
+                  "enum": [
+                    "delivery_too_late",
+                    "delivery_wrong_product",
+                    "garment_expectation_failed_style",
+                    "garment_too_large",
+                    "garment_too_long",
+                    "garment_too_short",
+                    "garment_too_small",
+                    "ordered_choices",
+                    "other",
+                    "product_description_differing",
+                    "product_expectation_failed_color",
+                    "product_expectation_failed_material",
+                    "product_expectation_failed_price",
+                    "product_faulty"
+                  ]
+                }
+              }
+            }
           },
           "create_shipping_label": {
             "type": "boolean",
