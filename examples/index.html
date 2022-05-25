@@ -76,20 +76,6 @@ nav: examples
 </section>
 
 <section class="my-m">
-  <h2 id="saturday-delivery" class="text-blue">
-    Saturday delivery
-  </h2>
-  <p>
-    For carriers who don't support saturday delivery naturally, you will have to specify that
-    delivery on a saturday has to happen.
-  </p>
-  <p class="mt-m font-bold">
-    Available for the following carriers:
-  </p>
-  {% include utils/supported_additional_service_list_creator.html additional_service="saturday_delivery" %}
-</section>
-
-<section class="my-m">
   <h2 id="order-api" class="text-blue">
     Order API
   </h2>
@@ -303,4 +289,18 @@ nav: examples
   }
 }
 {% endhighlight %}
+</section>
+
+<section class="my-m">
+  <h2 id="saturday-delivery" class="text-blue">
+    Saturday delivery
+  </h2>
+  <p>
+    For carriers who don't support saturday delivery naturally, you will have to specify that
+    delivery on a saturday has to happen.
+  </p>
+  <p class="mt-m font-bold">
+    Available for the following carriers:
+  </p>
+  {% include utils/supported_additional_service_list_creator.html additional_service="saturday_delivery" %}
 </section>
