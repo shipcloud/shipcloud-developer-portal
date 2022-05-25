@@ -1,0 +1,104 @@
+{
+  "id": "feeb6d6a-dd57-4ade-9ef1-8123bed333f8",
+  "placed_at": "2022-01-12T13:39:03+01:00",
+  "external_order_id": "8709500.00.01",
+  "external_customer_id": "27597435",
+  "total_price": 186.85,
+  "total_vat": 0,
+  "currency": "EUR",
+  "total_weight": 0.9,
+  "weight_unit": "kg",
+  "delivery_address": {
+    "id": "868b5b0b-a236-4a67-a531-b1b1d10e3361",
+    "company": "Company",
+    "first_name": "Firstname",
+    "last_name": "Lastname",
+    "care_of": null,
+    "street": "Street",
+    "street_no": "Streetno",
+    "state": null,
+    "zip_code": "54321",
+    "city": "City",
+    "country": "DE"
+  },
+  "order_line_items": [
+    {
+      "id": "ceec056e-5320-485f-8786-fb2ad3ed6005",
+      "sku": "656006",
+      "title": {
+        "de": "Item Name",
+        "en": "Item Name",
+        "fallback": "Item Name"
+      },
+      "quantity": 1,
+      "price": 89.95,
+      "vat": 14.36,
+      "currency": "EUR",
+      "weight": 0.45,
+      "weight_unit": "kg",
+      "item_info": [
+        {
+          "name": {
+            "de": "Farbe",
+            "en": "Color",
+            "fallback": "Farbe"
+          },
+          "value": {
+            "de": "blue-used",
+            "en": "blue-used",
+            "fallback": "blue-used"
+          }
+        },
+        {
+          "name": {
+            "de": "Größe",
+            "en": "Size",
+            "fallback": "Größe"
+          },
+          "value": {
+            "fallback": "40"
+          }
+        }
+      ]
+    },
+    {
+      "id": "8123c919-f294-4253-ae26-e2ac812a82e4",
+      "sku": "655999",
+      "title": {
+        "de": "Item Name",
+        "en": "Item Name",
+        "fallback": "Item Name"
+      },
+      "quantity": 1,
+      "price": 89.95,
+      "vat": 14.36,
+      "currency": "EUR",
+      "weight": 0.45,
+      "weight_unit": "kg",
+      "item_info": [
+        {
+          "name": {
+            "de": "Farbe",
+            "en": "Color",
+            "fallback": "Farbe"
+          },
+          "value": {
+            "de": "dark-denim",
+            "en": "dark-denim",
+            "fallback": "dark-denim"
+          }
+        },
+        {
+          "name": {
+            "de": "Größe",
+            "en": "Size",
+            "fallback": "Größe"
+          },
+          "value": {
+            "fallback": "40"
+          }
+        }
+      ]
+    }
+  ]
+}
