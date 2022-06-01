@@ -3961,21 +3961,6 @@
       "order": {
         "type": "object",
         "description": "An order",
-        "x-examples": {
-          "example-1": {
-            "id": "feeb6d6a-dd57-4ade-9ef1-8123bed333f8",
-            "placed_at": "2022-01-12T13:39:03+01:00",
-            "external_order_id": "8709500.00.01",
-            "external_customer_id": "27597435",
-            "total_price": 186.85,
-            "total_vat": 0,
-            "currency": "EUR",
-            "total_weight": 0.9,
-            "weight_unit": "kg",
-            "delivery_address": null,
-            "order_line_items": []
-          }
-        },
         "title": "Order",
         "properties": {
           "placed_at": {
@@ -4042,42 +4027,6 @@
       "order_line_item": {
         "type": "object",
         "description": "",
-        "x-examples": {
-          "example-1": {
-            "id": "c9a754b8-2ed4-4429-8c98-d15a78e2cc84",
-            "sku": "MET-666",
-            "title": {
-              "de": "CD Metallica - Master of Puppets",
-              "fallback": "CD Metallica - Master of Puppets"
-            },
-            "quantity": 1,
-            "price": 21,
-            "vat": 0.62,
-            "currency": "EUR",
-            "item_info": [
-              {
-                "name": {
-                  "de": "Format",
-                  "fallback": "Format"
-                },
-                "value": {
-                  "de": "Audio CD",
-                  "fallback": "Audio CD"
-                }
-              },
-              {
-                "name": {
-                  "de": "Genre",
-                  "fallback": "Genre"
-                },
-                "value": {
-                  "de": "Metal",
-                  "fallback": "Metal"
-                }
-              }
-            ]
-          }
-        },
         "title": "Order Line Item",
         "properties": {
           "sku": {
