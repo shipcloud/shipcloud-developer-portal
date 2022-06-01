@@ -1627,6 +1627,9 @@
                 },
                 "Shipment to a DHL Packstation": {
                   "$ref": "#/components/examples/shipment_create_request_example_packstation"
+                },
+                "Shipment with returned items": {
+                  "$ref": "#/components/examples/shipment_create_request_example_returned_items"
                 }
               }
             }
@@ -2931,6 +2934,48 @@
           "service": "standard",
           "reference_number": "ref123456",
           "notification_email": "person@example.com",
+          "create_shipping_label": true
+        }
+      },
+      "shipment_create_request_example_returned_items": {
+        "value": {
+          "from": {
+            "first_name": "Serge",
+            "last_name": "Sender",
+            "street": "Sender Str. 99",
+            "zip_code": "20148",
+            "city": "Hamburg",
+            "country": "DE"
+          },
+          "to": {
+            "company": "Receiver Inc.",
+            "last_name": "Mustermann",
+            "street": "Beispielstrasse 42",
+            "city": "Hamburg",
+            "zip_code": "22100",
+            "country": "DE"
+          },
+          "package": {
+            "weight": 1.5,
+            "length": 20,
+            "width": 20,
+            "height": 20,
+            "type": "parcel"
+          },
+          "carrier": "dhl",
+          "service": "standard",
+          "returned_items": [
+            {
+              "order_line_item_id": "3198c529-d294-4ab4-a29e-160ad9c6d719",
+              "quantity": 1,
+              "reason_for_return": "garment_expectation_failed_style"
+            },
+            {
+              "order_line_item_id": "f38e1d1f-c165-4699-8568-c2a3aaf289b0",
+              "quantity": 4,
+              "reason_for_return": "delivery_too_late"
+            }
+          ],
           "create_shipping_label": true
         }
       },
