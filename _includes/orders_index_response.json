@@ -1,0 +1,110 @@
+[
+  {
+    "id": "67aeb18a-f4ef-4d68-abb4-3aa309c71fa5",
+    "placed_at": "2022-04-01T14:39:03+02:00",
+    "external_order_id": "Rechnung-1234",
+    "external_customer_id": "Kunde-1234",
+    "total_price": 186.85,
+    "total_vat": 0.0,
+    "currency": "EUR",
+    "total_weight": 0.9,
+    "weight_unit": "kg",
+    "delivery_address": {
+      "id": "4e56e24f-59f9-4c12-b373-0798279fa91f",
+      "company": "Company",
+      "first_name": "Firstname",
+      "last_name": "Lastname",
+      "street": "Street",
+      "street_no": "42",
+      "zip_code": "54321",
+      "city": "City",
+      "country": "DE"
+    },
+    "order_line_items": [
+      {
+        "id": "81d28907-ffc5-4868-80e3-24a247fc7798",
+        "sku": "11223344",
+        "title": {
+          "de": "Toto - Africa",
+          "en": "Toto - Africa",
+          "default": "Toto - Africa"
+        },
+        "quantity": 1,
+        "price": 10.95,
+        "vat": 1.36,
+        "currency": "EUR",
+        "weight": 0.1,
+        "weight_unit": "kg"
+      },
+      {
+        "id": "e68f47d7-49e3-461d-aa80-fd04af70e4d5",
+        "sku": "234567",
+        "title": {
+          "de": "Fast \u0026 Furious",
+          "en": "Fast \u0026 Furious",
+          "default": "Fast \u0026 Furious"
+        },
+        "quantity": 1,
+        "price": 6.5,
+        "vat": 0.36,
+        "currency": "EUR",
+        "weight": 0.2,
+        "weight_unit": "kg"
+      }
+    ]
+  },
+  {
+    "id": "c537be77-7ed1-431a-a69d-93407cb7db8e",
+    "placed_at": "2022-01-12T13:39:03+01:00",
+    "external_order_id": "Rechnung-5678",
+    "external_customer_id": "Kunde-1234",
+    "total_price": 186.85,
+    "total_vat": 0.0,
+    "currency": "EUR",
+    "total_weight": 0.9,
+    "weight_unit": "kg",
+    "delivery_address": {
+      "id": "6b2fbc32-4523-4a7a-9506-80ddfc448c49",
+      "company": "Company",
+      "first_name": "Firstname",
+      "last_name": "Lastname",
+      "street": "Street",
+      "street_no": "42",
+      "zip_code": "54321",
+      "city": "City",
+      "country": "DE"
+    },
+    "order_line_items": [
+      {
+        "id": "e880a792-baed-48f4-b079-2477eb17f068",
+        "sku": "345678",
+        "title": {
+          "de": "Jeans",
+          "en": "Jeans",
+          "default": "Jeans"
+        },
+        "quantity": 1,
+        "price": 89.95,
+        "vat": 14.36,
+        "currency": "EUR",
+        "weight": 0.45,
+        "weight_unit": "kg"
+      },
+      {
+        "id": "2b3f9da9-8d0b-46f8-be27-76f9203a9836",
+        "sku": "234567",
+        "title": {
+          "de": "Jacke",
+          "en": "Jacket",
+          "default": "Jacke"
+        },
+        "quantity": 1,
+        "price": 89.95,
+        "vat": 14.36,
+        "currency": "EUR",
+        "weight": 0.45,
+        "weight_unit": "kg"
+      }
+    ]
+  }
+]

@@ -488,8 +488,6 @@ no payload
       </div>
     </div>
   </div>
-
-
   <div class="flex">
     <div class="block px-4 w-7/12">
       <div class="px-l">
@@ -650,6 +648,51 @@ no payload
   <div class="flex">
     <div class="block px-4 w-7/12">
       <div class="px-l">
+        <h3 class="mt-l" id="getting-a-list-of-orders">
+          Getting a list of previously created orders
+        </h3>
+        <p class="mt-m">
+          <a href="{{ site.baseurl }}/swagger-ui/#/default/get_orders" data-proofer-ignore>
+            <img src="{{site.baseurl}}/assets/images/logos/oai.png" alt="OpenAPI" width="20" height="20" style="display: inline-block; vertical-align: top;" class="mr-s" />View the OpenAPI spec
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="bg-blue-dark w-4/12 flex-grow">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l h-full">
+        <h4 class="mt-l">
+          Request
+        </h4>
+
+        <p class="my-m">
+          <button class="px-2 py-1 rounded bg-green text-white font bold">GET</button> <strong>/v1/orders</strong>
+        </p>
+
+{% highlight shell %}
+no payload
+{% endhighlight %}
+      </div>
+    </div>
+    <div class="bg-blue-dark px-xl w-4/12 flex-grow">
+      <div class="pb-l h-full">
+        <h4 class="mt-l text-white">
+          Response
+        </h4>
+
+        {% include headers/200_ok.html %}
+{% highlight json %}
+{% include orders_index_response.json %}
+{% endhighlight %}
+      </div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
         <h3 class="mt-l" id="getting-information-about-an-order">
           Getting information about an order
         </h3>
@@ -690,9 +733,6 @@ no payload
       </div>
     </div>
   </div>
-
-
-
   <div class="flex">
     <div class="block px-4 w-7/12">
       <div class="px-l">
