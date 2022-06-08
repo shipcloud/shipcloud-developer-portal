@@ -4397,6 +4397,7 @@
           },
           {
             "type": "object",
+            "title": "Order Line Item (with IDs)",
             "properties": {
               "id": {
                 "type": "string",
