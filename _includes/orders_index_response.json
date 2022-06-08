@@ -2,6 +2,7 @@
   {
     "id": "67aeb18a-f4ef-4d68-abb4-3aa309c71fa5",
     "placed_at": "2022-04-01T14:39:03+02:00",
+    "refundable_until": "2022-05-18T12:30:15+01:00",
     "external_order_id": "Rechnung-1234",
     "external_customer_id": "Kunde-1234",
     "total_price": 186.85,

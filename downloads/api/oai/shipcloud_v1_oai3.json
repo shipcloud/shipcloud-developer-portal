@@ -880,6 +880,7 @@
                   {
                     "id": "67aeb18a-f4ef-4d68-abb4-3aa309c71fa5",
                     "placed_at": "2022-04-01T14:39:03+02:00",
+                    "refundable_until": "2022-05-18T12:30:15+01:00",
                     "external_order_id": "Rechnung-1234",
                     "external_customer_id": "Kunde-1234",
                     "total_price": 186.85,
@@ -2659,6 +2660,7 @@
       "order_example": {
         "value": {
           "placed_at": "2022-01-12T13:39:03+01:00",
+          "refundable_until": "2022-05-18T12:30:15+01:00",
           "external_order_id": "8709500.00.01",
           "external_customer_id": "27597435",
           "total_price": 186.85,
@@ -2760,6 +2762,7 @@
         "value": {
           "id": "feeb6d6a-dd57-4ade-9ef1-8123bed333f8",
           "placed_at": "2022-01-12T13:39:03+01:00",
+          "refundable_until": "2022-05-18T12:30:15+01:00",
           "external_order_id": "8709500.00.01",
           "external_customer_id": "27597435",
           "total_price": 186.85,
@@ -4243,6 +4246,11 @@
               "GBP"
             ],
             "description": "Currency that the customer uses for paying the order"
+          },
+          "refundable_until": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date until this order can be opened in the return portal plus"
           },
           "total_weight": {
             "type": "number",
