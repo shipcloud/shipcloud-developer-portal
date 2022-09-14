@@ -18,6 +18,17 @@ If you want to run our developer portal locally you can do it by following these
 ~/shipcloud-developer-portal $ jekyll serve --baseurl ''
 ```
 
+## Deployment locally
+
+To deploy to firebase you need to follow the following steps:
+
+```console
+JEKYLL_ENV=production bundle exec rake build
+firebase login
+firebase use default
+firebase deploy --only hosting
+```
+
 ## Contributing
 
 Our developer portal strives from participation. If you find anything that is not right our out of the ordinary, we've
