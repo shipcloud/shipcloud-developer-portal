@@ -17,3 +17,5 @@ group :jekyll_plugins do
   gem "jekyll-sitemap"
   gem "html-proofer", "~> 3.10.x"
 end
+
+gem "webrick", "~> 1.7"
