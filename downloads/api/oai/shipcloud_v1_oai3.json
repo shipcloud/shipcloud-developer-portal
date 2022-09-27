@@ -10,9 +10,11 @@
     },
     "version": "1.0"
   },
-  "servers": [{
-    "url": "https://api.shipcloud.io/v1"
-  }],
+  "servers": [
+    {
+      "url": "https://api.shipcloud.io/v1"
+    }
+  ],
   "paths": {
     "/addresses": {
       "get": {
@@ -366,7 +368,13 @@
                         "items": {
                           "type": "string",
                           "description": "key for referencing the package type within shipcloud",
-                          "enum": ["parcel", "bulk", "letter", "books", "parcel_letter"],
+                          "enum": [
+                            "parcel",
+                            "bulk",
+                            "letter",
+                            "books",
+                            "parcel_letter"
+                          ],
                           "default": "parcel"
                         }
                       },
@@ -415,29 +423,15 @@
                       {
                         "name": "dhl",
                         "display_name": "Deutsche Post DHL",
-                        "services": [
-                          "standard",
-                          "returns"
-                        ],
-                        "package_types": [
-                          "parcel",
-                          "bulk"
-                        ],
-                        "additional_services": [
-                          "advance_notice"
-                        ]
+                        "services": ["standard", "returns"],
+                        "package_types": ["parcel", "bulk"],
+                        "additional_services": ["advance_notice"]
                       },
                       {
                         "name": "dpag",
                         "display_name": "Deutsche Post",
-                        "services": [
-                          "standard"
-                        ],
-                        "package_types": [
-                          "letter",
-                          "parcel_letter",
-                          "books"
-                        ],
+                        "services": ["standard"],
+                        "package_types": ["letter", "parcel_letter", "books"],
                         "additional_services": []
                       },
                       {
@@ -449,10 +443,7 @@
                           "one_day",
                           "one_day_early"
                         ],
-                        "package_types": [
-                          "parcel",
-                          "parcel_letter"
-                        ],
+                        "package_types": ["parcel", "parcel_letter"],
                         "additional_services": [
                           "advance_notice",
                           "drop_authorization",
@@ -1235,11 +1226,7 @@
                     }
                   }
                 ],
-                "required": [
-                  "carrier",
-                  "pickup_time",
-                  "pickup_address"
-                ]
+                "required": ["carrier", "pickup_time", "pickup_address"]
               },
               "examples": {
                 "Pickup request for collecting all shipments from a carrier": {
@@ -1398,13 +1385,7 @@
                     "description": "Width of the parcel in cm"
                   }
                 },
-                "required": [
-                  "carrier",
-                  "height",
-                  "length",
-                  "weight",
-                  "width"
-                ]
+                "required": ["carrier", "height", "length", "weight", "width"]
               },
               "example": {
                 "carrier": "dhl",
@@ -1432,7 +1413,7 @@
                   "required": ["rate"]
                 },
                 "example": {
-                  "rate": 3.80
+                  "rate": 3.8
                 }
               }
             },
@@ -1542,12 +1523,7 @@
                     "$ref": "#/components/schemas/package_minimal"
                   }
                 },
-                "required": [
-                  "carrier",
-                  "service",
-                  "to",
-                  "package"
-                ]
+                "required": ["carrier", "service", "to", "package"]
               },
               "examples": {
                 "Shipment quote request": {
@@ -1664,32 +1640,35 @@
                         "id": "3a186c51d4281acbecf5ed38805b1db92a9d668b",
                         "label_url": "https://shipping-labels.shipcloud.io/shipments/01370b4d/199f803bf8/label/shipping_label_199f803bf8.pdf",
                         "notification_email": "receiver@notification.com",
-                        "packages": [{
-                          "id": "3af8f7e5af196e1950deebd389a87406e1e5bb80",
-                          "weight": 1.5,
-                          "length": 10.0,
-                          "width": 6.0,
-                          "height": 8.0,
-                          "tracking_events": [{
-                              "timestamp": "2013-05-26T16:55:24+02:00",
-                              "location": "Hamburg, Deutschland",
-                              "status": "delivered",
-                              "details": "Die Sendung wurde erfolgreich zugestellt."
-                            },
-                            {
-                              "timestamp": "2013-05-26T08:12:12+02:00",
-                              "location": "Hamburg, Deutschland",
-                              "status": "out_for_delivery",
-                              "details": "Die Sendung wurde in das Zustellfahrzeug geladen."
-                            },
-                            {
-                              "timestamp": "2013-05-25T11:46:34+02:00",
-                              "location": "Hamburg, Deutschland",
-                              "status": "transit",
-                              "details": "Die Sendung wurde im Start-Paketzentrum bearbeitet."
-                            }
-                          ]
-                        }],
+                        "packages": [
+                          {
+                            "id": "3af8f7e5af196e1950deebd389a87406e1e5bb80",
+                            "weight": 1.5,
+                            "length": 10.0,
+                            "width": 6.0,
+                            "height": 8.0,
+                            "tracking_events": [
+                              {
+                                "timestamp": "2013-05-26T16:55:24+02:00",
+                                "location": "Hamburg, Deutschland",
+                                "status": "delivered",
+                                "details": "Die Sendung wurde erfolgreich zugestellt."
+                              },
+                              {
+                                "timestamp": "2013-05-26T08:12:12+02:00",
+                                "location": "Hamburg, Deutschland",
+                                "status": "out_for_delivery",
+                                "details": "Die Sendung wurde in das Zustellfahrzeug geladen."
+                              },
+                              {
+                                "timestamp": "2013-05-25T11:46:34+02:00",
+                                "location": "Hamburg, Deutschland",
+                                "status": "transit",
+                                "details": "Die Sendung wurde im Start-Paketzentrum bearbeitet."
+                              }
+                            ]
+                          }
+                        ],
                         "price": 3.4,
                         "reference_number": "ref123456",
                         "service": "standard",
@@ -1729,13 +1708,15 @@
                         "id": "c0f9611533339109f35d852en21dk70435e1838b",
                         "label_url": "https://shipping-labels.shipcloud.io/shipments/c0f96115/33339109f3/label/shipping_label_c0f9611533.pdf",
                         "notification_email": "receiver@notification.com",
-                        "packages": [{
-                          "id": "46ec98d23617c0cd4d11a6305e98748aac2e20fd",
-                          "weight": 0.45,
-                          "length": 30.0,
-                          "width": 30.0,
-                          "height": 30.0
-                        }],
+                        "packages": [
+                          {
+                            "id": "46ec98d23617c0cd4d11a6305e98748aac2e20fd",
+                            "weight": 0.45,
+                            "length": 30.0,
+                            "width": 30.0,
+                            "height": 30.0
+                          }
+                        ],
                         "price": 5.9,
                         "reference_number": "ref123456",
                         "service": "standard",
@@ -2867,22 +2848,22 @@
         "value": {
           "carrier": "dpd",
           "pickup_time": {
-              "earliest": "2018-07-30T09:00:00+02:00",
-              "latest": "2018-07-30T18:00:00+02:00"
+            "earliest": "2018-07-30T09:00:00+02:00",
+            "latest": "2018-07-30T18:00:00+02:00"
           },
           "pickup_address": {
-              "company": "Muster-Company",
-              "first_name": "Max",
-              "last_name": "Mustermann",
-              "care_of": null,
-              "street": "Musterstraße",
-              "street_no": "42",
-              "zip_code": "22457",
-              "city": "Hamburg",
-              "state": null,
-              "country": "DE",
-              "phone": "555-555",
-              "id": "286daf26-c845-4dba-ae49-75582fbced00"
+            "company": "Muster-Company",
+            "first_name": "Max",
+            "last_name": "Mustermann",
+            "care_of": null,
+            "street": "Musterstraße",
+            "street_no": "42",
+            "zip_code": "22457",
+            "city": "Hamburg",
+            "state": null,
+            "country": "DE",
+            "phone": "555-555",
+            "id": "286daf26-c845-4dba-ae49-75582fbced00"
           }
         }
       },
@@ -2890,32 +2871,32 @@
         "value": {
           "carrier": "dpd",
           "pickup_time": {
-              "earliest": "2018-07-30T09:00:00+02:00",
-              "latest": "2018-07-30T18:00:00+02:00"
+            "earliest": "2018-07-30T09:00:00+02:00",
+            "latest": "2018-07-30T18:00:00+02:00"
           },
           "pickup_address": {
-              "id": "286daf26-c845-4dba-ae49-75582fbced00",
-              "company": "Muster-Company",
-              "first_name": "Max",
-              "last_name": "Mustermann",
-              "care_of": null,
-              "street": "Musterstraße",
-              "street_no": "42",
-              "zip_code": "22457",
-              "city": "Hamburg",
-              "state": null,
-              "country": "DE",
-              "phone": "555-555"
+            "id": "286daf26-c845-4dba-ae49-75582fbced00",
+            "company": "Muster-Company",
+            "first_name": "Max",
+            "last_name": "Mustermann",
+            "care_of": null,
+            "street": "Musterstraße",
+            "street_no": "42",
+            "zip_code": "22457",
+            "city": "Hamburg",
+            "state": null,
+            "country": "DE",
+            "phone": "555-555"
           },
           "shipments": [
             {
-                "id": "604681675415e96052cf8fbaba78153a2e6d6bee"
+              "id": "604681675415e96052cf8fbaba78153a2e6d6bee"
             },
             {
-                "id": "11acaa0c4f251aaac4889d5f10329eb1aed80ff2"
+              "id": "11acaa0c4f251aaac4889d5f10329eb1aed80ff2"
             },
             {
-                "id": "9a5b91d766a523447c16897f8e20f4d7d06c25ca"
+              "id": "9a5b91d766a523447c16897f8e20f4d7d06c25ca"
             }
           ]
         }
@@ -2926,19 +2907,19 @@
           "carrier": "dpd",
           "carrier_pickup_number": "9380",
           "shipments": [
-              {
-                  "id": "604681675415e96052cf8fbaba78153a2e6d6bee"
-              },
-              {
-                  "id": "11acaa0c4f251aaac4889d5f10329eb1aed80ff2"
-              },
-              {
-                  "id": "9a5b91d766a523447c16897f8e20f4d7d06c25ca"
-              }
+            {
+              "id": "604681675415e96052cf8fbaba78153a2e6d6bee"
+            },
+            {
+              "id": "11acaa0c4f251aaac4889d5f10329eb1aed80ff2"
+            },
+            {
+              "id": "9a5b91d766a523447c16897f8e20f4d7d06c25ca"
+            }
           ],
           "pickup_time": {
-              "earliest": "2018-07-30T09:00:00+02:00",
-              "latest": "2018-07-30T18:00:00+02:00"
+            "earliest": "2018-07-30T09:00:00+02:00",
+            "latest": "2018-07-30T18:00:00+02:00"
           },
           "pickup_address": {
             "id": "286daf26-c845-4dba-ae49-75582fbced00",
@@ -2965,13 +2946,14 @@
             "shipments": [
               {
                 "id": "199f803bf82fab79e17654213b61993fa78b0524"
-              }, {
+              },
+              {
                 "id": "3a186c51d4281acbecf5ed38805b1db92a9d668b"
               }
             ],
             "pickup_time": {
-                "earliest": "2018-07-30T09:00:00+02:00",
-                "latest": "2018-07-30T18:00:00+02:00"
+              "earliest": "2018-07-30T09:00:00+02:00",
+              "latest": "2018-07-30T18:00:00+02:00"
             },
             "pickup_date": "2018/10/26",
             "pickup_address": {
@@ -2994,19 +2976,19 @@
             "carrier": "dpd",
             "carrier_pickup_number": "9380",
             "shipments": [
-                {
-                    "id": "604681675415e96052cf8fbaba78153a2e6d6bee"
-                },
-                {
-                    "id": "11acaa0c4f251aaac4889d5f10329eb1aed80ff2"
-                },
-                {
-                    "id": "9a5b91d766a523447c16897f8e20f4d7d06c25ca"
-                }
+              {
+                "id": "604681675415e96052cf8fbaba78153a2e6d6bee"
+              },
+              {
+                "id": "11acaa0c4f251aaac4889d5f10329eb1aed80ff2"
+              },
+              {
+                "id": "9a5b91d766a523447c16897f8e20f4d7d06c25ca"
+              }
             ],
             "pickup_time": {
-                "earliest": "2018-07-30T09:00:00+02:00",
-                "latest": "2018-07-30T18:00:00+02:00"
+              "earliest": "2018-07-30T09:00:00+02:00",
+              "latest": "2018-07-30T18:00:00+02:00"
             },
             "pickup_address": {
               "id": "286daf26-c845-4dba-ae49-75582fbced00",
@@ -3030,7 +3012,7 @@
           "id": "usr-adaa123f",
           "email": "user@shipcloud.io",
           "customer_no": "123af01f",
-          "environment":"production",
+          "environment": "production",
           "subscription": {
             "plan_name": "professional",
             "plan_display_name": "Professional",
@@ -3043,7 +3025,7 @@
           "id": "usr-adaa123f",
           "email": "user@shipcloud.io",
           "customer_no": "123af01f",
-          "environment":"sandbox",
+          "environment": "sandbox",
           "subscription": {
             "plan_name": "developer",
             "plan_display_name": "Developer",
@@ -3176,20 +3158,20 @@
       "shipment_create_request_example_simple": {
         "value": {
           "to": {
-              "company": "Receiver Inc.",
-              "last_name": "Mustermann",
-              "street": "Beispielstrasse",
-              "street_no": "42",
-              "city": "Hamburg",
-              "zip_code": "22100",
-              "country": "DE"
+            "company": "Receiver Inc.",
+            "last_name": "Mustermann",
+            "street": "Beispielstrasse",
+            "street_no": "42",
+            "city": "Hamburg",
+            "zip_code": "22100",
+            "country": "DE"
           },
           "package": {
-              "weight": 1.5,
-              "length": 20,
-              "width": 20,
-              "height": 20,
-              "type": "parcel"
+            "weight": 1.5,
+            "length": 20,
+            "width": 20,
+            "height": 20,
+            "type": "parcel"
           },
           "carrier": "dhl",
           "service": "standard",
@@ -3232,7 +3214,8 @@
             "additional_fees": 0.0,
             "total_value_amount": 247.0,
             "currency": "EUR",
-            "items": [{
+            "items": [
+              {
                 "description": "Linkwood 25 years",
                 "hs_tariff_number": "501293884",
                 "net_weight": 0.8,
@@ -3273,32 +3256,35 @@
           "carrier_tracking_no": "84168117830018",
           "tracking_url": "https://track.shipcloud.io/199f803bf8",
           "label_url": "https://shipping-labels.shipcloud.io/shipments/01370b4d/199f803bf8/label/shipping_label_199f803bf8.pdf",
-          "packages": [{
-            "id": "3af8f7e5af196e1950deebd389a87406e1e5bb80",
-            "weight": 1.5,
-            "length": 10.0,
-            "width": 6.0,
-            "height": 8.0,
-            "tracking_events": [{
-                "timestamp": "2013-05-26T16:55:24+02:00",
-                "location": "Hamburg, Deutschland",
-                "status": "delivered",
-                "details": "Die Sendung wurde erfolgreich zugestellt."
-              },
-              {
-                "timestamp": "2013-05-26T08:12:12+02:00",
-                "location": "Hamburg, Deutschland",
-                "status": "out_for_delivery",
-                "details": "Die Sendung wurde in das Zustellfahrzeug geladen."
-              },
-              {
-                "timestamp": "2013-05-25T11:46:34+02:00",
-                "location": "Hamburg, Deutschland",
-                "status": "transit",
-                "details": "Die Sendung wurde im Start-Paketzentrum bearbeitet."
-              }
-            ]
-          }],
+          "packages": [
+            {
+              "id": "3af8f7e5af196e1950deebd389a87406e1e5bb80",
+              "weight": 1.5,
+              "length": 10.0,
+              "width": 6.0,
+              "height": 8.0,
+              "tracking_events": [
+                {
+                  "timestamp": "2013-05-26T16:55:24+02:00",
+                  "location": "Hamburg, Deutschland",
+                  "status": "delivered",
+                  "details": "Die Sendung wurde erfolgreich zugestellt."
+                },
+                {
+                  "timestamp": "2013-05-26T08:12:12+02:00",
+                  "location": "Hamburg, Deutschland",
+                  "status": "out_for_delivery",
+                  "details": "Die Sendung wurde in das Zustellfahrzeug geladen."
+                },
+                {
+                  "timestamp": "2013-05-25T11:46:34+02:00",
+                  "location": "Hamburg, Deutschland",
+                  "status": "transit",
+                  "details": "Die Sendung wurde im Start-Paketzentrum bearbeitet."
+                }
+              ]
+            }
+          ],
           "price": 10.7,
           "from": {
             "id": "7ea2a290-b456-4ecf-9010-e82b3da298f0",
@@ -3339,7 +3325,8 @@
             "created_at": "2017-10-04T15:49:44+02:00",
             "updated_at": "2017-10-04T15:49:44+02:00",
             "carrier_declaration_document_url": "https://documents.shipcloud.io/shipments/519895c7165cdc032356d42c6d9babe8e3151473/customs_declaration_document.pdf",
-            "items": [{
+            "items": [
+              {
                 "id": "cdi-50a46bf8",
                 "description": "Linkwood 25 years",
                 "hs_tariff_number": "501293884",
@@ -3386,32 +3373,35 @@
           "id": "3a186c51d4281acbecf5ed38805b1db92a9d668b",
           "label_url": "https://shipping-labels.shipcloud.io/shipments/01370b4d/199f803bf8/label/shipping_label_199f803bf8.pdf",
           "notification_email": "receiver@notification.com",
-          "packages": [{
-            "id": "3af8f7e5af196e1950deebd389a87406e1e5bb80",
-            "weight": 1.5,
-            "length": 10.0,
-            "width": 6.0,
-            "height": 8.0,
-            "tracking_events": [{
-                "timestamp": "2013-05-26T16:55:24+02:00",
-                "location": "Hamburg, Deutschland",
-                "status": "delivered",
-                "details": "Die Sendung wurde erfolgreich zugestellt."
-              },
-              {
-                "timestamp": "2013-05-26T08:12:12+02:00",
-                "location": "Hamburg, Deutschland",
-                "status": "out_for_delivery",
-                "details": "Die Sendung wurde in das Zustellfahrzeug geladen."
-              },
-              {
-                "timestamp": "2013-05-25T11:46:34+02:00",
-                "location": "Hamburg, Deutschland",
-                "status": "transit",
-                "details": "Die Sendung wurde im Start-Paketzentrum bearbeitet."
-              }
-            ]
-          }],
+          "packages": [
+            {
+              "id": "3af8f7e5af196e1950deebd389a87406e1e5bb80",
+              "weight": 1.5,
+              "length": 10.0,
+              "width": 6.0,
+              "height": 8.0,
+              "tracking_events": [
+                {
+                  "timestamp": "2013-05-26T16:55:24+02:00",
+                  "location": "Hamburg, Deutschland",
+                  "status": "delivered",
+                  "details": "Die Sendung wurde erfolgreich zugestellt."
+                },
+                {
+                  "timestamp": "2013-05-26T08:12:12+02:00",
+                  "location": "Hamburg, Deutschland",
+                  "status": "out_for_delivery",
+                  "details": "Die Sendung wurde in das Zustellfahrzeug geladen."
+                },
+                {
+                  "timestamp": "2013-05-25T11:46:34+02:00",
+                  "location": "Hamburg, Deutschland",
+                  "status": "transit",
+                  "details": "Die Sendung wurde im Start-Paketzentrum bearbeitet."
+                }
+              ]
+            }
+          ],
           "price": 3.4,
           "reference_number": "ref123456",
           "service": "standard",
@@ -3453,38 +3443,41 @@
           "id": "3a186c51d4281acbecf5ed38805b1db92a9d668b",
           "label_url": "https://shipping-labels.shipcloud.io/shipments/01370b4d/199f803bf8/label/shipping_label_199f803bf8.pdf",
           "notification_email": "receiver@notification.com",
-          "packages": [{
-            "id": "3af8f7e5af196e1950deebd389a87406e1e5bb80",
-            "weight": 1.5,
-            "length": 10.0,
-            "width": 6.0,
-            "height": 8.0,
-            "tracking_events": [{
-                "timestamp": "2013-05-26T16:55:24+02:00",
-                "location": "Hamburg, Deutschland",
-                "status": "delivered",
-                "details": "Die Sendung wurde erfolgreich zugestellt.",
-                "delivery_details": {
-                  "description": "Wunschort",
-                  "name": "Wunschort (Ablagevertrag)",
-                  "addressline1": "St. Annenufer 5",
-                  "addressline2": "20457 Hamburg"
+          "packages": [
+            {
+              "id": "3af8f7e5af196e1950deebd389a87406e1e5bb80",
+              "weight": 1.5,
+              "length": 10.0,
+              "width": 6.0,
+              "height": 8.0,
+              "tracking_events": [
+                {
+                  "timestamp": "2013-05-26T16:55:24+02:00",
+                  "location": "Hamburg, Deutschland",
+                  "status": "delivered",
+                  "details": "Die Sendung wurde erfolgreich zugestellt.",
+                  "delivery_details": {
+                    "description": "Wunschort",
+                    "name": "Wunschort (Ablagevertrag)",
+                    "addressline1": "St. Annenufer 5",
+                    "addressline2": "20457 Hamburg"
+                  }
+                },
+                {
+                  "timestamp": "2013-05-26T08:12:12+02:00",
+                  "location": "Hamburg, Deutschland",
+                  "status": "out_for_delivery",
+                  "details": "Die Sendung wurde in das Zustellfahrzeug geladen."
+                },
+                {
+                  "timestamp": "2013-05-25T11:46:34+02:00",
+                  "location": "Hamburg, Deutschland",
+                  "status": "transit",
+                  "details": "Die Sendung wurde im Start-Paketzentrum bearbeitet."
                 }
-              },
-              {
-                "timestamp": "2013-05-26T08:12:12+02:00",
-                "location": "Hamburg, Deutschland",
-                "status": "out_for_delivery",
-                "details": "Die Sendung wurde in das Zustellfahrzeug geladen."
-              },
-              {
-                "timestamp": "2013-05-25T11:46:34+02:00",
-                "location": "Hamburg, Deutschland",
-                "status": "transit",
-                "details": "Die Sendung wurde im Start-Paketzentrum bearbeitet."
-              }
-            ]
-          }],
+              ]
+            }
+          ],
           "price": 3.4,
           "reference_number": "ref123456",
           "service": "standard",
@@ -3560,7 +3553,7 @@
       },
       "trackers_requests_response_example_multiple": {
         "value": {
-          "trackers" : [
+          "trackers": [
             {
               "id": "4a6922e2-09ad-4724-807c-7b4e572d3c6b",
               "carrier_tracking_no": "723558934169",
@@ -3659,18 +3652,24 @@
         "value": {
           "id": "e0ff4250-6c8e-494d-a069-afd9d566e372",
           "url": "https://example.com/webhook",
-          "event_types": ["shipment.tracking.delayed", "shipment.tracking.delivered"],
+          "event_types": [
+            "shipment.tracking.delayed",
+            "shipment.tracking.delivered"
+          ],
           "deactivated": false,
           "security": {
             "type": "basic_auth"
           }
         }
       },
-      "webhook_with_id_example":{
+      "webhook_with_id_example": {
         "value": {
           "id": "e0ff4250-6c8e-494d-a069-afd9d566e372",
           "url": "https://example.com/webhook",
-          "event_types": ["shipment.tracking.delayed", "shipment.tracking.delivered"],
+          "event_types": [
+            "shipment.tracking.delayed",
+            "shipment.tracking.delivered"
+          ],
           "deactivated": false
         }
       },
@@ -3686,7 +3685,10 @@
             {
               "id": "e0ff4250-6c8e-494d-a069-afd9d566e372",
               "url": "https://example.com/webhook",
-              "event_types": ["shipment.tracking.delayed", "shipment.tracking.delivered"],
+              "event_types": [
+                "shipment.tracking.delayed",
+                "shipment.tracking.delivered"
+              ],
               "deactivated": false,
               "security": {
                 "type": "basic_auth"
@@ -3696,13 +3698,16 @@
         }
       },
       "webhook_create_request_object": {
-        "value" : {
+        "value": {
           "url": "https://example.com/webhook",
-          "event_types": ["shipment.tracking.delayed", "shipment.tracking.delivered"]
+          "event_types": [
+            "shipment.tracking.delayed",
+            "shipment.tracking.delivered"
+          ]
         }
       },
       "webhook_create_request_object_basic_auth": {
-        "value" : {
+        "value": {
           "url": "https://example.com/webhook",
           "event_types": ["shipment.*"],
           "security": {
@@ -3777,7 +3782,15 @@
                 "description": "identifier of a previously created address"
               }
             },
-            "required": ["id", "first_name", "last_name", "company", "care_of", "state", "street_no"]
+            "required": [
+              "id",
+              "first_name",
+              "last_name",
+              "company",
+              "care_of",
+              "state",
+              "street_no"
+            ]
           }
         ]
       },
@@ -3831,21 +3844,11 @@
             "description": "Email address for this person. Some carrier are using the email address to send notifications"
           }
         },
-        "required": [
-          "id",
-          "street",
-          "city",
-          "zip_code",
-          "country"
-        ]
+        "required": ["id", "street", "city", "zip_code", "country"]
       },
       "carrier_pickup": {
         "type": "string",
-        "enum": [
-          "dpd",
-          "hermes",
-          "ups"
-        ],
+        "enum": ["dpd", "hermes", "ups"],
         "description": "acronym of the carrier"
       },
       "carrier_shipping": {
@@ -3869,12 +3872,7 @@
       },
       "carrier_tracking_only": {
         "type": "string",
-        "enum": [
-          "dhl",
-          "dpd",
-          "gls",
-          "ups"
-        ],
+        "enum": ["dhl", "dpd", "gls", "ups"],
         "description": "acronym of the carrier"
       },
       "current_user": {
@@ -3925,7 +3923,13 @@
             "required": ["plan_name", "plan_display_name", "chargeable"]
           }
         },
-        "required": ["id", "email", "customer_no", "environment", "subscription"]
+        "required": [
+          "id",
+          "email",
+          "customer_no",
+          "environment",
+          "subscription"
+        ]
       },
       "customs_declaration": {
         "type": "object",
@@ -3989,12 +3993,7 @@
             }
           }
         },
-        "required": [
-          "contents_type",
-          "currency",
-          "total_value_amount",
-          "items"
-        ]
+        "required": ["contents_type", "currency", "total_value_amount", "items"]
       },
       "customs_declaration_items": {
         "type": "object",
@@ -4066,7 +4065,8 @@
                   "allOf": [
                     {
                       "$ref": "#/components/schemas/customs_declaration_items"
-                    }, {
+                    },
+                    {
                       "type": "object",
                       "properties": {
                         "id": {
@@ -4113,12 +4113,7 @@
           },
           "size": {
             "type": "string",
-            "enum": [
-              "A5",
-              "A6",
-              "A7",
-              "100x70mm"
-            ],
+            "enum": ["A5", "A6", "A7", "100x70mm"],
             "description": "defines the size that the returned label should have",
             "deprecated": true
           }
@@ -4144,18 +4139,15 @@
           },
           "shipments": {
             "type": "array",
-            "description": "Array of shipment IDs that are send using this manifest"
+            "description": "Array of shipment IDs that are send using this manifest",
+            "items": {}
           },
           "reference_number": {
             "type": "string",
             "description": "For referencing the manifest at the carrier"
           }
         },
-        "required": [
-          "carrier",
-          "posting_hub_address",
-          "shipments"
-        ]
+        "required": ["carrier", "posting_hub_address", "shipments"]
       },
       "manifest_response": {
         "allOf": [
@@ -4186,9 +4178,7 @@
                     "identifier": {
                       "type": "string",
                       "description": "An identifier that specifies the type of the document being returned",
-                      "enum": [
-                        "manifest_document"
-                      ]
+                      "enum": ["manifest_document"]
                     }
                   }
                 }
@@ -4240,11 +4230,7 @@
           "currency": {
             "type": "string",
             "minLength": 1,
-            "enum": [
-              "EUR",
-              "USD",
-              "GBP"
-            ],
+            "enum": ["EUR", "USD", "GBP"],
             "description": "Currency that the customer uses for paying the order"
           },
           "refundable_until": {
@@ -4257,9 +4243,7 @@
             "description": "Total weight of all items"
           },
           "weight_unit": {
-            "enum": [
-              "kg"
-            ],
+            "enum": ["kg"],
             "type": "string",
             "description": "The unit associated with the weight. Mandatory when `total_weight` is given"
           },
@@ -4274,12 +4258,7 @@
             }
           }
         },
-        "required": [
-          "currency",
-          "order_line_items",
-          "total_price",
-          "total_vat"
-        ]
+        "required": ["currency", "order_line_items", "total_price", "total_vat"]
       },
       "order_line_item": {
         "type": "object",
@@ -4334,9 +4313,7 @@
           "weight_unit": {
             "type": "string",
             "description": "Unit used for the weight measurement",
-            "enum": [
-              "kg"
-            ]
+            "enum": ["kg"]
           },
           "external_order_line_item_id": {
             "type": "string",
@@ -4381,14 +4358,7 @@
             }
           }
         },
-        "required": [
-          "sku",
-          "title",
-          "quantity",
-          "price",
-          "vat",
-          "currency"
-        ]
+        "required": ["sku", "title", "quantity", "price", "vat", "currency"]
       },
       "order_line_item_with_id": {
         "allOf": [
@@ -4406,9 +4376,7 @@
                 "description": "identifier of a previously created order line item"
               }
             },
-            "required": [
-              "id"
-            ]
+            "required": ["id"]
           }
         ]
       },
@@ -4436,9 +4404,7 @@
                 }
               }
             },
-            "required": [
-              "id"
-            ]
+            "required": ["id"]
           }
         ]
       },
@@ -4470,13 +4436,7 @@
               "type": {
                 "type": "string",
                 "description": "type of shipment you would like to book",
-                "enum": [
-                  "books",
-                  "bulk",
-                  "letter",
-                  "parcel",
-                  "parcel_letter"
-                ],
+                "enum": ["books", "bulk", "letter", "parcel", "parcel_letter"],
                 "default": "parcel"
               }
             }
@@ -4806,11 +4766,7 @@
                   "type": {
                     "type": "string",
                     "description": "Providing the key that will determine, who will pay for transportation",
-                    "enum": [
-                      "receiver",
-                      "sender",
-                      "third_party"
-                    ]
+                    "enum": ["receiver", "sender", "third_party"]
                   },
                   "account_number": {
                     "type": "string",
@@ -4825,9 +4781,7 @@
                     "description": "The country code associated with the provided account number"
                   }
                 },
-                "required": [
-                  "type"
-                ]
+                "required": ["type"]
               },
               "duties_and_taxes": {
                 "type": "object",
@@ -4836,11 +4790,7 @@
                   "type": {
                     "type": "string",
                     "description": "Providing the key that will determine, who will pay for duties and taxes",
-                    "enum": [
-                      "receiver",
-                      "sender",
-                      "third_party"
-                    ]
+                    "enum": ["receiver", "sender", "third_party"]
                   },
                   "account_number": {
                     "type": "string",
@@ -4855,9 +4805,7 @@
                     "description": "The country code associated with the provided account number"
                   }
                 },
-                "required": [
-                  "type"
-                ]
+                "required": ["type"]
               }
             }
           },
@@ -4995,9 +4943,7 @@
                 }
               }
             },
-            "required": [
-              "name"
-            ]
+            "required": ["name"]
           },
           "pickup": {
             "$ref": "#/components/schemas/pickup"
@@ -5055,10 +5001,7 @@
             "description": "here you can save additional data that you want to be associated with the shipment. Any combination of key-value pairs is possible"
           }
         },
-        "required": [
-          "carrier",
-          "to"
-        ]
+        "required": ["carrier", "to"]
       },
       "shipment_put": {
         "type": "object",
@@ -5186,10 +5129,7 @@
             "description": "here you can save additional data that you want to be associated with the shipment. Any combination of key-value pairs is possible"
           }
         },
-        "required": [
-          "carrier",
-          "to"
-        ]
+        "required": ["carrier", "to"]
       },
       "shipment_create_response_object": {
         "type": "object",
@@ -5302,7 +5242,19 @@
           },
           "status": {
             "type": "string",
-            "enum": ["registered", "label_created", "picked_up", "delivered", "not_delivered", "transit", "exception", "out_for_delivery", "destroyed", "unknown", "canceled"],
+            "enum": [
+              "registered",
+              "label_created",
+              "picked_up",
+              "delivered",
+              "not_delivered",
+              "transit",
+              "exception",
+              "out_for_delivery",
+              "destroyed",
+              "unknown",
+              "canceled"
+            ],
             "description": "key describing the current status"
           },
           "created_at": {
@@ -5489,9 +5441,7 @@
               "type": {
                 "type": "string",
                 "description": "Type of authorization",
-                "enum": [
-                  "basic_auth"
-                ]
+                "enum": ["basic_auth"]
               }
             }
           }
@@ -5589,15 +5539,10 @@
             },
             "examples": {
               "Single error": {
-                "value": [
-                  "simple error message"
-                ]
+                "value": ["simple error message"]
               },
               "Multiple errors": {
-                "value": [
-                  "simple error message",
-                  "another error message"
-                ]
+                "value": ["simple error message", "another error message"]
               }
             }
           }
