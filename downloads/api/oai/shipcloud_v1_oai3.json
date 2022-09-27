@@ -650,7 +650,7 @@
         }
       }
     },
-    "/manifest": {
+    "/manifests": {
       "post": {
         "description": "Create a manifest",
         "requestBody": {
