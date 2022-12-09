@@ -15,7 +15,7 @@ If you want to run our developer portal locally you can do it by following these
 ~ $ git clone git@github.com:shipcloud/shipcloud-developer-portal.git
 ~ $ cd shipcloud-developer-portal
 ~ $ bundle install
-~/shipcloud-developer-portal $ jekyll serve --baseurl ''
+~/shipcloud-developer-portal $ bundle exec rake serve
 ```
 
 ## Contributing

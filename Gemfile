@@ -1,21 +1,16 @@
 source 'https://rubygems.org'
 
-# Jekyll
-gem 'jekyll', '~> 4.1.x'
+ruby '3.1.3'
 
-# Converters
-gem 'kramdown', '~> 2.1.x'
-
-# Liquid
-gem 'liquid', '~> 4.0.x'
-
-gem "rake"
+gem 'jekyll'
+gem 'kramdown'
+gem 'liquid'
+gem 'rake'
+gem 'webrick'
 
 group :jekyll_plugins do
-  gem "jekyll-postcss", '~> 0.5.x'
-  gem "jekyll-purgecss"
-  gem "jekyll-sitemap"
-  gem "html-proofer", "~> 3.10.x"
+  gem 'html-proofer'
+  gem 'jekyll-postcss'
+  gem 'jekyll-purgecss'
+  gem 'jekyll-sitemap'
 end
-
-gem "webrick", "~> 1.7"
