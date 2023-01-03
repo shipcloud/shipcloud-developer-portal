@@ -4122,7 +4122,6 @@
       },
       "localized_attributes": {
         "title": "localized_attributes",
-        "description": "Dynamic object to contain text in different languages.",
         "type": "object",
         "additionalProperties": true,
         "x-examples": {
@@ -4364,11 +4363,10 @@
           },
           "gross_price": {
             "type": "number",
-            "description": "Gross price of an item. Used to calculate the refund amount of a return shipment (a Return Portal Plus feature)."
+            "description": "Gross price in Euro of an item. Used to calculate the refund amount of a return shipment (a Return Portal Plus feature)."
           },
           "returnability": {
             "type": "object",
-            "description": "Custom message displayed to the customer when an item cannot be selected for a return shipment.",
             "additionalProperties": false,
             "properties": {
               "returnable": {
