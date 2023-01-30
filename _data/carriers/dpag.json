@@ -7,7 +7,8 @@
       "display_name": "DPAG one click for app v3",
       "implementations": {
         "shipcloud": {
-          "services": [{
+          "services": [
+            {
               "display_name": "Standard",
               "key": "standard"
             },
@@ -24,7 +25,8 @@
               "key": "dpag_warenpost_signature"
             }
           ],
-          "package_types": [{
+          "package_types": [
+            {
               "display_name": "Letter",
               "key": "letter"
             },
@@ -37,26 +39,44 @@
               "key": "books"
             }
           ],
-          "other_attributes": [{
-            "display_name": "Customs declaration",
-            "key": "customs_declaration"
-          },
-          {
-            "display_name": "Packstation",
-            "key": "packstation"
-          }],
-          "label_formats": [{
-            "pdf": [
-              {
-                "display_name": "DIN A5",
-                "key": "pdf_a5"
-              },
-              {
-                "display_name": "DIN A6",
-                "key": "pdf_a6"
-              }
-            ]
-          }]
+          "other_attributes": [
+            {
+              "display_name": "Customs declaration",
+              "key": "customs_declaration"
+            },
+            {
+              "display_name": "Packstation",
+              "key": "packstation"
+            }
+          ],
+          "label_formats": [
+            {
+              "pdf": [
+                {
+                  "display_name": "DIN A5",
+                  "key": "pdf_a5"
+                },
+                {
+                  "display_name": "DIN A6",
+                  "key": "pdf_a6"
+                }
+              ],
+              "zpl": [
+                {
+                  "display_name": "ZPL2 4x6in 203dpi",
+                  "key": "zpl2_4x6in_203dpi"
+                },
+                {
+                  "display_name": "ZPL2 4x6in 300dpi",
+                  "key": "zpl2_4x6in_300dpi"
+                },
+                {
+                  "display_name": "ZPL2 4x6in 300dpi td",
+                  "key": "zpl2_4x6in_203dpi_td"
+                }
+              ]
+            }
+          ]
         }
       }
     }

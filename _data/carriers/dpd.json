@@ -7,7 +7,8 @@
       "display_name": "Shipment Service V4.3",
       "implementations": {
         "shipcloud": {
-          "services": [{
+          "services": [
+            {
               "display_name": "Standard",
               "key": "standard"
             },
@@ -24,7 +25,8 @@
               "key": "one_day_early"
             }
           ],
-          "package_types": [{
+          "package_types": [
+            {
               "display_name": "Parcel",
               "key": "parcel"
             },
@@ -33,7 +35,8 @@
               "key": "parcel_letter"
             }
           ],
-          "additional_services": [{
+          "additional_services": [
+            {
               "display_name": "Drop authorization",
               "key": "drop_authorization"
             },
@@ -60,18 +63,34 @@
               "key": "trackers"
             }
           ],
-          "label_formats": [{
-            "pdf": [
-              {
-                "display_name": "DIN A5",
-                "key": "pdf_a5"
-              },
-              {
-                "display_name": "DIN A6",
-                "key": "pdf_a6"
-              }
-            ]
-          }],
+          "label_formats": [
+            {
+              "pdf": [
+                {
+                  "display_name": "DIN A5",
+                  "key": "pdf_a5"
+                },
+                {
+                  "display_name": "DIN A6",
+                  "key": "pdf_a6"
+                }
+              ],
+              "zpl": [
+                {
+                  "display_name": "ZPL2 4x6in 203dpi",
+                  "key": "zpl2_4x6in_203dpi"
+                },
+                {
+                  "display_name": "ZPL2 4x6in 300dpi",
+                  "key": "zpl2_4x6in_300dpi"
+                },
+                {
+                  "display_name": "ZPL2 4x6in 300dpi td",
+                  "key": "zpl2_4x6in_203dpi_td"
+                }
+              ]
+            }
+          ],
           "field_lengths": {
             "shipments": {
               "company": "1 - 35 characters",
