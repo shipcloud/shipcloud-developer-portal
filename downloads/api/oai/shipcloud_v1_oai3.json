@@ -895,9 +895,9 @@
                         "id": "81d28907-ffc5-4868-80e3-24a247fc7798",
                         "sku": "11223344",
                         "title": {
-                          "de": "Toto - Africa",
-                          "en": "Toto - Africa",
-                          "default": "Toto - Africa"
+                          "de": "Schuhe",
+                          "en": "Shoes",
+                          "fallback": "Shoes"
                         },
                         "quantity": 1,
                         "price": 10.95,
@@ -910,9 +910,9 @@
                         "id": "e68f47d7-49e3-461d-aa80-fd04af70e4d5",
                         "sku": "234567",
                         "title": {
-                          "de": "Fast \u0026 Furious",
-                          "en": "Fast \u0026 Furious",
-                          "default": "Fast \u0026 Furious"
+                          "de": "Jacke",
+                          "en": "Jacket",
+                          "fallback": "Jacket"
                         },
                         "quantity": 1,
                         "price": 6.5,
@@ -949,9 +949,9 @@
                         "id": "e880a792-baed-48f4-b079-2477eb17f068",
                         "sku": "345678",
                         "title": {
-                          "de": "Jeans",
-                          "en": "Jeans",
-                          "default": "Jeans"
+                          "de": "Schuhe",
+                          "en": "Shoes",
+                          "fallback": "Shoes"
                         },
                         "quantity": 1,
                         "price": 89.95,
@@ -966,7 +966,7 @@
                         "title": {
                           "de": "Jacke",
                           "en": "Jacket",
-                          "default": "Jacke"
+                          "fallback": "Jacke"
                         },
                         "quantity": 1,
                         "price": 89.95,
@@ -4120,6 +4120,34 @@
         },
         "description": "label specific definitions"
       },
+      "localized_attributes": {
+        "title": "localized_attributes",
+        "type": "object",
+        "additionalProperties": true,
+        "x-examples": {
+          "localized_attributes.json": {
+            "fallback": "Color",
+            "de": "Farbe",
+            "en": "Color"
+          }
+        },
+        "properties": {
+          "fallback": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Dynamic object to contain text in different languages. The `fallback` key has to be specified, and its value must not be empty. All other keys are optional, but if given, they should be valid lowercase `ISO-639-1` codes."
+          },
+          "de": {
+            "type": "string"
+          },
+          "en": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "fallback"
+        ]
+      },
       "manifest": {
         "type": "object",
         "properties": {
@@ -4236,7 +4264,11 @@
           "refundable_until": {
             "type": "string",
             "format": "date-time",
-            "description": "Date until this order can be opened in the return portal plus"
+            "description": "Used to disable returns for the whole order after a specific time (a Return Portal Plus feature)."
+          },
+          "refund_deduction_amount": {
+            "type": "number",
+            "description": "Part of the order's return costs the customer has to pay (a Return Portal Plus feature)."
           },
           "total_weight": {
             "type": "number",
@@ -4271,18 +4303,7 @@
             "description": "Stock keeping unit"
           },
           "title": {
-            "type": "object",
-            "description": "Display names used for the product",
-            "properties": {
-              "de": {
-                "type": "string",
-                "description": "German title"
-              },
-              "fallback": {
-                "type": "string",
-                "description": "Fallback title"
-              }
-            }
+            "$ref": "#/components/schemas/localized_attributes"
           },
           "quantity": {
             "type": "number",
@@ -4321,39 +4342,45 @@
           },
           "item_info": {
             "type": "array",
-            "description": "Information about this variant version of the product",
-            "uniqueItems": false,
+            "uniqueItems": true,
+            "minItems": 0,
+            "description": "Information about this variant version of the product. Used to display a (localized) label and value pair to describe an item's property, e.g. a product category.",
             "items": {
               "type": "object",
               "properties": {
                 "name": {
-                  "type": "object",
-                  "description": "Name of the product variant",
-                  "properties": {
-                    "de": {
-                      "type": "string",
-                      "description": "German name of the product variant property"
-                    },
-                    "fallback": {
-                      "type": "string",
-                      "description": "Fallback name of the product variant property"
-                    }
-                  }
+                  "$ref": "#/components/schemas/localized_attributes"
                 },
                 "value": {
-                  "type": "object",
-                  "description": "Value of the product variant property",
-                  "properties": {
-                    "de": {
-                      "type": "string",
-                      "description": "Value of the product variant property in German"
-                    },
-                    "fallback": {
-                      "type": "string",
-                      "description": "Fallback value of the product variant property"
-                    }
-                  }
+                  "$ref": "#/components/schemas/localized_attributes"
                 }
+              },
+              "required": [
+                "name",
+                "value"
+              ]
+            }
+          },
+          "gross_price": {
+            "type": "number",
+            "description": "Gross price in Euro of an item. Used to calculate the refund amount of a return shipment (a Return Portal Plus feature)."
+          },
+          "returnability": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "returnable": {
+                "type": "boolean",
+                "description": "Indicates if an order line item can be returned (a Return Portal Plus feature)."
+              },
+              "returnable_until": {
+                "type": "string",
+                "format": "date-time",
+                "example": "2022-05-18T12:30:15+02:00",
+                "description": "Used to disable returns for an order line item after a specific time."
+              },
+              "nonreturnable_reason": {
+                "$ref": "#/components/schemas/localized_attributes"
               }
             }
           }
