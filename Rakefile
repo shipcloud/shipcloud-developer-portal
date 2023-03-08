@@ -33,4 +33,4 @@ task :test do
   HTMLProofer.check_directory("./_site", options).run
 end
 
-task default: [:build, :test]
+task default: [:build, :serve]
