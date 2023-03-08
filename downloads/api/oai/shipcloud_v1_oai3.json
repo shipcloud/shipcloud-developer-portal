@@ -1157,6 +1157,353 @@
         }
       }
     },
+    "/orders/{id}/returns": {
+      "get": {
+        "description": "Getting a list of previously created order returns for a specific order.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of order returns",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/order_return"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        },
+        "x-internal": true
+      }
+    },
+    "/orders/{order_id}/returns/{id}": {
+      "get": {
+        "description": "Getting a previously created order return.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "order_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/order_return"
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        },
+        "x-internal": true
+      }
+    },
+    "/orders/returns": {
+      "get": {
+        "description": "Getting a list of previously created order returns",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "A list of order returns",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/order_return"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        },
+        "x-internal": true
+      },
+      "post": {
+        "description": "Create a new order return.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "x-examples": {
+                  "Example 1": {
+                    "status": "requested",
+                    "returned_items": [
+                      {
+                        "quantity": 1,
+                        "reason_for_return": "garment_too_long",
+                        "order_line_item_id": "5a1a64de-6035-4225-b0aa-f3ce3e67231b"
+                      }
+                    ]
+                  }
+                },
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "requested",
+                      "incomplete"
+                    ]
+                  },
+                  "returned_items": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "quantity": {
+                          "type": "integer",
+                          "minimum": 1
+                        },
+                        "reason_for_return": {
+                          "type": "string"
+                        },
+                        "order_line_item_id": {
+                          "type": "string",
+                          "format": "uuid"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "examples": {
+                "create_requested_order_return": {
+                  "value": {
+                    "status": "requested",
+                    "returned_items": [
+                      {
+                        "quantity": 1,
+                        "reason_for_return": "string",
+                        "order_line_item_id": "e9eed13b-9b09-47d5-b073-7668c23a54da"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "An order return",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/order_return"
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        },
+        "x-internal": true
+      }
+    },
+    "/orders/returns/{id}": {
+      "get": {
+        "description": "Getting a previously created order return.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/order_return"
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        },
+        "x-internal": true
+      }
+    },
     "/pickup_dropoff_locations": {
       "parameters": [],
       "get": {
@@ -5984,6 +6331,98 @@
             ]
           }
         ]
+      },
+      "order_return": {
+        "type": "object",
+        "x-examples": {
+          "requested_order_return": {
+            "id": "1544bd6f-1b18-4626-8dd6-8c6f0aa12ae4",
+            "order_id": "101decb2-4b12-4a78-9efd-46a86b7fe0c1",
+            "status": "requested",
+            "created_at": "2023-03-06T12:01:40+01:00",
+            "updated_at": "2023-03-06T12:01:40+01:00",
+            "returned_items": [
+              {
+                "order_line_item_id": "d5a87c93-22fe-42b8-9581-b079d1663c07",
+                "quantity": 2,
+                "reason_for_return": "ordered_by_mistake"
+              }
+            ]
+          },
+          "label_created_order_return": {
+            "id": "2c113d44-9e94-4da4-80f8-2c8035215d05",
+            "order_id": "6f72728b-6b1a-4ff6-b696-93337e2f345f",
+            "shipment_id": "fbeb8ffd6258ca486446d41e7610cb844aedb3da",
+            "status": "label_created",
+            "created_at": "2023-03-03T11:30:15+01:00",
+            "updated_at": "2023-03-03T11:30:19+01:00",
+            "returned_items": [
+              {
+                "order_line_item_id": "9ee65726-4b53-400c-8bce-626c2c840464",
+                "quantity": 1,
+                "reason_for_return": "delivery_wrong_product"
+              }
+            ]
+          }
+        },
+        "x-internal": true,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
+          "order_id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
+          "shipment_id": {
+            "x-stoplight": {
+              "id": "qdbejdhxsf0bj"
+            },
+            "type": "string",
+            "readOnly": true
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "label_created",
+              "requested",
+              "incomplete"
+            ]
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "returned_items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "order_line_item_id": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "quantity": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "reason_for_return": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "title": ""
       },
       "pickup_dropoff_location": {
         "type": "object",
