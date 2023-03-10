@@ -24,9 +24,9 @@ To deploy to firebase you need to follow the following steps:
 
 ```console
 JEKYLL_ENV=production bundle exec rake build
-firebase login
-firebase use default
-firebase deploy --only hosting
+yarn run firebase login
+yarn run firebase use default
+yarn run firebase deploy --only hosting
 ```
 
 ## Contributing
