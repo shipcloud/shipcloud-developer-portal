@@ -1,8 +1,9 @@
 {
   "devDependencies": {
-    "@stoplight/spectral-cli": "^6.6.0",
     "@fullhuman/postcss-purgecss": "^5.0.0",
+    "@stoplight/spectral-cli": "^6.6.0",
     "autoprefixer": "^9.3.1",
+    "firebase-tools": "^11.24.1",
     "glob-parent": "^5.1.2",
     "postcss": "^8.4.19",
     "postcss-cli": "^6.0.1",
