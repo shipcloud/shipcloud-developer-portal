@@ -1282,7 +1282,7 @@
             },
             "in": "query",
             "name": "radius",
-            "description": "Search radius in meters"
+            "description": "The search radius in meters."
           },
           {
             "schema": {
@@ -1293,7 +1293,7 @@
             },
             "in": "query",
             "name": "limit",
-            "description": "Maximum results"
+            "description": "The maximum number of locations to include in the search result."
           }
         ],
         "summary": ""
