@@ -423,15 +423,29 @@
                       {
                         "name": "dhl",
                         "display_name": "Deutsche Post DHL",
-                        "services": ["standard", "returns"],
-                        "package_types": ["parcel", "bulk"],
-                        "additional_services": ["advance_notice"]
+                        "services": [
+                          "standard",
+                          "returns"
+                        ],
+                        "package_types": [
+                          "parcel",
+                          "bulk"
+                        ],
+                        "additional_services": [
+                          "advance_notice"
+                        ]
                       },
                       {
                         "name": "dpag",
                         "display_name": "Deutsche Post",
-                        "services": ["standard"],
-                        "package_types": ["letter", "parcel_letter", "books"],
+                        "services": [
+                          "standard"
+                        ],
+                        "package_types": [
+                          "letter",
+                          "parcel_letter",
+                          "books"
+                        ],
                         "additional_services": []
                       },
                       {
@@ -443,7 +457,10 @@
                           "one_day",
                           "one_day_early"
                         ],
-                        "package_types": ["parcel", "parcel_letter"],
+                        "package_types": [
+                          "parcel",
+                          "parcel_letter"
+                        ],
                         "additional_services": [
                           "advance_notice",
                           "drop_authorization",
@@ -875,7 +892,7 @@
                     "external_order_id": "Rechnung-1234",
                     "external_customer_id": "Kunde-1234",
                     "total_price": 186.85,
-                    "total_vat": 0.0,
+                    "total_vat": 1.23,
                     "currency": "EUR",
                     "total_weight": 0.9,
                     "weight_unit": "kg",
@@ -929,7 +946,7 @@
                     "external_order_id": "Rechnung-5678",
                     "external_customer_id": "Kunde-1234",
                     "total_price": 186.85,
-                    "total_vat": 0.0,
+                    "total_vat": 1.23,
                     "currency": "EUR",
                     "total_weight": 0.9,
                     "weight_unit": "kg",
@@ -1209,7 +1226,12 @@
                     "properties": {
                       "carrier": {
                         "type": "string",
-                        "enum": ["ups", "dpd", "hermes", "gls"],
+                        "enum": [
+                          "ups",
+                          "dpd",
+                          "hermes",
+                          "gls"
+                        ],
                         "description": "acronym of the carrier you want to use"
                       },
                       "shipments": {
@@ -1226,7 +1248,11 @@
                     }
                   }
                 ],
-                "required": ["carrier", "pickup_time", "pickup_address"]
+                "required": [
+                  "carrier",
+                  "pickup_time",
+                  "pickup_address"
+                ]
               },
               "examples": {
                 "Pickup request for collecting all shipments from a carrier": {
@@ -1385,7 +1411,13 @@
                     "description": "Width of the parcel in cm"
                   }
                 },
-                "required": ["carrier", "height", "length", "weight", "width"]
+                "required": [
+                  "carrier",
+                  "height",
+                  "length",
+                  "weight",
+                  "width"
+                ]
               },
               "example": {
                 "carrier": "dhl",
@@ -1410,7 +1442,9 @@
                       "description": "Price that shipcloud is going to charge you (exl. VAT)"
                     }
                   },
-                  "required": ["rate"]
+                  "required": [
+                    "rate"
+                  ]
                 },
                 "example": {
                   "rate": 3.8
@@ -1491,7 +1525,9 @@
                             "description": "id of a receivers address"
                           }
                         },
-                        "required": ["id"]
+                        "required": [
+                          "id"
+                        ]
                       }
                     ]
                   },
@@ -1515,7 +1551,9 @@
                             "description": "id of a senders address"
                           }
                         },
-                        "required": ["id"]
+                        "required": [
+                          "id"
+                        ]
                       }
                     ]
                   },
@@ -1523,7 +1561,12 @@
                     "$ref": "#/components/schemas/package_minimal"
                   }
                 },
-                "required": ["carrier", "service", "to", "package"]
+                "required": [
+                  "carrier",
+                  "service",
+                  "to",
+                  "package"
+                ]
               },
               "examples": {
                 "Shipment quote request": {
@@ -1552,10 +1595,14 @@
                           "description": "Price that shipcloud is going to charge you (exl. VAT)"
                         }
                       },
-                      "required": ["price"]
+                      "required": [
+                        "price"
+                      ]
                     }
                   },
-                  "required": ["shipment_quote"]
+                  "required": [
+                    "shipment_quote"
+                  ]
                 },
                 "examples": {
                   "Shipment quote response": {
@@ -1644,9 +1691,9 @@
                           {
                             "id": "3af8f7e5af196e1950deebd389a87406e1e5bb80",
                             "weight": 1.5,
-                            "length": 10.0,
-                            "width": 6.0,
-                            "height": 8.0,
+                            "length": 10.1,
+                            "width": 6.3,
+                            "height": 8.9,
                             "tracking_events": [
                               {
                                 "timestamp": "2013-05-26T16:55:24+02:00",
@@ -1712,9 +1759,9 @@
                           {
                             "id": "46ec98d23617c0cd4d11a6305e98748aac2e20fd",
                             "weight": 0.45,
-                            "length": 30.0,
-                            "width": 30.0,
-                            "height": 30.0
+                            "length": 30,
+                            "width": 30,
+                            "height": 30
                           }
                         ],
                         "price": 5.9,
@@ -2154,7 +2201,9 @@
                             "description": "id of a receivers address"
                           }
                         },
-                        "required": ["id"]
+                        "required": [
+                          "id"
+                        ]
                       }
                     ]
                   },
@@ -2178,7 +2227,9 @@
                             "description": "id of a senders address"
                           }
                         },
-                        "required": ["id"]
+                        "required": [
+                          "id"
+                        ]
                       }
                     ]
                   },
@@ -2187,7 +2238,10 @@
                     "description": "email address that we should notify once there's an update for this shipment. Usually the recipients'"
                   }
                 },
-                "required": ["carrier_tracking_no", "carrier"]
+                "required": [
+                  "carrier_tracking_no",
+                  "carrier"
+                ]
               },
               "examples": {
                 "Tracker creation request": {
@@ -2389,7 +2443,9 @@
                 "Creating a tracking catch-all webhook": {
                   "value": {
                     "url": "https://example.com/webhook",
-                    "event_types": ["shipment.tracking.*"]
+                    "event_types": [
+                      "shipment.tracking.*"
+                    ]
                   }
                 },
                 "Creating a webhook with basic auth": {
@@ -2645,7 +2701,7 @@
           "external_order_id": "8709500.00.01",
           "external_customer_id": "27597435",
           "total_price": 186.85,
-          "total_vat": 0,
+          "total_vat": 1.23,
           "currency": "EUR",
           "total_weight": 0.9,
           "weight_unit": "kg",
@@ -2747,7 +2803,7 @@
           "external_order_id": "8709500.00.01",
           "external_customer_id": "27597435",
           "total_price": 186.85,
-          "total_vat": 0,
+          "total_vat": 1.23,
           "currency": "EUR",
           "total_weight": 0.9,
           "weight_unit": "kg",
@@ -3211,8 +3267,8 @@
             "invoice_number": "123ABC",
             "drop_off_location": "DE",
             "posting_date": "2017-10-07",
-            "additional_fees": 0.0,
-            "total_value_amount": 247.0,
+            "additional_fees": 1.22,
+            "total_value_amount": 247.31,
             "currency": "EUR",
             "items": [
               {
@@ -3260,9 +3316,9 @@
             {
               "id": "3af8f7e5af196e1950deebd389a87406e1e5bb80",
               "weight": 1.5,
-              "length": 10.0,
-              "width": 6.0,
-              "height": 8.0,
+              "length": 10.1,
+              "width": 6.3,
+              "height": 8.9,
               "tracking_events": [
                 {
                   "timestamp": "2013-05-26T16:55:24+02:00",
@@ -3319,8 +3375,8 @@
             "invoice_number": "123ABC",
             "drop_off_location": "DE",
             "posting_date": "2017-10-07",
-            "additional_fees": 0.0,
-            "total_value_amount": 247.0,
+            "additional_fees": 1.22,
+            "total_value_amount": 247.31,
             "currency": "EUR",
             "created_at": "2017-10-04T15:49:44+02:00",
             "updated_at": "2017-10-04T15:49:44+02:00",
@@ -3377,9 +3433,9 @@
             {
               "id": "3af8f7e5af196e1950deebd389a87406e1e5bb80",
               "weight": 1.5,
-              "length": 10.0,
-              "width": 6.0,
-              "height": 8.0,
+              "length": 10.1,
+              "width": 6.3,
+              "height": 8.9,
               "tracking_events": [
                 {
                   "timestamp": "2013-05-26T16:55:24+02:00",
@@ -3447,9 +3503,9 @@
             {
               "id": "3af8f7e5af196e1950deebd389a87406e1e5bb80",
               "weight": 1.5,
-              "length": 10.0,
-              "width": 6.0,
-              "height": 8.0,
+              "length": 10.1,
+              "width": 6.3,
+              "height": 8.9,
               "tracking_events": [
                 {
                   "timestamp": "2013-05-26T16:55:24+02:00",
@@ -3679,7 +3735,9 @@
             {
               "id": "583cfd8b-77c7-4447-a3a0-1568bb9cc553",
               "url": "https://example.com/webhook",
-              "event_types": ["shipment.tracking.*"],
+              "event_types": [
+                "shipment.tracking.*"
+              ],
               "deactivated": false
             },
             {
@@ -3709,7 +3767,9 @@
       "webhook_create_request_object_basic_auth": {
         "value": {
           "url": "https://example.com/webhook",
-          "event_types": ["shipment.*"],
+          "event_types": [
+            "shipment.*"
+          ],
           "security": {
             "type": "basic_auth",
             "username": "shipcloud_webhook_username",
@@ -3767,7 +3827,12 @@
             "description": "Email address for this person. Some carrier are using the email address to send notifications"
           }
         },
-        "required": ["street", "city", "zip_code", "country"]
+        "required": [
+          "street",
+          "city",
+          "zip_code",
+          "country"
+        ]
       },
       "address_with_id": {
         "allOf": [
@@ -3844,11 +3909,21 @@
             "description": "Email address for this person. Some carrier are using the email address to send notifications"
           }
         },
-        "required": ["id", "street", "city", "zip_code", "country"]
+        "required": [
+          "id",
+          "street",
+          "city",
+          "zip_code",
+          "country"
+        ]
       },
       "carrier_pickup": {
         "type": "string",
-        "enum": ["dpd", "hermes", "ups"],
+        "enum": [
+          "dpd",
+          "hermes",
+          "ups"
+        ],
         "description": "acronym of the carrier"
       },
       "carrier_shipping": {
@@ -3872,7 +3947,12 @@
       },
       "carrier_tracking_only": {
         "type": "string",
-        "enum": ["dhl", "dpd", "gls", "ups"],
+        "enum": [
+          "dhl",
+          "dpd",
+          "gls",
+          "ups"
+        ],
         "description": "acronym of the carrier"
       },
       "current_user": {
@@ -3902,7 +3982,10 @@
           "environment": {
             "type": "string",
             "description": "Shows the corresponding environment for the currently used api key.",
-            "enum": ["production", "sandbox"]
+            "enum": [
+              "production",
+              "sandbox"
+            ]
           },
           "subscription": {
             "type": "object",
@@ -3920,7 +4003,11 @@
                 "description": "true if the user has provided a chargeable payment method."
               }
             },
-            "required": ["plan_name", "plan_display_name", "chargeable"]
+            "required": [
+              "plan_name",
+              "plan_display_name",
+              "chargeable"
+            ]
           }
         },
         "required": [
@@ -3993,7 +4080,12 @@
             }
           }
         },
-        "required": ["contents_type", "currency", "total_value_amount", "items"]
+        "required": [
+          "contents_type",
+          "currency",
+          "total_value_amount",
+          "items"
+        ]
       },
       "customs_declaration_items": {
         "type": "object",
@@ -4084,7 +4176,11 @@
                           "description": "timestamp of when the item was last updated"
                         }
                       },
-                      "required": ["id", "created_at", "updated_at"]
+                      "required": [
+                        "id",
+                        "created_at",
+                        "updated_at"
+                      ]
                     }
                   ]
                 }
@@ -4113,7 +4209,12 @@
           },
           "size": {
             "type": "string",
-            "enum": ["A5", "A6", "A7", "100x70mm"],
+            "enum": [
+              "A5",
+              "A6",
+              "A7",
+              "100x70mm"
+            ],
             "description": "defines the size that the returned label should have",
             "deprecated": true
           }
@@ -4175,7 +4276,11 @@
             "description": "For referencing the manifest at the carrier"
           }
         },
-        "required": ["carrier", "posting_hub_address", "shipments"]
+        "required": [
+          "carrier",
+          "posting_hub_address",
+          "shipments"
+        ]
       },
       "manifest_response": {
         "allOf": [
@@ -4206,7 +4311,9 @@
                     "identifier": {
                       "type": "string",
                       "description": "An identifier that specifies the type of the document being returned",
-                      "enum": ["manifest_document"]
+                      "enum": [
+                        "manifest_document"
+                      ]
                     }
                   }
                 }
@@ -4258,7 +4365,11 @@
           "currency": {
             "type": "string",
             "minLength": 1,
-            "enum": ["EUR", "USD", "GBP"],
+            "enum": [
+              "EUR",
+              "USD",
+              "GBP"
+            ],
             "description": "Currency that the customer uses for paying the order"
           },
           "refundable_until": {
@@ -4275,7 +4386,9 @@
             "description": "Total weight of all items"
           },
           "weight_unit": {
-            "enum": ["kg"],
+            "enum": [
+              "kg"
+            ],
             "type": "string",
             "description": "The unit associated with the weight. Mandatory when `total_weight` is given"
           },
@@ -4290,7 +4403,12 @@
             }
           }
         },
-        "required": ["currency", "order_line_items", "total_price", "total_vat"]
+        "required": [
+          "currency",
+          "order_line_items",
+          "total_price",
+          "total_vat"
+        ]
       },
       "order_line_item": {
         "type": "object",
@@ -4334,7 +4452,9 @@
           "weight_unit": {
             "type": "string",
             "description": "Unit used for the weight measurement",
-            "enum": ["kg"]
+            "enum": [
+              "kg"
+            ]
           },
           "external_order_line_item_id": {
             "type": "string",
@@ -4385,7 +4505,14 @@
             }
           }
         },
-        "required": ["sku", "title", "quantity", "price", "vat", "currency"]
+        "required": [
+          "sku",
+          "title",
+          "quantity",
+          "price",
+          "vat",
+          "currency"
+        ]
       },
       "order_line_item_with_id": {
         "allOf": [
@@ -4403,7 +4530,9 @@
                 "description": "identifier of a previously created order line item"
               }
             },
-            "required": ["id"]
+            "required": [
+              "id"
+            ]
           }
         ]
       },
@@ -4431,7 +4560,9 @@
                 }
               }
             },
-            "required": ["id"]
+            "required": [
+              "id"
+            ]
           }
         ]
       },
@@ -4463,7 +4594,13 @@
               "type": {
                 "type": "string",
                 "description": "type of shipment you would like to book",
-                "enum": ["books", "bulk", "letter", "parcel", "parcel_letter"],
+                "enum": [
+                  "books",
+                  "bulk",
+                  "letter",
+                  "parcel",
+                  "parcel_letter"
+                ],
                 "default": "parcel"
               }
             }
@@ -4490,7 +4627,12 @@
             "description": "Width of the parcel in cm"
           }
         },
-        "required": ["width", "height", "length", "weight"],
+        "required": [
+          "width",
+          "height",
+          "length",
+          "weight"
+        ],
         "description": "defines package attributes"
       },
       "package_with_id": {
@@ -4564,11 +4706,18 @@
                       }
                     }
                   },
-                  "required": ["timestamp", "location", "status", "details"]
+                  "required": [
+                    "timestamp",
+                    "location",
+                    "status",
+                    "details"
+                  ]
                 }
               }
             },
-            "required": ["id"]
+            "required": [
+              "id"
+            ]
           }
         ]
       },
@@ -4599,7 +4748,10 @@
           }
         },
         "description": "defines a time window in which the carrier should pickup shipments",
-        "required": ["earliest", "latest"]
+        "required": [
+          "earliest",
+          "latest"
+        ]
       },
       "pickup_request_object": {
         "type": "object",
@@ -4639,10 +4791,16 @@
                 }
               }
             },
-            "required": ["id"]
+            "required": [
+              "id"
+            ]
           }
         },
-        "required": ["id", "carrier", "pickup_time"]
+        "required": [
+          "id",
+          "carrier",
+          "pickup_time"
+        ]
       },
       "service": {
         "type": "string",
@@ -4690,7 +4848,9 @@
                         "description": "name of the company"
                       }
                     },
-                    "required": ["company"]
+                    "required": [
+                      "company"
+                    ]
                   },
                   {
                     "type": "object",
@@ -4700,7 +4860,9 @@
                         "description": "last_name of the person"
                       }
                     },
-                    "required": ["last_name"]
+                    "required": [
+                      "last_name"
+                    ]
                   }
                 ]
               },
@@ -4724,7 +4886,9 @@
                         "description": "name of the company"
                       }
                     },
-                    "required": ["company"]
+                    "required": [
+                      "company"
+                    ]
                   },
                   {
                     "type": "object",
@@ -4734,7 +4898,9 @@
                         "description": "last_name of the person"
                       }
                     },
-                    "required": ["last_name"]
+                    "required": [
+                      "last_name"
+                    ]
                   }
                 ]
               },
@@ -4750,7 +4916,12 @@
               },
               {
                 "description": "Overwrites the sender address on the shipping label",
-                "required": ["street", "street_no", "zip_code", "city"]
+                "required": [
+                  "street",
+                  "street_no",
+                  "zip_code",
+                  "city"
+                ]
               }
             ]
           },
@@ -4793,7 +4964,11 @@
                   "type": {
                     "type": "string",
                     "description": "Providing the key that will determine, who will pay for transportation",
-                    "enum": ["receiver", "sender", "third_party"]
+                    "enum": [
+                      "receiver",
+                      "sender",
+                      "third_party"
+                    ]
                   },
                   "account_number": {
                     "type": "string",
@@ -4808,7 +4983,9 @@
                     "description": "The country code associated with the provided account number"
                   }
                 },
-                "required": ["type"]
+                "required": [
+                  "type"
+                ]
               },
               "duties_and_taxes": {
                 "type": "object",
@@ -4817,7 +4994,11 @@
                   "type": {
                     "type": "string",
                     "description": "Providing the key that will determine, who will pay for duties and taxes",
-                    "enum": ["receiver", "sender", "third_party"]
+                    "enum": [
+                      "receiver",
+                      "sender",
+                      "third_party"
+                    ]
                   },
                   "account_number": {
                     "type": "string",
@@ -4832,7 +5013,9 @@
                     "description": "The country code associated with the provided account number"
                   }
                 },
-                "required": ["type"]
+                "required": [
+                  "type"
+                ]
               }
             }
           },
@@ -4970,7 +5153,9 @@
                 }
               }
             },
-            "required": ["name"]
+            "required": [
+              "name"
+            ]
           },
           "pickup": {
             "$ref": "#/components/schemas/pickup"
@@ -5028,7 +5213,10 @@
             "description": "here you can save additional data that you want to be associated with the shipment. Any combination of key-value pairs is possible"
           }
         },
-        "required": ["carrier", "to"]
+        "required": [
+          "carrier",
+          "to"
+        ]
       },
       "shipment_put": {
         "type": "object",
@@ -5051,7 +5239,9 @@
                         "description": "name of the company"
                       }
                     },
-                    "required": ["company"]
+                    "required": [
+                      "company"
+                    ]
                   },
                   {
                     "type": "object",
@@ -5061,7 +5251,9 @@
                         "description": "last_name of the person"
                       }
                     },
-                    "required": ["last_name"]
+                    "required": [
+                      "last_name"
+                    ]
                   }
                 ]
               },
@@ -5085,7 +5277,9 @@
                         "description": "name of the company"
                       }
                     },
-                    "required": ["company"]
+                    "required": [
+                      "company"
+                    ]
                   },
                   {
                     "type": "object",
@@ -5095,7 +5289,9 @@
                         "description": "last_name of the person"
                       }
                     },
-                    "required": ["last_name"]
+                    "required": [
+                      "last_name"
+                    ]
                   }
                 ]
               },
@@ -5111,7 +5307,12 @@
               },
               {
                 "description": "Overwrites the sender address on the shipping label",
-                "required": ["street", "street_no", "zip_code", "city"]
+                "required": [
+                  "street",
+                  "street_no",
+                  "zip_code",
+                  "city"
+                ]
               }
             ]
           },
@@ -5156,7 +5357,10 @@
             "description": "here you can save additional data that you want to be associated with the shipment. Any combination of key-value pairs is possible"
           }
         },
-        "required": ["carrier", "to"]
+        "required": [
+          "carrier",
+          "to"
+        ]
       },
       "shipment_create_response_object": {
         "type": "object",
@@ -5182,7 +5386,12 @@
             "description": "Price that you're going to be charged with (exl. VAT). You will get a price of 0.0 when using the sandbox or your own carrier contracts."
           }
         },
-        "required": ["id", "tracking_url", "label_url", "price"]
+        "required": [
+          "id",
+          "tracking_url",
+          "label_url",
+          "price"
+        ]
       },
       "shipment_response_object": {
         "allOf": [
@@ -5302,7 +5511,9 @@
                     "description": "id of a senders address"
                   }
                 },
-                "required": ["id"]
+                "required": [
+                  "id"
+                ]
               }
             ]
           },
@@ -5350,7 +5561,9 @@
                     "description": "id of a receivers address"
                   }
                 },
-                "required": ["id"]
+                "required": [
+                  "id"
+                ]
               }
             ]
           },
@@ -5390,7 +5603,11 @@
                   "description": "message the carrier sends to describe the shipments status"
                 }
               },
-              "required": ["timestamp", "location", "status"]
+              "required": [
+                "timestamp",
+                "location",
+                "status"
+              ]
             }
           }
         },
@@ -5418,7 +5635,9 @@
                 "description": "the tracker id that can be used for requesting info about a tracker"
               }
             },
-            "required": ["id"]
+            "required": [
+              "id"
+            ]
           }
         ]
       },
@@ -5468,12 +5687,17 @@
               "type": {
                 "type": "string",
                 "description": "Type of authorization",
-                "enum": ["basic_auth"]
+                "enum": [
+                  "basic_auth"
+                ]
               }
             }
           }
         },
-        "required": ["url", "event_types"]
+        "required": [
+          "url",
+          "event_types"
+        ]
       },
       "webhook_create_with_basic_auth": {
         "allOf": [
@@ -5515,7 +5739,9 @@
                 "description": "set to true, if the call of the webhook URL fails ten times."
               }
             },
-            "required": ["id"]
+            "required": [
+              "id"
+            ]
           }
         ]
       }
@@ -5558,18 +5784,29 @@
         "content": {
           "application/json": {
             "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "description": "Strings that describe, what has gone wrong. We're tunnelling error responses from the carriers. When this is the case, we try to prefix an error with 'The carrier {xyz} returned the following error:'"
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "description": "Strings that describe, what has gone wrong. We're tunnelling error responses from the carriers. When this is the case, we try to prefix an error with 'The carrier {xyz} returned the following error:'"
+                }
               }
             },
             "examples": {
               "Single error": {
-                "value": ["simple error message"]
+                "value": {
+                  "errors": [
+                    "simple error message"
+                  ]
+                }
               },
               "Multiple errors": {
-                "value": ["simple error message", "another error message"]
+                "value": {
+                  "errors": [
+                    "simple error message",
+                    "another error message"
+                  ]
+                }
               }
             }
           }
