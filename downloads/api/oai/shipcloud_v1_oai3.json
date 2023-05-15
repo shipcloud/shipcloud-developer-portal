@@ -1157,6 +1157,246 @@
         }
       }
     },
+    "/pickup_dropoff_locations": {
+      "parameters": [],
+      "get": {
+        "description": "Search pickup dropoff locations by address or geographical coordinates.",
+        "responses": {
+          "200": {
+            "description": "A successful response with a list of pickup dropoff locations.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "pickup_dropoff_locations": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/pickup_dropoff_location"
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "Pickup dropoff locations example": {
+                    "value": {
+                      "pickup_dropoff_locations": [
+                        {
+                          "carrier_code": "budbee",
+                          "service_point_id": "Service point ID",
+                          "name1": "Location name",
+                          "city": "Putten",
+                          "zip_code": "3881 SH",
+                          "street1": "Voorthuizerstraat",
+                          "house_number": "2",
+                          "country_code": "NL",
+                          "longitude": "5.610012906547574",
+                          "latitude": "52.26022679665733",
+                          "distance": 2564,
+                          "distance_unit_of_measure": "M",
+                          "telephone_number": "",
+                          "pudo_hours": [
+                            {
+                              "type": "Open",
+                              "day": 1,
+                              "time_from": "08:00",
+                              "time_until": "21:00"
+                            },
+                            {
+                              "type": "Open",
+                              "day": 2,
+                              "time_from": "08:00",
+                              "time_until": "21:00"
+                            },
+                            {
+                              "type": "Open",
+                              "day": 3,
+                              "time_from": "08:00",
+                              "time_until": "21:00"
+                            },
+                            {
+                              "type": "Open",
+                              "day": 4,
+                              "time_from": "08:00",
+                              "time_until": "21:00"
+                            },
+                            {
+                              "type": "Open",
+                              "day": 5,
+                              "time_from": "08:00",
+                              "time_until": "21:00"
+                            },
+                            {
+                              "type": "Open",
+                              "day": 6,
+                              "time_from": "08:00",
+                              "time_until": "21:00"
+                            }
+                          ],
+                          "pudo_additional_properties": [
+                            {
+                              "type": "LocationType",
+                              "sub_type": "Locker",
+                              "value": ""
+                            },
+                            {
+                              "type": "Service",
+                              "sub_type": "Pick-up",
+                              "value": ""
+                            },
+                            {
+                              "type": "PudoPoint",
+                              "sub_type": "Other",
+                              "value": "Estimated delivery 2023-05-13 12:30 (UTC)"
+                            }
+                          ],
+                          "pudo_measurements": [
+                            {
+                              "type": "Length",
+                              "unit_of_measure": "CM",
+                              "value": 38.5
+                            },
+                            {
+                              "type": "Width",
+                              "unit_of_measure": "CM",
+                              "value": 60
+                            },
+                            {
+                              "type": "Height",
+                              "unit_of_measure": "CM",
+                              "value": 29.5
+                            },
+                            {
+                              "type": "Weight",
+                              "unit_of_measure": "G",
+                              "value": 2000
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "dhl, hermes"
+            },
+            "in": "query",
+            "required": true,
+            "name": "carriers",
+            "description": "Must be set with the carrier names (see /carriers endpoint). Multiple carriers can be given as a comma separated list."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 255
+            },
+            "in": "query",
+            "name": "street",
+            "description": "The street with house number and addition if applicable of the address."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 255
+            },
+            "in": "query",
+            "name": "zip_code",
+            "description": "The zipcode of the address."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 255
+            },
+            "in": "query",
+            "name": "city",
+            "description": "The city of the address."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 255
+            },
+            "in": "query",
+            "name": "state",
+            "description": "The state, county or province of the address."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "DE",
+              "maxLength": 255
+            },
+            "in": "query",
+            "name": "country",
+            "description": "The country of the address."
+          },
+          {
+            "schema": {
+              "type": "number",
+              "example": 53.5446081
+            },
+            "in": "query",
+            "name": "latitude",
+            "description": "The geographical coordinate that specifies the north-south position."
+          },
+          {
+            "schema": {
+              "type": "number",
+              "example": 9.996158
+            },
+            "in": "query",
+            "name": "longitude",
+            "description": "The geographical coordinate that specifies the east-west position."
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "default": 10000,
+              "minLength": 1,
+              "maxLength": 2147483647
+            },
+            "in": "query",
+            "name": "radius",
+            "description": "The search radius in meters."
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "in": "query",
+            "name": "limit",
+            "description": "The maximum number of locations to include in the search result."
+          }
+        ],
+        "summary": ""
+      }
+    },
     "/pickup_requests": {
       "get": {
         "description": "Get all pickup requests for this user",
@@ -5744,6 +5984,204 @@
             ]
           }
         ]
+      },
+      "pickup_dropoff_location": {
+        "type": "object",
+        "x-examples": {
+          "pickup_dropoff_location_example": {
+            "carrier_code": "budbee",
+            "service_point_id": "Service point ID",
+            "name1": "Location name",
+            "city": "Putten",
+            "zip_code": "3881 SH",
+            "street1": "Voorthuizerstraat",
+            "house_number": "2",
+            "country_code": "NL",
+            "longitude": "5.610012906547574",
+            "latitude": "52.26022679665733",
+            "distance": 2564,
+            "distance_unit_of_measure": "M",
+            "telephone_number": "",
+            "pudo_hours": [
+              {
+                "type": "Open",
+                "day": 1,
+                "time_from": "08:00",
+                "time_until": "21:00"
+              },
+              {
+                "type": "Open",
+                "day": 2,
+                "time_from": "08:00",
+                "time_until": "21:00"
+              },
+              {
+                "type": "Open",
+                "day": 3,
+                "time_from": "08:00",
+                "time_until": "21:00"
+              },
+              {
+                "type": "Open",
+                "day": 4,
+                "time_from": "08:00",
+                "time_until": "21:00"
+              },
+              {
+                "type": "Open",
+                "day": 5,
+                "time_from": "08:00",
+                "time_until": "21:00"
+              },
+              {
+                "type": "Open",
+                "day": 6,
+                "time_from": "08:00",
+                "time_until": "21:00"
+              }
+            ],
+            "pudo_additional_properties": [
+              {
+                "type": "LocationType",
+                "sub_type": "Locker",
+                "value": ""
+              },
+              {
+                "type": "Service",
+                "sub_type": "Pick-up",
+                "value": ""
+              },
+              {
+                "type": "PudoPoint",
+                "sub_type": "Other",
+                "value": "Estimated delivery 2023-05-13 12:30 (UTC)"
+              }
+            ],
+            "pudo_measurements": [
+              {
+                "type": "Length",
+                "unit_of_measure": "CM",
+                "value": 38.5
+              },
+              {
+                "type": "Width",
+                "unit_of_measure": "CM",
+                "value": 60
+              },
+              {
+                "type": "Height",
+                "unit_of_measure": "CM",
+                "value": 29.5
+              },
+              {
+                "type": "Weight",
+                "unit_of_measure": "G",
+                "value": 2000
+              }
+            ]
+          }
+        },
+        "properties": {
+          "carrier_code": {
+            "type": "string"
+          },
+          "service_point_id": {
+            "type": "string"
+          },
+          "name1": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "zip_code": {
+            "type": "string"
+          },
+          "street1": {
+            "type": "string"
+          },
+          "house_number": {
+            "type": "string"
+          },
+          "country_code": {
+            "type": "string"
+          },
+          "longitude": {
+            "type": "string"
+          },
+          "latitude": {
+            "type": "string"
+          },
+          "distance": {
+            "type": "integer",
+            "description": "Distance in the unit of measure defined in distance_unit_of_measure"
+          },
+          "distance_unit_of_measure": {
+            "type": "string"
+          },
+          "telephone_number": {
+            "type": "string"
+          },
+          "pudo_hours": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "day": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 7,
+                  "description": "Days are numbered from 1 to 7 (Monday to Sunday)."
+                },
+                "time_from": {
+                  "type": "string"
+                },
+                "time_until": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "pudo_additional_properties": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "sub_type": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "pudo_measurements": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "unit_of_measure": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        },
+        "description": "A single location of a carrier. Includes opening hours, additional properties and (optional) maximum package measurements.",
+        "title": "pickup_dropoff_location"
       }
     },
     "headers": {
