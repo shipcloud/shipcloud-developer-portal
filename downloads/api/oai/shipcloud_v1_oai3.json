@@ -1176,6 +1176,106 @@
                       }
                     }
                   }
+                },
+                "examples": {
+                  "Pickup dropoff locations example": {
+                    "value": {
+                      "pickup_dropoff_locations": [
+                        {
+                          "carrier_code": "budbee",
+                          "service_point_id": "Service point ID",
+                          "name1": "Location name",
+                          "city": "Putten",
+                          "zip_code": "3881 SH",
+                          "street1": "Voorthuizerstraat",
+                          "house_number": "2",
+                          "country_code": "NL",
+                          "longitude": "5.610012906547574",
+                          "latitude": "52.26022679665733",
+                          "distance": 2564,
+                          "distance_unit_of_measure": "M",
+                          "telephone_number": "",
+                          "pudo_hours": [
+                            {
+                              "type": "Open",
+                              "day": 1,
+                              "time_from": "08:00",
+                              "time_until": "21:00"
+                            },
+                            {
+                              "type": "Open",
+                              "day": 2,
+                              "time_from": "08:00",
+                              "time_until": "21:00"
+                            },
+                            {
+                              "type": "Open",
+                              "day": 3,
+                              "time_from": "08:00",
+                              "time_until": "21:00"
+                            },
+                            {
+                              "type": "Open",
+                              "day": 4,
+                              "time_from": "08:00",
+                              "time_until": "21:00"
+                            },
+                            {
+                              "type": "Open",
+                              "day": 5,
+                              "time_from": "08:00",
+                              "time_until": "21:00"
+                            },
+                            {
+                              "type": "Open",
+                              "day": 6,
+                              "time_from": "08:00",
+                              "time_until": "21:00"
+                            }
+                          ],
+                          "pudo_additional_properties": [
+                            {
+                              "type": "LocationType",
+                              "sub_type": "Locker",
+                              "value": ""
+                            },
+                            {
+                              "type": "Service",
+                              "sub_type": "Pick-up",
+                              "value": ""
+                            },
+                            {
+                              "type": "PudoPoint",
+                              "sub_type": "Other",
+                              "value": "Estimated delivery 2023-05-13 12:30 (UTC)"
+                            }
+                          ],
+                          "pudo_measurements": [
+                            {
+                              "type": "Length",
+                              "unit_of_measure": "CM",
+                              "value": 38.5
+                            },
+                            {
+                              "type": "Width",
+                              "unit_of_measure": "CM",
+                              "value": 60
+                            },
+                            {
+                              "type": "Height",
+                              "unit_of_measure": "CM",
+                              "value": 29.5
+                            },
+                            {
+                              "type": "Weight",
+                              "unit_of_measure": "G",
+                              "value": 2000
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -5890,8 +5990,8 @@
         "x-examples": {
           "pickup_dropoff_location_example": {
             "carrier_code": "budbee",
-            "service_point_id": "BOX4141",
-            "name1": "ALBERT HEIJN PUTTEN",
+            "service_point_id": "Service point ID",
+            "name1": "Location name",
             "city": "Putten",
             "zip_code": "3881 SH",
             "street1": "Voorthuizerstraat",
@@ -5941,11 +6041,6 @@
               }
             ],
             "pudo_additional_properties": [
-              {
-                "type": "PudoPoint",
-                "sub_type": "Instructions",
-                "value": "De blauwe Budbee Box staat aan de rechterkant in de winkel"
-              },
               {
                 "type": "LocationType",
                 "sub_type": "Locker",
