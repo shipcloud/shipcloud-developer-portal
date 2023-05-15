@@ -1246,6 +1246,7 @@
           {
             "schema": {
               "type": "string",
+              "example": "DE",
               "maxLength": 255
             },
             "in": "query",
