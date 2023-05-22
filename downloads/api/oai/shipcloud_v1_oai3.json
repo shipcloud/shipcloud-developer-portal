@@ -6226,7 +6226,10 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "description": "Strings that describe, what has gone wrong. We're tunnelling error responses from the carriers. When this is the case, we try to prefix an error with 'The carrier {xyz} returned the following error:'"
+                  "items": {
+                    "description": "Strings that describe, what has gone wrong. We're tunnelling error responses from the carriers. When this is the case, we try to prefix an error with 'The carrier {xyz} returned the following error:'",
+                    "type": "string"
+                  }
                 }
               }
             },
