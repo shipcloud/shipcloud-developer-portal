@@ -555,3 +555,49 @@ POST /shipments
     system is up and reachable again.
   </p>
 </section>
+
+<section class="mt-l">
+  <h2 id="checkout" class="text-blue mt-m">
+    Checkout Section / Routing Rules
+  </h2>
+
+  <h3 id="checkout-introduction" class="text-blue mt-m">
+    Introduction
+  </h3>
+  <p>
+    The Routing Rules API is part of a Checkout API Suite, designed to provide a customer-centric 
+    shipping solution for ecommerce businesses. With Routing Rules, you can dynamically show 
+    carrier-service combinations based on predefined rules to the end-customers, offering a 
+    seamless shipping experience during the checkout.
+  </p>
+
+  <h3 id="checkout-functionality" class="text-blue mt-m">Functionality</h3>
+  <p>
+    Routing Rules allow you to define custom shipping rules using various methods organized in a 
+    structured tree format. These rules determine which carrier-service combinations are available 
+    for the requested shipping journey, starting from the checkout process.
+  </p>
+
+  <h3 id="checkout-how-it-works" class="text-blue mt-m">How it works</h3>
+  <p>
+    <ol class="list-outside list-decimal">
+      <li>
+        <b>Call the Routing Rules API</b>: Before creating the shipping label, call the Routing 
+        Rules API to get a prioritised list of routing options based on user-defined rules.
+      </li>
+      <li>
+        <b>Integrate Shipping Options in Checkout</b>: Display the shipping options from the 
+        response to your customers during checkout, allowing them to select their preferred option.
+      </li>
+      <li>
+        <b>Create Shipping Label</b>: Utilize the preferred route information obtained from the 
+        Routing Rules API to create the shipping label using the Ship API.
+      </li>
+    </ol>
+  </p>
+
+  <h3 id="checkout-additional-ressources" class="text-blue mt-m">Additional Ressources</h3>
+  <p>
+    For further assistance, check out our Help Center article on Routing Rules integration.
+  </p>
+</section>
