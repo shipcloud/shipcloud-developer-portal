@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: default_wide
 title: Carrier specific things
 ---
 
@@ -7,12 +7,1489 @@ title: Carrier specific things
 
 <div class="flex flex-wrap">
 {% for carrier in carriers %}
-  <div class="w-1/3 h-32 text-6xl px-2 text-center">
+  <div class="w-1/5 h-32 text-6xl px-2 text-center">
     <a href="{{ carrier[1].key | prepend: site.baseurl }}.html" class="text-grey-darker">
       <i class="shipcloud-carrier shipcloud-carrier-{{ carrier[1].css_key }}"></i>
     </a>
   </div>
 {% endfor %}
 </div>
+
+<table class="table-fluid text-left mt-m w-full text-sm xxl:text-base">
+  <thead>
+    <tr>
+      <th class="px-4 py-2 border-b bg-grey-light">Carrier</th>
+      <th class="px-4 py-2 border-b bg-grey-light">Services</th>
+      <th class="px-4 py-2 border-b bg-grey-light">Additional Services</th>
+      <th class="px-4 py-2 border-b bg-grey-light">Package Types</th>
+      <th class="px-4 py-2 border-b bg-grey-light">Label Formats</th>
+      <th class="px-4 py-2 border-b bg-grey-light border-r">Features</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/asendia.png">
+        Asendia
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>ePAQ Plus (asendia_epaq_plus)</li>
+          <li>ePAQ Select (asendia_epaq_select)</li>
+          <li>ePAQ Standard Economy (asendia_epaq_standard_economy)</li>
+          <li>ePAQ Standard Priority (asendia_epaq_standard_priority)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Bonus Tracking (asendia_bonus_tracking)</li>
+          <li>Mailbox delivery (asendia_mailbox_delivery)</li>
+          <li>Personal delivery (asendia_personal_delivery)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>PDF DIN A6 (pdf_a6)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Customs declarations</li>
+          <li>Delete shipments</li>
+          <li>Incoterms</li>
+          <li>Manifest</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/bring.png">
+        Bring
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Standard (standard)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Advance notice (advance_notice)</li>
+          <li>Closest Drop Off Point Delivery (closest_drop_off_point_delivery)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Pdf 4x6in (pdf_4x6in)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI (zpl2_4x6in_203dpi)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Delete shipments</li>
+          <li>Drop-off point</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/cargo_international.png">
+        Cargo International
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Express (Forwarder) (cargo_international_express)</li>
+          <li>Standard (standard)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Advance notice (advance_notice)</li>
+          <li>Cash on delivery (cash_on_delivery)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Disposable Pallet (disposable_pallet)</li>
+          <li>Europallet (euro_pallet)</li>
+          <li>Large Parcel (Forwarder) (cargo_international_large_parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>PDF DIN A5 (pdf_a5)</li>
+          <li>PDF DIN A6 (pdf_a6)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Declared value</li>
+          <li>Delete shipments</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/chronopost.png">
+        Chronopost
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Chronopost Express 18:00 (chronopost_express_1800)</li>
+          <li>Express (1 Day) (one_day)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>B2C Delivery (chronopost_b2c_delivery)</li>
+          <li>Saturday delivery (saturday_delivery)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>PDF DIN A6 (pdf_a6)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI (zpl2_4x6in_203dpi)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI, Thermo-Direkt (zpl2_4x6in_203dpi_td)</li>
+          <li>ZPL, 4x6 Inches, 300 DPI (zpl2_4x6in_300dpi)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Delete shipments</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/colis_prive.png">
+        Colis Privé
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Standard (standard)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Signature on delivery (signature_on_delivery)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>PDF DIN A5 (pdf_a5)</li>
+          <li>PDF DIN A6 (pdf_a6)</li>
+          <li>Pdf 4x6in (pdf_4x6in)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI (zpl2_4x6in_203dpi)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Delete shipments</li>
+          <li>Drop-off point</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/correos_express.png">
+        Correos Express
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Correos Express Paq 10 (correos_express_paq_1000)</li>
+          <li>Correos Express Paq Empresa 14 (correos_express_paq_empresa_1400)</li>
+          <li>Express (1 Day Early) (one_day_early)</li>
+          <li>Express (1 Day) (one_day)</li>
+          <li>Standard (standard)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Advance notice (advance_notice)</li>
+          <li>Cash on delivery (cash_on_delivery)</li>
+          <li>Delivery note (delivery_note)</li>
+          <li>Saturday delivery (saturday_delivery)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Pdf 4x6in (pdf_4x6in)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI (zpl2_4x6in_203dpi)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Delete shipments</li>
+          <li>Drop-off point</li>
+          <li>Incoterms</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/db_schenker.png">
+        DB Schenker
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>DB SCHENKERspeed (db_schenker_speed)</li>
+          <li>DB SCHENKERspeed 10 (db_schenker_speed_1000)</li>
+          <li>DB SCHENKERspeed 12 (db_schenker_speed_1200)</li>
+          <li>DB SCHENKERspeed 8 (db_schenker_speed_0800)</li>
+          <li>DB SCHENKERsystem (db_schenker_system)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Disposable Pallet (disposable_pallet)</li>
+          <li>Europallet (euro_pallet)</li>
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>PDF DIN A6 (pdf_a6)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI (zpl2_4x6in_203dpi)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI, Thermo-Direkt (zpl2_4x6in_203dpi_td)</li>
+          <li>ZPL, 4x6 Inches, 300 DPI (zpl2_4x6in_300dpi)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Delete shipments</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/dhl.png">
+        DHL
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>DHL Europaket (dhl_europaket)</li>
+          <li>DHL Paket Prio (dhl_prio)</li>
+          <li>DHL Warenpost (dhl_warenpost)</li>
+          <li>Returns (returns)</li>
+          <li>Standard (standard)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Advance notice (advance_notice)</li>
+          <li>Cash on delivery (cash_on_delivery)</li>
+          <li>Closest Drop Off Point Delivery (closest_drop_off_point_delivery)</li>
+          <li>DHL Endorsement (dhl_endorsement)</li>
+          <li>DHL GoGreen (dhl_gogreen)</li>
+          <li>DHL Ident Check (dhl_ident_check)</li>
+          <li>DHL Named Person Only (dhl_named_person_only)</li>
+          <li>DHL Parcel Outlet Routing (dhl_parcel_outlet_routing)</li>
+          <li>Delivery date (delivery_date)</li>
+          <li>Drop authorization (drop_authorization)</li>
+          <li>No Neighbor Delivery (dhl_no_neighbor_delivery)</li>
+          <li>Preferred neighbor (dhl_preferred_neighbor)</li>
+          <li>Premium International (premium_international)</li>
+          <li>Signature on delivery (signature_on_delivery)</li>
+          <li>Visual Age Check (visual_age_check)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Bulk Goods (bulk)</li>
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>PDF 100x70 Millimeter (pdf_100x70mm)</li>
+          <li>PDF 103x150 Millimeter (pdf_103x150mm)</li>
+          <li>PDF 103x199 Millimeter (pdf_103x199mm)</li>
+          <li>PDF DIN A5 (pdf_a5)</li>
+          <li>PDF DIN A6 (pdf_a6)</li>
+          <li>PDF DIN A7 (pdf_a7)</li>
+          <li>ZPL, 100x70 Millimeter, 203 DPI (zpl2_100x70mm_203dpi)</li>
+          <li>ZPL, 103x150 Millimeter, 203 DPI (zpl2_103x150mm_203dpi)</li>
+          <li>ZPL, 103x199 Millimeter, 203 DPI (zpl2_103x199mm_203dpi)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI (zpl2_4x6in_203dpi)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI, Thermo-Direkt (zpl2_4x6in_203dpi_td)</li>
+          <li>ZPL, 4x6 Inches, 300 DPI (zpl2_4x6in_300dpi)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Customs declarations</li>
+          <li>Declared value</li>
+          <li>Delete shipments</li>
+          <li>Incoterms</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/dhl_benelux.png">
+        DHL Benelux
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/dhl_express.png">
+        DHL Express
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>DHL Express Economy Select (dhl_express_economy_select)</li>
+          <li>Express (1 Day Early) (one_day_early)</li>
+          <li>Express (1 Day) (one_day)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Saturday delivery (saturday_delivery)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>PDF DIN A5 (pdf_a5)</li>
+          <li>PDF DIN A6 (pdf_a6)</li>
+          <li>Zpl2 4x8in 203dpi (zpl2_4x8in_203dpi)</li>
+          <li>Zpl2 4x8in 300dpi (zpl2_4x8in_300dpi)</li>
+          <li>Zpl2 a6 203dpi (zpl2_a6_203dpi)</li>
+          <li>Zpl2 a6 300dpi (zpl2_a6_300dpi)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Billing scenarios</li>
+          <li>Customs declarations</li>
+          <li>Delete shipments</li>
+          <li>Enclosed pickup</li>
+          <li>Incoterms</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/dhl_nl.png">
+        DHL NL
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Returns (returns)</li>
+          <li>Standard (standard)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Advance notice (advance_notice)</li>
+          <li>Mailbox delivery (mailbox_delivery)</li>
+          <li>Signature on delivery (signature_on_delivery)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Pdf 4x6in (pdf_4x6in)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI (zpl2_4x6in_203dpi)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Delete shipments</li>
+          <li>Drop-off point</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/dhl_pl.png">
+        DHL PL
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>DHL Connect (dhl_connect)</li>
+          <li>Standard (standard)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Advance notice (advance_notice)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>PDF DIN A5 (pdf_a5)</li>
+          <li>Pdf 101x154mm (pdf_101x154mm)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Delete shipments</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/dpag.png">
+        Deutsche Post
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Standard (standard)</li>
+          <li>Warenpost (dpag_warenpost)</li>
+          <li>Warenpost Untracked (dpag_warenpost_untracked)</li>
+          <li>Warenpost with Signature (dpag_warenpost_signature)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Book Shipment (books)</li>
+          <li>Letter (letter)</li>
+          <li>Merchandize Shipment (parcel_letter)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>PDF DIN A5 (pdf_a5)</li>
+          <li>PDF DIN A6 (pdf_a6)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI (zpl2_4x6in_203dpi)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI, Thermo-Direkt (zpl2_4x6in_203dpi_td)</li>
+          <li>Zpl2 a6 203dpi (zpl2_a6_203dpi)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Customs declarations</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/dpd.png">
+        DPD
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Express (1 Day Early) (one_day_early)</li>
+          <li>Express (1 Day) (one_day)</li>
+          <li>Returns (returns)</li>
+          <li>Standard (standard)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Advance notice (advance_notice)</li>
+          <li>DPD Food (dpd_food)</li>
+          <li>Drop authorization (drop_authorization)</li>
+          <li>Hazardous goods (hazardous_goods)</li>
+          <li>Saturday delivery (saturday_delivery)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Merchandize Shipment (parcel_letter)</li>
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>PDF DIN A5 (pdf_a5)</li>
+          <li>PDF DIN A6 (pdf_a6)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI (zpl2_4x6in_203dpi)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI, Thermo-Direkt (zpl2_4x6in_203dpi_td)</li>
+          <li>ZPL, 4x6 Inches, 300 DPI (zpl2_4x6in_300dpi)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Delete shipments</li>
+          <li>Pickup Request Address</li>
+          <li>Pickup Requests</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/dpd_nl.png">
+        DPD NL
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Standard (standard)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Advance notice (advance_notice)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Pdf 4x6in (pdf_4x6in)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI (zpl2_4x6in_203dpi)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Customs declarations</li>
+          <li>Delete shipments</li>
+          <li>Drop-off point</li>
+          <li>Incoterms</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/evri.png">
+        Evri
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Express (1 Day) (one_day)</li>
+          <li>Returns (returns)</li>
+          <li>Standard (standard)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Advance notice (advance_notice)</li>
+          <li>Signature on delivery (signature_on_delivery)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Pdf 4x6in (pdf_4x6in)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI (zpl2_4x6in_203dpi)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Delete shipments</li>
+          <li>Drop-off point</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/fedex.png">
+        FedEx
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Express (1 Day Early) (one_day_early)</li>
+          <li>Express (1 Day) (one_day)</li>
+          <li>FedEx International Connect Plus (fedex_international_connect_plus)</li>
+          <li>FedEx International Economy (fedex_international_economy)</li>
+          <li>FedEx International Priority (fedex_international_priority)</li>
+          <li>FedEx Regional Economy (fedex_regional_economy)</li>
+          <li>Standard (standard)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>PDF DIN A6 (pdf_a6)</li>
+          <li>Pdf 4x6in (pdf_4x6in)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI (zpl2_4x6in_203dpi)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI, Thermo-Direkt (zpl2_4x6in_203dpi_td)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Customs declarations</li>
+          <li>Delete shipments</li>
+          <li>Incoterms</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/fedex_us.png">
+        FedEx US
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>FedEx US Ground (fedex_us_ground)</li>
+          <li>FedEx US Home Delivery (fedex_us_home_delivery)</li>
+          <li>Standard (standard)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>PDF DIN A6 (pdf_a6)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI (zpl2_4x6in_203dpi)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI, Thermo-Direkt (zpl2_4x6in_203dpi_td)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Delete shipments</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/gls.png">
+        GLS
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Express (1 Day Early) (one_day_early)</li>
+          <li>Express (1 Day) (one_day)</li>
+          <li>GLS Express 08:00 (gls_express_0800)</li>
+          <li>GLS Express 09:00 (gls_express_0900)</li>
+          <li>GLS Express 10:00 (gls_express_1000)</li>
+          <li>GLS Express 12:00 (gls_express_1200)</li>
+          <li>GLS Pick&Ship (gls_pick_and_ship)</li>
+          <li>Returns (returns)</li>
+          <li>Standard (standard)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Advance notice (advance_notice)</li>
+          <li>Cash on delivery (cash_on_delivery)</li>
+          <li>Drop authorization (drop_authorization)</li>
+          <li>GLS Guaranteed24Service (gls_guaranteed24service)</li>
+          <li>Saturday delivery (saturday_delivery)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>PDF DIN A5 (pdf_a5)</li>
+          <li>PDF DIN A6 (pdf_a6)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Delete shipments</li>
+          <li>Drop-off point</li>
+          <li>Incoterms</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/gls_at.png">
+        GLS AT
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Express (1 Day Early) (one_day_early)</li>
+          <li>Express (1 Day) (one_day)</li>
+          <li>Returns (returns)</li>
+          <li>Standard (standard)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Advance notice (advance_notice)</li>
+          <li>Saturday delivery (saturday_delivery)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Pdf 4x6in (pdf_4x6in)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI (zpl2_4x6in_203dpi)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Delete shipments</li>
+          <li>Drop-off point</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/gls_nl.png">
+        GLS NL
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Express (1 Day Early) (one_day_early)</li>
+          <li>Express (1 Day) (one_day)</li>
+          <li>Returns (returns)</li>
+          <li>Standard (standard)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Advance notice (advance_notice)</li>
+          <li>Saturday delivery (saturday_delivery)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Pdf 4x6in (pdf_4x6in)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI (zpl2_4x6in_203dpi)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Delete shipments</li>
+          <li>Drop-off point</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/go.png">
+        GO!
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Express (1 Day) (one_day)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Delivery Time (delivery_time)</li>
+          <li>Delivery date (delivery_date)</li>
+          <li>Delivery note (delivery_note)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>PDF DIN A5 (pdf_a5)</li>
+          <li>PDF DIN A6 (pdf_a6)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Delete shipments</li>
+          <li>Enclosed pickup</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/hermes.png">
+        Hermes
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Returns (returns)</li>
+          <li>Standard (standard)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Advance notice (advance_notice)</li>
+          <li>Cash on delivery (cash_on_delivery)</li>
+          <li>Hermes Ident Check (hermes_ident_check)</li>
+          <li>Hermes Next Day (hermes_next_day)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Bulk Goods (bulk)</li>
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>PDF DIN A5 (pdf_a5)</li>
+          <li>PDF DIN A6 (pdf_a6)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Cover address</li>
+          <li>Delete shipments</li>
+          <li>Drop-off point</li>
+          <li>Pickup Request Address</li>
+          <li>Pickup Requests</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/hermes_hes.png">
+        HES (Hermes Einrichtungs Service)
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/iloxx.png">
+        iloxx (MyDPD Business)
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Standard (standard)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>PDF DIN A5 (pdf_a5)</li>
+          <li>PDF DIN A6 (pdf_a6)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Delete shipments</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/inpost.png">
+        InPost
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Returns (returns)</li>
+          <li>Standard (standard)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Advance notice (advance_notice)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Pdf 4x6in (pdf_4x6in)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI (zpl2_4x6in_203dpi)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Delete shipments</li>
+          <li>Drop-off point</li>
+          <li>Multi colli</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/landmark_global.png">
+        Landmark Global
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Standard (standard)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>PDF DIN A6 (pdf_a6)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Customs declarations</li>
+          <li>Delete shipments</li>
+          <li>Incoterms</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/mondial_relay.png">
+        Mondial Relay
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Returns (returns)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>PDF DIN A6 (pdf_a6)</li>
+          <li>Pdf 4x6in (pdf_4x6in)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI (zpl2_4x6in_203dpi)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Delete shipments</li>
+          <li>Incoterms</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/packeta.png">
+        Packeta
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Standard (standard)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Cash on delivery (cash_on_delivery)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>PDF DIN A5 (pdf_a5)</li>
+          <li>PDF DIN A6 (pdf_a6)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Delete shipments</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/parcel_one.png">
+        PARCEL.ONE
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Returns (returns)</li>
+          <li>Standard (standard)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Merchandize Shipment (parcel_letter)</li>
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>PDF DIN A5 (pdf_a5)</li>
+          <li>PDF DIN A6 (pdf_a6)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Customs declarations</li>
+          <li>Delete shipments</li>
+          <li>Product mapping</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/post_at.png">
+        Austrian Post
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Post AT EMS (post_at_ems)</li>
+          <li>Post AT Kleinpaket (post_at_kleinpaket)</li>
+          <li>Post AT Plus International (post_at_plus_international)</li>
+          <li>Post AT Premium (post_at_premium)</li>
+          <li>Post AT Premium Select (post_at_premium_select)</li>
+          <li>Returns (returns)</li>
+          <li>Standard (standard)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>PDF DIN A5 (pdf_a5)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI (zpl2_4x6in_203dpi)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI, Thermo-Direkt (zpl2_4x6in_203dpi_td)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Delete shipments</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/post_ch.png">
+        Post CH
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Economy (post_ch_economy)</li>
+          <li>Priority (post_ch_priority)</li>
+          <li>Returns (returns)</li>
+          <li>SmallPac Economy (post_ch_smallpac_economy)</li>
+          <li>SmallPac Priority (post_ch_smallpac_priority)</li>
+          <li>Standard (standard)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Post CH Signature (post_ch_signature)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Bulk Goods (bulk)</li>
+          <li>Merchandize Shipment (parcel_letter)</li>
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>PDF DIN A6 (pdf_a6)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI (zpl2_4x6in_203dpi)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI, Thermo-Direkt (zpl2_4x6in_203dpi_td)</li>
+          <li>ZPL, 4x6 Inches, 300 DPI (zpl2_4x6in_300dpi)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Delete shipments</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/post_nl.png">
+        PostNL
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Returns (returns)</li>
+          <li>Standard (standard)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>PostNL Return When Not Home (post_nl_return_when_not_home)</li>
+          <li>PostNL Stated Address Only (post_nl_stated_address_only)</li>
+          <li>Signature on delivery (signature_on_delivery)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>PDF DIN A6 (pdf_a6)</li>
+          <li>Pdf 4x6in (pdf_4x6in)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI (zpl2_4x6in_203dpi)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI, Thermo-Direkt (zpl2_4x6in_203dpi_td)</li>
+          <li>ZPL, 4x6 Inches, 300 DPI (zpl2_4x6in_300dpi)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Delete shipments</li>
+          <li>Drop-off point</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/poste_italiane.png">
+        Poste Italiane
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Express (1 Day) (one_day)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Pdf 4x6in (pdf_4x6in)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI (zpl2_4x6in_203dpi)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Delete shipments</li>
+          <li>Drop-off point</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/postnord.png">
+        PostNord
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/sending.png">
+        Sending
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Express (1 Day Early) (one_day_early)</li>
+          <li>Express (1 Day) (one_day)</li>
+          <li>Standard (standard)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Sending Optical Sector Delivery (sending_optical_sector_delivery)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Pdf 4x6in (pdf_4x6in)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI (zpl2_4x6in_203dpi)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Delete shipments</li>
+          <li>Drop-off point</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/spring.png">
+        Spring
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Spring Routed Untracked (spring_routed_untracked)</li>
+          <li>Standard (standard)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Signature on delivery (signature_on_delivery)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Pdf 4x6in (pdf_4x6in)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI (zpl2_4x6in_203dpi)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Delete shipments</li>
+          <li>Drop-off point</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/trans_o_flex.png">
+        trans-o-flex
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Express (1 Day) (one_day)</li>
+          <li>trans-o-flex Express (trans_o_flex_express)</li>
+          <li>trans-o-flex Express 08:00 (trans_o_flex_express_0800)</li>
+          <li>trans-o-flex Express 09:00 (trans_o_flex_express_0900)</li>
+          <li>trans-o-flex Express 10:00 (trans_o_flex_express_1000)</li>
+          <li>trans-o-flex Express 12:00 (trans_o_flex_express_1200)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Advance notice (advance_notice)</li>
+          <li>Cash on delivery (cash_on_delivery)</li>
+          <li>Saturday delivery (saturday_delivery)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Parcel (parcel)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>PDF DIN A6 (pdf_a6)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI (zpl2_4x6in_203dpi)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI, Thermo-Direkt (zpl2_4x6in_203dpi_td)</li>
+          <li>ZPL, 4x6 Inches, 300 DPI (zpl2_4x6in_300dpi)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Delete shipments</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b border-l">
+        <img src="{{ site.baseurl }}/assets/images/logos/carriers/60x/ups.png">
+        UPS
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Express (1 Day Early) (one_day_early)</li>
+          <li>Express (1 Day) (one_day)</li>
+          <li>Returns (returns)</li>
+          <li>Standard (standard)</li>
+          <li>UPS 2nd Day Air (ups_2nd_day_air)</li>
+          <li>UPS Economy Mail Innovations - International (ups_economy_mail_innovations)</li>
+          <li>UPS Expedited (ups_expedited)</li>
+          <li>UPS Expedited Mail Innovations (ups_expedited_mail_innovations)</li>
+          <li>UPS Express 12:00 (ups_express_1200)</li>
+          <li>UPS Priority Mail Innovations (ups_priority_mail_innovations)</li>
+          <li>UPS SurePost (ups_surepost)</li>
+          <li>UPS SurePost Lightweight (ups_surepost_lightweight)</li>
+          <li>UPS Worldwide Expedited (ups_worldwide_expedited)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Bill receiver (bill_receiver)</li>
+          <li>Cash on delivery (cash_on_delivery)</li>
+          <li>Saturday delivery (saturday_delivery)</li>
+          <li>UPS Access Point notification (ups_access_point_notification)</li>
+          <li>UPS Adult Signature Required (ups_adult_signature)</li>
+          <li>UPS Direct Delivery Only (ups_direct_delivery_only)</li>
+          <li>UPS Endorsement (ups_endorsement)</li>
+          <li>UPS Signature Required (ups_signature_required)</li>
+          <li>UPS carbon neutral (ups_carbon_neutral)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>Parcel (parcel)</li>
+          <li>UPS Irregulars (ups_irregulars)</li>
+          <li>UPS Parcels (ups_parcels)</li>
+          <li>UPS Standard Flats (ups_standard_flats)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b">
+        <ul class="list-disc">
+          <li>PDF DIN A5 (pdf_a5)</li>
+          <li>PDF DIN A6 (pdf_a6)</li>
+          <li>ZPL, 4x6 Inches, 203 DPI (zpl2_4x6in_203dpi)</li>
+          <li>Zpl2 4x8in 203dpi (zpl2_4x8in_203dpi)</li>
+        </ul>
+      </td>
+      <td class="px-4 py-2 border-b border-r">
+        <ul class="list-disc">
+          <li>Billing scenarios</li>
+          <li>Customs declarations</li>
+          <li>Declared value</li>
+          <li>Delete shipments</li>
+          <li>Drop-off point</li>
+          <li>Incoterms</li>
+          <li>Pickup Request Address</li>
+          <li>Pickup Requests</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 
