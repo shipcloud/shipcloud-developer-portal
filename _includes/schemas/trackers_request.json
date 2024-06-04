@@ -33,6 +33,11 @@
     "notification_email": {
       "type": "string",
       "description": "email address that we should notify once there's an update for this shipment"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "here you can save additional data that you want to be associated with the shipment. Any combination of key-value pairs is possible",
+      "additionalProperties": true
     }
   },
   "required": ["carrier_tracking_no", "carrier"],

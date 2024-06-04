@@ -94,6 +94,10 @@
         "required": ["timestamp", "location", "status", "details"],
         "additionalProperties": false
       }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "additional data associated with the shipment"
     }
   },
   "required": ["id", "carrier_tracking_no", "status", "created_at", "tracking_status_updated_at", "last_polling_at", "next_polling_at", "shipment_id", "carrier"],
