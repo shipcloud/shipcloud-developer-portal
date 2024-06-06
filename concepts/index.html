@@ -558,40 +558,60 @@ POST /shipments
 
 <section class="mt-l">
   <h2 id="checkout" class="text-blue mt-m">
-    Checkout Section / Routing Rules
+    Checkout / Routing Rules
   </h2>
 
   <h3 id="checkout-introduction" class="text-blue mt-m">
     Introduction
   </h3>
   <p>
-    The Routing Rules API is part of a Checkout API Suite, designed to provide a customer-centric 
-    shipping solution for ecommerce businesses. With Routing Rules, you can dynamically show 
-    carrier-service combinations based on predefined rules to the end-customers, offering a 
-    seamless shipping experience during the checkout.
+    Shipcloud is offering a set of APIs that can support and improve the checkout experience of 
+    your customers.
+    <ul class="list-outside list-disc mt-m">
+      <li>
+        <a href="{{ site.baseurl }}/reference/#routing-rules">Routing Rules</a> can be used to 
+        retrieve and present a list of available carrier + service combinations (based on the 
+        address and cart data) during the checkout.
+      </li>
+      <li>
+        The 
+        <a href="{{ site.baseurl }}/swagger-ui/#/default/get_pickup_dropoff_locations">
+          pickup & dropoff point API
+        </a> 
+        provides a list of pickup and dropoff locations for a specific 
+        carrier. That list can be rendered in a checkout (for example Google maps based) to help 
+        the customer to identify close by locations to pick up their parcel.
+      </li>
+      <li>
+        The 
+        <a href="{{ site.baseurl }}/reference/#creating-a-shipment-quote">
+          shipment quote API
+        </a> 
+        provides your shipcloud rates for a given route. This can be used to determine if shipping 
+        should be charged during a checkout. If so, the quote response can be used as a basis to 
+        calculate the final charges that the end customer should be charged with.
+      </li>
+    </ul>
   </p>
 
-  <h3 id="checkout-functionality" class="text-blue mt-m">Functionality</h3>
+  <h3 id="checkout-routing-rules" class="text-blue mt-m">Routing rules</h3>
   <p>
     Routing Rules allow you to define custom shipping rules using various methods organized in a 
     structured tree format. These rules determine which carrier-service combinations are available 
-    for the requested shipping journey, starting from the checkout process.
+    for the requested shipping details. Shipping details can include: Ship to address, ship from 
+    address, direction, package data.
   </p>
-
-  <h3 id="checkout-how-it-works" class="text-blue mt-m">How it works</h3>
-  <p>
+  <p class="mt-m">
+    There are two ways to make use of routing rules:
     <ol class="list-outside list-decimal">
       <li>
-        <b>Call the Routing Rules API</b>: Before creating the shipping label, call the Routing 
-        Rules API to get a prioritised list of routing options based on user-defined rules.
+        Call the routing rules API to allocate a carrier service combination to an order and 
+        create a shipping label based on that right away.
       </li>
       <li>
-        <b>Integrate Shipping Options in Checkout</b>: Display the shipping options from the 
-        response to your customers during checkout, allowing them to select their preferred option.
-      </li>
-      <li>
-        <b>Create Shipping Label</b>: Utilize the preferred route information obtained from the 
-        Routing Rules API to create the shipping label using the Ship API.
+        Call the routing rules API during a checkout session to present available carriers and 
+        delivery options (e.g. Express, Express early,…). This could also be used to show 
+        estiamted delivery timeframes and shipping costs
       </li>
     </ol>
   </p>
