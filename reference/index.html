@@ -1822,26 +1822,50 @@ no payload
   "carrier_service_combinations": [
     {
       "carrier": "ups",
-      "service": "standard"
+      "service": "standard",
+      "carrier_display_name": "UPS",
+      "service_display_name": "",
+      "description": "Delivery within 1-2 business days",
+      "checkout_shipping_price": "0",
+      "pickup_dropoff": "true"
     },
     {
       "carrier": "dhl",
-      "service": "standard"
+      "service": "standard",
+      "carrier_display_name": "DHL",
+      "service_display_name": "",
+      "description": "Delivery within 1-2 business days",
+      "checkout_shipping_price": "6.90",
+      "pickup_dropoff": "true"
     },
     {
       "carrier": "dpd",
-      "service": "standard"
+      "service": "standard",
+      "carrier_display_name": "DPD",
+      "service_display_name": "",
+      "description": "Delivery within 1-2 business days",
+      "checkout_shipping_price": "3.90"
     },
     {
       "carrier": "ups",
-      "service": "one_day"
+      "service": "one_day",
+      "carrier_display_name": "UPS",
+      "service_display_name": "Express",
+      "description": "Expected delivery on the next business day",
+      "checkout_shipping_price": "8.90",
+      "pickup_dropoff": "true"
     },
     {
       "carrier": "ups",
-      "service": "one_day_early"
+      "service": "one_day_early",
+      "carrier_display_name": "UPS",
+      "service_display_name": "Express early",
+      "description": "Expected delivery on the next business day before noon",
+      "checkout_shipping_price": "14.90",
+      "pickup_dropoff": "false"
     }
   ],
-  "rule_tree_version": 1
+  "rule_tree_version": 2
 }
 {% endhighlight %}
       </div>
