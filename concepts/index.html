@@ -555,3 +555,73 @@ POST /shipments
     system is up and reachable again.
   </p>
 </section>
+
+<section class="mt-l">
+  <h2 id="checkout" class="text-blue mt-m">
+    Checkout / Routing Rules
+  </h2>
+
+  <h3 id="checkout-introduction" class="text-blue mt-m">
+    Introduction
+  </h3>
+  <p>
+    Shipcloud is offering a set of APIs that can support and improve the checkout experience of 
+    your customers.
+    <ul class="list-outside list-disc mt-m">
+      <li>
+        <a href="{{ site.baseurl }}/reference/#routing-rules">Routing Rules</a> can be used to 
+        retrieve and present a list of available carrier + service combinations (based on the 
+        address and cart data) during the checkout.
+      </li>
+      <li>
+        The 
+        <a href="{{ site.baseurl }}/swagger-ui/#/default/get_pickup_dropoff_locations">
+          pickup & dropoff point API
+        </a> 
+        provides a list of pickup and dropoff locations for a specific 
+        carrier. That list can be rendered in a checkout (for example Google maps based) to help 
+        the customer to identify close by locations to pick up their parcel.
+      </li>
+      <li>
+        The 
+        <a href="{{ site.baseurl }}/reference/#creating-a-shipment-quote">
+          shipment quote API
+        </a> 
+        provides your shipcloud rates for a given route. This can be used to determine if shipping 
+        should be charged during a checkout. If so, the quote response can be used as a basis to 
+        calculate the final charges that the end customer should be charged with.
+      </li>
+    </ul>
+  </p>
+
+  <h3 id="checkout-routing-rules" class="text-blue mt-m">Routing rules</h3>
+  <p>
+    Routing Rules allow you to define custom shipping rules using various methods organized in a 
+    structured tree format. These rules determine which carrier-service combinations are available 
+    for the requested shipping details. Shipping details can include: Ship to address, ship from 
+    address, direction, package data.
+  </p>
+  <p class="mt-m">
+    There are two ways to make use of routing rules:
+    <ol class="list-outside list-decimal">
+      <li>
+        Call the routing rules API to allocate a carrier service combination to an order and 
+        create a shipping label based on that right away.
+      </li>
+      <li>
+        Call the routing rules API during a checkout session to present available carriers and 
+        delivery options (e.g. Express, Express early,…). This could also be used to show 
+        estiamted delivery timeframes and shipping costs
+      </li>
+    </ol>
+  </p>
+
+  <h3 id="checkout-additional-ressources" class="text-blue mt-m">Additional Ressources</h3>
+  <p>
+    For further assistance, check out our 
+    <a href="https://helpcenter.shipcloud.com/en/articles/9335347-checkout-process">
+      Help Center article
+    </a> 
+    on Routing Rules integration.
+  </p>
+</section>
