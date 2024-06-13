@@ -27,26 +27,58 @@
               "key": "one_day_early"
             }
           ],
-          "package_types": [{
-            "display_name": "Parcel",
-            "key": "parcel"
-          }],
-          "additional_services": [{
-            "display_name": "Saturday delivery",
-            "key": "saturday_delivery"
-          }],
-          "label_formats": [{
-            "pdf": [
-              {
-                "display_name": "DIN A5",
-                "key": "pdf_a5"
-              },
-              {
-                "display_name": "DIN A6",
-                "key": "pdf_a6"
-              }
-            ]
-          }],
+          "package_types": [
+            {
+              "display_name": "Parcel",
+              "key": "parcel"
+            }
+          ],
+          "additional_services": [
+            {
+              "display_name": "Saturday delivery",
+              "key": "saturday_delivery"
+            }
+          ],
+          "label_formats": [
+            {
+              "pdf": [
+                {
+                  "display_name": "DIN A5",
+                  "key": "pdf_a5"
+                },
+                {
+                  "display_name": "DIN A6",
+                  "key": "pdf_a6"
+                }
+              ],
+              "zpl": [
+                {
+                  "display_name": "ZPL2 a6 203dpi",
+                  "key": "zpl2_a6_203dpi"
+                },
+                {
+                  "display_name": "ZPL2 a6 300dpi",
+                  "key": "zpl2_a6_300dpi"
+                },
+                {
+                  "display_name": "ZPL2 4x6in 203dpi",
+                  "key": "zpl2_4x6in_203dpi"
+                },
+                {
+                  "display_name": "ZPL2 4x6in 300dpi",
+                  "key": "zpl2_4x6in_300dpi"
+                },
+                {
+                  "display_name": "ZPL2 4x8in 203dpi",
+                  "key": "zpl2_4x8in_203dpi"
+                },
+                {
+                  "display_name": "ZPL2 4x8in 300dpi",
+                  "key": "zpl2_4x8in_300dpi"
+                }
+              ]
+            }
+          ],
           "field_lengths": {
             "shipments": {
               "company": "2 - 35 characters",
