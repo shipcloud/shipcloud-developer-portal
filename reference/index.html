@@ -1729,4 +1729,146 @@ no payload
       </div>
     </div>
   </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12">
+      <div class="px-l">
+        <h2 class="mt-l" id="routing-rules">
+          Routing Rules
+        </h2>
+        <p>
+          In addition to the traditional Ship journey, our API also supports the Checkout to Ship 
+          journey, providing a seamless solution for allowing customers to select their preferred 
+          carrier and service during the checkout process. 
+        </p>
+
+        <h3 class="mt-l" id="get-shipping-options">
+          Getting available shipping options for a route
+        </h3>
+        <p>
+          With this call you can find out which shipping options are available for the desired 
+          route and specific shipment.
+        </p>
+      </div>
+    </div>
+    <div class="bg-blue-dark w-4/12 flex-grow">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="block px-4 w-7/12 z-40">
+      <div class="px-l h-full">
+        <h4 class="mt-l">
+          Request
+        </h4>
+
+        <p class="my-m">
+          <button class="px-2 py-1 rounded bg-green text-white font bold">POST</button> <strong>/v1/shipping_rule_tree_resolutions</strong>
+        </p>
+
+{% highlight json %}
+{
+  "version": "12345",
+  "shipment_data": {
+    "direction": "outbound",
+    "from": {
+      "company": "FromCompany",
+      "care_of": "FromCareOf",
+      "first_name": "FromFirstName",
+      "last_name": "FromLastName",
+      "street": "FromStreet",
+      "street_no": "6",
+      "zip_code": "54321",
+      "city": "FromCity",
+      "state": "FromState",
+      "country": "DE",
+      "phone": "123456789",
+      "email": "from@example.com"
+    },
+    "to": {
+      "company": "ToCompany",
+      "care_of": "ToCareOf",
+      "first_name": "ToFirstName",
+      "last_name": "ToLastName",
+      "street": "ToStreet",
+      "street_no": "20",
+      "city": "ToCity",
+      "zip_code": "12345",
+      "state": "ToState",
+      "country": "DE",
+      "phone": "123456789",
+      "email": "to@example.com"
+    },
+    "package": {
+      "height": "10",
+      "length": "20",
+      "width": "30",
+      "weight": "5",
+      "type": "parcel"
+    }
+  }
+}
+{% endhighlight %}
+
+      </div>
+    </div>
+    <div class="bg-blue-dark px-xl w-4/12 flex-grow">
+      <div class="pb-l h-full">
+        <h4 class="mt-l text-white">
+          Response
+        </h4>
+
+        {% include headers/200_ok.html %}
+{% highlight json %}
+{
+  "carrier_service_combinations": [
+    {
+      "carrier": "ups",
+      "service": "standard",
+      "carrier_display_name": "UPS",
+      "service_display_name": "",
+      "description": "Delivery within 1-2 business days",
+      "checkout_shipping_price": "0",
+      "pickup_dropoff": "true"
+    },
+    {
+      "carrier": "dhl",
+      "service": "standard",
+      "carrier_display_name": "DHL",
+      "service_display_name": "",
+      "description": "Delivery within 1-2 business days",
+      "checkout_shipping_price": "6.90",
+      "pickup_dropoff": "true"
+    },
+    {
+      "carrier": "dpd",
+      "service": "standard",
+      "carrier_display_name": "DPD",
+      "service_display_name": "",
+      "description": "Delivery within 1-2 business days",
+      "checkout_shipping_price": "3.90"
+    },
+    {
+      "carrier": "ups",
+      "service": "one_day",
+      "carrier_display_name": "UPS",
+      "service_display_name": "Express",
+      "description": "Expected delivery on the next business day",
+      "checkout_shipping_price": "8.90",
+      "pickup_dropoff": "true"
+    },
+    {
+      "carrier": "ups",
+      "service": "one_day_early",
+      "carrier_display_name": "UPS",
+      "service_display_name": "Express early",
+      "description": "Expected delivery on the next business day before noon",
+      "checkout_shipping_price": "14.90",
+      "pickup_dropoff": "false"
+    }
+  ],
+  "rule_tree_version": 2
+}
+{% endhighlight %}
+      </div>
+    </div>
+  </div>
 </div>
