@@ -213,56 +213,56 @@ curl -i -u {{ site.apikey }}: -H "Content-Type: application/json" -d '{"service"
     To use this feature, include an array of package objects in your request, like this:
   </p>
   <p class="mt-m">
-    {% highlight http %}
-    POST /shipments
-    {% endhighlight %}
-    {% highlight json %}
+{% highlight http %}
+POST /shipments
+{% endhighlight %}
+{% highlight json %}
+{
+  "carrier": "ups",
+  "service": "standard",
+  "create_shipping_label": true,
+  "from": {
+    "company": "FromCompany",
+    "first_name": "FromFirstName",
+    "last_name": "FromLastName",
+    "street": "St. Annenufer",
+    "street_no": "5",
+    "city": "Hamburg",
+    "zip_code": "20457",
+    "country": "DE",
+    "phone": "+49405551234"
+  },
+  "to": {
+    "first_name": "ToFirstName",
+    "last_name": "ToLastName",
+    "street": "Lohhof",
+    "street_no": "24",
+    "city": "Hamburg",
+    "zip_code": "20535",
+    "country": "DE",
+    "phone": "+49405551234"
+  },
+  "packages": [
     {
-      "carrier": "ups",
-      "service": "standard",
-      "create_shipping_label": true,
-      "from": {
-        "company": "FromCompany",
-        "first_name": "FromFirstName",
-        "last_name": "FromLastName",
-        "street": "St. Annenufer",
-        "street_no": "5",
-        "city": "Hamburg",
-        "zip_code": "20457",
-        "country": "DE",
-        "phone": "+49405551234"
-      },
-      "to": {
-        "first_name": "ToFirstName",
-        "last_name": "ToLastName",
-        "street": "Lohhof",
-        "street_no": "24",
-        "city": "Hamburg",
-        "zip_code": "20535",
-        "country": "DE",
-        "phone": "+49405551234"
-      },
-      "packages": [
-        {
-          "length": "30",
-          "width": "30",
-          "height": "30",
-          "weight": "3",
-          "type": "parcel",
-          "description": "PackageDescription1"
-        },
-        {
-          "length": "20",
-          "width": "20",
-          "height": "20",
-          "weight": "2.0",
-          "type": "parcel",
-          "description": "PackageDescription2"
-        }
-      ],
-      "reference_number": "Ref-No-17433"
+      "length": "30",
+      "width": "30",
+      "height": "30",
+      "weight": "3",
+      "type": "parcel",
+      "description": "PackageDescription1"
+    },
+    {
+      "length": "20",
+      "width": "20",
+      "height": "20",
+      "weight": "2.0",
+      "type": "parcel",
+      "description": "PackageDescription2"
     }
-    {% endhighlight %}
+  ],
+  "reference_number": "Ref-No-17433"
+}
+{% endhighlight %}
   </p>
   <p>
     Please note, this feature is currently only supported by the carrier UPS, with more carriers to be added soon.
