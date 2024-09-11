@@ -206,9 +206,73 @@ curl -i -u {{ site.apikey }}: -H "Content-Type: application/json" -d '{"service"
 <section class="mt-m">
   <h3 id="multi-package-shipments" class="text-blue">Multi package shipments</h3>
   <p>
-    At the moment we're only supporting sending a single package with one shipment. Our api
-    responses however return an array to be able to switch to sending  multiple packages with a
-    single shipment in the future
+    We also support sending shipments with multiple packages. Instead of providing a single package object in your request, 
+    you need to provide an array of packages. This allows you to send multiple packages with a single shipment.
+  </p>
+  <p>
+    To use this feature, include an array of package objects in your request, like this:
+  </p>
+  <p class="mt-m">
+    {% highlight http %}
+    POST /shipments
+    {% endhighlight %}
+    {% highlight json %}
+    {
+      "carrier": "ups",
+      "service": "standard",
+      "create_shipping_label": true,
+      "from": {
+        "company": "FromCompany",
+        "first_name": "FromFirstName",
+        "last_name": "FromLastName",
+        "street": "St. Annenufer",
+        "street_no": "5",
+        "city": "Hamburg",
+        "zip_code": "20457",
+        "country": "DE",
+        "phone": "+49405551234"
+      },
+      "to": {
+        "first_name": "ToFirstName",
+        "last_name": "ToLastName",
+        "street": "Lohhof",
+        "street_no": "24",
+        "city": "Hamburg",
+        "zip_code": "20535",
+        "country": "DE",
+        "phone": "+49405551234"
+      },
+      "packages": [
+        {
+          "length": "30",
+          "width": "30",
+          "height": "30",
+          "weight": "3",
+          "type": "parcel",
+          "description": "PackageDescription1"
+        },
+        {
+          "length": "20",
+          "width": "20",
+          "height": "20",
+          "weight": "2.0",
+          "type": "parcel",
+          "description": "PackageDescription2"
+        }
+      ],
+      "reference_number": "Ref-No-17433"
+    }
+    {% endhighlight %}
+  </p>
+  <p>
+    Please note, this feature is currently only supported by the carrier UPS, with more carriers to be added soon.
+  </p>
+  <p>
+    <strong>Important:</strong>
+    <ul class="list-disc list-inside ml-m">
+      <li>For carriers not supporting multi-package shipments, you will need to send an array with just one package.</li>
+      <li>Creating shipments using the package object is still supported for now, but is deprecated.</li>
+    </ul>
   </p>
 </section>
 
