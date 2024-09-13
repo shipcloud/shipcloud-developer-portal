@@ -1853,21 +1853,21 @@
                             "height": 8.9,
                             "tracking_events": [
                               {
-                                "timestamp": "2013-05-26T16:55:24+02:00",
+                                "timestamp": "2024-08-29T16:55:24+02:00",
                                 "location": "Hamburg, Deutschland",
                                 "status": "delivered",
                                 "details": "Die Sendung wurde erfolgreich zugestellt.",
                                 "id": "ttzisojr-1phm-gcq0-jvch-hbdhd48scsuf"
                               },
                               {
-                                "timestamp": "2013-05-26T08:12:12+02:00",
+                                "timestamp": "2024-08-29T08:12:12+02:00",
                                 "location": "Hamburg, Deutschland",
                                 "status": "out_for_delivery",
                                 "details": "Die Sendung wurde in das Zustellfahrzeug geladen.",
                                 "id": "szyucq5x-9rh9-5jh3-3oge-cbiv1wjlnq53"
                               },
                               {
-                                "timestamp": "2013-05-25T11:46:34+02:00",
+                                "timestamp": "2024-08-28T11:46:34+02:00",
                                 "location": "Hamburg, Deutschland",
                                 "status": "transit",
                                 "details": "Die Sendung wurde im Start-Paketzentrum bearbeitet.",
@@ -1925,7 +1925,7 @@
                             "height": 30.5,
                             "tracking_events": [
                               {
-                                "timestamp": "2013-05-25T11:46:34+02:00",
+                                "timestamp": "2021-09-02T11:46:34+02:00",
                                 "location": "Hamburg, Deutschland",
                                 "status": "transit",
                                 "details": "Die Sendung wurde im Start-Paketzentrum bearbeitet.",
@@ -1941,7 +1941,7 @@
                             "height": 30,
                             "tracking_events": [
                               {
-                                "timestamp": "2013-05-25T11:46:34+02:00",
+                                "timestamp": "2021-09-02T11:46:34+02:00",
                                 "location": "Hamburg, Deutschland",
                                 "status": "transit",
                                 "details": "Die Sendung wurde im Start-Paketzentrum bearbeitet.",
@@ -3204,7 +3204,7 @@
               "earliest": "2018-07-30T09:00:00+02:00",
               "latest": "2018-07-30T18:00:00+02:00"
             },
-            "pickup_date": "2018/10/26",
+            "pickup_date": "2018/07/30",
             "pickup_address": {
               "id": "7ea2a290-b456-4ecf-9010-e82b3da298f0",
               "company": "Apple Inc.",
@@ -3559,7 +3559,7 @@
             "contents_explanation": "Alcoholic beverages",
             "invoice_number": "123ABC",
             "drop_off_location": "DE",
-            "posting_date": "2017-10-07",
+            "posting_date": "2024-08-27",
             "additional_fees": 1.22,
             "total_value_amount": 247.31,
             "currency": "EUR"
@@ -3628,7 +3628,7 @@
             "contents_explanation": "Alcoholic beverages",
             "invoice_number": "123ABC",
             "drop_off_location": "DE",
-            "posting_date": "2017-10-07",
+            "posting_date": "2024-08-27",
             "additional_fees": 1.22,
             "total_value_amount": 247.31,
             "currency": "EUR"
@@ -3765,7 +3765,7 @@
       "shipment_response_with_customs_declaration_example": {
         "value": {
           "id": "199f803bf82fab79e17654213b61993fa78b0524",
-          "created_at": "2015-07-20T09:35:23+02:00",
+          "created_at": "2024-08-27T17:13:12+02:00",
           "carrier": "dhl",
           "service": "standard",
           "carrier_tracking_no": "84168117830018",
@@ -3804,12 +3804,12 @@
             "contents_explanation": "Alcoholic beverages",
             "invoice_number": "123ABC",
             "drop_off_location": "DE",
-            "posting_date": "2017-10-07",
+            "posting_date": "2024-08-27",
             "additional_fees": 1.22,
             "total_value_amount": 247.31,
             "currency": "EUR",
-            "created_at": "2017-10-04T15:49:44+02:00",
-            "updated_at": "2017-10-04T15:49:44+02:00",
+            "created_at": "2024-08-27T17:13:12+02:00",
+            "updated_at": "2024-08-27T17:13:12+02:00",
             "carrier_declaration_document_url": "https://documents.shipcloud.io/shipments/519895c7165cdc032356d42c6d9babe8e3151473/customs_declaration_document.pdf",
             "items": [
               {
@@ -3820,8 +3820,8 @@
                 "origin_country": "DE",
                 "quantity": 1,
                 "value_amount": "138.5",
-                "created_at": "2017-10-04T15:49:44+02:00",
-                "updated_at": "2017-10-04T15:49:44+02:00"
+                "created_at": "2024-08-27T17:13:12+02:00",
+                "updated_at": "2024-08-27T17:13:12+02:00"
               },
               {
                 "id": "cdi-081a523d",
@@ -3831,8 +3831,8 @@
                 "origin_country": "DE",
                 "quantity": 1,
                 "value_amount": "108.5",
-                "created_at": "2017-10-04T15:49:44+02:00",
-                "updated_at": "2017-10-04T15:49:44+02:00"
+                "created_at": "2024-08-27T17:13:12+02:00",
+                "updated_at": "2024-08-27T17:13:12+02:00"
               }
             ]
           },
@@ -3895,12 +3895,12 @@
             "contents_explanation": "Alcoholic beverages",
             "invoice_number": "123ABC",
             "drop_off_location": "DE",
-            "posting_date": "2017-10-07",
+            "posting_date": "2024-08-27",
             "additional_fees": 1.22,
             "total_value_amount": 247.31,
             "currency": "EUR",
-            "created_at": "2017-10-04T15:49:44+02:00",
-            "updated_at": "2017-10-04T15:49:44+02:00",
+            "created_at": "2024-08-27T17:13:12+02:00",
+            "updated_at": "2024-08-27T17:13:12+02:00",
             "carrier_declaration_document_url": "https://documents.shipcloud.io/shipments/519895c7165cdc032356d42c6d9babe8e3151473/customs_declaration_document.pdf",
             "items": [
               {
@@ -3911,8 +3911,8 @@
                 "origin_country": "DE",
                 "quantity": 1,
                 "value_amount": "138.5",
-                "created_at": "2017-10-04T15:49:44+02:00",
-                "updated_at": "2017-10-04T15:49:44+02:00"
+                "created_at": "2024-08-27T17:13:12+02:00",
+                "updated_at": "2024-08-27T17:13:12+02:00"
               },
               {
                 "id": "cdi-081a523d",
@@ -3922,8 +3922,8 @@
                 "origin_country": "DE",
                 "quantity": 1,
                 "value_amount": "108.5",
-                "created_at": "2017-10-04T15:49:44+02:00",
-                "updated_at": "2017-10-04T15:49:44+02:00"
+                "created_at": "2024-08-27T17:13:12+02:00",
+                "updated_at": "2024-08-27T17:13:12+02:00"
               }
             ]
           },
@@ -3974,7 +3974,7 @@
           "carrier_tracking_url": "https://nolp.dhl.de/nextt-online-public/set_identcodes.do?extendedSearch=true&idc=84168117830018",
           "carrier": "dhl",
           "service": "standard",
-          "created_at": "2013-04-16T10:43:04Z",
+          "created_at": "2024-08-27T10:43:04Z",
           "price": 3.4,
           "reference_number": "ref123456",
           "shipper_notification_email": "shipper@notification.com",
@@ -4019,7 +4019,7 @@
               "label_url": "https://shipping-labels.shipcloud.io/shipments/01370b4d/199f803bf8/label/shipping_label_199f803bf8.pdf",
               "tracking_events": [
                 {
-                  "timestamp": "2013-05-26T16:55:24+02:00",
+                  "timestamp": "2024-08-29T16:55:24+02:00",
                   "location": "Hamburg, Deutschland",
                   "status": "delivered",
                   "details": "Die Sendung wurde erfolgreich zugestellt.",
@@ -4032,14 +4032,14 @@
                   }
                 },
                 {
-                  "timestamp": "2013-05-26T08:12:12+02:00",
+                  "timestamp": "2024-08-29T08:12:12+02:00",
                   "location": "Hamburg, Deutschland",
                   "status": "out_for_delivery",
                   "details": "Die Sendung wurde in das Zustellfahrzeug geladen.",
                   "id": "6eupdr9f-rkc3-r5or-0gus-3n6jmtv9tvm9"
                 },
                 {
-                  "timestamp": "2013-05-25T11:46:34+02:00",
+                  "timestamp": "2024-08-28T11:46:34+02:00",
                   "location": "Hamburg, Deutschland",
                   "status": "transit",
                   "details": "Die Sendung wurde im Start-Paketzentrum bearbeitet.",
