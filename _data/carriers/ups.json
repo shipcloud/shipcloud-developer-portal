@@ -53,10 +53,6 @@
               "key": "saturday_delivery"
             },
             {
-              "display_name": "Access point notification",
-              "key": "ups_access_point_notification"
-            },
-            {
               "display_name": "Direct delivery only",
               "key": "ups_direct_delivery_only"
             },

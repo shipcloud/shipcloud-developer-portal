@@ -1621,115 +1621,6 @@
         }
       }
     },
-    "/rates": {
-      "post": {
-        "deprecated": true,
-        "description": "The old way to find out how much we will charge you for a specific shipment. Please use ShipmentQuotes instead.",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "carrier": {
-                    "$ref": "#/components/schemas/carrier_shipping"
-                  },
-                  "height": {
-                    "type": "number",
-                    "description": "Height of the parcel in cm"
-                  },
-                  "length": {
-                    "type": "number",
-                    "description": "Length of the parcel in cm"
-                  },
-                  "weight": {
-                    "type": "number",
-                    "description": "Weight of the parcel in kg"
-                  },
-                  "width": {
-                    "type": "number",
-                    "description": "Width of the parcel in cm"
-                  }
-                },
-                "required": [
-                  "carrier",
-                  "height",
-                  "length",
-                  "weight",
-                  "width"
-                ]
-              },
-              "example": {
-                "carrier": "dhl",
-                "weight": 1.5,
-                "length": 20,
-                "width": 20,
-                "height": 20
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Shipment quote for a single shipment",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "rate": {
-                      "type": "number",
-                      "description": "Price that shipcloud is going to charge you (exl. VAT)"
-                    }
-                  },
-                  "required": [
-                    "rate"
-                  ]
-                },
-                "example": {
-                  "rate": 3.8
-                }
-              }
-            },
-            "headers": {
-              "RateLimit-Limit": {
-                "$ref": "#/components/headers/RateLimit-Limit"
-              },
-              "RateLimit-Interval": {
-                "$ref": "#/components/headers/RateLimit-Interval"
-              },
-              "RateLimit-Remaining": {
-                "$ref": "#/components/headers/RateLimit-Remaining"
-              },
-              "RateLimit-Reset": {
-                "$ref": "#/components/headers/RateLimit-Reset"
-              },
-              "X-Request-ID": {
-                "$ref": "#/components/headers/shicloud-Request-ID"
-              }
-            }
-          },
-          "400": {
-            "$ref": "#/components/responses/400"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          },
-          "402": {
-            "$ref": "#/components/responses/402"
-          },
-          "403": {
-            "$ref": "#/components/responses/403"
-          },
-          "422": {
-            "$ref": "#/components/responses/422"
-          },
-          "500": {
-            "$ref": "#/components/responses/500"
-          }
-        }
-      }
-    },
     "/shipment_quotes": {
       "post": {
         "description": "Find out how much we will charge you for a specific shipment when using shipcloud carrier contracts.",
@@ -1797,8 +1688,12 @@
                       }
                     ]
                   },
-                  "package": {
-                    "$ref": "#/components/schemas/package_minimal"
+                  "packages": {
+                    "type": "array",
+                    "description": "array of minimal packages",
+                    "items": {
+                      "$ref": "#/components/schemas/package_minimal"
+                    }
                   }
                 },
                 "required": [
@@ -1811,6 +1706,9 @@
               "examples": {
                 "Shipment quote request": {
                   "$ref": "#/components/examples/shipment_quote_request_example"
+                },
+                "Shipment quote request with multiple packages": {
+                  "$ref": "#/components/examples/shipment_quote_request_with_multiple_packages_example"
                 },
                 "Shipment quote request using address IDs": {
                   "$ref": "#/components/examples/shipment_quote_with_address_id_request_example"
@@ -1908,9 +1806,18 @@
                   "Shipments list": {
                     "value": [
                       {
-                        "carrier": "dhl",
+                        "id": "3a186c51d4281acbecf5ed38805b1db92a9d668b",
                         "carrier_tracking_no": "84168117830018",
-                        "created_at": "2013-04-16T10:43:04Z",
+                        "carrier_tracking_url": "https://nolp.dhl.de/nextt-online-public/set_identcodes.do?extendedSearch=true&idc=84168117830018",
+                        "carrier": "dhl",
+                        "service": "standard",
+                        "created_at": "2024-08-27T17:13:12+02:00",
+                        "price": 3.4,
+                        "reference_number": "ref123456",
+                        "notification_email": "receiver@notification.com",
+                        "shipper_notification_email": "shipper@notification.com",
+                        "tracking_url": "https://track.shipcloud.io/3a186c51d4",
+                        "label_url": "https://shipping-labels.shipcloud.io/shipments/01370b4d/199f803bf8/label/shipping_label_199f803bf8.pdf",
                         "from": {
                           "id": "522a7cb1-d6c8-418c-ac26-011127ab5bbe",
                           "company": "Musterfirma",
@@ -1924,42 +1831,6 @@
                           "zip_code": "12345",
                           "country": "DE"
                         },
-                        "id": "3a186c51d4281acbecf5ed38805b1db92a9d668b",
-                        "label_url": "https://shipping-labels.shipcloud.io/shipments/01370b4d/199f803bf8/label/shipping_label_199f803bf8.pdf",
-                        "notification_email": "receiver@notification.com",
-                        "packages": [
-                          {
-                            "id": "3af8f7e5af196e1950deebd389a87406e1e5bb80",
-                            "weight": 1.5,
-                            "length": 10.1,
-                            "width": 6.3,
-                            "height": 8.9,
-                            "tracking_events": [
-                              {
-                                "timestamp": "2013-05-26T16:55:24+02:00",
-                                "location": "Hamburg, Deutschland",
-                                "status": "delivered",
-                                "details": "Die Sendung wurde erfolgreich zugestellt."
-                              },
-                              {
-                                "timestamp": "2013-05-26T08:12:12+02:00",
-                                "location": "Hamburg, Deutschland",
-                                "status": "out_for_delivery",
-                                "details": "Die Sendung wurde in das Zustellfahrzeug geladen."
-                              },
-                              {
-                                "timestamp": "2013-05-25T11:46:34+02:00",
-                                "location": "Hamburg, Deutschland",
-                                "status": "transit",
-                                "details": "Die Sendung wurde im Start-Paketzentrum bearbeitet."
-                              }
-                            ]
-                          }
-                        ],
-                        "price": 3.4,
-                        "reference_number": "ref123456",
-                        "service": "standard",
-                        "shipper_notification_email": "shipper@notification.com",
                         "to": {
                           "id": "522a7cb1-d6c8-418c-ac26-011127ab5bbe",
                           "company": "Receiver Inc.",
@@ -1973,41 +1844,52 @@
                           "zip_code": "22100",
                           "country": "DE"
                         },
-                        "tracking_url": "https://track.shipcloud.io/3a186c51d4"
-                      },
-                      {
-                        "carrier": "ups",
-                        "carrier_tracking_no": "1ZV306W06896102223",
-                        "created_at": "2021-09-01T11:37:07Z",
-                        "from": {
-                          "id": "f999ac2b-435c-4de2-8809-6c0e86a77756",
-                          "first_name": "Serge",
-                          "last_name": "Sender",
-                          "company": "Sender Corp.",
-                          "care_of": null,
-                          "street": "Sender Str.",
-                          "street_no": "99",
-                          "zip_code": "20148",
-                          "city": "Hamburg",
-                          "state": null,
-                          "country": "DE"
-                        },
-                        "id": "c0f9611533339109f35d852en21dk70435e1838b",
-                        "label_url": "https://shipping-labels.shipcloud.io/shipments/c0f96115/33339109f3/label/shipping_label_c0f9611533.pdf",
-                        "notification_email": "receiver@notification.com",
                         "packages": [
                           {
-                            "id": "46ec98d23617c0cd4d11a6305e98748aac2e20fd",
-                            "weight": 0.45,
-                            "length": 10.2,
-                            "width": 20.9,
-                            "height": 30.5
+                            "id": "3af8f7e5af196e1950deebd389a87406e1e5bb80",
+                            "weight": 1.5,
+                            "length": 10.1,
+                            "width": 6.3,
+                            "height": 8.9,
+                            "tracking_events": [
+                              {
+                                "timestamp": "2024-08-29T16:55:24+02:00",
+                                "location": "Hamburg, Deutschland",
+                                "status": "delivered",
+                                "details": "Die Sendung wurde erfolgreich zugestellt.",
+                                "id": "ttzisojr-1phm-gcq0-jvch-hbdhd48scsuf"
+                              },
+                              {
+                                "timestamp": "2024-08-29T08:12:12+02:00",
+                                "location": "Hamburg, Deutschland",
+                                "status": "out_for_delivery",
+                                "details": "Die Sendung wurde in das Zustellfahrzeug geladen.",
+                                "id": "szyucq5x-9rh9-5jh3-3oge-cbiv1wjlnq53"
+                              },
+                              {
+                                "timestamp": "2024-08-28T11:46:34+02:00",
+                                "location": "Hamburg, Deutschland",
+                                "status": "transit",
+                                "details": "Die Sendung wurde im Start-Paketzentrum bearbeitet.",
+                                "id": "65x11ww4-gtk0-2ycy-eo0n-ryktpl40ev6e"
+                              }
+                            ]
                           }
-                        ],
+                        ]
+                      },
+                      {
+                        "id": "c0f9611533339109f35d852en21dk70435e1838b",
+                        "carrier_tracking_url": "https://www.ups.com/track?loc=en_GB&tracknum=1ZV306W06896102223",
+                        "carrier_tracking_no": "1ZV306W06896102223",
+                        "carrier": "ups",
+                        "service": "standard",
+                        "created_at": "2021-09-01T11:37:07Z",
                         "price": 5.9,
                         "reference_number": "ref123456",
-                        "service": "standard",
+                        "notification_email": "receiver@notification.com",
                         "shipper_notification_email": "shipper@notification.com",
+                        "tracking_url": "https://track.shipcloud.io/c0f9611533",
+                        "label_url": "https://shipping-labels.shipcloud.io/shipments/c0f96115/33339109f3/label/shipping_label_c0f9611533.pdf",
                         "to": {
                           "id": "ffdbcfc7-a900-4285-8855-6417xaca37f3",
                           "first_name": "Roger",
@@ -2021,7 +1903,53 @@
                           "zip_code": "20535",
                           "country": "DE"
                         },
-                        "tracking_url": "https://track.shipcloud.io/c0f9611533"
+                        "from": {
+                          "id": "f999ac2b-435c-4de2-8809-6c0e86a77756",
+                          "first_name": "Serge",
+                          "last_name": "Sender",
+                          "company": "Sender Corp.",
+                          "care_of": null,
+                          "street": "Sender Str.",
+                          "street_no": "99",
+                          "zip_code": "20148",
+                          "city": "Hamburg",
+                          "state": null,
+                          "country": "DE"
+                        },
+                        "packages": [
+                          {
+                            "id": "46ec98d23617c0cd4d11a6305e98748aac2e20fd",
+                            "weight": 0.45,
+                            "length": 10.2,
+                            "width": 20.9,
+                            "height": 30.5,
+                            "tracking_events": [
+                              {
+                                "timestamp": "2021-09-02T11:46:34+02:00",
+                                "location": "Hamburg, Deutschland",
+                                "status": "transit",
+                                "details": "Die Sendung wurde im Start-Paketzentrum bearbeitet.",
+                                "id": "6eupdr9f-rkc3-r5or-0gus-3n6jmtv9tvm9"
+                              }
+                            ]
+                          },
+                          {
+                            "id": "h6as9c7y0qmpge8vggvdar4rdrtgeceqalm0x537",
+                            "weight": 3,
+                            "length": 30,
+                            "width": 30,
+                            "height": 30,
+                            "tracking_events": [
+                              {
+                                "timestamp": "2021-09-02T11:46:34+02:00",
+                                "location": "Hamburg, Deutschland",
+                                "status": "transit",
+                                "details": "Die Sendung wurde im Start-Paketzentrum bearbeitet.",
+                                "id": "4yl61hsa-4ffz-j7ky-wpib-x9wkqjl3hi62"
+                              }
+                            ]
+                          }
+                        ]
                       }
                     ]
                   }
@@ -2073,8 +2001,12 @@
                   {
                     "type": "object",
                     "properties": {
-                      "package": {
-                        "$ref": "#/components/schemas/package"
+                      "packages": {
+                        "type": "array",
+                        "description": "array of packages",
+                        "items": {
+                          "$ref": "#/components/schemas/package"
+                        }
                       }
                     }
                   }
@@ -2084,13 +2016,19 @@
                 "Simple shipment creation request": {
                   "$ref": "#/components/examples/shipment_create_request_example_simple"
                 },
-                "Creation request with customs declaration data": {
+                "Shipment creation request with multiple packages": {
+                  "$ref": "#/components/examples/shipment_create_request_multiple_packages"
+                },
+                "Shipment creation request with customs declaration data": {
                   "$ref": "#/components/examples/shipment_create_request_with_customs_declaration_example"
                 },
-                "Shipment to a DHL Packstation": {
+                "Shipment creation request with customs declaration data and multiple packages": {
+                  "$ref": "#/components/examples/shipment_create_request_with_customs_declaration_and_multiple_packages_example"
+                },
+                "Shipment creation request to a DHL Packstation": {
                   "$ref": "#/components/examples/shipment_create_request_example_packstation"
                 },
-                "Shipment with returned items": {
+                "Shipment creation request with returned items": {
                   "$ref": "#/components/examples/shipment_create_request_example_returned_items"
                 }
               }
@@ -2104,11 +2042,20 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/shipment_create_response_object"
+                  "$ref": "#/components/schemas/shipment_response_object"
                 },
                 "examples": {
                   "Shipment creation response": {
-                    "$ref": "#/components/examples/shipment_create_response_example"
+                    "$ref": "#/components/examples/shipment_response_example"
+                  },
+                  "Shipment creation response with multiple packages": {
+                    "$ref": "#/components/examples/shipment_response_multiple_packages_example"
+                  },
+                  "Shipment creation response with customs declaration": {
+                    "$ref": "#/components/examples/shipment_response_with_customs_declaration_example"
+                  },
+                  "Shipment creation response with customs declaration and multiple packages": {
+                    "$ref": "#/components/examples/shipment_response_with_customs_declaration_and_multiple_packages_example"
                   }
                 }
               }
@@ -2178,11 +2125,17 @@
                   "Shipment response": {
                     "$ref": "#/components/examples/shipment_response_example"
                   },
-                  "Shipment reponse with customs declaration data": {
-                    "$ref": "#/components/examples/shipment_create_reponse_with_customs_declaration_example"
+                  "Shipment response with multiple packages": {
+                    "$ref": "#/components/examples/shipment_response_multiple_packages_example"
                   },
-                  "Shipment reponse with detailed tracking": {
-                    "$ref": "#/components/examples/shipment_reponse_with_detailed_tracking_example"
+                  "Shipment response with customs declaration data": {
+                    "$ref": "#/components/examples/shipment_response_with_customs_declaration_example"
+                  },
+                  "Shipment response with customs declaration data and multiple packages": {
+                    "$ref": "#/components/examples/shipment_response_with_customs_declaration_and_multiple_packages_example"
+                  },
+                  "Shipment response with detailed tracking": {
+                    "$ref": "#/components/examples/shipment_response_with_detailed_tracking_example"
                   }
                 }
               }
@@ -2257,11 +2210,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/shipment_create_response_object"
+                  "$ref": "#/components/schemas/shipment_response_object"
                 },
                 "examples": {
                   "Shipment response": {
-                    "$ref": "#/components/examples/shipment_create_response_example"
+                    "$ref": "#/components/examples/shipment_response_example"
                   }
                 }
               }
@@ -3251,7 +3204,7 @@
               "earliest": "2018-07-30T09:00:00+02:00",
               "latest": "2018-07-30T18:00:00+02:00"
             },
-            "pickup_date": "2018/10/26",
+            "pickup_date": "2018/07/30",
             "pickup_address": {
               "id": "7ea2a290-b456-4ecf-9010-e82b3da298f0",
               "company": "Apple Inc.",
@@ -3347,12 +3300,50 @@
             "city": "Hamburg",
             "country": "DE"
           },
-          "package": {
-            "weight": 1.5,
-            "length": 20,
-            "width": 20,
-            "height": 20
-          }
+          "packages": [
+            {
+              "weight": 1.5,
+              "length": 20,
+              "width": 20,
+              "height": 20
+            }
+          ]
+        }
+      },
+      "shipment_quote_request_with_multiple_packages_example": {
+        "value": {
+          "carrier": "ups",
+          "service": "standard",
+          "to": {
+            "street": "Beispielstrasse",
+            "street_no": "42",
+            "zip_code": "22100",
+            "city": "Hamburg",
+            "country": "DE"
+          },
+          "from": {
+            "street": "Musterstrasse",
+            "street_no": "23",
+            "zip_code": "20148",
+            "city": "Hamburg",
+            "country": "DE"
+          },
+          "packages": [
+            {
+              "weight": 1.5,
+              "length": 20,
+              "width": 20,
+              "height": 20,
+              "type": "parcel"
+            },
+            {
+              "weight": 3,
+              "length": 30,
+              "width": 30,
+              "height": 30,
+              "type": "parcel"
+            }
+          ]
         }
       },
       "shipment_quote_response_example": {
@@ -3376,12 +3367,14 @@
             "city": "Hamburg",
             "country": "DE"
           },
-          "package": {
-            "weight": 1.5,
-            "length": 20,
-            "width": 20,
-            "height": 20
-          }
+          "packages": [
+            {
+              "weight": 1.5,
+              "length": 20,
+              "width": 20,
+              "height": 20
+            }
+          ]
         }
       },
       "shipment_create_request_example_packstation": {
@@ -3395,13 +3388,15 @@
             "zip_code": "22419",
             "country": "DE"
           },
-          "package": {
-            "weight": 1.5,
-            "length": 20,
-            "width": 20,
-            "height": 20,
-            "type": "parcel"
-          },
+          "packages": [
+            {
+              "weight": 1.5,
+              "length": 20,
+              "width": 20,
+              "height": 20,
+              "type": "parcel"
+            }
+          ],
           "carrier": "dhl",
           "service": "standard",
           "reference_number": "ref123456",
@@ -3427,13 +3422,15 @@
             "zip_code": "22100",
             "country": "DE"
           },
-          "package": {
-            "weight": 1.5,
-            "length": 20,
-            "width": 20,
-            "height": 20,
-            "type": "parcel"
-          },
+          "packages": [
+            {
+              "weight": 1.5,
+              "length": 20,
+              "width": 20,
+              "height": 20,
+              "type": "parcel"
+            }
+          ],
           "carrier": "dhl",
           "service": "standard",
           "returned_items": [
@@ -3462,14 +3459,50 @@
             "zip_code": "22100",
             "country": "DE"
           },
-          "package": {
-            "weight": 1.5,
-            "length": 20,
-            "width": 20,
-            "height": 20,
-            "type": "parcel"
-          },
+          "packages": [
+            {
+              "weight": 1.5,
+              "length": 20,
+              "width": 20,
+              "height": 20,
+              "type": "parcel"
+            }
+          ],
           "carrier": "dhl",
+          "service": "standard",
+          "reference_number": "ref123456",
+          "notification_email": "person@example.com",
+          "create_shipping_label": true
+        }
+      },
+      "shipment_create_request_multiple_packages": {
+        "value": {
+          "to": {
+            "company": "Receiver Inc.",
+            "last_name": "Mustermann",
+            "street": "Beispielstrasse",
+            "street_no": "42",
+            "city": "Hamburg",
+            "zip_code": "22100",
+            "country": "DE"
+          },
+          "packages": [
+            {
+              "weight": 1.5,
+              "length": 20,
+              "width": 20,
+              "height": 20,
+              "type": "parcel"
+            },
+            {
+              "weight": 3,
+              "lenght": 30,
+              "width": 30,
+              "height": 30,
+              "type": "parcel"
+            }
+          ],
+          "carrier": "ups",
           "service": "standard",
           "reference_number": "ref123456",
           "notification_email": "person@example.com",
@@ -3494,93 +3527,250 @@
             "zip_code": "22100",
             "country": "DE"
           },
-          "package": {
-            "weight": 1.5,
-            "length": 20,
-            "width": 20,
-            "height": 20,
-            "type": "parcel"
-          },
+          "packages": [
+            {
+              "weight": 1.5,
+              "length": 20,
+              "width": 20,
+              "height": 20,
+              "type": "parcel",
+              "customs_declration_items": [
+                {
+                  "description": "Linkwood 25 years",
+                  "hs_tariff_number": "501293884",
+                  "net_weight": 0.8,
+                  "origin_country": "DE",
+                  "quantity": 1,
+                  "value_amount": "138.5"
+                },
+                {
+                  "description": "Caol Ila 18 years",
+                  "hs_tariff_number": "123384890",
+                  "net_weight": 0.8,
+                  "origin_country": "DE",
+                  "quantity": 1,
+                  "value_amount": "108.5"
+                }
+              ]
+            }
+          ],
           "customs_declaration": {
             "contents_type": "commercial_goods",
             "contents_explanation": "Alcoholic beverages",
             "invoice_number": "123ABC",
             "drop_off_location": "DE",
-            "posting_date": "2017-10-07",
+            "posting_date": "2024-08-27",
             "additional_fees": 1.22,
             "total_value_amount": 247.31,
-            "currency": "EUR",
-            "items": [
-              {
-                "description": "Linkwood 25 years",
-                "hs_tariff_number": "501293884",
-                "net_weight": 0.8,
-                "origin_country": "DE",
-                "quantity": 1,
-                "value_amount": "138.5"
-              },
-              {
-                "description": "Caol Ila 18 years",
-                "hs_tariff_number": "123384890",
-                "net_weight": 0.8,
-                "origin_country": "DE",
-                "quantity": 1,
-                "value_amount": "108.5"
-              }
-            ]
+            "currency": "EUR"
           },
           "carrier": "dhl",
           "service": "standard",
           "create_shipping_label": true
         }
       },
-      "shipment_create_response_example": {
+      "shipment_create_request_with_customs_declaration_and_multiple_packages_example": {
+        "value": {
+          "from": {
+            "first_name": "Serge",
+            "last_name": "Sender",
+            "street": "Sender Str. 99",
+            "zip_code": "20148",
+            "city": "Hamburg",
+            "country": "DE"
+          },
+          "to": {
+            "company": "Receiver Inc.",
+            "last_name": "Mustermann",
+            "street": "Beispielstrasse 42",
+            "city": "Hamburg",
+            "zip_code": "22100",
+            "country": "DE"
+          },
+          "packages": [
+            {
+              "weight": 1.5,
+              "length": 20,
+              "width": 20,
+              "height": 20,
+              "type": "parcel",
+              "customs_declration_items": [
+                {
+                  "description": "Linkwood 25 years",
+                  "hs_tariff_number": "501293884",
+                  "net_weight": 0.8,
+                  "origin_country": "DE",
+                  "quantity": 1,
+                  "value_amount": "138.5"
+                }
+              ]
+            },
+            {
+              "weight": 3,
+              "lenght": 30,
+              "width": 30,
+              "height": 30,
+              "type": "parcel",
+              "customs_declaration_items": [
+                {
+                  "description": "Caol Ila 18 years",
+                  "hs_tariff_number": "123384890",
+                  "net_weight": 0.8,
+                  "origin_country": "DE",
+                  "quantity": 1,
+                  "value_amount": "108.5"
+                }
+              ]
+            }
+          ],
+          "customs_declaration": {
+            "contents_type": "commercial_goods",
+            "contents_explanation": "Alcoholic beverages",
+            "invoice_number": "123ABC",
+            "drop_off_location": "DE",
+            "posting_date": "2024-08-27",
+            "additional_fees": 1.22,
+            "total_value_amount": 247.31,
+            "currency": "EUR"
+          },
+          "carrier": "ups",
+          "service": "standard",
+          "create_shipping_label": true
+        }
+      },
+      "shipment_response_example": {
         "value": {
           "id": "3a186c51d4281acbecf5ed38805b1db92a9d668b",
           "carrier_tracking_no": "84168117830018",
+          "carrier_tracking_url": "https://nolp.dhl.de/nextt-online-public/set_identcodes.do?extendedSearch=true&idc=84168117830018",
+          "carrier": "dhl",
+          "service": "standard",
+          "created_at": "2024-08-27T17:13:12+02:00",
+          "price": 3.4,
+          "reference_number": "ref123456",
           "tracking_url": "https://track.shipcloud.io/3a186c51d4",
           "label_url": "https://shipping-labels.shipcloud.io/shipments/01370b4d/199f803bf8/label/shipping_label_199f803bf8.pdf",
-          "price": 3.4
+          "to": {
+            "company": "Receiver Inc.",
+            "last_name": "Mustermann",
+            "street": "Beispielstrasse",
+            "street_no": "42",
+            "city": "Hamburg",
+            "zip_code": "22100",
+            "country": "DE"
+          },
+          "from": {
+            "company": "FromCompany",
+            "first_name": "FromFirstName",
+            "last_name": "FromlastName",
+            "street": "Beispielstrasse",
+            "street_no": "42",
+            "city": "Hamburg",
+            "zip_code": "22100",
+            "country": "DE"
+          },
+          "packages": [
+            {
+              "id": "ab23ab82ae8a5caf01ea34afad20c467cd7f9627",
+              "weight": 1.5,
+              "length": 20,
+              "width": 20,
+              "height": 20,
+              "carrier_tracking_no": "84168117830018",
+              "type": "parcel",
+              "label_url": "https://shipping-labels.shipcloud.io/shipments/01370b4d/199f803bf8/label/shipping_label_199f803bf8.pdf",
+              "tracking_events": [
+                {
+                  "timestamp": "2024-08-27T17:13:13+02:00",
+                  "location": "Hamburg",
+                  "details": "A shipment has been created",
+                  "id": "aa006b9b-3475-406c-80e0-e86ee8357b56"
+                }
+              ]
+            }
+          ]
         }
       },
-      "shipment_create_reponse_with_customs_declaration_example": {
+      "shipment_response_multiple_packages_example": {
+        "value": {
+          "id": "3a186c51d4281acbecf5ed38805b1db92a9d668b",
+          "carrier_tracking_no": "1ZV306W06896102223",
+          "carrier_tracking_url": "https://www.ups.com/track?loc=en_GB&tracknum=1ZV306W06896102223",
+          "carrier": "ups",
+          "service": "standard",
+          "created_at": "2024-08-27T17:13:12+02:00",
+          "price": 3.4,
+          "reference_number": "ref123456",
+          "tracking_url": "https://track.shipcloud.io/3a186c51d4",
+          "label_url": "https://shipping-labels.shipcloud.io/shipments/01370b4d/199f803bf8/label/shipping_label_199f803bf8.pdf",
+          "to": {
+            "company": "Receiver Inc.",
+            "last_name": "Mustermann",
+            "street": "Beispielstrasse",
+            "street_no": "42",
+            "city": "Hamburg",
+            "zip_code": "22100",
+            "country": "DE"
+          },
+          "from": {
+            "company": "FromCompany",
+            "first_name": "FromFirstName",
+            "last_name": "FromlastName",
+            "street": "Beispielstrasse",
+            "street_no": "42",
+            "city": "Hamburg",
+            "zip_code": "22100",
+            "country": "DE"
+          },
+          "packages": [
+            {
+              "id": "ab23ab82ae8a5caf01ea34afad20c467cd7f9627",
+              "weight": 1.5,
+              "length": 20,
+              "width": 20,
+              "height": 20,
+              "carrier_tracking_no": "84168117830018",
+              "type": "parcel",
+              "label_url": "https://shipping-labels.shipcloud.io/shipments/01370b4d/199f803bf8/label/shipping_label_199f803bf8.pdf",
+              "tracking_events": [
+                {
+                  "timestamp": "2024-08-27T17:13:13+02:00",
+                  "location": "Hamburg",
+                  "details": "A shipment has been created",
+                  "id": "aa006b9b-3475-406c-80e0-e86ee8357b56"
+                }
+              ]
+            },
+            {
+              "id": "46ec98d23617c0cd4d11a6305e98748aac2e20fd",
+              "weight": 3,
+              "length": 30,
+              "width": 30,
+              "height": 30,
+              "carrier_tracking_no": "14627368965456",
+              "type": "parcel",
+              "label_url": "https://shipping-labels.shipcloud.io/shipments/01370b4d/199f803bf8/label/shipping_label_199f803bf8.pdf",
+              "tracking_events": [
+                {
+                  "timestamp": "2024-08-27T17:13:13+02:00",
+                  "location": "Hamburg",
+                  "details": "A shipment has been created",
+                  "id": "51e36743-c6ea-40c8-a9b4-c74e3e724d13"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "shipment_response_with_customs_declaration_example": {
         "value": {
           "id": "199f803bf82fab79e17654213b61993fa78b0524",
-          "created_at": "2015-07-20T09:35:23+02:00",
+          "created_at": "2024-08-27T17:13:12+02:00",
           "carrier": "dhl",
           "service": "standard",
           "carrier_tracking_no": "84168117830018",
           "tracking_url": "https://track.shipcloud.io/199f803bf8",
           "label_url": "https://shipping-labels.shipcloud.io/shipments/01370b4d/199f803bf8/label/shipping_label_199f803bf8.pdf",
-          "packages": [
-            {
-              "id": "3af8f7e5af196e1950deebd389a87406e1e5bb80",
-              "weight": 1.5,
-              "length": 10.1,
-              "width": 6.3,
-              "height": 8.9,
-              "tracking_events": [
-                {
-                  "timestamp": "2013-05-26T16:55:24+02:00",
-                  "location": "Hamburg, Deutschland",
-                  "status": "delivered",
-                  "details": "Die Sendung wurde erfolgreich zugestellt."
-                },
-                {
-                  "timestamp": "2013-05-26T08:12:12+02:00",
-                  "location": "Hamburg, Deutschland",
-                  "status": "out_for_delivery",
-                  "details": "Die Sendung wurde in das Zustellfahrzeug geladen."
-                },
-                {
-                  "timestamp": "2013-05-25T11:46:34+02:00",
-                  "location": "Hamburg, Deutschland",
-                  "status": "transit",
-                  "details": "Die Sendung wurde im Start-Paketzentrum bearbeitet."
-                }
-              ]
-            }
-          ],
           "price": 10.7,
           "from": {
             "id": "7ea2a290-b456-4ecf-9010-e82b3da298f0",
@@ -3614,12 +3804,12 @@
             "contents_explanation": "Alcoholic beverages",
             "invoice_number": "123ABC",
             "drop_off_location": "DE",
-            "posting_date": "2017-10-07",
+            "posting_date": "2024-08-27",
             "additional_fees": 1.22,
             "total_value_amount": 247.31,
             "currency": "EUR",
-            "created_at": "2017-10-04T15:49:44+02:00",
-            "updated_at": "2017-10-04T15:49:44+02:00",
+            "created_at": "2024-08-27T17:13:12+02:00",
+            "updated_at": "2024-08-27T17:13:12+02:00",
             "carrier_declaration_document_url": "https://documents.shipcloud.io/shipments/519895c7165cdc032356d42c6d9babe8e3151473/customs_declaration_document.pdf",
             "items": [
               {
@@ -3630,8 +3820,8 @@
                 "origin_country": "DE",
                 "quantity": 1,
                 "value_amount": "138.5",
-                "created_at": "2017-10-04T15:49:44+02:00",
-                "updated_at": "2017-10-04T15:49:44+02:00"
+                "created_at": "2024-08-27T17:13:12+02:00",
+                "updated_at": "2024-08-27T17:13:12+02:00"
               },
               {
                 "id": "cdi-081a523d",
@@ -3641,34 +3831,11 @@
                 "origin_country": "DE",
                 "quantity": 1,
                 "value_amount": "108.5",
-                "created_at": "2017-10-04T15:49:44+02:00",
-                "updated_at": "2017-10-04T15:49:44+02:00"
+                "created_at": "2024-08-27T17:13:12+02:00",
+                "updated_at": "2024-08-27T17:13:12+02:00"
               }
             ]
-          }
-        }
-      },
-      "shipment_response_example": {
-        "value": {
-          "carrier": "dhl",
-          "carrier_tracking_no": "84168117830018",
-          "created_at": "2013-04-16T10:43:04Z",
-          "from": {
-            "id": "7ea2a290-b456-4ecf-9010-e82b3da298f0",
-            "company": "Musterfirma",
-            "first_name": "Hans",
-            "last_name": "Meier",
-            "care_of": null,
-            "street": "Musterstraße",
-            "street_no": "22",
-            "city": "Musterstadt",
-            "state": null,
-            "zip_code": "12345",
-            "country": "DE"
           },
-          "id": "3a186c51d4281acbecf5ed38805b1db92a9d668b",
-          "label_url": "https://shipping-labels.shipcloud.io/shipments/01370b4d/199f803bf8/label/shipping_label_199f803bf8.pdf",
-          "notification_email": "receiver@notification.com",
           "packages": [
             {
               "id": "3af8f7e5af196e1950deebd389a87406e1e5bb80",
@@ -3676,32 +3843,144 @@
               "length": 10.1,
               "width": 6.3,
               "height": 8.9,
+              "carrier_tracking_no": "84168117830018",
+              "type": "parcel",
+              "label_url": "https://shipping-labels.shipcloud.io/shipments/01370b4d/199f803bf8/label/shipping_label_199f803bf8.pdf",
               "tracking_events": [
                 {
-                  "timestamp": "2013-05-26T16:55:24+02:00",
-                  "location": "Hamburg, Deutschland",
-                  "status": "delivered",
-                  "details": "Die Sendung wurde erfolgreich zugestellt."
-                },
-                {
-                  "timestamp": "2013-05-26T08:12:12+02:00",
-                  "location": "Hamburg, Deutschland",
-                  "status": "out_for_delivery",
-                  "details": "Die Sendung wurde in das Zustellfahrzeug geladen."
-                },
-                {
-                  "timestamp": "2013-05-25T11:46:34+02:00",
-                  "location": "Hamburg, Deutschland",
-                  "status": "transit",
-                  "details": "Die Sendung wurde im Start-Paketzentrum bearbeitet."
+                  "timestamp": "2024-08-27T17:13:13+02:00",
+                  "location": "Hamburg",
+                  "details": "A shipment has been created",
+                  "id": "aa006b9b-3475-406c-80e0-e86ee8357b56"
                 }
               ]
             }
-          ],
+          ]
+        }
+      },
+      "shipment_response_with_customs_declaration_and_multiple_packages_example": {
+        "value": {
+          "id": "199f803bf82fab79e17654213b61993fa78b0524",
+          "carrier_tracking_no": "1ZV306W06896102223",
+          "carrier_tracking_url": "https://www.ups.com/track?loc=en_GB&tracknum=1ZV306W06896102223",
+          "carrier": "ups",
+          "service": "standard",
+          "created_at": "2024-08-27T17:13:12+02:00",
           "price": 3.4,
           "reference_number": "ref123456",
+          "tracking_url": "https://track.shipcloud.io/3a186c51d4",
+          "label_url": "https://shipping-labels.shipcloud.io/shipments/01370b4d/199f803bf8/label/shipping_label_199f803bf8.pdf",
+          "to": {
+            "company": "Receiver Inc.",
+            "last_name": "Mustermann",
+            "street": "Beispielstrasse",
+            "street_no": "42",
+            "city": "Hamburg",
+            "zip_code": "22100",
+            "country": "DE"
+          },
+          "from": {
+            "company": "FromCompany",
+            "first_name": "FromFirstName",
+            "last_name": "FromlastName",
+            "street": "Beispielstrasse",
+            "street_no": "42",
+            "city": "Hamburg",
+            "zip_code": "22100",
+            "country": "DE"
+          },
+          "customs_declaration": {
+            "id": "cd-f466905c",
+            "contents_type": "commercial_goods",
+            "contents_explanation": "Alcoholic beverages",
+            "invoice_number": "123ABC",
+            "drop_off_location": "DE",
+            "posting_date": "2024-08-27",
+            "additional_fees": 1.22,
+            "total_value_amount": 247.31,
+            "currency": "EUR",
+            "created_at": "2024-08-27T17:13:12+02:00",
+            "updated_at": "2024-08-27T17:13:12+02:00",
+            "carrier_declaration_document_url": "https://documents.shipcloud.io/shipments/519895c7165cdc032356d42c6d9babe8e3151473/customs_declaration_document.pdf",
+            "items": [
+              {
+                "id": "cdi-50a46bf8",
+                "description": "Linkwood 25 years",
+                "hs_tariff_number": "501293884",
+                "net_weight": 0.8,
+                "origin_country": "DE",
+                "quantity": 1,
+                "value_amount": "138.5",
+                "created_at": "2024-08-27T17:13:12+02:00",
+                "updated_at": "2024-08-27T17:13:12+02:00"
+              },
+              {
+                "id": "cdi-081a523d",
+                "description": "Caol Ila 18 years",
+                "hs_tariff_number": "123384890",
+                "net_weight": 0.8,
+                "origin_country": "DE",
+                "quantity": 1,
+                "value_amount": "108.5",
+                "created_at": "2024-08-27T17:13:12+02:00",
+                "updated_at": "2024-08-27T17:13:12+02:00"
+              }
+            ]
+          },
+          "packages": [
+            {
+              "id": "ab23ab82ae8a5caf01ea34afad20c467cd7f9627",
+              "weight": 1.5,
+              "length": 20,
+              "width": 20,
+              "height": 20,
+              "carrier_tracking_no": "84168117830018",
+              "type": "parcel",
+              "label_url": "https://shipping-labels.shipcloud.io/shipments/01370b4d/199f803bf8/label/shipping_label_199f803bf8.pdf",
+              "tracking_events": [
+                {
+                  "timestamp": "2024-08-27T17:13:13+02:00",
+                  "location": "Hamburg",
+                  "details": "A shipment has been created",
+                  "id": "aa006b9b-3475-406c-80e0-e86ee8357b56"
+                }
+              ]
+            },
+            {
+              "id": "46ec98d23617c0cd4d11a6305e98748aac2e20fd",
+              "weight": 3,
+              "length": 30,
+              "width": 30,
+              "height": 30,
+              "carrier_tracking_no": "14627368965456",
+              "type": "parcel",
+              "label_url": "https://shipping-labels.shipcloud.io/shipments/01370b4d/199f803bf8/label/shipping_label_199f803bf8.pdf",
+              "tracking_events": [
+                {
+                  "timestamp": "2024-08-27T17:13:13+02:00",
+                  "location": "Hamburg",
+                  "details": "A shipment has been created",
+                  "id": "51e36743-c6ea-40c8-a9b4-c74e3e724d13"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "shipment_response_with_detailed_tracking_example": {
+        "value": {
+          "id": "3a186c51d4281acbecf5ed38805b1db92a9d668b",
+          "carrier_tracking_no": "84168117830018",
+          "carrier_tracking_url": "https://nolp.dhl.de/nextt-online-public/set_identcodes.do?extendedSearch=true&idc=84168117830018",
+          "carrier": "dhl",
           "service": "standard",
+          "created_at": "2024-08-27T10:43:04Z",
+          "price": 3.4,
+          "reference_number": "ref123456",
           "shipper_notification_email": "shipper@notification.com",
+          "notification_email": "receiver@notification.com",
+          "tracking_url": "https://track.shipcloud.io/3a186c51d4",
+          "label_url": "https://shipping-labels.shipcloud.io/shipments/01370b4d/199f803bf8/label/shipping_label_199f803bf8.pdf",
           "to": {
             "id": "7ea2a290-b456-4ecf-9010-e82b3da298f0",
             "company": "Receiver Inc.",
@@ -3715,14 +3994,6 @@
             "zip_code": "22100",
             "country": "DE"
           },
-          "tracking_url": "https://track.shipcloud.io/3a186c51d4"
-        }
-      },
-      "shipment_reponse_with_detailed_tracking_example": {
-        "value": {
-          "carrier": "dhl",
-          "carrier_tracking_no": "84168117830018",
-          "created_at": "2013-04-16T10:43:04Z",
           "from": {
             "id": "7ea2a290-b456-4ecf-9010-e82b3da298f0",
             "company": "Musterfirma",
@@ -3736,9 +4007,6 @@
             "zip_code": "12345",
             "country": "DE"
           },
-          "id": "3a186c51d4281acbecf5ed38805b1db92a9d668b",
-          "label_url": "https://shipping-labels.shipcloud.io/shipments/01370b4d/199f803bf8/label/shipping_label_199f803bf8.pdf",
-          "notification_email": "receiver@notification.com",
           "packages": [
             {
               "id": "3af8f7e5af196e1950deebd389a87406e1e5bb80",
@@ -3746,12 +4014,16 @@
               "length": 10.1,
               "width": 6.3,
               "height": 8.9,
+              "carrier_tracking_no": "84168117830018",
+              "type": "parcel",
+              "label_url": "https://shipping-labels.shipcloud.io/shipments/01370b4d/199f803bf8/label/shipping_label_199f803bf8.pdf",
               "tracking_events": [
                 {
-                  "timestamp": "2013-05-26T16:55:24+02:00",
+                  "timestamp": "2024-08-29T16:55:24+02:00",
                   "location": "Hamburg, Deutschland",
                   "status": "delivered",
                   "details": "Die Sendung wurde erfolgreich zugestellt.",
+                  "id": "ttzisojr-1phm-gcq0-jvch-hbdhd48scsuf",
                   "delivery_details": {
                     "description": "Wunschort",
                     "name": "Wunschort (Ablagevertrag)",
@@ -3760,38 +4032,22 @@
                   }
                 },
                 {
-                  "timestamp": "2013-05-26T08:12:12+02:00",
+                  "timestamp": "2024-08-29T08:12:12+02:00",
                   "location": "Hamburg, Deutschland",
                   "status": "out_for_delivery",
-                  "details": "Die Sendung wurde in das Zustellfahrzeug geladen."
+                  "details": "Die Sendung wurde in das Zustellfahrzeug geladen.",
+                  "id": "6eupdr9f-rkc3-r5or-0gus-3n6jmtv9tvm9"
                 },
                 {
-                  "timestamp": "2013-05-25T11:46:34+02:00",
+                  "timestamp": "2024-08-28T11:46:34+02:00",
                   "location": "Hamburg, Deutschland",
                   "status": "transit",
-                  "details": "Die Sendung wurde im Start-Paketzentrum bearbeitet."
+                  "details": "Die Sendung wurde im Start-Paketzentrum bearbeitet.",
+                  "id": "4yl61hsa-4ffz-j7ky-wpib-x9wkqjl3hi62"
                 }
               ]
             }
-          ],
-          "price": 3.4,
-          "reference_number": "ref123456",
-          "service": "standard",
-          "shipper_notification_email": "shipper@notification.com",
-          "to": {
-            "id": "7ea2a290-b456-4ecf-9010-e82b3da298f0",
-            "company": "Receiver Inc.",
-            "first_name": "Max",
-            "last_name": "Mustermann",
-            "care_of": null,
-            "street": "Beispielstrasse",
-            "street_no": "42",
-            "city": "Hamburg",
-            "state": null,
-            "zip_code": "22100",
-            "country": "DE"
-          },
-          "tracking_url": "https://track.shipcloud.io/3a186c51d4"
+          ]
         }
       },
       "tracker_example": {
@@ -4311,13 +4567,6 @@
             "minimum": 0,
             "maximum": 1000,
             "description": "the overall value of the shipments' contents"
-          },
-          "items": {
-            "type": "array",
-            "description": "array of item objects",
-            "items": {
-              "$ref": "#/components/schemas/customs_declaration_items"
-            }
           }
         },
         "required": [
@@ -4508,7 +4757,7 @@
           },
           "shipments": {
             "type": "array",
-            "description": "Array of shipment IDs that are send using this manifest",
+            "description": "array of shipment IDs that are send using this manifest",
             "items": {}
           },
           "reference_number": {
@@ -4842,6 +5091,54 @@
                   "parcel_letter"
                 ],
                 "default": "parcel"
+              },
+              "customs_declaration_items": {
+                "type": "array",
+                "description": "array of item objects",
+                "items": {
+                  "$ref": "#/components/schemas/customs_declaration_items"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "package_response_object": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/package_minimal"
+          },
+          {
+            "properties": {
+              "declared_value": {
+                "type": "object",
+                "description": "Object that is used for booking an additional insurance at the carrier (if applicable)",
+                "properties": {
+                  "amount": {
+                    "type": "number",
+                    "description": "The total amount of the goods value that an additional insurance should be booked for"
+                  },
+                  "currency": {
+                    "type": "string",
+                    "description": "The currency used. Currently only EUR is applicable"
+                  }
+                }
+              },
+              "description": {
+                "type": "string",
+                "description": "if you're using UPS with service `returns` this is mandatory otherwise it's optional"
+              },
+              "type": {
+                "type": "string",
+                "description": "type of shipment you would like to book",
+                "enum": [
+                  "books",
+                  "bulk",
+                  "letter",
+                  "parcel",
+                  "parcel_letter"
+                ],
+                "default": "parcel"
               }
             }
           }
@@ -4878,7 +5175,7 @@
       "package_with_id": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/package"
+            "$ref": "#/components/schemas/package_response_object"
           },
           {
             "properties": {
@@ -5289,7 +5586,6 @@
                     "hermes_next_day",
                     "premium_international",
                     "saturday_delivery",
-                    "ups_access_point_notification",
                     "ups_adult_signature",
                     "ups_carbon_neutral",
                     "ups_direct_delivery_only",
@@ -5602,37 +5898,6 @@
           "to"
         ]
       },
-      "shipment_create_response_object": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "the shipment id that can be used for requesting info about a shipment or tracking it"
-          },
-          "carrier_tracking_no": {
-            "type": "string",
-            "description": "the original tracking number that can be used on the carriers website"
-          },
-          "tracking_url": {
-            "type": "string",
-            "description": "URL you can send your customers so they can track this shipment"
-          },
-          "label_url": {
-            "type": "string",
-            "description": "URL where you can download the label in pdf format"
-          },
-          "price": {
-            "type": "number",
-            "description": "Price that you're going to be charged with (exl. VAT). You will get a price of 0.0 when using the sandbox or your own carrier contracts."
-          }
-        },
-        "required": [
-          "id",
-          "tracking_url",
-          "label_url",
-          "price"
-        ]
-      },
       "shipment_response_object": {
         "allOf": [
           {
@@ -5659,6 +5924,10 @@
               "carrier_tracking_no": {
                 "type": "string",
                 "description": "the original tracking number that can be used on the carriers website"
+              },
+              "carrier_tracking_url": {
+                "type": "string",
+                "description": "the original tracking URL of the carrier"
               },
               "created_at": {
                 "type": "string",
