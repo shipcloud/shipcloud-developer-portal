@@ -4023,13 +4023,7 @@
                   "location": "Hamburg, Deutschland",
                   "status": "delivered",
                   "details": "Die Sendung wurde erfolgreich zugestellt.",
-                  "id": "ttzisojr-1phm-gcq0-jvch-hbdhd48scsuf",
-                  "delivery_details": {
-                    "description": "Wunschort",
-                    "name": "Wunschort (Ablagevertrag)",
-                    "addressline1": "St. Annenufer 5",
-                    "addressline2": "20457 Hamburg"
-                  }
+                  "id": "ttzisojr-1phm-gcq0-jvch-hbdhd48scsuf"
                 },
                 {
                   "timestamp": "2024-08-29T08:12:12+02:00",
@@ -5219,28 +5213,6 @@
                     "details": {
                       "type": "string",
                       "description": "Message the carrier sent to describe the package status"
-                    },
-                    "delivery_details": {
-                      "type": "object",
-                      "description": "Additional details about where or with whom the shipment has been left",
-                      "properties": {
-                        "name": {
-                          "type": "string",
-                          "description": "An associated name of the person or place, where the package was dropped off"
-                        },
-                        "description": {
-                          "type": "string",
-                          "description": "An additional description of where the package was dropped off"
-                        },
-                        "addressline1": {
-                          "type": "string",
-                          "description": "First line of the address where the package was dropped off"
-                        },
-                        "addressline2": {
-                          "type": "string",
-                          "description": "Second line of the address where the package was dropped off"
-                        }
-                      }
                     }
                   },
                   "required": [

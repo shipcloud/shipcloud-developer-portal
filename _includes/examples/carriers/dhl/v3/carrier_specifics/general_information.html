@@ -19,29 +19,3 @@
   outbound shipments and not for returns. There you still have to provide both entries when creating
   a shipping label.
 </p>
-
-<h5 id="v3---additional-delivery-details" class="text-blue mt-m">
-  Additional delivery details in tracking events
-</h5>
-
-<p>
-  Sometimes DHL provides additional information regarding a delivery that has been made. For example
-  when the shipments has been handed over to a next door neighbor or has been placed at a drop off
-  location. In those cases we're returning these additional delivery details as part of the
-  corresponding tracking event.
-</p>
-
-{% highlight json %}
-{
-  "timestamp": "2013-05-26T16:55:24+02:00",
-  "location": "Hamburg, Deutschland",
-  "status": "delivered",
-  "details": "Die Sendung wurde erfolgreich zugestellt.",
-  "delivery_details": {
-    "description": "Wunschort",
-    "name": "Wunschort (Ablagevertrag)",
-    "addressline1": "St. Annenufer 5",
-    "addressline2": "20457 Hamburg"
-  }
-}
-{% endhighlight %}
