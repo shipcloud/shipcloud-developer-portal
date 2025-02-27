@@ -2322,13 +2322,13 @@
                         "id": "3a186c51d428",
                         "document_type": "commercial_invoice",
                         "document_format": "pdf",
-                        "document_url": "https://documents.shipcloud.test/shipments/3589eba4a174bb3a29b1000538100573822f1c96/shipment_documents/2a5ce9c3-da93-4a70-bb91-6a1f7b08db59/document.pdf"
+                        "document_url": "https://documents.shipcloud.io/shipments/3589eba4a174bb3a29b1000538100573822f1c96/shipment_documents/2a5ce9c3-da93-4a70-bb91-6a1f7b08db59/document.pdf"
                       },
                       {
                         "id": "3a186c51d428",
                         "document_type": "proforma_invoice",
                         "document_format": "pdf",
-                        "document_url": "https://documents.shipcloud.test/shipments/3589eba4a174bb3a29b1000538100573822f1c96/shipment_documents/097e1739-bf7d-48cb-be5c-aaa01410ad39/document.pdf"
+                        "document_url": "https://documents.shipcloud.io/shipments/3589eba4a174bb3a29b1000538100573822f1c96/shipment_documents/097e1739-bf7d-48cb-be5c-aaa01410ad39/document.pdf"
                       }
                     ]
                   }
@@ -2388,6 +2388,9 @@
               "examples": {
                 "Shipment document creation request": {
                   "$ref": "#/components/examples/shipment_document_create_request_example"
+                },
+                "Shipment document creation request with multiple documents": {
+                  "$ref": "#/components/examples/shipment_document_create_request_with_multiple_documents_example"
                 }
               }
             }
@@ -2405,6 +2408,9 @@
                 "examples": {
                   "Shipment document response": {
                     "$ref": "#/components/examples/shipment_document_response_example"
+                  },
+                  "Shipment document response with multiple documents": {
+                    "$ref": "#/components/examples/shipment_document_response_with_multiple_documents_example"
                   }
                 }
               }
@@ -4204,12 +4210,46 @@
           ]
         }
       },
+      "shipment_document_create_request_with_multiple_documents_example": {
+        "value": {
+          "documents": [
+            {
+              "document_type": "commercial_invoice",
+              "document_format": "pdf",
+              "content": "base64encodedstring"
+            },
+            {
+              "document_type": "proforma_invoice",
+              "document_format": "pdf",
+              "content": "base64encodedstring"
+            }
+          ]
+        }
+      },
       "shipment_document_response_example": {
         "value": {
           "id": "2a5ce9c3-da93-4a70-bb91-6a1f7b08db59",
           "document_type": "commercial_invoice",
           "document_format": "pdf",
-          "document_url": "https://documents.shipcloud.test/shipments/3589eba4a174bb3a29b1000538100573822f1c96/shipment_documents/2a5ce9c3-da93-4a70-bb91-6a1f7b08db59/document.pdf"
+          "document_url": "https://documents.shipcloud.io/shipments/3589eba4a174bb3a29b1000538100573822f1c96/shipment_documents/2a5ce9c3-da93-4a70-bb91-6a1f7b08db59/document.pdf"
+        }
+      },
+      "shipment_document_response_with_multiple_documents_example": {
+        "value": {
+          "documents": [
+            {
+              "id": "2a5ce9c3-da93-4a70-bb91-6a1f7b08db59",
+              "document_type": "commercial_invoice",
+              "document_format": "pdf",
+              "document_url": "https://documents.shipcloud.io/shipments/3589eba4a174bb3a29b1000538100573822f1c96/shipment_documents/2a5ce9c3-da93-4a70-bb91-6a1f7b08db59/document.pdf"
+            },
+            {
+              "id": "583cfd8b-77c7-4447-a3a0-1568bb9cc553",
+              "document_type": "proforma_invoice",
+              "document_format": "pdf",
+              "document_url": "https://documents.shipcloud.io/shipments/3589eba4a174bb3a29b1000538100573822f1c96/shipment_documents/583cfd8b-77c7-4447-a3a0-1568bb9cc553/document.pdf"
+            }
+          ]
         }
       },
       "tracker_example": {
