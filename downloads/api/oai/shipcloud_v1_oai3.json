@@ -2290,6 +2290,241 @@
         }
       }
     },
+    "shipments/{shipment_id}/shipment_documents": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "a shipment identifier",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "description": "Returns a list of shipment documents for a single shipment based on the id (available as of mid-March 2025)",
+        "responses": {
+          "200": {
+            "description": "A list of shipment documents.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/shipment_document_response_object"
+                  }
+                },
+                "examples": {
+                  "Shipment documents list": {
+                    "value": [
+                      {
+                        "id": "3a186c51d428",
+                        "document_type": "commercial_invoice",
+                        "document_format": "pdf",
+                        "document_url": "https://documents.shipcloud.io/shipments/3589eba4a174bb3a29b1000538100573822f1c96/shipment_documents/2a5ce9c3-da93-4a70-bb91-6a1f7b08db59/document.pdf"
+                      },
+                      {
+                        "id": "3a186c51d428",
+                        "document_type": "proforma_invoice",
+                        "document_format": "pdf",
+                        "document_url": "https://documents.shipcloud.io/shipments/3589eba4a174bb3a29b1000538100573822f1c96/shipment_documents/097e1739-bf7d-48cb-be5c-aaa01410ad39/document.pdf"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      },
+      "post": {
+        "description": "Create a shipment document (available as of mid-March 2025)",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "documents": {
+                    "description": "array of documents",
+                    "type": "array",
+                    "$ref": "#/components/schemas/shipment_document"
+                  }
+                }
+              },
+              "examples": {
+                "Shipment document creation request": {
+                  "$ref": "#/components/examples/shipment_document_create_request_example"
+                },
+                "Shipment document creation request with multiple documents": {
+                  "$ref": "#/components/examples/shipment_document_create_request_with_multiple_documents_example"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "A shipment document was created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/shipment_document_response_object"
+                },
+                "examples": {
+                  "Shipment document response": {
+                    "$ref": "#/components/examples/shipment_document_response_example"
+                  },
+                  "Shipment document response with multiple documents": {
+                    "$ref": "#/components/examples/shipment_document_response_with_multiple_documents_example"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "422": {
+            "$ref": "#/components/responses/422"
+          }
+        }
+      }
+    },
+    "shipments/{shipment_id}/shipment_documents/{shipment_document_id}": {
+      "parameters": [
+        {
+          "name": "shipment_id",
+          "in": "path",
+          "required": true,
+          "description": "a shipment identifier",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "shipment_document_id",
+          "in": "path",
+          "required": true,
+          "description": "a shipment document identifier",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "description": "Returns a single shipment document based on the id (available as of mid-March 2025)",
+        "responses": {
+          "200": {
+            "description": "Detailed information about a single shipment document",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/shipment_document_response_object"
+                },
+                "examples": {
+                  "Shipment document response": {
+                    "$ref": "#/components/examples/shipment_document_response_example"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
     "/trackers": {
       "get": {
         "description": "Get a list of previously created trackers",
@@ -3960,6 +4195,59 @@
                   "id": "51e36743-c6ea-40c8-a9b4-c74e3e724d13"
                 }
               ]
+            }
+          ]
+        }
+      },
+      "shipment_document_create_request_example": {
+        "value": {
+          "documents": [
+            {
+              "document_type": "commercial_invoice",
+              "document_format": "pdf",
+              "content": "base64encodedstring"
+            }
+          ]
+        }
+      },
+      "shipment_document_create_request_with_multiple_documents_example": {
+        "value": {
+          "documents": [
+            {
+              "document_type": "commercial_invoice",
+              "document_format": "pdf",
+              "content": "base64encodedstring"
+            },
+            {
+              "document_type": "proforma_invoice",
+              "document_format": "pdf",
+              "content": "base64encodedstring"
+            }
+          ]
+        }
+      },
+      "shipment_document_response_example": {
+        "value": {
+          "id": "2a5ce9c3-da93-4a70-bb91-6a1f7b08db59",
+          "document_type": "commercial_invoice",
+          "document_format": "pdf",
+          "document_url": "https://documents.shipcloud.io/shipments/3589eba4a174bb3a29b1000538100573822f1c96/shipment_documents/2a5ce9c3-da93-4a70-bb91-6a1f7b08db59/document.pdf"
+        }
+      },
+      "shipment_document_response_with_multiple_documents_example": {
+        "value": {
+          "documents": [
+            {
+              "id": "2a5ce9c3-da93-4a70-bb91-6a1f7b08db59",
+              "document_type": "commercial_invoice",
+              "document_format": "pdf",
+              "document_url": "https://documents.shipcloud.io/shipments/3589eba4a174bb3a29b1000538100573822f1c96/shipment_documents/2a5ce9c3-da93-4a70-bb91-6a1f7b08db59/document.pdf"
+            },
+            {
+              "id": "583cfd8b-77c7-4447-a3a0-1568bb9cc553",
+              "document_type": "proforma_invoice",
+              "document_format": "pdf",
+              "document_url": "https://documents.shipcloud.io/shipments/3589eba4a174bb3a29b1000538100573822f1c96/shipment_documents/583cfd8b-77c7-4447-a3a0-1568bb9cc553/document.pdf"
             }
           ]
         }
@@ -5869,6 +6157,58 @@
             ]
           }
         ]
+      },
+      "shipment_document": {
+        "type": "object",
+        "properties": {
+          "document_type": {
+            "type": "string",
+            "description": "type of the document",
+            "enum": [
+              "commercial_invoice",
+              "proforma_invoice"
+            ]
+          },
+          "document_format": {
+            "type": "string",
+            "description": "format of the document",
+            "enum": [
+              "pdf",
+              "png",
+              "jpg"
+            ]
+          },
+          "content": {
+            "type": "string",
+            "description": "base64 encoded content of the document"
+          }
+        },
+        "required": [
+          "document_type",
+          "document_format",
+          "content"
+        ]
+      },
+      "shipment_document_response_object": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "id of the document"
+          },
+          "document_type": {
+            "type": "string",
+            "description": "type of the document"
+          },
+          "document_format": {
+            "type": "string",
+            "description": "format of the document"
+          },
+          "document_url": {
+            "type": "string",
+            "description": "URL where you can download the document in pdf format"
+          }
+        }
       },
       "tracker_object": {
         "type": "object",
