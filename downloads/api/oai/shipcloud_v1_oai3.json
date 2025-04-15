@@ -2133,9 +2133,6 @@
                   },
                   "Shipment response with customs declaration data and multiple packages": {
                     "$ref": "#/components/examples/shipment_response_with_customs_declaration_and_multiple_packages_example"
-                  },
-                  "Shipment response with detailed tracking": {
-                    "$ref": "#/components/examples/shipment_response_with_detailed_tracking_example"
                   }
                 }
               }
@@ -2272,6 +2269,241 @@
                     "value": {}
                   }
                 }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "shipments/{shipment_id}/shipment_documents": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "a shipment identifier",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "description": "Returns a list of shipment documents for a single shipment based on the id (available as of mid-March 2025)",
+        "responses": {
+          "200": {
+            "description": "A list of shipment documents.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/shipment_document_response_object"
+                  }
+                },
+                "examples": {
+                  "Shipment documents list": {
+                    "value": [
+                      {
+                        "id": "3a186c51d428",
+                        "document_type": "commercial_invoice",
+                        "document_format": "pdf",
+                        "document_url": "https://documents.shipcloud.io/shipments/3589eba4a174bb3a29b1000538100573822f1c96/shipment_documents/2a5ce9c3-da93-4a70-bb91-6a1f7b08db59/document.pdf"
+                      },
+                      {
+                        "id": "3a186c51d428",
+                        "document_type": "proforma_invoice",
+                        "document_format": "pdf",
+                        "document_url": "https://documents.shipcloud.io/shipments/3589eba4a174bb3a29b1000538100573822f1c96/shipment_documents/097e1739-bf7d-48cb-be5c-aaa01410ad39/document.pdf"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      },
+      "post": {
+        "description": "Create a shipment document (available as of mid-March 2025)",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "documents": {
+                    "description": "array of documents",
+                    "type": "array",
+                    "$ref": "#/components/schemas/shipment_document"
+                  }
+                }
+              },
+              "examples": {
+                "Shipment document creation request": {
+                  "$ref": "#/components/examples/shipment_document_create_request_example"
+                },
+                "Shipment document creation request with multiple documents": {
+                  "$ref": "#/components/examples/shipment_document_create_request_with_multiple_documents_example"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "A shipment document was created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/shipment_document_response_object"
+                },
+                "examples": {
+                  "Shipment document response": {
+                    "$ref": "#/components/examples/shipment_document_response_example"
+                  },
+                  "Shipment document response with multiple documents": {
+                    "$ref": "#/components/examples/shipment_document_response_with_multiple_documents_example"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "402": {
+            "$ref": "#/components/responses/402"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "422": {
+            "$ref": "#/components/responses/422"
+          }
+        }
+      }
+    },
+    "shipments/{shipment_id}/shipment_documents/{shipment_document_id}": {
+      "parameters": [
+        {
+          "name": "shipment_id",
+          "in": "path",
+          "required": true,
+          "description": "a shipment identifier",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "shipment_document_id",
+          "in": "path",
+          "required": true,
+          "description": "a shipment document identifier",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "description": "Returns a single shipment document based on the id (available as of mid-March 2025)",
+        "responses": {
+          "200": {
+            "description": "Detailed information about a single shipment document",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/shipment_document_response_object"
+                },
+                "examples": {
+                  "Shipment document response": {
+                    "$ref": "#/components/examples/shipment_document_response_example"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Interval": {
+                "$ref": "#/components/headers/RateLimit-Interval"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/shicloud-Request-ID"
               }
             }
           },
@@ -3971,85 +4203,55 @@
           ]
         }
       },
-      "shipment_response_with_detailed_tracking_example": {
+      "shipment_document_create_request_example": {
         "value": {
-          "id": "3a186c51d4281acbecf5ed38805b1db92a9d668b",
-          "carrier_tracking_no": "84168117830018",
-          "carrier_tracking_url": "https://nolp.dhl.de/nextt-online-public/set_identcodes.do?extendedSearch=true&idc=84168117830018",
-          "carrier": "dhl",
-          "service": "standard",
-          "created_at": "2024-08-27T10:43:04Z",
-          "price": 3.4,
-          "reference_number": "ref123456",
-          "shipper_notification_email": "shipper@notification.com",
-          "notification_email": "receiver@notification.com",
-          "tracking_url": "https://track.shipcloud.io/3a186c51d4",
-          "label_url": "https://shipping-labels.shipcloud.io/shipments/01370b4d/199f803bf8/label/shipping_label_199f803bf8.pdf",
-          "to": {
-            "id": "7ea2a290-b456-4ecf-9010-e82b3da298f0",
-            "company": "Receiver Inc.",
-            "first_name": "Max",
-            "last_name": "Mustermann",
-            "care_of": null,
-            "street": "Beispielstrasse",
-            "street_no": "42",
-            "city": "Hamburg",
-            "state": null,
-            "zip_code": "22100",
-            "country": "DE"
-          },
-          "from": {
-            "id": "7ea2a290-b456-4ecf-9010-e82b3da298f0",
-            "company": "Musterfirma",
-            "first_name": "Hans",
-            "last_name": "Meier",
-            "care_of": null,
-            "street": "Musterstraße",
-            "street_no": "22",
-            "city": "Musterstadt",
-            "state": null,
-            "zip_code": "12345",
-            "country": "DE"
-          },
-          "packages": [
+          "documents": [
             {
-              "id": "3af8f7e5af196e1950deebd389a87406e1e5bb80",
-              "weight": 1.5,
-              "length": 10.1,
-              "width": 6.3,
-              "height": 8.9,
-              "carrier_tracking_no": "84168117830018",
-              "type": "parcel",
-              "label_url": "https://shipping-labels.shipcloud.io/shipments/01370b4d/199f803bf8/label/shipping_label_199f803bf8.pdf",
-              "tracking_events": [
-                {
-                  "timestamp": "2024-08-29T16:55:24+02:00",
-                  "location": "Hamburg, Deutschland",
-                  "status": "delivered",
-                  "details": "Die Sendung wurde erfolgreich zugestellt.",
-                  "id": "ttzisojr-1phm-gcq0-jvch-hbdhd48scsuf",
-                  "delivery_details": {
-                    "description": "Wunschort",
-                    "name": "Wunschort (Ablagevertrag)",
-                    "addressline1": "St. Annenufer 5",
-                    "addressline2": "20457 Hamburg"
-                  }
-                },
-                {
-                  "timestamp": "2024-08-29T08:12:12+02:00",
-                  "location": "Hamburg, Deutschland",
-                  "status": "out_for_delivery",
-                  "details": "Die Sendung wurde in das Zustellfahrzeug geladen.",
-                  "id": "6eupdr9f-rkc3-r5or-0gus-3n6jmtv9tvm9"
-                },
-                {
-                  "timestamp": "2024-08-28T11:46:34+02:00",
-                  "location": "Hamburg, Deutschland",
-                  "status": "transit",
-                  "details": "Die Sendung wurde im Start-Paketzentrum bearbeitet.",
-                  "id": "4yl61hsa-4ffz-j7ky-wpib-x9wkqjl3hi62"
-                }
-              ]
+              "document_type": "commercial_invoice",
+              "document_format": "pdf",
+              "content": "base64encodedstring"
+            }
+          ]
+        }
+      },
+      "shipment_document_create_request_with_multiple_documents_example": {
+        "value": {
+          "documents": [
+            {
+              "document_type": "commercial_invoice",
+              "document_format": "pdf",
+              "content": "base64encodedstring"
+            },
+            {
+              "document_type": "proforma_invoice",
+              "document_format": "pdf",
+              "content": "base64encodedstring"
+            }
+          ]
+        }
+      },
+      "shipment_document_response_example": {
+        "value": {
+          "id": "2a5ce9c3-da93-4a70-bb91-6a1f7b08db59",
+          "document_type": "commercial_invoice",
+          "document_format": "pdf",
+          "document_url": "https://documents.shipcloud.io/shipments/3589eba4a174bb3a29b1000538100573822f1c96/shipment_documents/2a5ce9c3-da93-4a70-bb91-6a1f7b08db59/document.pdf"
+        }
+      },
+      "shipment_document_response_with_multiple_documents_example": {
+        "value": {
+          "documents": [
+            {
+              "id": "2a5ce9c3-da93-4a70-bb91-6a1f7b08db59",
+              "document_type": "commercial_invoice",
+              "document_format": "pdf",
+              "document_url": "https://documents.shipcloud.io/shipments/3589eba4a174bb3a29b1000538100573822f1c96/shipment_documents/2a5ce9c3-da93-4a70-bb91-6a1f7b08db59/document.pdf"
+            },
+            {
+              "id": "583cfd8b-77c7-4447-a3a0-1568bb9cc553",
+              "document_type": "proforma_invoice",
+              "document_format": "pdf",
+              "document_url": "https://documents.shipcloud.io/shipments/3589eba4a174bb3a29b1000538100573822f1c96/shipment_documents/583cfd8b-77c7-4447-a3a0-1568bb9cc553/document.pdf"
             }
           ]
         }
@@ -5227,28 +5429,6 @@
                     "details": {
                       "type": "string",
                       "description": "Message the carrier sent to describe the package status"
-                    },
-                    "delivery_details": {
-                      "type": "object",
-                      "description": "Additional details about where or with whom the shipment has been left",
-                      "properties": {
-                        "name": {
-                          "type": "string",
-                          "description": "An associated name of the person or place, where the package was dropped off"
-                        },
-                        "description": {
-                          "type": "string",
-                          "description": "An additional description of where the package was dropped off"
-                        },
-                        "addressline1": {
-                          "type": "string",
-                          "description": "First line of the address where the package was dropped off"
-                        },
-                        "addressline2": {
-                          "type": "string",
-                          "description": "Second line of the address where the package was dropped off"
-                        }
-                      }
                     }
                   },
                   "required": [
@@ -5985,6 +6165,58 @@
             ]
           }
         ]
+      },
+      "shipment_document": {
+        "type": "object",
+        "properties": {
+          "document_type": {
+            "type": "string",
+            "description": "type of the document",
+            "enum": [
+              "commercial_invoice",
+              "proforma_invoice"
+            ]
+          },
+          "document_format": {
+            "type": "string",
+            "description": "format of the document",
+            "enum": [
+              "pdf",
+              "png",
+              "jpg"
+            ]
+          },
+          "content": {
+            "type": "string",
+            "description": "base64 encoded content of the document"
+          }
+        },
+        "required": [
+          "document_type",
+          "document_format",
+          "content"
+        ]
+      },
+      "shipment_document_response_object": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "id of the document"
+          },
+          "document_type": {
+            "type": "string",
+            "description": "type of the document"
+          },
+          "document_format": {
+            "type": "string",
+            "description": "format of the document"
+          },
+          "document_url": {
+            "type": "string",
+            "description": "URL where you can download the document in pdf format"
+          }
+        }
       },
       "tracker_object": {
         "type": "object",
