@@ -3791,11 +3791,11 @@
             "contents_explanation": "Alcoholic beverages",
             "invoice_number": "123ABC",
             "drop_off_location": "DE",
+            "movement_reference_number": "AAA111",
             "posting_date": "2024-08-27",
             "additional_fees": 1.22,
             "total_value_amount": 247.31,
-            "currency": "EUR",
-            "movement_reference_number": "AAA111"
+            "currency": "EUR"
           },
           "carrier": "dhl",
           "service": "standard",
@@ -3861,11 +3861,11 @@
             "contents_explanation": "Alcoholic beverages",
             "invoice_number": "123ABC",
             "drop_off_location": "DE",
+            "movement_reference_number": "AAA111",
             "posting_date": "2024-08-27",
             "additional_fees": 1.22,
             "total_value_amount": 247.31,
-            "currency": "EUR",
-            "movement_reference_number": "AAA111"
+            "currency": "EUR"
           },
           "carrier": "ups",
           "service": "standard",
@@ -4038,11 +4038,11 @@
             "contents_explanation": "Alcoholic beverages",
             "invoice_number": "123ABC",
             "drop_off_location": "DE",
+            "movement_reference_number": "AAA111",
             "posting_date": "2024-08-27",
             "additional_fees": 1.22,
             "total_value_amount": 247.31,
             "currency": "EUR",
-            "movement_reference_number": "AAA111",
             "created_at": "2024-08-27T17:13:12+02:00",
             "updated_at": "2024-08-27T17:13:12+02:00",
             "carrier_declaration_document_url": "https://documents.shipcloud.io/shipments/519895c7165cdc032356d42c6d9babe8e3151473/customs_declaration_document.pdf",
@@ -4130,11 +4130,11 @@
             "contents_explanation": "Alcoholic beverages",
             "invoice_number": "123ABC",
             "drop_off_location": "DE",
+            "movement_reference_number": "AAA111",
             "posting_date": "2024-08-27",
             "additional_fees": 1.22,
             "total_value_amount": 247.31,
             "currency": "EUR",
-            "movement_reference_number": "AAA111",
             "created_at": "2024-08-27T17:13:12+02:00",
             "updated_at": "2024-08-27T17:13:12+02:00",
             "carrier_declaration_document_url": "https://documents.shipcloud.io/shipments/519895c7165cdc032356d42c6d9babe8e3151473/customs_declaration_document.pdf",
@@ -4747,10 +4747,6 @@
             "type": "number",
             "description": "additional custom fees to be payed"
           },
-          "movement_reference_number": {
-            "type": "string",
-            "description": "the movement reference number (MRN)"
-          },
           "drop_off_location": {
             "type": "string",
             "description": "location where the package will be dropped of with the carrier"
@@ -4762,6 +4758,10 @@
           "importer_reference": {
             "type": "string",
             "description": "a note for the importer"
+          },
+          "movement_reference_number": {
+            "type": "string",
+            "description": "the movement reference number (MRN)"
           },
           "posting_date": {
             "type": "string",
