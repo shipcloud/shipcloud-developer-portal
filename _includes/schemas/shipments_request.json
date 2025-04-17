@@ -206,6 +206,10 @@
           "type": "string",
           "description": "a note for the importer"
         },
+        "movement_reference_number": {
+          "type": "string",
+          "description": "the movement reference number (MRN)"
+        },
         "posting_date": {
           "type": "string",
           "format": "date",
