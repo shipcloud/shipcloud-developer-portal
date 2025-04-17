@@ -146,10 +146,6 @@
           "type": "number",
           "description": "additional custom fees to be payed"
         },
-        "movement_reference_number": {
-          "type": "string",
-          "description": "the movement reference number (MRN)"
-        },
         "carrier_declaration_document_url": {
           "type": "string",
           "description": "URL where you can download the customs declaration in pdf format"
@@ -243,6 +239,10 @@
             "required": ["origin_country", "description", "quantity", "value_amount", "net_weight"],
             "additionalProperties": false
           }
+        },
+        "movement_reference_number": {
+          "type": "string",
+          "description": "the movement reference number (MRN)"
         },
         "posting_date": {
           "type": "string",
